@@ -33,6 +33,32 @@
 - 平台不会自动上传
 - 为保证性能，不应在短时间内高频上传
 
+### 玩家网络存档的范围
+
+- `G.map.save()` / `G.map.loadAsync()` 面向当前玩家与当前地图
+- `G.map.loadOtherArchiveAsync()` 面向指定玩家与当前地图
+- 子地图和主地图共享同一份玩家存档
+- 玩家的关键资产应该使用网络存档或者共享数据
+- 这些接口不是关卡库接口，也不能按任意关卡名读写
+
+### 本地存档的范围
+
+- `G.map.localSave()` / `G.map.localLoad()` 面向当前玩家、当前地图与当前设备
+- 本地存档不具备跨设备可见性
+- 可存储一些不是特别重要的游戏数据比如设置
+
+### 玩家共享数据
+
+- `G.map.setPlayerShare...()` / `G.map.getAllPlayerShareVarAsync()` 面向指定玩家 ID 下的共享变量
+- 共享变量所有人都可以修改，不等同于玩家网络存档
+- 专门用于放置需被其他玩家读写的数据
+- 共享变量 Key 长度范围为 1~12
+
+### 回调方法签名
+
+- `G.map.loadOtherArchive2()` 的回调方法参数必须为 `(players: BeList, archives: BeList, attach: BeDict)`
+- `G.map.getAllPlayerShareVar()` 的回调方法参数必须为 `(playerID: BeLong, vars: BeDict, attach: BeDict)`
+
 ### 推荐写入节点
 
 - 通关
