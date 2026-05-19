@@ -1,5 +1,29 @@
 # Shader 材质属性
 
+## 本篇范围
+
+- Shader 材质属性名、类型与范围的速查表
+- 常用属性分类
+
+## 不包含
+
+- 具体 API 调用方式（查 SDK 的 `G.effect.*` / `G.material.*`）
+- Shader 原理或渲染管线细节
+
+## 用途
+
+这些属性用于在脚本中动态修改机械的材质外观（颜色、贴图、透明度、特效参数等）。
+
+## 使用方式
+
+通过 `G.effect.*` / `G.material.*` 系列 API 设置，具体调用签名查 SDK 的 `temp/toolkit/bescript_reference/sdk.ts` 中对应函数声明。
+
+## 常用属性速查
+
+- **颜色类**（`_PaintColor`、`_Color`、`_TintColor`）：最常用于动态换色、阵营区分
+- **透明度类**（`_Cutoff`、透明度相关）：用于渐隐/渐显效果
+- **贴图类**（`_MainTex` 等）：用于运行时换皮
+
 属性名区分大小写。
 
 | Shader | 类型 | 属性名 | 范围 |
@@ -244,5 +268,10 @@
 | InTerra/URP/Terrain (Lit with Features) | 小数 | `_TerrainColorTintStrenght` | `[0~1]` |
 | InTerra/URP/Terrain (Lit with Features) | 贴图 | `_TerrainNormalTintTexture` | - |
 | InTerra/URP/Terrain (Lit with Features) | 小数 | `_TerrainNormalTintStrenght` | `[0~1]` |
+
+## 相关文档
+
+- `effect-skill-design.md`（技能与特效设计）
+- `performance-optimization.md`（特效性能注意事项）
 | InTerra/URP/Terrain (Lit with Features) | 向量 | `_TerrainNormalTintDistance` | - |
 | InTerra/URP/Terrain (Lit with Features) | 向量 | `_TerrainSizeXZPosY` | - |

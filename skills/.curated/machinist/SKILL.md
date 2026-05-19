@@ -1,6 +1,6 @@
 ---
 name: machinist
-description: BeScript 工程开发知识库；当工作区根目录存在 `setting.json`（Hjson）且包含 `guid`/`name`/`mainMap` 字段时启用。
+description: Use when editing BeScript game logic via TS views, modifying Canvas layouts via HTML views, calling patch_mech_view or refactor tools, or implementing 弹幕互动游戏 features on CreatAI platform
 ---
 
 # BeScript 工程开发知识库
@@ -89,15 +89,47 @@ MCP 的 `entityGuids` 参数仅支持有 GUID 的实体；零件只有数字 ID�
 - 事件类型已固定：禁止编造不存在的事件
 - 不存在测试脚本/测试框架：测试只能做成游戏内正式逻辑的一部分（常用约定：启动按住 `G` 进入测试模式）
 - `setting.json` 结构固定：禁止修改
-- 表格格式有明确约定：具体参考 `references/tips/基于读表的属性管理.md`
+- 表格格式有明确约定：具体参考 `references/tips/table-based-attribute.md`
 - **布尔条件规范**：
   - 直接用 `if (cond)` 或 `if (G.create.bool(cond))` 表示肯定条件
   - 用 `if (G.bool.not(cond))` 表示否定条件（等同于 `if (!cond)`）
   - 禁止滥用 `bool.equal(x, true)` 或 `bool.and(x, y)` 做条件判断
+- **Canvas/UI 对象无 GC**：禁止随意丢弃 UI 对象或机械对象引用，丢弃即内存泄漏；频繁复用对象走对象池（隐藏/复用），不再使用的对象用 `del` 显式清理
+- **delay 是关键字不是函数**：`delay(常规调用)` 是正确格式，禁止写 `delay(BeFloat.fromBeConst("1"))` 这种直接塞常量的错误格式
+- **异步阻塞规则**：只有带返回值的异步方法才阻塞调用者；`BeScriptAsync`/`async` 本身不强制等待，无返回值异步方法立即返回；若需控制时序应通过返回值制造阻塞（可占位）
+- **物理帧 vs 图形帧**：`每帧循环` 是图形帧，`物理帧循环` 才是物理帧；物理计算必须移到物理帧；物理帧率必须 ≥ 图形帧率否则严重 bug；2D 场景使用 XY 轴而非 Z 轴
+- **机械功能开关**：`Mech.setActive` 是独立开关，关闭后图形/物理/逻辑均关闭，无需反复单独开关其他功能
+- **Null 模拟**（非推荐，非必要禁止）：声明全局变量但不赋值，别处只读不写；是对底层缺陷的代偿 hack，禁止滥用
+- **富文本**：仅 UILabel 支持，`<size=XXX>文本</size>` 和 `<color=#RRGGBB>文本</color>`；`#RRGGBB` 格式仅限富文本标签内使用
+
+## 按需查阅
+
+| 任务 | 文档 |
+|------|------|
+| 编写/修改 TS 视图 | `references/concepts/tsview-writing-spec.md` |
+| 理解视图目录布局 | `references/concepts/view-directory-structure.md` |
+| 事件与脚本机制 | `references/concepts/script-event-mechanism.md` |
+| UI 组件运行时操作 | `references/concepts/canvas-component-guide.md` |
+| 测试/调试/日志 | `references/concepts/test-debug-log.md` |
+| 持久化数据与存档 | `references/concepts/persistence-save.md` |
+| 弹幕互动游戏设计 | `references/concepts/danmu-game-concepts.md` |
+| 单位/弹幕玩家/怪物 | `references/concepts/unit-player-streamer-monster.md` |
+| 技能与特效设计 | `references/concepts/effect-skill-design.md` |
+| 机械复用 | `references/tips/mech-reuse-guide.md` |
+| 投射物与碰撞 | `references/tips/projectile-collision-detector.md` |
+| UI 动画机制 | `references/tips/canvas-animation-mechanism.md` |
+| 读表管理属性 | `references/tips/table-based-attribute.md` |
+| 性能优化 | `references/tips/performance-optimization.md` |
+| 图片与动图 | `references/tips/image-animation-guide.md` |
+| Shader 材质属性 | `references/tips/shader-material-properties.md` |
+| 本地化实现 | `references/tips/localization-implementation.md` |
+| 调色板表格 | `references/tips/palette-table-usage.md` |
+| 代码模板参考 | `assets/README.md` |
+| 完整文档索引 | `references/index.md` |
 
 ## 文档入口
 
-- **SDK 参考文档**：`temp/toolkit/bescript_reference/sdk.ts`，包含平台全部 API 的类型声明与调用签名，是实现功能时的首要取证来源
+- **SDK 参考文档**：`temp/toolkit/bescript_reference/sdk.ts`，包含平台全部 API 的类型声明与调用签名，是实现功能时的首要取证来源。**不确定 API 用法时必须先查此文件**，禁止凭印象猜测
 
 ### 草稿文件与错误恢复
 

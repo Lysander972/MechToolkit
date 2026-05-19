@@ -36,22 +36,27 @@
 ### 弹幕与礼物处理
 - 查找包含 `onDanmu` 事件的零件
 - 对照模板：`../assets/danmu/gift-receive-handling.md`、`../assets/danmu/danmu-data-download-upload.md`
+- 深入阅读：`concepts/danmu-game-concepts.md`、`concepts/danmu-message-data.md`
 
 ### 对象复用与投射物
 - 查找包含 `Unused`、`All` 等列表管理的脚本
 - 对照模板：`../assets/mech/type-registration.md`、`../assets/mech/request-and-setup.md`、`../assets/mech/recycle-physics-cleanup.md`
+- 深入阅读：`tips/mech-reuse-guide.md`、`tips/projectile-collision-detector.md`
 
 ### 排行榜与入场特效
 - 查找调用 `danmu.addRank`、`danmu.getByID` 的脚本
 - 对照模板：`../assets/danmu/leaderboard-refresh-pagination.md`、`../assets/danmu/top100-entrance-effect.md`
+- 深入阅读：`concepts/danmu-game-concepts.md`
 
 ### UI 管理
 - 查找 `G.findCanvas`、`canvas.read` 的调用
 - 对照模板：`../assets/canvas/canvas-reference-callback.md`
+- 深入阅读：`concepts/canvas-component-guide.md`、`tips/canvas-animation-mechanism.md`
 
 ### 读表与配置
 - 查找 `G.readExcel2`、`G.findExcel2` 的调用
 - 对照模板：`../assets/excel/table-api-example.md`
+- 深入阅读：`tips/table-based-attribute.md`
 
 ## 常用模板与工程的关系
 

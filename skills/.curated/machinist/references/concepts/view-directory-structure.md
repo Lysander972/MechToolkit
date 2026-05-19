@@ -56,7 +56,7 @@
 独立 Canvas HTML 视图位于 `temp/toolkit/views/**/*.html`。
 
 - `temp/toolkit/views/<canvasRelativePath>.html`：独立 Canvas 的 HTML 视图文件。
-- `temp/toolkit/views/<canvasRelativePath>.png`：对应 HTML 的只读 PNG 预览图。
+- `temp/toolkit/views/<canvasRelativePath>.png`：独立 Canvas 对应 HTML 视图的只读 PNG 预览图。
 - `temp/toolkit/canvas_render/canvas-view.css`：Canvas 基础样式文件，只读。
 - `temp/toolkit/canvas_render/canvas-palette.js`：Canvas 调色板索引，只读。
 - `temp/toolkit/canvas_render/CanvasLayoutEngine.DO_NOT_READ_OR_EDIT.generated.js`：布局渲染引擎脚本，只读。
@@ -74,6 +74,12 @@
   - 示例：`UI_主UI.canvas` → `temp/toolkit/views/UI_主UI.html`
   - 示例：`layouts/A2.canvas` → `temp/toolkit/views/layouts/A2.html`
 - 对于脚本中的内联 Canvas：不落盘 HTML 文件，预览由插件临时生成。
+
+## PNG 预览覆盖范围
+
+- 独立 `.canvas` 文件：在 `temp/toolkit/views/` 下按相同相对路径生成同名 `.png` 预览。
+- 脚本中的内联 Canvas：不生成可编辑 HTML 文件；预览按原始 `.code` 文件位置映射，并按脚本内 Canvas 出现顺序区分。TS 视图中出现内联 Canvas 时，应以视图里给出的预览路径为准。
+- 除独立 Canvas 和脚本内联 Canvas 外，没有其他 Canvas 预览来源。
 
 ## 草稿文件
 
@@ -94,3 +100,4 @@
 
 - `tsview-writing-spec.md`
 - `canvas-component-guide.md`
+- `../tips/palette-table-usage.md`
