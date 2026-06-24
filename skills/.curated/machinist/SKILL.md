@@ -89,7 +89,7 @@ MCP 的 `entityGuids` 参数仅支持有 GUID 的实体；零件只有数字 ID�
 - 事件类型已固定：禁止编造不存在的事件
 - 不存在测试脚本/测试框架：测试只能做成游戏内正式逻辑的一部分（常用约定：启动按住 `G` 进入测试模式）
 - `setting.json` 结构固定：禁止修改
-- 表格格式有明确约定：具体参考 `references/tips/table-based-attribute.md`
+- 表格就是 Excel(`.xlsx`),不是 json,也不是 Markdown;禁止把表格说成或写成 json;格式约定见 `references/tips/table-based-attribute.md`
 - **布尔条件规范**：
   - 直接用 `if (cond)` 或 `if (G.create.bool(cond))` 表示肯定条件
   - 用 `if (G.bool.not(cond))` 表示否定条件（等同于 `if (!cond)`）

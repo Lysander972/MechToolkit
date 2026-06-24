@@ -32,7 +32,7 @@
 - 严禁假设地图包含机械——`XXX.map_/XXX.mech_/123` 这种嵌套结构不存在
 - 严禁编造不存在的事件、外部依赖、测试框架、try/catch、递归
 - 严禁修改 `setting.json` / `*.map` / `*.mech` / `map.json` / `mech.json` / `vars.json` / `list.json` / `device.json`
-- 严禁对工程内任何文件创建符号链接/硬链接/目录连接（`mklink` 等）——缓存层只认普通文件，链接会被无视，创建了也不生效且可能引发工作区异常
+- 严禁对要被识别和转换的文件（`.code` / `.canvas` / `.ts` / `.html` / `.json` / `.guid` 等）创建符号链接/硬链接/目录连接（`mklink` 等）——这些文件需保持唯一物理身份，链接会破坏实体识别与写回语义；AGENTS.md / CLAUDE.md 等纯指令文档不在此限
 - 草稿文件（`.draft`）是校验失败时的自动保存，不会干扰正常操作；不要主动调用 `cleanup_drafts`
 
 ## MCP 自动行为（无需操心）
