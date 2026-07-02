@@ -386,11 +386,13 @@ Canvas HTML 视图中，每个 UI 节点可包含以下属性。属性分为几�
 
 当前没有从空路径直接创建独立 Canvas 文件的工具入口。需要新建独立 Canvas 时，按这个顺序做：
 
-1. 先在某个方法里用 `patch_mech_view` 新增一段内联 Canvas，让布局先以内联形式存在。
+1. 先在某个方法里用 `patch_mech_view` 新增一段内联 Canvas，让布局先以内联形式存在。内联 Canvas 的写法见第 6 节（反引号包裹的 HTML 视图文本，不要当模板字符串拼接）。
 2. 复读 TS 视图，确认内联 Canvas 的位置和内容已经写入。
-3. 用 `refactor_canvas_extract` 将这段内联 Canvas 导出为独立 `.canvas` 文件。
-4. 导出后继续通过对应 HTML 视图修改布局，不要直接编辑 `.canvas` 二进制文件。
-5. 修改布局后查看对应 PNG 预览，确认真实渲染没有错位或遮挡。
+3. 用 `refactor_canvas_extract` 将这段内联 Canvas 导出为独立 `.canvas` 文件：
+   - `line` 参数是**原始 `.code` 文件的行号**，不是 TS 视图行号；若传错，工具会返回当前脚本里所有合法的 canvas 创建行号，按返回值重试即可。
+   - 提取成功后，原脚本里那段内联 Canvas 会被**自动替换为对独立文件的 `guid:` 引用**，相应位置会变短——这是正常行为，不要误判为写回失败。独立 `.canvas` 文件固定落在 `ui/` 目录下，具体路径以返回值 `canvas_path` 为准。
+4. 之后改布局一律走对应的 HTML 视图（目录映射规则见 `view-directory-structure.md`），不要直接编辑 `.canvas` 二进制文件。
+5. 改完查看对应 PNG 预览，确认真实渲染没有错位或遮挡。
 
 ## 相关文档
 
