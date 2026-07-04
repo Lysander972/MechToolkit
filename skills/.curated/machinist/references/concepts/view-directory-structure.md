@@ -74,6 +74,7 @@
   - 示例：`UI_主UI.canvas` → `temp/toolkit/views/UI_主UI.html`
   - 示例：`layouts/A2.canvas` → `temp/toolkit/views/layouts/A2.html`
 - 对于脚本中的内联 Canvas：不落盘 HTML 文件，预览由插件临时生成。
+- `patch_mech_view` 的 `view_path` 指向**尚不存在**的 `.html` 时即触发新建语义（对应一个不存在的 `.canvas`），新建产物路径与上述映射一致；详见 `canvas-component-guide.md` 第 9 节。
 
 ## PNG 预览覆盖范围
 
@@ -85,7 +86,7 @@
 
 `temp/toolkit/views/` 下可能出现 `*.ts.draft` 和 `*.html.draft` 文件：
 
-- **来源**：`patch_mech_view` / `patch_mech_view_multiedit` 校验失败时自动生成（文本匹配成功但后续校验未通过）
+- **来源**：`patch_mech_view` / `patch_mech_view_multiedit` 校验失败时自动生成。修改场景为文本匹配成功但后续校验未通过；新建场景（`view_path` 指向不存在的 `.html`）为 HTML 主体校验未通过
 - **格式**：全量目标文本 + 头部元数据（`baseline-hash` / `created`）
 - **路径规则**：相对于视图根目录（`temp/toolkit/views/`），与 ViewPath 同源。即 `commit_draft` / `cleanup_drafts` 的参数使用与 `patch_mech_view.view_path` 相同的相对路径格式，仅末尾追加 `.draft` 后缀
 - **命名**：与对应视图同路径 + `.draft` 后缀，如 `abc.map_/123.ts.draft`

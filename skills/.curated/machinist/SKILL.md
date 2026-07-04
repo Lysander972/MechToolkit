@@ -138,6 +138,19 @@ MCP 的 `entityGuids` 参数仅支持有 GUID 的实体；零件只有数字 ID�
 2. 用 `commit_draft` 重新提交或重新`patch_mech_view`/`patch_mech_view_multiedit`从头开始修改
 3. 若放弃修改，直接忽略该草稿，不要主动调用 `cleanup_drafts`
 
+### 创建独立 Canvas 文件
+
+创建独立 `.canvas` 文件有两种方式，按场景选择：
+
+1. **内联后导出**：先在脚本内联编写 canvas，再用 `refactor_canvas_extract` 抽出为独立文件。
+2. **直接新建**：用 `patch_mech_view` 直接新建——`view_path` 指向不存在的 `.html`、`old_string` 留空、`new_string` 给出完整合法 HTML。
+
+**直接新建的前提**（不满足则拒绝，不写盘）：父目录须已存在（在编辑器中创建目录/零件结构）；HTML 主体须通过校验（转码 + Layout Lint + 渲染）。
+
+**新建成功**：返回结果含 `created_canvas_guid`，可直接用于 `refactor_canvas_import` 导入或脚本内 `guid:` 引用，无需再读。
+
+`.ts` 视图不支持新建——零件须先在编辑器中创建，再编辑其脚本。
+
 详细文档索引见 `references/index.md`，包含：
 
 - **概念文档** (`references/concepts/`)：视图结构、TS 视图规范、脚本事件、UI 管理、弹幕游戏等核心概念
