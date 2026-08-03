@@ -56,9 +56,9 @@ public 入场动图 = BeScript({ name: "入场动图", retVar: "ok" })((rank: Be
   var b2: BeBool
   G.ui.X_2dmode(BeBool.fromBeConst("1"), undefined);
   动图布局 = G.create.canvas(BeCanvas.fromBase64Const(`
-    <MechCanvas name="" width="1080" height="2160">
-      <UIRawImage name="动图" pos="0,0,0" parentanchor="MIDDLE_CENTER" anchor="MIDDLE_CENTER" widthextend="PERCENT" heightextend="PERCENT" size="1,1,1" color="rgba(255,255,255,255)"></UIRawImage>
-    </MechCanvas>
+    <BeCanvas name="" width="1080" height="2160">
+      <BeUIRawImage name="动图" pos="0,0,0" parentanchor="MIDDLE_CENTER" anchor="MIDDLE_CENTER" widthextend="PERCENT" heightextend="PERCENT" size="1,1,1" color="rgba(255,255,255,255)"></BeUIRawImage>
+    </BeCanvas>
 
   `));
   局内通用组件 = G.findCanvas(BeString.fromBeConst("局内通用组件_2D"));

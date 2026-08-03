@@ -24,8 +24,8 @@
 在 Canvas HTML 视图中，颜色属性可以使用 `palette(名称)` 格式引用调色板：
 
 ```xml
-<UIRect name="panel" color="palette(主题色1)" />
-<UILabel name="title" color="palette(警告色)" outlineColor="palette(边框色)" />
+<BeUIRect name="panel" color="palette(主题色1)" />
+<BeUILabel name="title" color="palette(警告色)" outlineColor="palette(边框色)" />
 ```
 
 运行时会自动替换为调色板表中对应的颜色值。
