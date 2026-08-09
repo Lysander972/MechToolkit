@@ -1,4 +1,4 @@
-# Airtest 黑盒测试剧本规则
+# Blackbox 黑盒测试剧本规则
 
 > 适用对象：测试子 Agent。你经 `run_test` 接收测试任务，以图像识别黑盒方式驱动游戏客户端。
 > 框架自动完成的事（你不需关心）：截图帧转发前端、PASS/FAIL/UNKNOWN 报告判定、事件流式输出、剧本库存取。
@@ -13,9 +13,9 @@
 ## auto 模式工作流
 
 1. 给了设备 URI 且未连接 → 先 `connect_device`（URI 形如 `Windows:///?title_re=窗口标题正则`）
-2. **每步操作前先 `airtest_snapshot` 观察当前界面**，依据截图决策，禁止盲操作
-3. 操作 → `airtest_wait` 等待 → 再观察
-4. 判定：**必须至少一次 `airtest_assert_exists`**；全过 = PASS，任一失败 = FAIL，没做断言 = UNKNOWN
+2. **每步操作前先 `blackbox_snapshot` 观察当前界面**，依据截图决策，禁止盲操作
+3. 操作 → `blackbox_wait` 等待 → 再观察
+4. 判定：**必须至少一次 `blackbox_assert_template`**；全过 = PASS，任一失败 = FAIL，没做断言 = UNKNOWN
 5. 完成所有断言后用自然语言简短总结（不再调工具），触发报告
 
 ## 工具速查
@@ -23,18 +23,18 @@
 | 工具 | 用途 | 关键参数 |
 |------|------|---------|
 | `connect_device` | 连接设备窗口 | `uri` |
-| `airtest_touch` | 坐标点击 | `pos`，格式 `"x,y"` |
-| `airtest_swipe` | 滑动 | `start` / `end` / `duration` |
-| `airtest_touch_template` | 模板图定位并点击中心 | `template`（模板图片路径） |
-| `airtest_send_keys` | 模拟键盘（pywinauto SendKeys 语法） | `keys`，如 `"{F5}"` `"{ENTER}"` `"^s"` |
-| `airtest_keyevent` | 平台按键名按键 | `key`，如 ENTER/BACK |
-| `airtest_wait` | 固定等待 | `timeout`（秒） |
-| `airtest_snapshot` | 截图（返回 base64） | — |
-| `airtest_assert_exists` | 断言模板图存在 | `template` |
-| `airtest_launch` | 程序化启动客户端：启动 exe → 等窗口 → 连接 | `path` / `args` / `wait_title` / `timeout` |
+| `blackbox_touch` | 坐标点击 | `pos`，格式 `"x,y"` |
+| `blackbox_swipe` | 滑动 | `start` / `end` / `duration` |
+| `blackbox_touch_template` | 模板图定位并点击中心 | `template`（模板图片路径） |
+| `blackbox_send_keys` | 模拟键盘 | `keys`，如 `"{F5}"` `"{ENTER}"` `"^s"` |
+| `blackbox_keyevent` | 平台按键名按键 | `key`，如 ENTER/BACK |
+| `blackbox_wait` | 固定等待 | `timeout`（秒） |
+| `blackbox_snapshot` | 截图（返回 base64） | — |
+| `blackbox_assert_template` | 断言模板图存在 | `template` |
+| `blackbox_launch` | 程序化启动客户端：启动 exe → 等窗口 → 连接 | `path` / `args` / `wait_title` / `timeout` |
 
-- Windows 端键盘一律用 `airtest_send_keys`（`{F5}` 这类功能键只有它可靠）；Ctrl+T 退出测试 = `airtest_send_keys "^t"`
-- `airtest_touch_template` 定位失败返回 `[FAIL]`，等同一次失败断言
+- Windows 端键盘一律用 `blackbox_send_keys`（`{F5}` 这类功能键走 MaaFW 官方输入接口）；Ctrl+T 退出测试 = `blackbox_send_keys "^t"`
+- `blackbox_touch_template` 定位失败返回 `[FAIL]`，等同一次失败断言
 
 ## replay 三输出
 
@@ -82,7 +82,7 @@
 4. 选目标地图：`touch_template`（地图入口一律模板，位置随布局变）
 5. `send_keys "{F5}"`：进入测试模式
 
-进入 F5 测试模式后 body 才开始测目标逻辑；teardown 用 `send_keys "^t"`（Ctrl+T）退出测试。auto 模式下每步操作前仍先 `airtest_snapshot` 观察再决策，不盲操作。
+进入 F5 测试模式后 body 才开始测目标逻辑；teardown 用 `blackbox_send_keys "^t"`（Ctrl+T）退出测试。auto 模式下每步操作前仍先 `blackbox_snapshot` 观察再决策，不盲操作。
 
 ## 模板图纪律
 

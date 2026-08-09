@@ -111,7 +111,7 @@ MCP 的 `entityGuids` 参数仅支持有 GUID 的实体；零件只有数字 ID�
 | 事件与脚本机制 | `references/concepts/script-event-mechanism.md` |
 | UI 组件运行时操作 | `references/concepts/canvas-component-guide.md` |
 | 测试/调试/日志 | `references/concepts/test-debug-log.md` |
-| Airtest 黑盒测试剧本规则 | `references/concepts/airtest-script-rules.md` |
+| Blackbox 黑盒测试剧本规则 | `references/concepts/blackbox-script-rules.md` |
 | 持久化数据与存档 | `references/concepts/persistence-save.md` |
 | 弹幕互动游戏设计 | `references/concepts/danmu-game-concepts.md` |
 | 单位/弹幕玩家/怪物 | `references/concepts/unit-player-streamer-monster.md` |
