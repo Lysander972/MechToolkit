@@ -16,7 +16,6 @@
 | 持久化数据与存档 | `concepts/persistence-save.md` |
 | UI 组件管理（独立 Canvas 新建见第 9 节） | `concepts/canvas-component-guide.md` |
 | 测试、调试与日志 | `concepts/test-debug-log.md` |
-| Blackbox 黑盒测试剧本规则 | `concepts/blackbox-script-rules.md` |
 
 ## 游戏概念
 
