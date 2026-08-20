@@ -1,0 +1,45 @@
+name: ci
+# issue #103：子库 governance 轻量序列 = 子库分支验证硬关卡（require status checks 的
+# 数据来源）。主库重链唯一承担者是 toolkit/toolkit，本子库 CI 只做自洽轻量检查。
+# commit status context = "ci / governance (pull_request)"，分支保护 StatusChecks 按完整
+# 字符串 glob 匹配（Forgejo 16 带事件后缀，禁止裸串）。
+on:
+  push:
+    branches: [master]
+  pull_request:
+    branches: [master]
+
+jobs:
+  governance:
+    runs-on: windows-self-hosted
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - name: manual governance（布局归属与文本合规）
+        shell: pwsh
+        # 不变量（据三方分区组织规约推导）：
+        #   布局归属：根级仅允许 README.md，其余 *.md 必须归属 common/|external/|internal/；
+        #   文本合规：*.md 合法 UTF-8、LF 行尾（现状混有 BOM，不禁止——规则只钉真实不变的）。
+        # act pwsh 封装以模板尾码传播 $LASTEXITCODE：契约=显式 throw 判红、显式 exit 0 收尾。
+        run: |
+          $ErrorActionPreference = 'Stop'
+          $strict = New-Object System.Text.UTF8Encoding($false, $true)
+          $bad = [System.Collections.Generic.List[string]]::new()
+          $root = (Get-Location).Path
+
+          foreach ($f in Get-ChildItem -Recurse -Filter *.md -File) {
+              $rel = $f.FullName.Substring($root.Length + 1).Replace('\', '/')
+              if ($rel -ne 'README.md' -and $rel -notmatch '^(common|external|internal)/') {
+                  $bad.Add("${rel}: md 不在 common/external/internal 分区"); continue
+              }
+              $bytes = [System.IO.File]::ReadAllBytes($f.FullName)
+              try { $text = $strict.GetString($bytes) }
+              catch { $bad.Add("${rel}: 非合法 UTF-8"); continue }
+              if ($text.Contains("`r")) { $bad.Add("${rel}: 存在 CR（行尾必须 LF）") }
+          }
+          if ($bad.Count -gt 0) {
+              $bad | ForEach-Object { Write-Host "::error::$_" }
+              throw "manual governance 失败（$($bad.Count) 项）"
+          }
+          Write-Host "manual governance ok"
+          exit 0
