@@ -4,7 +4,7 @@
 
 Toolkit 将 BeScript 脚本与 Canvas 布局转换为便于阅读和编辑的视图，在 VSCode 中提供语法检查、工程查询和重构能力，并通过 MCP 让 AI 助手参与游戏开发。
 
-[下载插件](https://github.com/Lysander972/MechToolkit/releases/latest) · [使用教程](https://sx16dhdgjdw.feishu.cn/wiki/AdLGwxUuViJ3zpkt9CPcWhPznGf) · [开发指南](external/SKILL.md) · [问题反馈](https://github.com/Lysander972/MechToolkit/issues)
+[下载插件](https://github.com/Lysander972/MechToolkit/releases/latest) · [使用教程](https://sx16dhdgjdw.feishu.cn/wiki/AdLGwxUuViJ3zpkt9CPcWhPznGf) · [开发指南](SKILL.md) · [问题反馈](https://github.com/Lysander972/MechToolkit/issues)
 
 ## 主要功能
 
@@ -42,10 +42,10 @@ code --install-extension toolkit-bescript-suite-<版本>.vsix
 
 ## AI 开发指南
 
-配套的 **machinist Skill** 为 AI 助手提供 CreatAI 平台知识、工具使用指引与开发约束。使用前可阅读[开发指南](external/SKILL.md)，按任务查阅专题资料和代码模板。
+配套的 **machinist Skill** 为 AI 助手提供 CreatAI 平台知识、工具使用指引与开发约束。使用前可阅读[开发指南](SKILL.md)，按任务查阅专题资料和代码模板。
 
-- [平台概念与实践指南](external/references/index.md)：脚本事件、机械与零件、UI、存档、碰撞和性能。
-- [代码模板](external/assets/README.md)：机械复用、物理交互、弹幕消息、排行榜、动画与数据表。
+- [平台概念与实践指南](references/index.md)：脚本事件、机械与零件、UI、存档、碰撞和性能。
+- [代码模板](assets/README.md)：机械复用、物理交互、弹幕消息、排行榜、动画与数据表。
 - [CreatAI 平台](https://store.steampowered.com/app/1265510/Machinist/)：平台介绍与下载。
 
 ## 问题反馈
