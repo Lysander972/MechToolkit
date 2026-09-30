@@ -1,66 +1,54 @@
-# CreatAIManual
+# Toolkit：发布信息与 Skills
 
-CreatAI(Machinist)平台开发知识库——Toolkit 各消费侧的文档源仓库。
+Toolkit 面向 CreatAI（Machinist）平台游戏开发，提供便于 AI 编辑的视图、语法检查与重构能力。本仓库发布 VSCode 插件，并维护配套的 machinist Skill、参考资料和代码模板。
+
+## 下载与安装
+
+在 [Releases](https://github.com/Lysander972/MechToolkit/releases) 下载对应版本的 VSIX，通过 VSCode 的“从 VSIX 安装”命令安装。
+
+| 文件 | 适用场景 |
+|------|----------|
+| `toolkit-bescript-suite-<版本>.vsix` | 全平台通用 |
+| `toolkit-bescript-suite-<版本>-win-x64.vsix` | Windows x64 |
+| `toolkit-bescript-suite-<版本>-linux-x64.vsix` | Linux x64 |
+
+也可使用 VSCode 官方命令：
+
+```sh
+code --install-extension toolkit-bescript-suite-<版本>.vsix
+```
+
+插件 Host 依赖外部 .NET 运行时，安装后按插件内环境检查提示处理。具体功能和依赖以所下载版本的发布说明为准。
+
+## 插件功能
+
+- BeScript 语法高亮与 Lint 诊断。
+- 手动与 MCP 重构入口。
+- 自动同步的 TS、HTML 视图映射。
+- MCP 视图补丁及修改草稿提交。
+- 地图、机械、零件、脚本与布局查询。
+- 环境和依赖检测、多平台配置。
+
+## machinist Skill
+
+入口是 [external/SKILL.md](external/SKILL.md)，用于辅助 Agent 编辑 BeScript 的 TS 视图、Canvas 的 HTML 视图，以及调用 MCP 工具开发 CreatAI 工程。
+
+安装 Skill 时，将完整的 `external/` 目录作为 `machinist` 放入所用 Agent 的 Skills 目录，保留其中的相对路径。Agent 根据 Skill 指引阅读参考资料；插件负责视图维护与 MCP 能力，Skill 文档本身不执行这些操作。
+
+| 内容 | 入口 |
+|------|------|
+| Skill 定义与工作流 | [external/SKILL.md](external/SKILL.md) |
+| 平台概念、视图规则与实践 | [参考索引](external/references/index.md) |
+| 机械、零件、物理、弹幕、UI 等代码模板 | [模板索引](external/assets/README.md) |
+| 工程 Agent 指令模板 | [external/agents_claude.template.md](external/agents_claude.template.md) |
+
+`common/` 保存共用资料，`external/` 保存对外 Skills 与模板，`internal/` 保存内部知识资料。
 
 ## 相关链接
 
-- CreatAI平台(Machinist) Steam链接 https://store.steampowered.com/app/1265510/Machinist/
-- Toolkit仓库 https://github.com/2302680972/MechToolkit
-- Toolkit使用教程 https://sx16dhdgjdw.feishu.cn/wiki/AdLGwxUuViJ3zpkt9CPcWhPznGf
-
-## 目录结构
-
-```
-.
-├── common/                 # 通用知识（两边共用）
-│   └── README.md
-├── external/               # 对外知识（打包 gzip 进插件）
-│   ├── SKILL.md            # Skill 定义文档
-│   ├── agents_claude.template.md  # AGENTS.md 模板
-│   ├── assets/             # 代码模板
-│   ├── references/         # 参考资料
-│   └── agents/openai.yaml  # Skill 元数据
-├── internal/               # 对内知识（打包进 Agent 被向量索引进 RAG）
-│   └── README.md
-├── LICENSE
-└── README.md
-```
-
-## 三部分定位
-
-| 目录 | 定位 | 消费方 |
-|------|------|--------|
-| `common/` | 平台通用知识，不区分使用者 | 插件 gzip 与 Agent RAG 均包含 |
-| `external/` | 面向外部 Agent 的 Skill 内容与 AGENTS 模板 | 仅插件（打包 gzip） |
-| `internal/` | 面向 Toolkit 自身 Agent 的内部知识 | 仅 Agent（向量索引进 RAG） |
-
-## 快速开始
-
-### AGENTS模板
-
-`external/agents_claude.template.md` 是 AGENTS.md 的模板，提供了平台的重要注意事项。插件安装到用户工程时写入工程根 AGENTS.md / CLAUDE.md。
-
-### 代码模板
-
-位于 `external/assets/` 目录，按功能分类：
-
-| 分类 | 说明 |
-|------|------|
-| `mech/` | 机械注册、对象池申请与回收 |
-| `physics/` | 物理属性、碰撞层初始化 |
-| `unit/` | 单位数据、属性计算、目标选择 |
-| `danmu/` | 礼物处理、排行榜、结算逻辑 |
-| `canvas/` | Canvas 引用、动画、缓动效果 |
-
-使用方式：打开对应模板，将代码片段迁移到目标工程。
-
-### 参考资料
-
-位于 `external/references/` 目录：
-
-- `concepts/` - 核心概念说明（Canvas 组件、事件机制、存档等）
-- `tips/` - 实践技巧（动画机制、性能优化、调色板等）
+- [CreatAI（Machinist）Steam 页面](https://store.steampowered.com/app/1265510/Machinist/)
+- [Toolkit 使用教程](https://sx16dhdgjdw.feishu.cn/wiki/AdLGwxUuViJ3zpkt9CPcWhPznGf)
 
 ## 许可证
 
-MIT License - 详见 [LICENSE](LICENSE) 文件
+本仓库采用标准 [MIT License](LICENSE)。
