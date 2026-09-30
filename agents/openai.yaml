@@ -1,7 +1,7 @@
 interface:
-  display_name: "Machinist 开发"
-  short_description: "CreatAI(Machinist) BeScript 工程开发参考与工作流"
-  default_prompt: "使用 $machinist 分析当前工作区的 BeScript 工程结构，并给出下一步开发建议。"
+  display_name: "MechToolkit 游戏开发"
+  short_description: "使用 MechToolkit 开发 CreatAI 游戏，编辑脚本与布局并查询和重构工程"
+  default_prompt: "使用 $mechtoolkit 分析当前 CreatAI 工程，并通过 MechToolkit 完成开发任务。"
 
 policy:
   allow_implicit_invocation: true

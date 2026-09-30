@@ -1,9 +1,9 @@
 ---
-name: machinist
-description: Use when editing BeScript game logic via TS views, modifying Canvas layouts via HTML views, calling patch_mech_view or refactor tools, or implementing 弹幕互动游戏 features on CreatAI platform
+name: mechtoolkit
+description: 用于在 CreatAI（Machinist）工程中使用 MechToolkit 编辑 BeScript 的 TS 视图、Canvas 的 HTML 视图，并通过 MCP 查询工程与执行重构。
 ---
 
-# BeScript 工程开发知识库
+# MechToolkit 游戏开发
 
 ## 术语规范
 
@@ -66,7 +66,7 @@ MCP 的 `entityGuids` 参数仅支持有 GUID 的实体；零件只有数字 ID�
 
 ## 核心目标
 
-- 在 Mech 平台的规则约束下，使用内置工具和 Toolkit 进行开发和辅助调试工作
+- 在 CreatAI（Machinist）平台的规则约束下，使用内置工具和 MechToolkit 进行开发和辅助调试工作
 - 优先用"示例工程"和"常用模板"对照写法与结构，再把内容迁移到目标工程
 
 ## 平台硬约束

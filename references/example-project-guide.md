@@ -1,4 +1,4 @@
-﻿# 示例工程导览（machinist）
+# MechToolkit 示例工程导览
 
 本文档说明如何理解一个典型的 BeScript 工程结构，以及如何利用 assets 中的模板片段。
 
@@ -72,4 +72,3 @@
 - `mechtoolkit.read_entities_by_guid`：按 GUID 查询实体（仅地图/机械/canvas 有 GUID）
 - `mechtoolkit.read_lint`：检查代码问题
 - `mechtoolkit.read_sdk_docs`：查阅 SDK 文档
-
