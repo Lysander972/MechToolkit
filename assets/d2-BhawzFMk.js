@@ -114,6 +114,9 @@ ToolkitVscode_plugin: {
 ToolkitPi_plugin: {
   label: "Pi Agent 插件启动入口"
 }
+ToolkitFrontend: {
+  label: "前端容器栈"
+}
 ToolkitMcp: {
   label: "MCP 协议接入"
 }
@@ -126,9 +129,11 @@ ToolkitProject_model: {
 
 ToolkitHost -> ToolkitProject_model
 ToolkitMcp -> ToolkitHost
+ToolkitFrontend -> ToolkitHost
 ToolkitVscode_plugin -> ToolkitHost
 ToolkitVscode_plugin -> ToolkitMcp
 ToolkitPi_plugin -> ToolkitMcp
+ToolkitVscode_plugin -> ToolkitFrontend
 `;case`repository`:return`direction: down
 
 RepositoryBuild: {

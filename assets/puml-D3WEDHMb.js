@@ -243,6 +243,11 @@ skinparam rectangle<<ToolkitPi_plugin>>{
   FontColor #eff6ff
   BorderColor #2563eb
 }
+skinparam rectangle<<ToolkitFrontend>>{
+  BackgroundColor #3b82f6
+  FontColor #eff6ff
+  BorderColor #2563eb
+}
 skinparam rectangle<<ToolkitMcp>>{
   BackgroundColor #3b82f6
   FontColor #eff6ff
@@ -262,15 +267,18 @@ rectangle "==产品类型检查配置" <<ToolkitConfiguration>> as ToolkitConfig
 rectangle "==配置来源抽象与实现" <<ToolkitConfig>> as ToolkitConfig
 rectangle "==VS Code 插件启动入口" <<ToolkitVscode_plugin>> as ToolkitVscode_plugin
 rectangle "==Pi Agent 插件启动入口" <<ToolkitPi_plugin>> as ToolkitPi_plugin
+rectangle "==前端容器栈" <<ToolkitFrontend>> as ToolkitFrontend
 rectangle "==MCP 协议接入" <<ToolkitMcp>> as ToolkitMcp
 rectangle "==工作区 Host" <<ToolkitHost>> as ToolkitHost
 rectangle "==工程格式纯计算包" <<ToolkitProject_model>> as ToolkitProject_model
 
 ToolkitHost .[#8D8D8D,thickness=2].> ToolkitProject_model
 ToolkitMcp .[#8D8D8D,thickness=2].> ToolkitHost
+ToolkitFrontend .[#8D8D8D,thickness=2].> ToolkitHost
 ToolkitVscode_plugin .[#8D8D8D,thickness=2].> ToolkitHost
 ToolkitVscode_plugin .[#8D8D8D,thickness=2].> ToolkitMcp
 ToolkitPi_plugin .[#8D8D8D,thickness=2].> ToolkitMcp
+ToolkitVscode_plugin .[#8D8D8D,thickness=2].> ToolkitFrontend
 @enduml
 `;case`repository`:return`@startuml
 title "仓库工程基础"

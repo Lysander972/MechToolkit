@@ -67,14 +67,17 @@ graph TB
   ToolkitConfig@{ shape: rectangle, label: "配置来源抽象与实现" }
   ToolkitVscode_plugin@{ shape: rectangle, label: "VS Code 插件启动入口" }
   ToolkitPi_plugin@{ shape: rectangle, label: "Pi Agent 插件启动入口" }
+  ToolkitFrontend@{ shape: rectangle, label: "前端容器栈" }
   ToolkitMcp@{ shape: rectangle, label: "MCP 协议接入" }
   ToolkitHost@{ shape: rectangle, label: "工作区 Host" }
   ToolkitProject_model@{ shape: rectangle, label: "工程格式纯计算包" }
   ToolkitHost -.-> ToolkitProject_model
   ToolkitMcp -.-> ToolkitHost
+  ToolkitFrontend -.-> ToolkitHost
   ToolkitVscode_plugin -.-> ToolkitHost
   ToolkitVscode_plugin -.-> ToolkitMcp
   ToolkitPi_plugin -.-> ToolkitMcp
+  ToolkitVscode_plugin -.-> ToolkitFrontend
 `;case`repository`:return`---
 title: "仓库工程基础"
 ---
