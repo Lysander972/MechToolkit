@@ -1,5 +1,8 @@
 var e=e=>{switch(e){case`index`:return`direction: down
 
+Pure: {
+  label: "业务纯计算"
+}
 Product: {
   label: "Toolkit 产品源码参考文档"
 }
@@ -28,6 +31,7 @@ Resources: {
   label: "共享静态资源"
 }
 
+Pure -> Specifications
 Renderer -> Resources: "字体与样式资源"
 Product -> Renderer: "渲染行为测试"
 Tools -> Repository
@@ -206,6 +210,9 @@ RendererEntry -> RendererState: "启动与完成状态"
 RendererEntry -> RendererPipeline: "驱动三阶段管线"
 `;case`core`:return`direction: down
 
+Pure: {
+  label: "业务纯计算"
+}
 Product: {
   label: "Toolkit 产品源码参考文档"
 }
@@ -234,6 +241,7 @@ Resources: {
   label: "共享静态资源"
 }
 
+Pure -> Specifications
 Renderer -> Resources: "字体与样式资源"
 Product -> Renderer: "渲染行为测试"
 Tools -> Repository
@@ -351,6 +359,9 @@ SpecificationsBescript: {
 SpecificationsCanvas_render: {
   label: "Canvas 渲染规范"
 }
+SpecificationsCanvas: {
+  label: "Canvas 四向转换合同"
+}
 `;case`product`:return`direction: down
 
 ProductMcp: {
@@ -426,5 +437,10 @@ DocumentationDiagrams: {
 }
 DocumentationWorkflows: {
   label: "ComfyUI 工作流"
+}
+`;case`pure_functions`:return`direction: down
+
+PureCanvas: {
+  label: "Canvas 四向转换"
 }
 `;default:throw Error(`Unknown viewId: `+e)}};export{e as d2Source};

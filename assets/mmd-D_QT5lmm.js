@@ -2,6 +2,7 @@ var e=e=>{switch(e){case`index`:return`---
 title: "Landscape view"
 ---
 graph TB
+  Pure@{ shape: rectangle, label: "业务纯计算" }
   Product@{ shape: rectangle, label: "Toolkit 产品源码参考文档" }
   Tools@{ shape: rectangle, label: "自举检查工具" }
   Toolkit@{ shape: rectangle, label: "Toolkit TypeScript 产品" }
@@ -11,6 +12,7 @@ graph TB
   Specifications@{ shape: rectangle, label: "工具链规范" }
   Fixtures@{ shape: rectangle, label: "跨组件夹具" }
   Resources@{ shape: rectangle, label: "共享静态资源" }
+  Pure -.-> Specifications
   Renderer -. "\`字体与样式资源\`" .-> Resources
   Product -. "\`渲染行为测试\`" .-> Renderer
   Tools -.-> Repository
@@ -80,6 +82,7 @@ graph TB
 title: "core"
 ---
 graph TB
+  Pure@{ shape: rectangle, label: "业务纯计算" }
   Product@{ shape: rectangle, label: "Toolkit 产品源码参考文档" }
   Tools@{ shape: rectangle, label: "自举检查工具" }
   Toolkit@{ shape: rectangle, label: "Toolkit TypeScript 产品" }
@@ -89,6 +92,7 @@ graph TB
   Specifications@{ shape: rectangle, label: "工具链规范" }
   Fixtures@{ shape: rectangle, label: "跨组件夹具" }
   Resources@{ shape: rectangle, label: "共享静态资源" }
+  Pure -.-> Specifications
   Renderer -. "\`字体与样式资源\`" .-> Resources
   Product -. "\`渲染行为测试\`" .-> Renderer
   Tools -.-> Repository
@@ -160,6 +164,7 @@ graph TB
   SpecificationsRuntime@{ shape: rectangle, label: "Toolkit 运行时合同" }
   SpecificationsBescript@{ shape: rectangle, label: "BEScript 内部格式" }
   SpecificationsCanvas_render@{ shape: rectangle, label: "Canvas 渲染规范" }
+  SpecificationsCanvas@{ shape: rectangle, label: "Canvas 四向转换合同" }
 `;case`product`:return`---
 title: "Toolkit 产品源码参考文档"
 ---
@@ -197,4 +202,9 @@ graph TB
   DocumentationSpecs@{ shape: rectangle, label: "产品规范" }
   DocumentationDiagrams@{ shape: rectangle, label: "架构展示资产" }
   DocumentationWorkflows@{ shape: rectangle, label: "ComfyUI 工作流" }
+`;case`pure_functions`:return`---
+title: "业务纯计算"
+---
+graph TB
+  PureCanvas@{ shape: rectangle, label: "Canvas 四向转换" }
 `;default:throw Error(`Unknown viewId: `+e)}};export{e as mmdSource};

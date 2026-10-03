@@ -13,6 +13,11 @@ skinparam {
   shadowing false
 }
 
+skinparam rectangle<<Pure>>{
+  BackgroundColor #3b82f6
+  FontColor #eff6ff
+  BorderColor #2563eb
+}
 skinparam rectangle<<Product>>{
   BackgroundColor #3b82f6
   FontColor #eff6ff
@@ -58,6 +63,7 @@ skinparam rectangle<<Resources>>{
   FontColor #eff6ff
   BorderColor #2563eb
 }
+rectangle "==业务纯计算\\n\\n无状态纯函数。完整输入由调用者提供，同样输入产生同样结果，不读取文件、网络、配置、环境变量、当前时间或进程全局状态。" <<Pure>> as Pure
 rectangle "==Toolkit 产品源码参考文档" <<Product>> as Product
 rectangle "==自举检查工具" <<Tools>> as Tools
 rectangle "==Toolkit TypeScript 产品" <<Toolkit>> as Toolkit
@@ -68,6 +74,7 @@ rectangle "==工具链规范" <<Specifications>> as Specifications
 rectangle "==跨组件夹具" <<Fixtures>> as Fixtures
 rectangle "==共享静态资源" <<Resources>> as Resources
 
+Pure .[#8D8D8D,thickness=2].> Specifications
 Renderer .[#8D8D8D,thickness=2].> Resources : <color:#8D8D8D>字体与样式资源
 Product .[#8D8D8D,thickness=2].> Renderer : <color:#8D8D8D>渲染行为测试
 Tools .[#8D8D8D,thickness=2].> Repository
@@ -409,6 +416,11 @@ skinparam {
   shadowing false
 }
 
+skinparam rectangle<<Pure>>{
+  BackgroundColor #3b82f6
+  FontColor #eff6ff
+  BorderColor #2563eb
+}
 skinparam rectangle<<Product>>{
   BackgroundColor #3b82f6
   FontColor #eff6ff
@@ -454,6 +466,7 @@ skinparam rectangle<<Resources>>{
   FontColor #eff6ff
   BorderColor #2563eb
 }
+rectangle "==业务纯计算\\n\\n无状态纯函数。完整输入由调用者提供，同样输入产生同样结果，不读取文件、网络、配置、环境变量、当前时间或进程全局状态。" <<Pure>> as Pure
 rectangle "==Toolkit 产品源码参考文档" <<Product>> as Product
 rectangle "==自举检查工具" <<Tools>> as Tools
 rectangle "==Toolkit TypeScript 产品" <<Toolkit>> as Toolkit
@@ -464,6 +477,7 @@ rectangle "==工具链规范" <<Specifications>> as Specifications
 rectangle "==跨组件夹具" <<Fixtures>> as Fixtures
 rectangle "==共享静态资源" <<Resources>> as Resources
 
+Pure .[#8D8D8D,thickness=2].> Specifications
 Renderer .[#8D8D8D,thickness=2].> Resources : <color:#8D8D8D>字体与样式资源
 Product .[#8D8D8D,thickness=2].> Renderer : <color:#8D8D8D>渲染行为测试
 Tools .[#8D8D8D,thickness=2].> Repository
@@ -709,12 +723,18 @@ skinparam rectangle<<SpecificationsCanvas_render>>{
   FontColor #eff6ff
   BorderColor #2563eb
 }
+skinparam rectangle<<SpecificationsCanvas>>{
+  BackgroundColor #3b82f6
+  FontColor #eff6ff
+  BorderColor #2563eb
+}
 rectangle "==治理契约" <<SpecificationsTooling>> as SpecificationsTooling
 rectangle "==文件布局契约" <<SpecificationsLayout>> as SpecificationsLayout
 rectangle "==开发与协作契约" <<SpecificationsDevelopment>> as SpecificationsDevelopment
 rectangle "==Toolkit 运行时合同" <<SpecificationsRuntime>> as SpecificationsRuntime
 rectangle "==BEScript 内部格式" <<SpecificationsBescript>> as SpecificationsBescript
 rectangle "==Canvas 渲染规范" <<SpecificationsCanvas_render>> as SpecificationsCanvas_render
+rectangle "==Canvas 四向转换合同" <<SpecificationsCanvas>> as SpecificationsCanvas
 @enduml
 `;case`product`:return`@startuml
 title "Toolkit 产品源码参考文档"
@@ -899,5 +919,27 @@ rectangle "==MechToolkit 发布与开发指南" <<DocumentationManual>> as Docum
 rectangle "==产品规范" <<DocumentationSpecs>> as DocumentationSpecs
 rectangle "==架构展示资产" <<DocumentationDiagrams>> as DocumentationDiagrams
 rectangle "==ComfyUI 工作流" <<DocumentationWorkflows>> as DocumentationWorkflows
+@enduml
+`;case`pure_functions`:return`@startuml
+title "业务纯计算"
+top to bottom direction
+
+hide stereotype
+skinparam ranksep 60
+skinparam nodesep 30
+skinparam {
+  arrowFontSize 10
+  defaultTextAlignment center
+  wrapWidth 200
+  maxMessageSize 100
+  shadowing false
+}
+
+skinparam rectangle<<PureCanvas>>{
+  BackgroundColor #3b82f6
+  FontColor #eff6ff
+  BorderColor #2563eb
+}
+rectangle "==Canvas 四向转换\\n\\n内联 Base64、内联 Hjson、Canvas 二进制与 HTML 视图之间的无状态转换" <<PureCanvas>> as PureCanvas
 @enduml
 `;default:throw Error(`Unknown viewId: `+e)}};export{e as pumlSource};
