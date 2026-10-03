@@ -3,26 +3,27 @@ title: "Landscape view"
 ---
 graph TB
   Pure@{ shape: rectangle, label: "业务纯计算" }
-  Product@{ shape: rectangle, label: "Toolkit 产品源码参考文档" }
+  Canvas@{ shape: rectangle, label: "Canvas 渲染产品" }
   Tools@{ shape: rectangle, label: "自举检查工具" }
   Toolkit@{ shape: rectangle, label: "Toolkit TypeScript 产品" }
+  Legacy@{ shape: rectangle, label: "旧产品参考区" }
   Renderer@{ shape: rectangle, label: "Canvas 渲染引擎" }
-  Documentation@{ shape: rectangle, label: "产品规范与参考" }
   Repository@{ shape: rectangle, label: "仓库工程基础" }
   Specifications@{ shape: rectangle, label: "工具链规范" }
   Fixtures@{ shape: rectangle, label: "跨组件夹具" }
+  Documentation@{ shape: rectangle, label: "产品规范与参考" }
   Resources@{ shape: rectangle, label: "共享静态资源" }
   Pure -.-> Specifications
   Renderer -. "\`字体与样式资源\`" .-> Resources
-  Product -. "\`渲染行为测试\`" .-> Renderer
+  Canvas -. "\`渲染行为测试\`" .-> Renderer
   Tools -.-> Repository
   Tools -.-> Specifications
   Toolkit -.-> Repository
   Toolkit -.-> Specifications
   Toolkit -.-> Fixtures
-  Product -.-> Fixtures
-  Product -.-> Resources
-  Product -.-> Documentation
+  Legacy -.-> Fixtures
+  Legacy -.-> Resources
+  Legacy -.-> Documentation
 `;case`bescript_first_layer`:return`---
 title: "第一层：BEScript 文本与局部 AST"
 ---
@@ -83,26 +84,27 @@ title: "core"
 ---
 graph TB
   Pure@{ shape: rectangle, label: "业务纯计算" }
-  Product@{ shape: rectangle, label: "Toolkit 产品源码参考文档" }
+  Canvas@{ shape: rectangle, label: "Canvas 渲染产品" }
   Tools@{ shape: rectangle, label: "自举检查工具" }
   Toolkit@{ shape: rectangle, label: "Toolkit TypeScript 产品" }
+  Legacy@{ shape: rectangle, label: "旧产品参考区" }
   Renderer@{ shape: rectangle, label: "Canvas 渲染引擎" }
-  Documentation@{ shape: rectangle, label: "产品规范与参考" }
   Repository@{ shape: rectangle, label: "仓库工程基础" }
   Specifications@{ shape: rectangle, label: "工具链规范" }
   Fixtures@{ shape: rectangle, label: "跨组件夹具" }
+  Documentation@{ shape: rectangle, label: "产品规范与参考" }
   Resources@{ shape: rectangle, label: "共享静态资源" }
   Pure -.-> Specifications
   Renderer -. "\`字体与样式资源\`" .-> Resources
-  Product -. "\`渲染行为测试\`" .-> Renderer
+  Canvas -. "\`渲染行为测试\`" .-> Renderer
   Tools -.-> Repository
   Tools -.-> Specifications
   Toolkit -.-> Repository
   Toolkit -.-> Specifications
   Toolkit -.-> Fixtures
-  Product -.-> Fixtures
-  Product -.-> Resources
-  Product -.-> Documentation
+  Legacy -.-> Fixtures
+  Legacy -.-> Resources
+  Legacy -.-> Documentation
 `;case`tooling`:return`---
 title: "自举检查工具"
 ---
@@ -153,7 +155,6 @@ graph TB
   RepositoryInstructions@{ shape: rectangle, label: "开发指引" }
   RepositoryGit@{ shape: rectangle, label: "版本控制" }
   RepositoryEditor@{ shape: rectangle, label: "编辑器配置" }
-  RepositoryDotnet@{ shape: rectangle, label: "旧 .NET SDK 配置参考" }
 `;case`specifications`:return`---
 title: "工具链规范"
 ---
@@ -165,35 +166,34 @@ graph TB
   SpecificationsBescript@{ shape: rectangle, label: "BEScript 内部格式" }
   SpecificationsCanvas_render@{ shape: rectangle, label: "Canvas 渲染规范" }
   SpecificationsCanvas@{ shape: rectangle, label: "Canvas 四向转换合同" }
-`;case`product`:return`---
-title: "Toolkit 产品源码参考文档"
+`;case`legacy`:return`---
+title: "旧产品参考区"
 ---
 graph TB
-  ProductMcp@{ shape: rectangle, label: "MCP 协议入口" }
-  ProductHost@{ shape: rectangle, label: "VSCode Host 入口" }
-  ProductRenderer_tests@{ shape: rectangle, label: "Canvas 渲染测试" }
-  ProductFrontend@{ shape: rectangle, label: "前端" }
-  ProductCore@{ shape: rectangle, label: "核心逻辑" }
-  ProductMcp -.-> ProductCore
-  ProductHost -.-> ProductCore
-  ProductFrontend -.-> ProductCore
-`;case`product_core`:return`---
+  LegacyMcp@{ shape: rectangle, label: "MCP 协议入口" }
+  LegacyHost@{ shape: rectangle, label: "VSCode Host 入口" }
+  LegacyFrontend@{ shape: rectangle, label: "前端" }
+  LegacyCore@{ shape: rectangle, label: "核心逻辑" }
+  LegacyMcp -.-> LegacyCore
+  LegacyHost -.-> LegacyCore
+  LegacyFrontend -.-> LegacyCore
+`;case`legacy_core`:return`---
 title: "核心逻辑"
 ---
 graph TB
-  ProductCoreComposition@{ shape: rectangle, label: "核心服务装配" }
-  ProductCoreAnalysis@{ shape: rectangle, label: "工程分析" }
-  ProductCoreBescript@{ shape: rectangle, label: "BeScript 语法" }
-  ProductCoreCanvas@{ shape: rectangle, label: "Canvas 数据" }
-  ProductCoreInfra@{ shape: rectangle, label: "基础设施" }
-  ProductCoreLint@{ shape: rectangle, label: "游戏工程静态检查" }
-  ProductCorePersistence@{ shape: rectangle, label: "工程持久化" }
-  ProductCoreRefactor@{ shape: rectangle, label: "游戏逻辑重构" }
-  ProductCoreSdk@{ shape: rectangle, label: "平台 SDK" }
-  ProductCoreSearch@{ shape: rectangle, label: "工程检索" }
-  ProductCoreTsview@{ shape: rectangle, label: "TS 视图" }
-  ProductCoreWorker@{ shape: rectangle, label: "工作进程命令" }
-  ProductCoreTests@{ shape: rectangle, label: "核心回归" }
+  LegacyCoreComposition@{ shape: rectangle, label: "核心服务装配" }
+  LegacyCoreAnalysis@{ shape: rectangle, label: "工程分析" }
+  LegacyCoreBescript@{ shape: rectangle, label: "BeScript 语法" }
+  LegacyCoreCanvas@{ shape: rectangle, label: "Canvas 数据" }
+  LegacyCoreInfra@{ shape: rectangle, label: "基础设施" }
+  LegacyCoreLint@{ shape: rectangle, label: "游戏工程静态检查" }
+  LegacyCorePersistence@{ shape: rectangle, label: "工程持久化" }
+  LegacyCoreRefactor@{ shape: rectangle, label: "游戏逻辑重构" }
+  LegacyCoreSdk@{ shape: rectangle, label: "平台 SDK" }
+  LegacyCoreSearch@{ shape: rectangle, label: "工程检索" }
+  LegacyCoreTsview@{ shape: rectangle, label: "TS 视图" }
+  LegacyCoreWorker@{ shape: rectangle, label: "工作进程命令" }
+  LegacyCoreTests@{ shape: rectangle, label: "核心回归" }
 `;case`documentation`:return`---
 title: "产品规范与参考"
 ---

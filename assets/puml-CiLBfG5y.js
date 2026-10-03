@@ -18,7 +18,7 @@ skinparam rectangle<<Pure>>{
   FontColor #eff6ff
   BorderColor #2563eb
 }
-skinparam rectangle<<Product>>{
+skinparam rectangle<<Canvas>>{
   BackgroundColor #3b82f6
   FontColor #eff6ff
   BorderColor #2563eb
@@ -33,12 +33,12 @@ skinparam rectangle<<Toolkit>>{
   FontColor #eff6ff
   BorderColor #2563eb
 }
-skinparam rectangle<<Renderer>>{
+skinparam rectangle<<Legacy>>{
   BackgroundColor #3b82f6
   FontColor #eff6ff
   BorderColor #2563eb
 }
-skinparam rectangle<<Documentation>>{
+skinparam rectangle<<Renderer>>{
   BackgroundColor #3b82f6
   FontColor #eff6ff
   BorderColor #2563eb
@@ -58,33 +58,39 @@ skinparam rectangle<<Fixtures>>{
   FontColor #eff6ff
   BorderColor #2563eb
 }
+skinparam rectangle<<Documentation>>{
+  BackgroundColor #3b82f6
+  FontColor #eff6ff
+  BorderColor #2563eb
+}
 skinparam rectangle<<Resources>>{
   BackgroundColor #3b82f6
   FontColor #eff6ff
   BorderColor #2563eb
 }
 rectangle "==业务纯计算\\n\\n无状态纯函数。完整输入由调用者提供，同样输入产生同样结果，不读取文件、网络、配置、环境变量、当前时间或进程全局状态。" <<Pure>> as Pure
-rectangle "==Toolkit 产品源码参考文档" <<Product>> as Product
+rectangle "==Canvas 渲染产品" <<Canvas>> as Canvas
 rectangle "==自举检查工具" <<Tools>> as Tools
 rectangle "==Toolkit TypeScript 产品" <<Toolkit>> as Toolkit
+rectangle "==旧产品参考区" <<Legacy>> as Legacy
 rectangle "==Canvas 渲染引擎\\n\\nHTML 属性经显式 Option 解析为节点输入；节点按固定顺序应用特性，管线统一递归与排版，页面只有一次自动渲染。" <<Renderer>> as Renderer
-rectangle "==产品规范与参考" <<Documentation>> as Documentation
 rectangle "==仓库工程基础" <<Repository>> as Repository
 rectangle "==工具链规范" <<Specifications>> as Specifications
 rectangle "==跨组件夹具" <<Fixtures>> as Fixtures
+rectangle "==产品规范与参考" <<Documentation>> as Documentation
 rectangle "==共享静态资源" <<Resources>> as Resources
 
 Pure .[#8D8D8D,thickness=2].> Specifications
 Renderer .[#8D8D8D,thickness=2].> Resources : <color:#8D8D8D>字体与样式资源
-Product .[#8D8D8D,thickness=2].> Renderer : <color:#8D8D8D>渲染行为测试
+Canvas .[#8D8D8D,thickness=2].> Renderer : <color:#8D8D8D>渲染行为测试
 Tools .[#8D8D8D,thickness=2].> Repository
 Tools .[#8D8D8D,thickness=2].> Specifications
 Toolkit .[#8D8D8D,thickness=2].> Repository
 Toolkit .[#8D8D8D,thickness=2].> Specifications
 Toolkit .[#8D8D8D,thickness=2].> Fixtures
-Product .[#8D8D8D,thickness=2].> Fixtures
-Product .[#8D8D8D,thickness=2].> Resources
-Product .[#8D8D8D,thickness=2].> Documentation
+Legacy .[#8D8D8D,thickness=2].> Fixtures
+Legacy .[#8D8D8D,thickness=2].> Resources
+Legacy .[#8D8D8D,thickness=2].> Documentation
 @enduml
 `;case`bescript_first_layer`:return`@startuml
 title "第一层：BEScript 文本与局部 AST"
@@ -421,7 +427,7 @@ skinparam rectangle<<Pure>>{
   FontColor #eff6ff
   BorderColor #2563eb
 }
-skinparam rectangle<<Product>>{
+skinparam rectangle<<Canvas>>{
   BackgroundColor #3b82f6
   FontColor #eff6ff
   BorderColor #2563eb
@@ -436,12 +442,12 @@ skinparam rectangle<<Toolkit>>{
   FontColor #eff6ff
   BorderColor #2563eb
 }
-skinparam rectangle<<Renderer>>{
+skinparam rectangle<<Legacy>>{
   BackgroundColor #3b82f6
   FontColor #eff6ff
   BorderColor #2563eb
 }
-skinparam rectangle<<Documentation>>{
+skinparam rectangle<<Renderer>>{
   BackgroundColor #3b82f6
   FontColor #eff6ff
   BorderColor #2563eb
@@ -461,33 +467,39 @@ skinparam rectangle<<Fixtures>>{
   FontColor #eff6ff
   BorderColor #2563eb
 }
+skinparam rectangle<<Documentation>>{
+  BackgroundColor #3b82f6
+  FontColor #eff6ff
+  BorderColor #2563eb
+}
 skinparam rectangle<<Resources>>{
   BackgroundColor #3b82f6
   FontColor #eff6ff
   BorderColor #2563eb
 }
 rectangle "==业务纯计算\\n\\n无状态纯函数。完整输入由调用者提供，同样输入产生同样结果，不读取文件、网络、配置、环境变量、当前时间或进程全局状态。" <<Pure>> as Pure
-rectangle "==Toolkit 产品源码参考文档" <<Product>> as Product
+rectangle "==Canvas 渲染产品" <<Canvas>> as Canvas
 rectangle "==自举检查工具" <<Tools>> as Tools
 rectangle "==Toolkit TypeScript 产品" <<Toolkit>> as Toolkit
+rectangle "==旧产品参考区" <<Legacy>> as Legacy
 rectangle "==Canvas 渲染引擎\\n\\nHTML 属性经显式 Option 解析为节点输入；节点按固定顺序应用特性，管线统一递归与排版，页面只有一次自动渲染。" <<Renderer>> as Renderer
-rectangle "==产品规范与参考" <<Documentation>> as Documentation
 rectangle "==仓库工程基础" <<Repository>> as Repository
 rectangle "==工具链规范" <<Specifications>> as Specifications
 rectangle "==跨组件夹具" <<Fixtures>> as Fixtures
+rectangle "==产品规范与参考" <<Documentation>> as Documentation
 rectangle "==共享静态资源" <<Resources>> as Resources
 
 Pure .[#8D8D8D,thickness=2].> Specifications
 Renderer .[#8D8D8D,thickness=2].> Resources : <color:#8D8D8D>字体与样式资源
-Product .[#8D8D8D,thickness=2].> Renderer : <color:#8D8D8D>渲染行为测试
+Canvas .[#8D8D8D,thickness=2].> Renderer : <color:#8D8D8D>渲染行为测试
 Tools .[#8D8D8D,thickness=2].> Repository
 Tools .[#8D8D8D,thickness=2].> Specifications
 Toolkit .[#8D8D8D,thickness=2].> Repository
 Toolkit .[#8D8D8D,thickness=2].> Specifications
 Toolkit .[#8D8D8D,thickness=2].> Fixtures
-Product .[#8D8D8D,thickness=2].> Fixtures
-Product .[#8D8D8D,thickness=2].> Resources
-Product .[#8D8D8D,thickness=2].> Documentation
+Legacy .[#8D8D8D,thickness=2].> Fixtures
+Legacy .[#8D8D8D,thickness=2].> Resources
+Legacy .[#8D8D8D,thickness=2].> Documentation
 @enduml
 `;case`tooling`:return`@startuml
 title "自举检查工具"
@@ -667,16 +679,10 @@ skinparam rectangle<<RepositoryEditor>>{
   FontColor #eff6ff
   BorderColor #2563eb
 }
-skinparam rectangle<<RepositoryDotnet>>{
-  BackgroundColor #3b82f6
-  FontColor #eff6ff
-  BorderColor #2563eb
-}
 rectangle "==pnpm 与依赖锁定" <<RepositoryBuild>> as RepositoryBuild
 rectangle "==开发指引" <<RepositoryInstructions>> as RepositoryInstructions
 rectangle "==版本控制" <<RepositoryGit>> as RepositoryGit
 rectangle "==编辑器配置" <<RepositoryEditor>> as RepositoryEditor
-rectangle "==旧 .NET SDK 配置参考" <<RepositoryDotnet>> as RepositoryDotnet
 @enduml
 `;case`specifications`:return`@startuml
 title "工具链规范"
@@ -736,8 +742,8 @@ rectangle "==BEScript 内部格式" <<SpecificationsBescript>> as Specifications
 rectangle "==Canvas 渲染规范" <<SpecificationsCanvas_render>> as SpecificationsCanvas_render
 rectangle "==Canvas 四向转换合同" <<SpecificationsCanvas>> as SpecificationsCanvas
 @enduml
-`;case`product`:return`@startuml
-title "Toolkit 产品源码参考文档"
+`;case`legacy`:return`@startuml
+title "旧产品参考区"
 top to bottom direction
 
 hide stereotype
@@ -751,42 +757,36 @@ skinparam {
   shadowing false
 }
 
-skinparam rectangle<<ProductMcp>>{
+skinparam rectangle<<LegacyMcp>>{
   BackgroundColor #3b82f6
   FontColor #eff6ff
   BorderColor #2563eb
 }
-skinparam rectangle<<ProductHost>>{
+skinparam rectangle<<LegacyHost>>{
   BackgroundColor #3b82f6
   FontColor #eff6ff
   BorderColor #2563eb
 }
-skinparam rectangle<<ProductRenderer_tests>>{
+skinparam rectangle<<LegacyFrontend>>{
   BackgroundColor #3b82f6
   FontColor #eff6ff
   BorderColor #2563eb
 }
-skinparam rectangle<<ProductFrontend>>{
+skinparam rectangle<<LegacyCore>>{
   BackgroundColor #3b82f6
   FontColor #eff6ff
   BorderColor #2563eb
 }
-skinparam rectangle<<ProductCore>>{
-  BackgroundColor #3b82f6
-  FontColor #eff6ff
-  BorderColor #2563eb
-}
-rectangle "==MCP 协议入口" <<ProductMcp>> as ProductMcp
-rectangle "==VSCode Host 入口" <<ProductHost>> as ProductHost
-rectangle "==Canvas 渲染测试" <<ProductRenderer_tests>> as ProductRenderer_tests
-rectangle "==前端" <<ProductFrontend>> as ProductFrontend
-rectangle "==核心逻辑" <<ProductCore>> as ProductCore
+rectangle "==MCP 协议入口" <<LegacyMcp>> as LegacyMcp
+rectangle "==VSCode Host 入口" <<LegacyHost>> as LegacyHost
+rectangle "==前端" <<LegacyFrontend>> as LegacyFrontend
+rectangle "==核心逻辑" <<LegacyCore>> as LegacyCore
 
-ProductMcp .[#8D8D8D,thickness=2].> ProductCore
-ProductHost .[#8D8D8D,thickness=2].> ProductCore
-ProductFrontend .[#8D8D8D,thickness=2].> ProductCore
+LegacyMcp .[#8D8D8D,thickness=2].> LegacyCore
+LegacyHost .[#8D8D8D,thickness=2].> LegacyCore
+LegacyFrontend .[#8D8D8D,thickness=2].> LegacyCore
 @enduml
-`;case`product_core`:return`@startuml
+`;case`legacy_core`:return`@startuml
 title "核心逻辑"
 top to bottom direction
 
@@ -801,84 +801,84 @@ skinparam {
   shadowing false
 }
 
-skinparam rectangle<<ProductCoreComposition>>{
+skinparam rectangle<<LegacyCoreComposition>>{
   BackgroundColor #3b82f6
   FontColor #eff6ff
   BorderColor #2563eb
 }
-skinparam rectangle<<ProductCoreAnalysis>>{
+skinparam rectangle<<LegacyCoreAnalysis>>{
   BackgroundColor #3b82f6
   FontColor #eff6ff
   BorderColor #2563eb
 }
-skinparam rectangle<<ProductCoreBescript>>{
+skinparam rectangle<<LegacyCoreBescript>>{
   BackgroundColor #3b82f6
   FontColor #eff6ff
   BorderColor #2563eb
 }
-skinparam rectangle<<ProductCoreCanvas>>{
+skinparam rectangle<<LegacyCoreCanvas>>{
   BackgroundColor #3b82f6
   FontColor #eff6ff
   BorderColor #2563eb
 }
-skinparam rectangle<<ProductCoreInfra>>{
+skinparam rectangle<<LegacyCoreInfra>>{
   BackgroundColor #3b82f6
   FontColor #eff6ff
   BorderColor #2563eb
 }
-skinparam rectangle<<ProductCoreLint>>{
+skinparam rectangle<<LegacyCoreLint>>{
   BackgroundColor #3b82f6
   FontColor #eff6ff
   BorderColor #2563eb
 }
-skinparam rectangle<<ProductCorePersistence>>{
+skinparam rectangle<<LegacyCorePersistence>>{
   BackgroundColor #3b82f6
   FontColor #eff6ff
   BorderColor #2563eb
 }
-skinparam rectangle<<ProductCoreRefactor>>{
+skinparam rectangle<<LegacyCoreRefactor>>{
   BackgroundColor #3b82f6
   FontColor #eff6ff
   BorderColor #2563eb
 }
-skinparam rectangle<<ProductCoreSdk>>{
+skinparam rectangle<<LegacyCoreSdk>>{
   BackgroundColor #3b82f6
   FontColor #eff6ff
   BorderColor #2563eb
 }
-skinparam rectangle<<ProductCoreSearch>>{
+skinparam rectangle<<LegacyCoreSearch>>{
   BackgroundColor #3b82f6
   FontColor #eff6ff
   BorderColor #2563eb
 }
-skinparam rectangle<<ProductCoreTsview>>{
+skinparam rectangle<<LegacyCoreTsview>>{
   BackgroundColor #3b82f6
   FontColor #eff6ff
   BorderColor #2563eb
 }
-skinparam rectangle<<ProductCoreWorker>>{
+skinparam rectangle<<LegacyCoreWorker>>{
   BackgroundColor #3b82f6
   FontColor #eff6ff
   BorderColor #2563eb
 }
-skinparam rectangle<<ProductCoreTests>>{
+skinparam rectangle<<LegacyCoreTests>>{
   BackgroundColor #3b82f6
   FontColor #eff6ff
   BorderColor #2563eb
 }
-rectangle "==核心服务装配" <<ProductCoreComposition>> as ProductCoreComposition
-rectangle "==工程分析" <<ProductCoreAnalysis>> as ProductCoreAnalysis
-rectangle "==BeScript 语法" <<ProductCoreBescript>> as ProductCoreBescript
-rectangle "==Canvas 数据" <<ProductCoreCanvas>> as ProductCoreCanvas
-rectangle "==基础设施" <<ProductCoreInfra>> as ProductCoreInfra
-rectangle "==游戏工程静态检查" <<ProductCoreLint>> as ProductCoreLint
-rectangle "==工程持久化" <<ProductCorePersistence>> as ProductCorePersistence
-rectangle "==游戏逻辑重构" <<ProductCoreRefactor>> as ProductCoreRefactor
-rectangle "==平台 SDK" <<ProductCoreSdk>> as ProductCoreSdk
-rectangle "==工程检索" <<ProductCoreSearch>> as ProductCoreSearch
-rectangle "==TS 视图" <<ProductCoreTsview>> as ProductCoreTsview
-rectangle "==工作进程命令" <<ProductCoreWorker>> as ProductCoreWorker
-rectangle "==核心回归" <<ProductCoreTests>> as ProductCoreTests
+rectangle "==核心服务装配" <<LegacyCoreComposition>> as LegacyCoreComposition
+rectangle "==工程分析" <<LegacyCoreAnalysis>> as LegacyCoreAnalysis
+rectangle "==BeScript 语法" <<LegacyCoreBescript>> as LegacyCoreBescript
+rectangle "==Canvas 数据" <<LegacyCoreCanvas>> as LegacyCoreCanvas
+rectangle "==基础设施" <<LegacyCoreInfra>> as LegacyCoreInfra
+rectangle "==游戏工程静态检查" <<LegacyCoreLint>> as LegacyCoreLint
+rectangle "==工程持久化" <<LegacyCorePersistence>> as LegacyCorePersistence
+rectangle "==游戏逻辑重构" <<LegacyCoreRefactor>> as LegacyCoreRefactor
+rectangle "==平台 SDK" <<LegacyCoreSdk>> as LegacyCoreSdk
+rectangle "==工程检索" <<LegacyCoreSearch>> as LegacyCoreSearch
+rectangle "==TS 视图" <<LegacyCoreTsview>> as LegacyCoreTsview
+rectangle "==工作进程命令" <<LegacyCoreWorker>> as LegacyCoreWorker
+rectangle "==核心回归" <<LegacyCoreTests>> as LegacyCoreTests
 @enduml
 `;case`documentation`:return`@startuml
 title "产品规范与参考"

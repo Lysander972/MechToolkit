@@ -3,8 +3,8 @@ var e=e=>{switch(e){case`index`:return`direction: down
 Pure: {
   label: "业务纯计算"
 }
-Product: {
-  label: "Toolkit 产品源码参考文档"
+Canvas: {
+  label: "Canvas 渲染产品"
 }
 Tools: {
   label: "自举检查工具"
@@ -12,11 +12,11 @@ Tools: {
 Toolkit: {
   label: "Toolkit TypeScript 产品"
 }
+Legacy: {
+  label: "旧产品参考区"
+}
 Renderer: {
   label: "Canvas 渲染引擎"
-}
-Documentation: {
-  label: "产品规范与参考"
 }
 Repository: {
   label: "仓库工程基础"
@@ -27,21 +27,24 @@ Specifications: {
 Fixtures: {
   label: "跨组件夹具"
 }
+Documentation: {
+  label: "产品规范与参考"
+}
 Resources: {
   label: "共享静态资源"
 }
 
 Pure -> Specifications
 Renderer -> Resources: "字体与样式资源"
-Product -> Renderer: "渲染行为测试"
+Canvas -> Renderer: "渲染行为测试"
 Tools -> Repository
 Tools -> Specifications
 Toolkit -> Repository
 Toolkit -> Specifications
 Toolkit -> Fixtures
-Product -> Fixtures
-Product -> Resources
-Product -> Documentation
+Legacy -> Fixtures
+Legacy -> Resources
+Legacy -> Documentation
 `;case`bescript_first_layer`:return`direction: down
 
 ToolkitScriptAst: {
@@ -213,8 +216,8 @@ RendererEntry -> RendererPipeline: "驱动三阶段管线"
 Pure: {
   label: "业务纯计算"
 }
-Product: {
-  label: "Toolkit 产品源码参考文档"
+Canvas: {
+  label: "Canvas 渲染产品"
 }
 Tools: {
   label: "自举检查工具"
@@ -222,11 +225,11 @@ Tools: {
 Toolkit: {
   label: "Toolkit TypeScript 产品"
 }
+Legacy: {
+  label: "旧产品参考区"
+}
 Renderer: {
   label: "Canvas 渲染引擎"
-}
-Documentation: {
-  label: "产品规范与参考"
 }
 Repository: {
   label: "仓库工程基础"
@@ -237,21 +240,24 @@ Specifications: {
 Fixtures: {
   label: "跨组件夹具"
 }
+Documentation: {
+  label: "产品规范与参考"
+}
 Resources: {
   label: "共享静态资源"
 }
 
 Pure -> Specifications
 Renderer -> Resources: "字体与样式资源"
-Product -> Renderer: "渲染行为测试"
+Canvas -> Renderer: "渲染行为测试"
 Tools -> Repository
 Tools -> Specifications
 Toolkit -> Repository
 Toolkit -> Specifications
 Toolkit -> Fixtures
-Product -> Fixtures
-Product -> Resources
-Product -> Documentation
+Legacy -> Fixtures
+Legacy -> Resources
+Legacy -> Documentation
 `;case`tooling`:return`direction: down
 
 ToolsTests: {
@@ -336,9 +342,6 @@ RepositoryGit: {
 RepositoryEditor: {
   label: "编辑器配置"
 }
-RepositoryDotnet: {
-  label: "旧 .NET SDK 配置参考"
-}
 `;case`specifications`:return`direction: down
 
 SpecificationsTooling: {
@@ -362,66 +365,63 @@ SpecificationsCanvas_render: {
 SpecificationsCanvas: {
   label: "Canvas 四向转换合同"
 }
-`;case`product`:return`direction: down
+`;case`legacy`:return`direction: down
 
-ProductMcp: {
+LegacyMcp: {
   label: "MCP 协议入口"
 }
-ProductHost: {
+LegacyHost: {
   label: "VSCode Host 入口"
 }
-ProductRenderer_tests: {
-  label: "Canvas 渲染测试"
-}
-ProductFrontend: {
+LegacyFrontend: {
   label: "前端"
 }
-ProductCore: {
+LegacyCore: {
   label: "核心逻辑"
 }
 
-ProductMcp -> ProductCore
-ProductHost -> ProductCore
-ProductFrontend -> ProductCore
-`;case`product_core`:return`direction: down
+LegacyMcp -> LegacyCore
+LegacyHost -> LegacyCore
+LegacyFrontend -> LegacyCore
+`;case`legacy_core`:return`direction: down
 
-ProductCoreComposition: {
+LegacyCoreComposition: {
   label: "核心服务装配"
 }
-ProductCoreAnalysis: {
+LegacyCoreAnalysis: {
   label: "工程分析"
 }
-ProductCoreBescript: {
+LegacyCoreBescript: {
   label: "BeScript 语法"
 }
-ProductCoreCanvas: {
+LegacyCoreCanvas: {
   label: "Canvas 数据"
 }
-ProductCoreInfra: {
+LegacyCoreInfra: {
   label: "基础设施"
 }
-ProductCoreLint: {
+LegacyCoreLint: {
   label: "游戏工程静态检查"
 }
-ProductCorePersistence: {
+LegacyCorePersistence: {
   label: "工程持久化"
 }
-ProductCoreRefactor: {
+LegacyCoreRefactor: {
   label: "游戏逻辑重构"
 }
-ProductCoreSdk: {
+LegacyCoreSdk: {
   label: "平台 SDK"
 }
-ProductCoreSearch: {
+LegacyCoreSearch: {
   label: "工程检索"
 }
-ProductCoreTsview: {
+LegacyCoreTsview: {
   label: "TS 视图"
 }
-ProductCoreWorker: {
+LegacyCoreWorker: {
   label: "工作进程命令"
 }
-ProductCoreTests: {
+LegacyCoreTests: {
   label: "核心回归"
 }
 `;case`documentation`:return`direction: down
