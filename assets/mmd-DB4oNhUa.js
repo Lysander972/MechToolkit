@@ -2,14 +2,17 @@ var e=e=>{switch(e){case`index`:return`---
 title: "Landscape view"
 ---
 graph TB
+  Product@{ shape: rectangle, label: "Toolkit 产品源码参考文档" }
   Tools@{ shape: rectangle, label: "自举检查工具" }
   Toolkit@{ shape: rectangle, label: "Toolkit TypeScript 产品" }
-  Product@{ shape: rectangle, label: "Toolkit 产品源码参考文档" }
+  Renderer@{ shape: rectangle, label: "Canvas 渲染引擎" }
+  Documentation@{ shape: rectangle, label: "产品规范与参考" }
   Repository@{ shape: rectangle, label: "仓库工程基础" }
   Specifications@{ shape: rectangle, label: "工具链规范" }
   Fixtures@{ shape: rectangle, label: "跨组件夹具" }
   Resources@{ shape: rectangle, label: "共享静态资源" }
-  Documentation@{ shape: rectangle, label: "产品规范与参考" }
+  Renderer -. "\`字体与样式资源\`" .-> Resources
+  Product -. "\`渲染行为测试\`" .-> Renderer
   Tools -.-> Repository
   Tools -.-> Specifications
   Toolkit -.-> Repository
@@ -18,18 +21,21 @@ graph TB
   Product -.-> Fixtures
   Product -.-> Resources
   Product -.-> Documentation
-`;case`core`:return`---
+`;case`canvas_render`:return'---\ntitle: "Canvas 渲染引擎"\n---\ngraph TB\n  RendererEntry@{ shape: rectangle, label: "字体就绪后的唯一入口" }\n  RendererPipeline@{ shape: rectangle, label: "DOM 渲染管线" }\n  RendererNodes@{ shape: rectangle, label: "节点输入与能力顺序" }\n  RendererDom_schema@{ shape: rectangle, label: "DOM 严格 Schema 提取" }\n  RendererFeatures@{ shape: rectangle, label: "特性 DOM 应用" }\n  RendererSchema@{ shape: rectangle, label: "使用者节点 Schema" }\n  RendererLayout@{ shape: rectangle, label: "布局计算与诊断" }\n  RendererImages@{ shape: rectangle, label: "图像合成与异步提交" }\n  RendererFields@{ shape: rectangle, label: "白名单与统一取值" }\n  RendererValues@{ shape: rectangle, label: "属性解析与渲染基础能力" }\n  RendererContracts@{ shape: rectangle, label: "特性与运行时契约" }\n  RendererState@{ shape: rectangle, label: "页面渲染状态" }\n  RendererContracts -. "`会话类型`" .-> RendererState\n  RendererSchema -. "`持久化字段类型`" .-> RendererContracts\n  RendererNodes -. "`节点字段与上下文类型`" .-> RendererContracts\n  RendererDom_schema -. "`属性类型`" .-> RendererContracts\n  RendererFields -. "`字段类型`" .-> RendererContracts\n  RendererValues -. "`属性与诊断类型`" .-> RendererContracts\n  RendererLayout -. "`布局字段与结果`" .-> RendererContracts\n  RendererFeatures -. "`特性字段与上下文`" .-> RendererContracts\n  RendererImages -. "`颜色类型`" .-> RendererContracts\n  RendererPipeline -. "`上下文类型`" .-> RendererContracts\n  RendererNodes -. "`唯一节点输入类型`" .-> RendererSchema\n  RendererDom_schema -. "`确定输出契约`" .-> RendererSchema\n  RendererNodes -. "`确定类型的节点 Schema`" .-> RendererDom_schema\n  RendererNodes -. "`第一项布局能力`" .-> RendererLayout\n  RendererNodes -. "`按节点类型固定顺序应用能力`" .-> RendererFeatures\n  RendererNodes -. "`会话上下文类型`" .-> RendererState\n  RendererPipeline -. "`节点构造与能力顺序`" .-> RendererNodes\n  RendererDom_schema -. "`颜色与枚举解析`" .-> RendererValues\n  RendererPipeline -. "`唯一 DOM 属性提取`" .-> RendererDom_schema\n  RendererLayout -. "`白名单与默认值`" .-> RendererFields\n  RendererFeatures -. "`启用字段与默认值`" .-> RendererFields\n  RendererPipeline -. "`子节点收集与逻辑路径`" .-> RendererFields\n  RendererLayout -. "`取值与颜色`" .-> RendererValues\n  RendererFeatures -. "`文本、颜色、资源与错误报告`" .-> RendererValues\n  RendererPipeline -. "`根尺寸、属性和标签`" .-> RendererValues\n  RendererEntry -. "`字体加载与错误报告`" .-> RendererValues\n  RendererFeatures -. "`布局能力`" .-> RendererLayout\n  RendererEntry -. "`诊断读取`" .-> RendererLayout\n  RendererFeatures -. "`图像合成与提交`" .-> RendererImages\n  RendererFeatures -. "`异步资源登记与完成`" .-> RendererState\n  RendererPipeline -. "`显式会话类型`" .-> RendererState\n  RendererEntry -. "`启动与完成状态`" .-> RendererState\n  RendererEntry -. "`驱动三阶段管线`" .-> RendererPipeline\n';case`core`:return`---
 title: "core"
 ---
 graph TB
+  Product@{ shape: rectangle, label: "Toolkit 产品源码参考文档" }
   Tools@{ shape: rectangle, label: "自举检查工具" }
   Toolkit@{ shape: rectangle, label: "Toolkit TypeScript 产品" }
-  Product@{ shape: rectangle, label: "Toolkit 产品源码参考文档" }
+  Renderer@{ shape: rectangle, label: "Canvas 渲染引擎" }
+  Documentation@{ shape: rectangle, label: "产品规范与参考" }
   Repository@{ shape: rectangle, label: "仓库工程基础" }
   Specifications@{ shape: rectangle, label: "工具链规范" }
   Fixtures@{ shape: rectangle, label: "跨组件夹具" }
   Resources@{ shape: rectangle, label: "共享静态资源" }
-  Documentation@{ shape: rectangle, label: "产品规范与参考" }
+  Renderer -. "\`字体与样式资源\`" .-> Resources
+  Product -. "\`渲染行为测试\`" .-> Renderer
   Tools -.-> Repository
   Tools -.-> Specifications
   Toolkit -.-> Repository
@@ -95,13 +101,14 @@ graph TB
   SpecificationsLayout@{ shape: rectangle, label: "文件布局契约" }
   SpecificationsDevelopment@{ shape: rectangle, label: "开发与协作契约" }
   SpecificationsRuntime@{ shape: rectangle, label: "Toolkit 运行时合同" }
+  SpecificationsCanvas_render@{ shape: rectangle, label: "Canvas 渲染规范" }
 `;case`product`:return`---
 title: "Toolkit 产品源码参考文档"
 ---
 graph TB
   ProductMcp@{ shape: rectangle, label: "MCP 协议入口" }
   ProductHost@{ shape: rectangle, label: "VSCode Host 入口" }
-  ProductRenderer@{ shape: rectangle, label: "Canvas 渲染" }
+  ProductRenderer_tests@{ shape: rectangle, label: "Canvas 渲染测试" }
   ProductFrontend@{ shape: rectangle, label: "前端" }
   ProductCore@{ shape: rectangle, label: "核心逻辑" }
   ProductMcp -.-> ProductCore

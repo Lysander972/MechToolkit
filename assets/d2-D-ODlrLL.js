@@ -1,13 +1,19 @@
 var e=e=>{switch(e){case`index`:return`direction: down
 
+Product: {
+  label: "Toolkit 产品源码参考文档"
+}
 Tools: {
   label: "自举检查工具"
 }
 Toolkit: {
   label: "Toolkit TypeScript 产品"
 }
-Product: {
-  label: "Toolkit 产品源码参考文档"
+Renderer: {
+  label: "Canvas 渲染引擎"
+}
+Documentation: {
+  label: "产品规范与参考"
 }
 Repository: {
   label: "仓库工程基础"
@@ -21,10 +27,9 @@ Fixtures: {
 Resources: {
   label: "共享静态资源"
 }
-Documentation: {
-  label: "产品规范与参考"
-}
 
+Renderer -> Resources: "字体与样式资源"
+Product -> Renderer: "渲染行为测试"
 Tools -> Repository
 Tools -> Specifications
 Toolkit -> Repository
@@ -33,16 +38,94 @@ Toolkit -> Fixtures
 Product -> Fixtures
 Product -> Resources
 Product -> Documentation
+`;case`canvas_render`:return`direction: down
+
+RendererEntry: {
+  label: "字体就绪后的唯一入口"
+}
+RendererPipeline: {
+  label: "DOM 渲染管线"
+}
+RendererNodes: {
+  label: "节点输入与能力顺序"
+}
+RendererDom_schema: {
+  label: "DOM 严格 Schema 提取"
+}
+RendererFeatures: {
+  label: "特性 DOM 应用"
+}
+RendererSchema: {
+  label: "使用者节点 Schema"
+}
+RendererLayout: {
+  label: "布局计算与诊断"
+}
+RendererImages: {
+  label: "图像合成与异步提交"
+}
+RendererFields: {
+  label: "白名单与统一取值"
+}
+RendererValues: {
+  label: "属性解析与渲染基础能力"
+}
+RendererContracts: {
+  label: "特性与运行时契约"
+}
+RendererState: {
+  label: "页面渲染状态"
+}
+
+RendererContracts -> RendererState: "会话类型"
+RendererSchema -> RendererContracts: "持久化字段类型"
+RendererNodes -> RendererContracts: "节点字段与上下文类型"
+RendererDom_schema -> RendererContracts: "属性类型"
+RendererFields -> RendererContracts: "字段类型"
+RendererValues -> RendererContracts: "属性与诊断类型"
+RendererLayout -> RendererContracts: "布局字段与结果"
+RendererFeatures -> RendererContracts: "特性字段与上下文"
+RendererImages -> RendererContracts: "颜色类型"
+RendererPipeline -> RendererContracts: "上下文类型"
+RendererNodes -> RendererSchema: "唯一节点输入类型"
+RendererDom_schema -> RendererSchema: "确定输出契约"
+RendererNodes -> RendererDom_schema: "确定类型的节点 Schema"
+RendererNodes -> RendererLayout: "第一项布局能力"
+RendererNodes -> RendererFeatures: "按节点类型固定顺序应用能力"
+RendererNodes -> RendererState: "会话上下文类型"
+RendererPipeline -> RendererNodes: "节点构造与能力顺序"
+RendererDom_schema -> RendererValues: "颜色与枚举解析"
+RendererPipeline -> RendererDom_schema: "唯一 DOM 属性提取"
+RendererLayout -> RendererFields: "白名单与默认值"
+RendererFeatures -> RendererFields: "启用字段与默认值"
+RendererPipeline -> RendererFields: "子节点收集与逻辑路径"
+RendererLayout -> RendererValues: "取值与颜色"
+RendererFeatures -> RendererValues: "文本、颜色、资源与错误报告"
+RendererPipeline -> RendererValues: "根尺寸、属性和标签"
+RendererEntry -> RendererValues: "字体加载与错误报告"
+RendererFeatures -> RendererLayout: "布局能力"
+RendererEntry -> RendererLayout: "诊断读取"
+RendererFeatures -> RendererImages: "图像合成与提交"
+RendererFeatures -> RendererState: "异步资源登记与完成"
+RendererPipeline -> RendererState: "显式会话类型"
+RendererEntry -> RendererState: "启动与完成状态"
+RendererEntry -> RendererPipeline: "驱动三阶段管线"
 `;case`core`:return`direction: down
 
+Product: {
+  label: "Toolkit 产品源码参考文档"
+}
 Tools: {
   label: "自举检查工具"
 }
 Toolkit: {
   label: "Toolkit TypeScript 产品"
 }
-Product: {
-  label: "Toolkit 产品源码参考文档"
+Renderer: {
+  label: "Canvas 渲染引擎"
+}
+Documentation: {
+  label: "产品规范与参考"
 }
 Repository: {
   label: "仓库工程基础"
@@ -56,10 +139,9 @@ Fixtures: {
 Resources: {
   label: "共享静态资源"
 }
-Documentation: {
-  label: "产品规范与参考"
-}
 
+Renderer -> Resources: "字体与样式资源"
+Product -> Renderer: "渲染行为测试"
 Tools -> Repository
 Tools -> Specifications
 Toolkit -> Repository
@@ -165,6 +247,9 @@ SpecificationsDevelopment: {
 SpecificationsRuntime: {
   label: "Toolkit 运行时合同"
 }
+SpecificationsCanvas_render: {
+  label: "Canvas 渲染规范"
+}
 `;case`product`:return`direction: down
 
 ProductMcp: {
@@ -173,8 +258,8 @@ ProductMcp: {
 ProductHost: {
   label: "VSCode Host 入口"
 }
-ProductRenderer: {
-  label: "Canvas 渲染"
+ProductRenderer_tests: {
+  label: "Canvas 渲染测试"
 }
 ProductFrontend: {
   label: "前端"
