@@ -19,6 +19,7 @@ var e=e=>{switch(e){case`index`:return`digraph {
         fillcolor="#3b82f6",
         fontcolor="#eff6ff",
         fontname=Arial,
+        label="\\N",
         penwidth=0,
         shape=rect,
         style=filled
@@ -119,6 +120,328 @@ var e=e=>{switch(e){case`index`:return`digraph {
         likec4_id="1xbbocu",
         style=dashed];
 }
+`;case`bescript_first_layer`:return`digraph {
+    graph [TBbalance=min,
+        bgcolor=transparent,
+        compound=true,
+        fontname=Arial,
+        fontsize=20,
+        labeljust=l,
+        labelloc=t,
+        layout=dot,
+        likec4_viewId=bescript_first_layer,
+        nodesep=1.528,
+        outputorder=nodesfirst,
+        pad=0.209,
+        rankdir=TB,
+        ranksep=1.667,
+        splines=spline
+    ];
+    node [color="#2563eb",
+        fillcolor="#3b82f6",
+        fontcolor="#eff6ff",
+        fontname=Arial,
+        label="\\N",
+        penwidth=0,
+        shape=rect,
+        style=filled
+    ];
+    edge [arrowsize=0.75,
+        color="#8D8D8D",
+        fontcolor="#C9C9C9",
+        fontname=Arial,
+        fontsize=14,
+        penwidth=2,
+        style=""
+    ];
+    subgraph cluster_ast {
+        graph [color="#1b3d88",
+            fillcolor="#194b9e",
+            label=<<FONT POINT-SIZE="11" COLOR="#bfdbfeb3"><B>局部 AST 层</B></FONT>>,
+            likec4_depth=1,
+            likec4_id="toolkit.script.ast",
+            likec4_level=0,
+            margin=32,
+            style=filled
+        ];
+        local_ast [height=2.5,
+            label=<<FONT POINT-SIZE="20">局部 AST</FONT>>,
+            likec4_id="toolkit.script.ast.local_ast",
+            likec4_level=1,
+            margin="0.223,0.223",
+            width=4.445];
+    }
+    subgraph cluster_text {
+        graph [color="#1b3d88",
+            fillcolor="#194b9e",
+            label=<<FONT POINT-SIZE="11" COLOR="#bfdbfeb3"><B>原版文本层</B></FONT>>,
+            likec4_depth=1,
+            likec4_id="toolkit.script.text",
+            likec4_level=0,
+            margin=40,
+            style=filled
+        ];
+        code_file [height=2.5,
+            label=<<FONT POINT-SIZE="20">.code 文件</FONT>>,
+            likec4_id="toolkit.script.text.code_file",
+            likec4_level=1,
+            margin="0.223,0.223",
+            width=4.445];
+        vocabulary [height=2.5,
+            label=<<FONT POINT-SIZE="20">类型与转义</FONT>>,
+            likec4_id="toolkit.script.text.vocabulary",
+            likec4_level=1,
+            margin="0.223,0.223",
+            width=4.445];
+    }
+    first [height=2.5,
+        label=<<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="4"><TR><TD><FONT POINT-SIZE="20">BEScript 文本与局部 AST 转换</FONT></TD></TR><TR><TD><FONT POINT-SIZE="15" COLOR="#bfdbfe">Issue 45<BR/>的实现归属：唯一正文词法、控制结构、调用与反向序列化入口；依赖文本合同和局部<BR/>AST，不依赖 Host</FONT></TD></TR></TABLE>>,
+        likec4_id="toolkit.script.conversion.first",
+        likec4_level=0,
+        margin="0.223,0.223",
+        width=4.445];
+    bescript [height=2.5,
+        label=<<FONT POINT-SIZE="20">BEScript 内部格式</FONT>>,
+        likec4_id="specifications.bescript",
+        likec4_level=0,
+        margin="0.223,0.223",
+        width=4.445];
+    first -> bescript [arrowhead=normal,
+        likec4_id=ciduwf,
+        minlen=0,
+        style=dashed];
+    local_ast -> code_file [arrowhead=normal,
+        likec4_id="8fvj8x",
+        style=dashed,
+        weight=3];
+    local_ast -> vocabulary [arrowhead=normal,
+        likec4_id="141rezz",
+        style=dashed,
+        weight=3];
+    local_ast -> bescript [arrowhead=normal,
+        likec4_id="1p5137j",
+        style=dashed];
+    code_file -> vocabulary [arrowhead=normal,
+        likec4_id="4njnw4",
+        minlen=0,
+        style=dashed,
+        weight=5];
+    code_file -> bescript [arrowhead=normal,
+        likec4_id="18fu1tw",
+        style=dashed];
+    vocabulary -> bescript [arrowhead=normal,
+        likec4_id="1r7eph6",
+        style=dashed];
+}
+`;case`bescript_second_layer`:return`digraph {
+    graph [TBbalance=min,
+        bgcolor=transparent,
+        compound=true,
+        fontname=Arial,
+        fontsize=20,
+        labeljust=l,
+        labelloc=t,
+        layout=dot,
+        likec4_viewId=bescript_second_layer,
+        nodesep=1.528,
+        outputorder=nodesfirst,
+        pad=0.209,
+        rankdir=TB,
+        ranksep=1.667,
+        splines=spline
+    ];
+    node [color="#2563eb",
+        fillcolor="#3b82f6",
+        fontcolor="#eff6ff",
+        fontname=Arial,
+        label="\\N",
+        penwidth=0,
+        shape=rect,
+        style=filled
+    ];
+    edge [arrowsize=0.75,
+        color="#8D8D8D",
+        fontcolor="#C9C9C9",
+        fontname=Arial,
+        fontsize=14,
+        penwidth=2,
+        style=""
+    ];
+    subgraph cluster_context {
+        graph [color="#1b3d88",
+            fillcolor="#194b9e",
+            label=<<FONT POINT-SIZE="11" COLOR="#bfdbfeb3"><B>零件上下文层</B></FONT>>,
+            likec4_depth=1,
+            likec4_id="toolkit.script.context",
+            likec4_level=0,
+            margin=32,
+            style=filled
+        ];
+        device_context [height=2.5,
+            label=<<FONT POINT-SIZE="20">全局变量、零件元数据与零件上下文</FONT>>,
+            likec4_id="toolkit.script.context.device_context",
+            likec4_level=1,
+            margin="0.223,0.223",
+            width=4.445];
+    }
+    subgraph cluster_ast {
+        graph [color="#1b3d88",
+            fillcolor="#194b9e",
+            label=<<FONT POINT-SIZE="11" COLOR="#bfdbfeb3"><B>局部 AST 层</B></FONT>>,
+            likec4_depth=1,
+            likec4_id="toolkit.script.ast",
+            likec4_level=0,
+            margin=32,
+            style=filled
+        ];
+        local_ast [height=2.5,
+            label=<<FONT POINT-SIZE="20">局部 AST</FONT>>,
+            likec4_id="toolkit.script.ast.local_ast",
+            likec4_level=1,
+            margin="0.223,0.223",
+            width=4.445];
+    }
+    logic [height=2.5,
+        label=<<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="4"><TR><TD><FONT POINT-SIZE="20">Host 生命周期与工程 IO</FONT></TD></TR><TR><TD><FONT POINT-SIZE="15" COLOR="#bfdbfe">工作区读取、语义输入闭包与视图运行时缓存的唯一所有者；编排三层纯转换，缓存随 Host<BR/>生命周期释放</FONT></TD></TR></TABLE>>,
+        likec4_id="toolkit.host.logic",
+        likec4_level=0,
+        margin="0.223,0.223",
+        width=4.445];
+    second [height=2.5,
+        label=<<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="4"><TR><TD><FONT POINT-SIZE="20">Context 与官方 TS AST 业务转换</FONT></TD></TR><TR><TD><FONT POINT-SIZE="15" COLOR="#bfdbfe">Issue 46 的实现归属：引用身份、变量语义、平台方法和 Canvas<BR/>业务映射；仅消费 Context 与显式语义输入，不读取工程或缓存</FONT></TD></TR></TABLE>>,
+        likec4_id="toolkit.script.conversion.second",
+        likec4_level=0,
+        margin="0.223,0.223",
+        width=4.445];
+    logic -> second [arrowhead=normal,
+        likec4_id=rgt9ql,
+        style=dashed,
+        weight=2];
+    logic_1 [height=2.5,
+        label=<<FONT POINT-SIZE="20">工程设置解析</FONT>>,
+        likec4_id="toolkit.project_model.logic",
+        likec4_level=0,
+        margin="0.223,0.223",
+        width=4.445];
+    logic -> logic_1 [arrowhead=normal,
+        likec4_id=nupxrj,
+        style=dashed,
+        weight=2];
+    tests [height=2.5,
+        label=<<FONT POINT-SIZE="20">工程格式测试</FONT>>,
+        likec4_id="toolkit.project_model.tests",
+        likec4_level=0,
+        margin="0.223,0.223",
+        width=4.445];
+    tests -> logic_1 [arrowhead=normal,
+        likec4_id="14dubtt",
+        minlen=1,
+        style=dashed,
+        weight=3];
+    bescript [height=2.5,
+        label=<<FONT POINT-SIZE="20">BEScript 内部格式</FONT>>,
+        likec4_id="specifications.bescript",
+        likec4_level=0,
+        margin="0.223,0.223",
+        width=4.445];
+    second -> bescript [arrowhead=normal,
+        likec4_id="1kn27s5",
+        style=dashed];
+    device_context -> local_ast [arrowhead=normal,
+        likec4_id="4lxv4v",
+        style=dashed,
+        weight=3];
+    device_context -> bescript [arrowhead=normal,
+        likec4_id="1ojmxt6",
+        style=dashed];
+    local_ast -> bescript [arrowhead=normal,
+        likec4_id="1p5137j",
+        style=dashed];
+}
+`;case`bescript_third_layer`:return`digraph {
+    graph [TBbalance=min,
+        bgcolor=transparent,
+        compound=true,
+        fontname=Arial,
+        fontsize=20,
+        labeljust=l,
+        labelloc=t,
+        layout=dot,
+        likec4_viewId=bescript_third_layer,
+        nodesep=1.528,
+        outputorder=nodesfirst,
+        pad=0.209,
+        rankdir=TB,
+        ranksep=1.667,
+        splines=spline
+    ];
+    node [color="#2563eb",
+        fillcolor="#3b82f6",
+        fontcolor="#eff6ff",
+        fontname=Arial,
+        label="\\N",
+        penwidth=0,
+        shape=rect,
+        style=filled
+    ];
+    edge [arrowsize=0.75,
+        color="#8D8D8D",
+        fontcolor="#C9C9C9",
+        fontname=Arial,
+        fontsize=14,
+        penwidth=2,
+        style=""
+    ];
+    subgraph cluster_host {
+        graph [color="#1b3d88",
+            fillcolor="#194b9e",
+            label=<<FONT POINT-SIZE="11" COLOR="#bfdbfeb3"><B>工作区 HOST</B></FONT>>,
+            likec4_depth=1,
+            likec4_id="toolkit.host",
+            likec4_level=0,
+            margin=32,
+            style=filled
+        ];
+        logic [height=2.5,
+            label=<<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="4"><TR><TD><FONT POINT-SIZE="20">Host 生命周期与工程 IO</FONT></TD></TR><TR><TD><FONT POINT-SIZE="15" COLOR="#bfdbfe">工作区读取、语义输入闭包与视图运行时缓存的唯一所有者；编排三层纯转换，缓存随 Host<BR/>生命周期释放</FONT></TD></TR></TABLE>>,
+            likec4_id="toolkit.host.logic",
+            likec4_level=1,
+            margin="0.223,0.223",
+            width=4.445];
+    }
+    subgraph cluster_script {
+        graph [color="#1b3d88",
+            fillcolor="#194b9e",
+            label=<<FONT POINT-SIZE="11" COLOR="#bfdbfeb3"><B>BESCRIPT 纯计算包</B></FONT>>,
+            likec4_depth=1,
+            likec4_id="toolkit.script",
+            likec4_level=0,
+            margin=32,
+            style=filled
+        ];
+        third [height=2.5,
+            label=<<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="4"><TR><TD><FONT POINT-SIZE="20">官方 TS 解析打印与局部装配</FONT></TD></TR><TR><TD><FONT POINT-SIZE="15" COLOR="#bfdbfe">Issue 47 的实现归属：官方 parser、factory、printer<BR/>和有独立差分依据的局部片段装配；缓存状态由 Host 显式传入，无进程全局状态，无<BR/>BEScript 业务解释</FONT></TD></TR></TABLE>>,
+            likec4_id="toolkit.script.conversion.third",
+            likec4_level=1,
+            margin="0.223,0.223",
+            width=4.445];
+    }
+    logic -> third [arrowhead=normal,
+        likec4_id=z22sym,
+        minlen=1,
+        style=dashed,
+        weight=2];
+    bescript [height=2.5,
+        label=<<FONT POINT-SIZE="20">BEScript 内部格式</FONT>>,
+        likec4_id="specifications.bescript",
+        likec4_level=0,
+        margin="0.223,0.223",
+        width=4.445];
+    third -> bescript [arrowhead=normal,
+        likec4_id="1oqmeu",
+        minlen=1,
+        style=dashed];
+}
 `;case`canvas_render`:return`digraph {
     graph [TBbalance=min,
         bgcolor=transparent,
@@ -140,6 +463,7 @@ var e=e=>{switch(e){case`index`:return`digraph {
         fillcolor="#3b82f6",
         fontcolor="#eff6ff",
         fontname=Arial,
+        label="\\N",
         penwidth=0,
         shape=rect,
         style=filled
@@ -378,6 +702,7 @@ var e=e=>{switch(e){case`index`:return`digraph {
         fillcolor="#3b82f6",
         fontcolor="#eff6ff",
         fontname=Arial,
+        label="\\N",
         penwidth=0,
         shape=rect,
         style=filled
@@ -499,6 +824,7 @@ var e=e=>{switch(e){case`index`:return`digraph {
         fillcolor="#3b82f6",
         fontcolor="#eff6ff",
         fontname=Arial,
+        label="\\N",
         penwidth=0,
         shape=rect,
         style=filled
@@ -603,6 +929,7 @@ var e=e=>{switch(e){case`index`:return`digraph {
         fillcolor="#3b82f6",
         fontcolor="#eff6ff",
         fontname=Arial,
+        label="\\N",
         penwidth=0,
         shape=rect,
         style=filled
@@ -687,6 +1014,16 @@ var e=e=>{switch(e){case`index`:return`digraph {
         likec4_id=m33uen,
         minlen=1,
         style=dashed];
+    script [height=2.5,
+        label=<<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="4"><TR><TD><FONT POINT-SIZE="20">BEScript 纯计算包</FONT></TD></TR><TR><TD><FONT POINT-SIZE="15" COLOR="#bfdbfe">数据合同与三层纯转换设计分开登记；转换函数不读取工程或拥有跨请求缓存，Host<BR/>持有缓存状态并传入完整语义依据</FONT></TD></TR></TABLE>>,
+        likec4_id="toolkit.script",
+        likec4_level=0,
+        margin="0.223,0.223",
+        width=4.445];
+    host -> script [arrowhead=normal,
+        likec4_id="7tmu9x",
+        minlen=1,
+        style=dashed];
 }
 `;case`repository`:return`digraph {
     graph [TBbalance=min,
@@ -709,6 +1046,7 @@ var e=e=>{switch(e){case`index`:return`digraph {
         fillcolor="#3b82f6",
         fontcolor="#eff6ff",
         fontname=Arial,
+        label="\\N",
         penwidth=0,
         shape=rect,
         style=filled
@@ -776,6 +1114,7 @@ var e=e=>{switch(e){case`index`:return`digraph {
         fillcolor="#3b82f6",
         fontcolor="#eff6ff",
         fontname=Arial,
+        label="\\N",
         penwidth=0,
         shape=rect,
         style=filled
@@ -815,12 +1154,19 @@ var e=e=>{switch(e){case`index`:return`digraph {
         margin="0.223,0.223",
         width=4.445];
     development -> runtime [style=invis];
+    bescript [height=2.5,
+        label=<<FONT POINT-SIZE="20">BEScript 内部格式</FONT>>,
+        likec4_id="specifications.bescript",
+        likec4_level=0,
+        margin="0.223,0.223",
+        width=4.445];
     canvas_render [height=2.5,
         label=<<FONT POINT-SIZE="20">Canvas 渲染规范</FONT>>,
         likec4_id="specifications.canvas_render",
         likec4_level=0,
         margin="0.223,0.223",
         width=4.445];
+    bescript -> canvas_render [style=invis];
 }
 `;case`product`:return`digraph {
     graph [TBbalance=min,
@@ -843,6 +1189,7 @@ var e=e=>{switch(e){case`index`:return`digraph {
         fillcolor="#3b82f6",
         fontcolor="#eff6ff",
         fontname=Arial,
+        label="\\N",
         penwidth=0,
         shape=rect,
         style=filled
@@ -919,6 +1266,7 @@ var e=e=>{switch(e){case`index`:return`digraph {
         fillcolor="#3b82f6",
         fontcolor="#eff6ff",
         fontname=Arial,
+        label="\\N",
         penwidth=0,
         shape=rect,
         style=filled
@@ -1040,6 +1388,7 @@ var e=e=>{switch(e){case`index`:return`digraph {
         fillcolor="#3b82f6",
         fontcolor="#eff6ff",
         fontname=Arial,
+        label="\\N",
         penwidth=0,
         shape=rect,
         style=filled
@@ -1208,6 +1557,267 @@ var e=e=>{switch(e){case`index`:return`digraph {
 <title>toolkit&#45;&gt;specifications</title>
 <path fill="none" stroke="#8d8d8d" stroke-width="2" stroke-dasharray="5,2" d="M1923.02,-645.67C1923.02,-604.47 1923.02,-555.36 1923.02,-512.97"/>
 <polygon fill="#8d8d8d" stroke="#8d8d8d" stroke-width="2" points="1925.65,-513.16 1923.02,-505.66 1920.4,-513.16 1925.65,-513.16"/>
+</g>
+</g>
+</svg>
+`;case`bescript_first_layer`:return`<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 15.0.0 (0)
+ -->
+<!-- Pages: 1 -->
+<svg width="1086pt" height="871pt"
+ viewBox="0.00 0.00 1086.00 871.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(15.05 856.25)">
+<g id="clust1" class="cluster">
+<title>cluster_ast</title>
+<polygon fill="#194b9e" stroke="#1b3d88" points="593.6,-568 593.6,-833.2 977.6,-833.2 977.6,-568 593.6,-568"/>
+<text xml:space="preserve" text-anchor="start" x="601.6" y="-820.3" font-family="Arial" font-weight="bold" font-size="11.00" fill="#bfdbfe" fill-opacity="0.701961">局部 AST 层</text>
+</g>
+<g id="clust2" class="cluster">
+<title>cluster_text</title>
+<polygon fill="#194b9e" stroke="#1b3d88" points="155.6,-260 155.6,-541.2 985.6,-541.2 985.6,-260 155.6,-260"/>
+<text xml:space="preserve" text-anchor="start" x="163.6" y="-528.3" font-family="Arial" font-weight="bold" font-size="11.00" fill="#bfdbfe" fill-opacity="0.701961">原版文本层</text>
+</g>
+<!-- local_ast -->
+<g id="node1" class="node">
+<title>local_ast</title>
+<polygon fill="#3b82f6" stroke="#2563eb" stroke-width="0" points="945.62,-780 625.58,-780 625.58,-600 945.62,-600 945.62,-780"/>
+<text xml:space="preserve" text-anchor="start" x="746.71" y="-682" font-family="Arial" font-size="20.00" fill="#eff6ff">局部 AST</text>
+</g>
+<!-- code_file -->
+<g id="node2" class="node">
+<title>code_file</title>
+<polygon fill="#3b82f6" stroke="#2563eb" stroke-width="0" points="515.62,-480 195.58,-480 195.58,-300 515.62,-300 515.62,-480"/>
+<text xml:space="preserve" text-anchor="start" x="311.69" y="-382" font-family="Arial" font-size="20.00" fill="#eff6ff">.code 文件</text>
+</g>
+<!-- vocabulary -->
+<g id="node3" class="node">
+<title>vocabulary</title>
+<polygon fill="#3b82f6" stroke="#2563eb" stroke-width="0" points="945.62,-480 625.58,-480 625.58,-300 945.62,-300 945.62,-480"/>
+<text xml:space="preserve" text-anchor="start" x="743.93" y="-382" font-family="Arial" font-size="20.00" fill="#eff6ff">类型与转义</text>
+</g>
+<!-- first -->
+<g id="node4" class="node">
+<title>first</title>
+<polygon fill="#3b82f6" stroke="#2563eb" stroke-width="0" points="515.2,-180 0,-180 0,0 515.2,0 515.2,-180"/>
+<text xml:space="preserve" text-anchor="start" x="132.57" y="-111" font-family="Arial" font-size="20.00" fill="#eff6ff">BEScript 文本与局部 AST 转换</text>
+<text xml:space="preserve" text-anchor="start" x="229.25" y="-88" font-family="Arial" font-size="15.00" fill="#bfdbfe">Issue 45</text>
+<text xml:space="preserve" text-anchor="start" x="20.06" y="-70" font-family="Arial" font-size="15.00" fill="#bfdbfe">的实现归属：唯一正文词法、控制结构、调用与反向序列化入口；依赖文本合同和局部</text>
+<text xml:space="preserve" text-anchor="start" x="200.51" y="-52" font-family="Arial" font-size="15.00" fill="#bfdbfe">AST，不依赖 Host</text>
+</g>
+<!-- bescript -->
+<g id="node5" class="node">
+<title>bescript</title>
+<polygon fill="#3b82f6" stroke="#2563eb" stroke-width="0" points="945.62,-180 625.58,-180 625.58,0 945.62,0 945.62,-180"/>
+<text xml:space="preserve" text-anchor="start" x="710.58" y="-82" font-family="Arial" font-size="20.00" fill="#eff6ff">BEScript 内部格式</text>
+</g>
+<!-- local_ast&#45;&gt;code_file -->
+<g id="edge2" class="edge">
+<title>local_ast&#45;&gt;code_file</title>
+<path fill="none" stroke="#8d8d8d" stroke-width="2" stroke-dasharray="5,2" d="M655.88,-600.06C627.74,-580.7 598.15,-560.29 570.6,-541.2 544.85,-523.36 517.41,-504.25 491.05,-485.86"/>
+<polygon fill="#8d8d8d" stroke="#8d8d8d" stroke-width="2" points="492.67,-483.79 485.02,-481.65 489.67,-488.09 492.67,-483.79"/>
+</g>
+<!-- local_ast&#45;&gt;vocabulary -->
+<g id="edge3" class="edge">
+<title>local_ast&#45;&gt;vocabulary</title>
+<path fill="none" stroke="#8d8d8d" stroke-width="2" stroke-dasharray="5,2" d="M785.6,-600.4C785.6,-565.73 785.6,-525.81 785.6,-490.19"/>
+<polygon fill="#8d8d8d" stroke="#8d8d8d" stroke-width="2" points="788.23,-490.3 785.6,-482.8 782.98,-490.3 788.23,-490.3"/>
+</g>
+<!-- local_ast&#45;&gt;bescript -->
+<g id="edge4" class="edge">
+<title>local_ast&#45;&gt;bescript</title>
+<path fill="none" stroke="#8d8d8d" stroke-width="2" stroke-dasharray="5,2" d="M945.55,-614.56C972.49,-594.65 996.8,-570.35 1012.6,-541.2 1072.17,-431.33 1068.69,-371.68 1012.6,-260 998.48,-231.87 977.2,-207.24 953.24,-186.11"/>
+<polygon fill="#8d8d8d" stroke="#8d8d8d" stroke-width="2" points="955.08,-184.23 947.68,-181.34 951.67,-188.21 955.08,-184.23"/>
+</g>
+<!-- code_file&#45;&gt;vocabulary -->
+<g id="edge5" class="edge">
+<title>code_file&#45;&gt;vocabulary</title>
+<path fill="none" stroke="#8d8d8d" stroke-width="2" stroke-dasharray="5,2" d="M515.59,-390C548.89,-390 582.18,-390 615.48,-390"/>
+<polygon fill="#8d8d8d" stroke="#8d8d8d" stroke-width="2" points="615.28,-392.63 622.78,-390 615.28,-387.38 615.28,-392.63"/>
+</g>
+<!-- code_file&#45;&gt;bescript -->
+<g id="edge6" class="edge">
+<title>code_file&#45;&gt;bescript</title>
+<path fill="none" stroke="#8d8d8d" stroke-width="2" stroke-dasharray="5,2" d="M483.74,-300.2C535.78,-264.13 595.99,-222.41 648.87,-185.76"/>
+<polygon fill="#8d8d8d" stroke="#8d8d8d" stroke-width="2" points="650.14,-188.07 654.81,-181.64 647.15,-183.76 650.14,-188.07"/>
+</g>
+<!-- vocabulary&#45;&gt;bescript -->
+<g id="edge7" class="edge">
+<title>vocabulary&#45;&gt;bescript</title>
+<path fill="none" stroke="#8d8d8d" stroke-width="2" stroke-dasharray="5,2" d="M785.6,-300.4C785.6,-265.73 785.6,-225.81 785.6,-190.19"/>
+<polygon fill="#8d8d8d" stroke="#8d8d8d" stroke-width="2" points="788.23,-190.3 785.6,-182.8 782.98,-190.3 788.23,-190.3"/>
+</g>
+<!-- first&#45;&gt;bescript -->
+<g id="edge1" class="edge">
+<title>first&#45;&gt;bescript</title>
+<path fill="none" stroke="#8d8d8d" stroke-width="2" stroke-dasharray="5,2" d="M515.16,-90C548.59,-90 582.01,-90 615.44,-90"/>
+<polygon fill="#8d8d8d" stroke="#8d8d8d" stroke-width="2" points="615.29,-92.63 622.79,-90 615.29,-87.38 615.29,-92.63"/>
+</g>
+</g>
+</svg>
+`;case`bescript_second_layer`:return`<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 15.0.0 (0)
+ -->
+<!-- Pages: 1 -->
+<svg width="1636pt" height="871pt"
+ viewBox="0.00 0.00 1636.00 871.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(15.05 856.25)">
+<g id="clust1" class="cluster">
+<title>cluster_context</title>
+<polygon fill="#194b9e" stroke="#1b3d88" points="8,-568 8,-833.2 392,-833.2 392,-568 8,-568"/>
+<text xml:space="preserve" text-anchor="start" x="16" y="-820.3" font-family="Arial" font-weight="bold" font-size="11.00" fill="#bfdbfe" fill-opacity="0.701961">零件上下文层</text>
+</g>
+<g id="clust2" class="cluster">
+<title>cluster_ast</title>
+<polygon fill="#194b9e" stroke="#1b3d88" points="8,-268 8,-533.2 392,-533.2 392,-268 8,-268"/>
+<text xml:space="preserve" text-anchor="start" x="16" y="-520.3" font-family="Arial" font-weight="bold" font-size="11.00" fill="#bfdbfe" fill-opacity="0.701961">局部 AST 层</text>
+</g>
+<!-- device_context -->
+<g id="node1" class="node">
+<title>device_context</title>
+<polygon fill="#3b82f6" stroke="#2563eb" stroke-width="0" points="360.02,-780 39.98,-780 39.98,-600 360.02,-600 360.02,-780"/>
+<text xml:space="preserve" text-anchor="start" x="66.64" y="-682" font-family="Arial" font-size="20.00" fill="#eff6ff">全局变量、零件元数据与零件上下文</text>
+</g>
+<!-- local_ast -->
+<g id="node2" class="node">
+<title>local_ast</title>
+<polygon fill="#3b82f6" stroke="#2563eb" stroke-width="0" points="360.02,-480 39.98,-480 39.98,-300 360.02,-300 360.02,-480"/>
+<text xml:space="preserve" text-anchor="start" x="161.1" y="-382" font-family="Arial" font-size="20.00" fill="#eff6ff">局部 AST</text>
+</g>
+<!-- logic -->
+<g id="node3" class="node">
+<title>logic</title>
+<polygon fill="#3b82f6" stroke="#2563eb" stroke-width="0" points="1176.11,-780 625.89,-780 625.89,-600 1176.11,-600 1176.11,-780"/>
+<text xml:space="preserve" text-anchor="start" x="805.98" y="-702" font-family="Arial" font-size="20.00" fill="#eff6ff">Host 生命周期与工程 IO</text>
+<text xml:space="preserve" text-anchor="start" x="645.95" y="-679" font-family="Arial" font-size="15.00" fill="#bfdbfe">工作区读取、语义输入闭包与视图运行时缓存的唯一所有者；编排三层纯转换，缓存随 Host</text>
+<text xml:space="preserve" text-anchor="start" x="863.49" y="-661" font-family="Arial" font-size="15.00" fill="#bfdbfe">生命周期释放</text>
+</g>
+<!-- second -->
+<g id="node4" class="node">
+<title>second</title>
+<polygon fill="#3b82f6" stroke="#2563eb" stroke-width="0" points="1110.28,-480 691.72,-480 691.72,-300 1110.28,-300 1110.28,-480"/>
+<text xml:space="preserve" text-anchor="start" x="764.85" y="-402" font-family="Arial" font-size="20.00" fill="#eff6ff">Context 与官方 TS AST 业务转换</text>
+<text xml:space="preserve" text-anchor="start" x="711.78" y="-379" font-family="Arial" font-size="15.00" fill="#bfdbfe">Issue 46 的实现归属：引用身份、变量语义、平台方法和 Canvas</text>
+<text xml:space="preserve" text-anchor="start" x="720.96" y="-361" font-family="Arial" font-size="15.00" fill="#bfdbfe">业务映射；仅消费 Context 与显式语义输入，不读取工程或缓存</text>
+</g>
+<!-- logic_1 -->
+<g id="node5" class="node">
+<title>logic_1</title>
+<polygon fill="#3b82f6" stroke="#2563eb" stroke-width="0" points="1606.02,-480 1285.98,-480 1285.98,-300 1606.02,-300 1606.02,-480"/>
+<text xml:space="preserve" text-anchor="start" x="1395.99" y="-382" font-family="Arial" font-size="20.00" fill="#eff6ff">工程设置解析</text>
+</g>
+<!-- tests -->
+<g id="node6" class="node">
+<title>tests</title>
+<polygon fill="#3b82f6" stroke="#2563eb" stroke-width="0" points="1606.02,-780 1285.98,-780 1285.98,-600 1606.02,-600 1606.02,-780"/>
+<text xml:space="preserve" text-anchor="start" x="1395.99" y="-682" font-family="Arial" font-size="20.00" fill="#eff6ff">工程格式测试</text>
+</g>
+<!-- bescript -->
+<g id="node7" class="node">
+<title>bescript</title>
+<polygon fill="#3b82f6" stroke="#2563eb" stroke-width="0" points="686.02,-180 365.98,-180 365.98,0 686.02,0 686.02,-180"/>
+<text xml:space="preserve" text-anchor="start" x="450.98" y="-82" font-family="Arial" font-size="20.00" fill="#eff6ff">BEScript 内部格式</text>
+</g>
+<!-- device_context&#45;&gt;local_ast -->
+<g id="edge5" class="edge">
+<title>device_context&#45;&gt;local_ast</title>
+<path fill="none" stroke="#8d8d8d" stroke-width="2" stroke-dasharray="5,2" d="M200,-600.4C200,-565.73 200,-525.81 200,-490.19"/>
+<polygon fill="#8d8d8d" stroke="#8d8d8d" stroke-width="2" points="202.63,-490.3 200,-482.8 197.38,-490.3 202.63,-490.3"/>
+</g>
+<!-- device_context&#45;&gt;bescript -->
+<g id="edge6" class="edge">
+<title>device_context&#45;&gt;bescript</title>
+<path fill="none" stroke="#8d8d8d" stroke-width="2" stroke-dasharray="5,2" d="M355.43,-600.18C379.52,-580.73 402,-558.32 419,-533.2 489.05,-429.69 513.38,-285.2 521.75,-189.93"/>
+<polygon fill="#8d8d8d" stroke="#8d8d8d" stroke-width="2" points="524.34,-190.43 522.35,-182.73 519.11,-189.99 524.34,-190.43"/>
+</g>
+<!-- local_ast&#45;&gt;bescript -->
+<g id="edge7" class="edge">
+<title>local_ast&#45;&gt;bescript</title>
+<path fill="none" stroke="#8d8d8d" stroke-width="2" stroke-dasharray="5,2" d="M296.93,-300.4C336.15,-264.54 381.52,-223.07 421.49,-186.54"/>
+<polygon fill="#8d8d8d" stroke="#8d8d8d" stroke-width="2" points="422.88,-188.82 426.65,-181.82 419.34,-184.94 422.88,-188.82"/>
+</g>
+<!-- logic&#45;&gt;second -->
+<g id="edge1" class="edge">
+<title>logic&#45;&gt;second</title>
+<path fill="none" stroke="#8d8d8d" stroke-width="2" stroke-dasharray="5,2" d="M901,-600.4C901,-565.73 901,-525.81 901,-490.19"/>
+<polygon fill="#8d8d8d" stroke="#8d8d8d" stroke-width="2" points="903.63,-490.3 901,-482.8 898.38,-490.3 903.63,-490.3"/>
+</g>
+<!-- logic&#45;&gt;logic_1 -->
+<g id="edge2" class="edge">
+<title>logic&#45;&gt;logic_1</title>
+<path fill="none" stroke="#8d8d8d" stroke-width="2" stroke-dasharray="5,2" d="M1063.41,-600.2C1130.81,-563.34 1209.02,-520.58 1277.09,-483.36"/>
+<polygon fill="#8d8d8d" stroke="#8d8d8d" stroke-width="2" points="1278.22,-485.73 1283.54,-479.83 1275.7,-481.13 1278.22,-485.73"/>
+</g>
+<!-- second&#45;&gt;bescript -->
+<g id="edge4" class="edge">
+<title>second&#45;&gt;bescript</title>
+<path fill="none" stroke="#8d8d8d" stroke-width="2" stroke-dasharray="5,2" d="M789.25,-300.2C744.14,-264.35 692.01,-222.92 646.1,-186.44"/>
+<polygon fill="#8d8d8d" stroke="#8d8d8d" stroke-width="2" points="647.77,-184.41 640.27,-181.8 644.5,-188.52 647.77,-184.41"/>
+</g>
+<!-- tests&#45;&gt;logic_1 -->
+<g id="edge3" class="edge">
+<title>tests&#45;&gt;logic_1</title>
+<path fill="none" stroke="#8d8d8d" stroke-width="2" stroke-dasharray="5,2" d="M1446,-600.4C1446,-565.73 1446,-525.81 1446,-490.19"/>
+<polygon fill="#8d8d8d" stroke="#8d8d8d" stroke-width="2" points="1448.63,-490.3 1446,-482.8 1443.38,-490.3 1448.63,-490.3"/>
+</g>
+</g>
+</svg>
+`;case`bescript_third_layer`:return`<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 15.0.0 (0)
+ -->
+<!-- Pages: 1 -->
+<svg width="660pt" height="871pt"
+ viewBox="0.00 0.00 660.00 871.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(15.05 856.25)">
+<g id="clust1" class="cluster">
+<title>cluster_host</title>
+<polygon fill="#194b9e" stroke="#1b3d88" points="8,-568 8,-833.2 622,-833.2 622,-568 8,-568"/>
+<text xml:space="preserve" text-anchor="start" x="16" y="-820.3" font-family="Arial" font-weight="bold" font-size="11.00" fill="#bfdbfe" fill-opacity="0.701961">工作区 HOST</text>
+</g>
+<g id="clust2" class="cluster">
+<title>cluster_script</title>
+<polygon fill="#194b9e" stroke="#1b3d88" points="25,-268 25,-533.2 605,-533.2 605,-268 25,-268"/>
+<text xml:space="preserve" text-anchor="start" x="33" y="-520.3" font-family="Arial" font-weight="bold" font-size="11.00" fill="#bfdbfe" fill-opacity="0.701961">BESCRIPT 纯计算包</text>
+</g>
+<!-- logic -->
+<g id="node1" class="node">
+<title>logic</title>
+<polygon fill="#3b82f6" stroke="#2563eb" stroke-width="0" points="590.11,-780 39.89,-780 39.89,-600 590.11,-600 590.11,-780"/>
+<text xml:space="preserve" text-anchor="start" x="219.98" y="-702" font-family="Arial" font-size="20.00" fill="#eff6ff">Host 生命周期与工程 IO</text>
+<text xml:space="preserve" text-anchor="start" x="59.95" y="-679" font-family="Arial" font-size="15.00" fill="#bfdbfe">工作区读取、语义输入闭包与视图运行时缓存的唯一所有者；编排三层纯转换，缓存随 Host</text>
+<text xml:space="preserve" text-anchor="start" x="277.49" y="-661" font-family="Arial" font-size="15.00" fill="#bfdbfe">生命周期释放</text>
+</g>
+<!-- third -->
+<g id="node2" class="node">
+<title>third</title>
+<polygon fill="#3b82f6" stroke="#2563eb" stroke-width="0" points="573.44,-480 56.56,-480 56.56,-300 573.44,-300 573.44,-480"/>
+<text xml:space="preserve" text-anchor="start" x="204.98" y="-411" font-family="Arial" font-size="20.00" fill="#eff6ff">官方 TS 解析打印与局部装配</text>
+<text xml:space="preserve" text-anchor="start" x="154.94" y="-388" font-family="Arial" font-size="15.00" fill="#bfdbfe">Issue 47 的实现归属：官方 parser、factory、printer</text>
+<text xml:space="preserve" text-anchor="start" x="76.62" y="-370" font-family="Arial" font-size="15.00" fill="#bfdbfe">和有独立差分依据的局部片段装配；缓存状态由 Host 显式传入，无进程全局状态，无</text>
+<text xml:space="preserve" text-anchor="start" x="258.74" y="-352" font-family="Arial" font-size="15.00" fill="#bfdbfe">BEScript 业务解释</text>
+</g>
+<!-- bescript -->
+<g id="node3" class="node">
+<title>bescript</title>
+<polygon fill="#3b82f6" stroke="#2563eb" stroke-width="0" points="475.02,-180 154.98,-180 154.98,0 475.02,0 475.02,-180"/>
+<text xml:space="preserve" text-anchor="start" x="239.98" y="-82" font-family="Arial" font-size="20.00" fill="#eff6ff">BEScript 内部格式</text>
+</g>
+<!-- logic&#45;&gt;third -->
+<g id="edge1" class="edge">
+<title>logic&#45;&gt;third</title>
+<path fill="none" stroke="#8d8d8d" stroke-width="2" stroke-dasharray="5,2" d="M315,-600.4C315,-565.73 315,-525.81 315,-490.19"/>
+<polygon fill="#8d8d8d" stroke="#8d8d8d" stroke-width="2" points="317.63,-490.3 315,-482.8 312.38,-490.3 317.63,-490.3"/>
+</g>
+<!-- third&#45;&gt;bescript -->
+<g id="edge2" class="edge">
+<title>third&#45;&gt;bescript</title>
+<path fill="none" stroke="#8d8d8d" stroke-width="2" stroke-dasharray="5,2" d="M315,-300.4C315,-265.73 315,-225.81 315,-190.19"/>
+<polygon fill="#8d8d8d" stroke="#8d8d8d" stroke-width="2" points="317.63,-190.3 315,-182.8 312.38,-190.3 317.63,-190.3"/>
 </g>
 </g>
 </svg>
@@ -1895,8 +2505,16 @@ var e=e=>{switch(e){case`index`:return`digraph {
 <!-- project_model -->
 <g id="node8" class="node">
 <title>project_model</title>
-<polygon fill="#3b82f6" stroke="#2563eb" stroke-width="0" points="1076.04,-180 756,-180 756,0 1076.04,0 1076.04,-180"/>
-<text xml:space="preserve" text-anchor="start" x="849.34" y="-82" font-family="Arial" font-size="20.00" fill="#eff6ff">工程格式纯计算包</text>
+<polygon fill="#3b82f6" stroke="#2563eb" stroke-width="0" points="814.04,-180 494,-180 494,0 814.04,0 814.04,-180"/>
+<text xml:space="preserve" text-anchor="start" x="587.34" y="-82" font-family="Arial" font-size="20.00" fill="#eff6ff">工程格式纯计算包</text>
+</g>
+<!-- script -->
+<g id="node9" class="node">
+<title>script</title>
+<polygon fill="#3b82f6" stroke="#2563eb" stroke-width="0" points="1432.29,-180 923.75,-180 923.75,0 1432.29,0 1432.29,-180"/>
+<text xml:space="preserve" text-anchor="start" x="1103" y="-102" font-family="Arial" font-size="20.00" fill="#eff6ff">BEScript 纯计算包</text>
+<text xml:space="preserve" text-anchor="start" x="943.81" y="-79" font-family="Arial" font-size="15.00" fill="#bfdbfe">数据合同与三层纯转换设计分开登记；转换函数不读取工程或拥有跨请求缓存，Host</text>
+<text xml:space="preserve" text-anchor="start" x="1084.25" y="-61" font-family="Arial" font-size="15.00" fill="#bfdbfe">持有缓存状态并传入完整语义依据</text>
 </g>
 <!-- configuration&#45;&gt;config -->
 <!-- vscode_plugin&#45;&gt;frontend -->
@@ -1932,8 +2550,14 @@ var e=e=>{switch(e){case`index`:return`digraph {
 <!-- host&#45;&gt;project_model -->
 <g id="edge8" class="edge">
 <title>host&#45;&gt;project_model</title>
-<path fill="none" stroke="#8d8d8d" stroke-width="2" stroke-dasharray="5,2" d="M916.02,-300.4C916.02,-265.73 916.02,-225.81 916.02,-190.19"/>
-<polygon fill="#8d8d8d" stroke="#8d8d8d" stroke-width="2" points="918.65,-190.3 916.02,-182.8 913.4,-190.3 918.65,-190.3"/>
+<path fill="none" stroke="#8d8d8d" stroke-width="2" stroke-dasharray="5,2" d="M838.12,-300.4C806.86,-264.84 770.74,-223.76 738.82,-187.45"/>
+<polygon fill="#8d8d8d" stroke="#8d8d8d" stroke-width="2" points="740.99,-185.95 734.07,-182.05 737.05,-189.42 740.99,-185.95"/>
+</g>
+<!-- host&#45;&gt;script -->
+<g id="edge9" class="edge">
+<title>host&#45;&gt;script</title>
+<path fill="none" stroke="#8d8d8d" stroke-width="2" stroke-dasharray="5,2" d="M993.92,-300.4C1025.18,-264.84 1061.3,-223.76 1093.22,-187.45"/>
+<polygon fill="#8d8d8d" stroke="#8d8d8d" stroke-width="2" points="1094.99,-189.42 1097.97,-182.05 1091.05,-185.95 1094.99,-189.42"/>
 </g>
 <!-- pi_plugin&#45;&gt;mcp -->
 <g id="edge5" class="edge">
@@ -2020,15 +2644,22 @@ var e=e=>{switch(e){case`index`:return`digraph {
 <polygon fill="#3b82f6" stroke="#2563eb" stroke-width="0" points="320.04,-180 0,-180 0,0 320.04,0 320.04,-180"/>
 <text xml:space="preserve" text-anchor="start" x="86.11" y="-82" font-family="Arial" font-size="20.00" fill="#eff6ff">Toolkit 运行时合同</text>
 </g>
-<!-- canvas_render -->
+<!-- bescript -->
 <g id="node5" class="node">
-<title>canvas_render</title>
+<title>bescript</title>
 <polygon fill="#3b82f6" stroke="#2563eb" stroke-width="0" points="750.04,-1080 430,-1080 430,-900 750.04,-900 750.04,-1080"/>
-<text xml:space="preserve" text-anchor="start" x="520" y="-982" font-family="Arial" font-size="20.00" fill="#eff6ff">Canvas 渲染规范</text>
+<text xml:space="preserve" text-anchor="start" x="515" y="-982" font-family="Arial" font-size="20.00" fill="#eff6ff">BEScript 内部格式</text>
+</g>
+<!-- canvas_render -->
+<g id="node6" class="node">
+<title>canvas_render</title>
+<polygon fill="#3b82f6" stroke="#2563eb" stroke-width="0" points="750.04,-780 430,-780 430,-600 750.04,-600 750.04,-780"/>
+<text xml:space="preserve" text-anchor="start" x="520" y="-682" font-family="Arial" font-size="20.00" fill="#eff6ff">Canvas 渲染规范</text>
 </g>
 <!-- tooling&#45;&gt;layout -->
 <!-- layout&#45;&gt;development -->
 <!-- development&#45;&gt;runtime -->
+<!-- bescript&#45;&gt;canvas_render -->
 </g>
 </svg>
 `;case`product`:return`<?xml version="1.0" encoding="UTF-8" standalone="no"?>

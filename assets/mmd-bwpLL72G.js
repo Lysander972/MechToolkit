@@ -21,6 +21,61 @@ graph TB
   Product -.-> Fixtures
   Product -.-> Resources
   Product -.-> Documentation
+`;case`bescript_first_layer`:return`---
+title: "第一层：BEScript 文本与局部 AST"
+---
+graph TB
+  subgraph ToolkitScriptAst["\`局部 AST 层\`"]
+    ToolkitScriptAst.Local_ast@{ shape: rectangle, label: "局部 AST" }
+  end
+  ToolkitScriptConversionFirst@{ shape: rectangle, label: "BEScript 文本与局部 AST 转换" }
+  subgraph ToolkitScriptText["\`原版文本层\`"]
+    ToolkitScriptText.Code_file@{ shape: rectangle, label: ".code 文件" }
+    ToolkitScriptText.Vocabulary@{ shape: rectangle, label: "类型与转义" }
+  end
+  SpecificationsBescript@{ shape: rectangle, label: "BEScript 内部格式" }
+  ToolkitScriptText.Code_file -.-> ToolkitScriptText.Vocabulary
+  ToolkitScriptAst.Local_ast -.-> ToolkitScriptText.Vocabulary
+  ToolkitScriptAst.Local_ast -.-> ToolkitScriptText.Code_file
+  ToolkitScriptConversionFirst -.-> SpecificationsBescript
+  ToolkitScriptText.Vocabulary -.-> SpecificationsBescript
+  ToolkitScriptText.Code_file -.-> SpecificationsBescript
+  ToolkitScriptAst.Local_ast -.-> SpecificationsBescript
+`;case`bescript_second_layer`:return`---
+title: "第二层：零件 Context 与官方 TS AST 的转换边界"
+---
+graph TB
+  ToolkitHostLogic@{ shape: rectangle, label: "Host 生命周期与工程 IO" }
+  subgraph ToolkitScriptContext["\`零件上下文层\`"]
+    ToolkitScriptContext.Device_context@{ shape: rectangle, label: "全局变量、零件元数据与零件上下文" }
+  end
+  ToolkitProject_modelTests@{ shape: rectangle, label: "工程格式测试" }
+  ToolkitScriptConversionSecond@{ shape: rectangle, label: "Context 与官方 TS AST 业务转换" }
+  ToolkitProject_modelLogic@{ shape: rectangle, label: "工程设置解析" }
+  subgraph ToolkitScriptAst["\`局部 AST 层\`"]
+    ToolkitScriptAst.Local_ast@{ shape: rectangle, label: "局部 AST" }
+  end
+  SpecificationsBescript@{ shape: rectangle, label: "BEScript 内部格式" }
+  ToolkitHostLogic -.-> ToolkitScriptConversionSecond
+  ToolkitScriptContext.Device_context -.-> ToolkitScriptAst.Local_ast
+  ToolkitHostLogic -.-> ToolkitProject_modelLogic
+  ToolkitProject_modelTests -.-> ToolkitProject_modelLogic
+  ToolkitScriptConversionSecond -.-> SpecificationsBescript
+  ToolkitScriptAst.Local_ast -.-> SpecificationsBescript
+  ToolkitScriptContext.Device_context -.-> SpecificationsBescript
+`;case`bescript_third_layer`:return`---
+title: "第三层：官方 TS 解析、打印与 Host 视图缓存归属"
+---
+graph TB
+  subgraph ToolkitHost["\`工作区 Host\`"]
+    ToolkitHost.Logic@{ shape: rectangle, label: "Host 生命周期与工程 IO" }
+  end
+  subgraph ToolkitScript["\`BEScript 纯计算包\`"]
+    ToolkitScript.ConversionThird@{ shape: rectangle, label: "官方 TS 解析打印与局部装配" }
+  end
+  SpecificationsBescript@{ shape: rectangle, label: "BEScript 内部格式" }
+  ToolkitHost.Logic -.-> ToolkitScript.ConversionThird
+  ToolkitScript.ConversionThird -.-> SpecificationsBescript
 `;case`canvas_render`:return'---\ntitle: "Canvas 渲染引擎"\n---\ngraph TB\n  RendererEntry@{ shape: rectangle, label: "字体就绪后的唯一入口" }\n  RendererPipeline@{ shape: rectangle, label: "DOM 渲染管线" }\n  RendererNodes@{ shape: rectangle, label: "节点输入与能力顺序" }\n  RendererDom_schema@{ shape: rectangle, label: "DOM 严格 Schema 提取" }\n  RendererFeatures@{ shape: rectangle, label: "特性 DOM 应用" }\n  RendererSchema@{ shape: rectangle, label: "使用者节点 Schema" }\n  RendererLayout@{ shape: rectangle, label: "布局计算与诊断" }\n  RendererImages@{ shape: rectangle, label: "图像合成与异步提交" }\n  RendererFields@{ shape: rectangle, label: "白名单与统一取值" }\n  RendererValues@{ shape: rectangle, label: "属性解析与渲染基础能力" }\n  RendererContracts@{ shape: rectangle, label: "特性与运行时契约" }\n  RendererState@{ shape: rectangle, label: "页面渲染状态" }\n  RendererContracts -. "`会话类型`" .-> RendererState\n  RendererSchema -. "`持久化字段类型`" .-> RendererContracts\n  RendererNodes -. "`节点字段与上下文类型`" .-> RendererContracts\n  RendererDom_schema -. "`属性类型`" .-> RendererContracts\n  RendererFields -. "`字段类型`" .-> RendererContracts\n  RendererValues -. "`属性与诊断类型`" .-> RendererContracts\n  RendererLayout -. "`布局字段与结果`" .-> RendererContracts\n  RendererFeatures -. "`特性字段与上下文`" .-> RendererContracts\n  RendererImages -. "`颜色类型`" .-> RendererContracts\n  RendererPipeline -. "`上下文类型`" .-> RendererContracts\n  RendererNodes -. "`唯一节点输入类型`" .-> RendererSchema\n  RendererDom_schema -. "`确定输出契约`" .-> RendererSchema\n  RendererNodes -. "`确定类型的节点 Schema`" .-> RendererDom_schema\n  RendererNodes -. "`第一项布局能力`" .-> RendererLayout\n  RendererNodes -. "`按节点类型固定顺序应用能力`" .-> RendererFeatures\n  RendererNodes -. "`会话上下文类型`" .-> RendererState\n  RendererPipeline -. "`节点构造与能力顺序`" .-> RendererNodes\n  RendererDom_schema -. "`颜色与枚举解析`" .-> RendererValues\n  RendererPipeline -. "`唯一 DOM 属性提取`" .-> RendererDom_schema\n  RendererLayout -. "`白名单与默认值`" .-> RendererFields\n  RendererFeatures -. "`启用字段与默认值`" .-> RendererFields\n  RendererPipeline -. "`子节点收集与逻辑路径`" .-> RendererFields\n  RendererLayout -. "`取值与颜色`" .-> RendererValues\n  RendererFeatures -. "`文本、颜色、资源与错误报告`" .-> RendererValues\n  RendererPipeline -. "`根尺寸、属性和标签`" .-> RendererValues\n  RendererEntry -. "`字体加载与错误报告`" .-> RendererValues\n  RendererFeatures -. "`布局能力`" .-> RendererLayout\n  RendererEntry -. "`诊断读取`" .-> RendererLayout\n  RendererFeatures -. "`图像合成与提交`" .-> RendererImages\n  RendererFeatures -. "`异步资源登记与完成`" .-> RendererState\n  RendererPipeline -. "`显式会话类型`" .-> RendererState\n  RendererEntry -. "`启动与完成状态`" .-> RendererState\n  RendererEntry -. "`驱动三阶段管线`" .-> RendererPipeline\n';case`core`:return`---
 title: "core"
 ---
@@ -77,7 +132,9 @@ graph TB
   ToolkitMcp@{ shape: rectangle, label: "MCP 协议接入" }
   ToolkitHost@{ shape: rectangle, label: "工作区 Host" }
   ToolkitProject_model@{ shape: rectangle, label: "工程格式纯计算包" }
+  ToolkitScript@{ shape: rectangle, label: "BEScript 纯计算包" }
   ToolkitHost -.-> ToolkitProject_model
+  ToolkitHost -.-> ToolkitScript
   ToolkitMcp -.-> ToolkitHost
   ToolkitFrontend -.-> ToolkitHost
   ToolkitVscode_plugin -.-> ToolkitHost
@@ -101,6 +158,7 @@ graph TB
   SpecificationsLayout@{ shape: rectangle, label: "文件布局契约" }
   SpecificationsDevelopment@{ shape: rectangle, label: "开发与协作契约" }
   SpecificationsRuntime@{ shape: rectangle, label: "Toolkit 运行时合同" }
+  SpecificationsBescript@{ shape: rectangle, label: "BEScript 内部格式" }
   SpecificationsCanvas_render@{ shape: rectangle, label: "Canvas 渲染规范" }
 `;case`product`:return`---
 title: "Toolkit 产品源码参考文档"

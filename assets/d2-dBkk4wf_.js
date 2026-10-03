@@ -38,6 +38,100 @@ Toolkit -> Fixtures
 Product -> Fixtures
 Product -> Resources
 Product -> Documentation
+`;case`bescript_first_layer`:return`direction: down
+
+ToolkitScriptAst: {
+  label: "局部 AST 层"
+
+  Local_ast: {
+    label: "局部 AST"
+  }
+}
+ToolkitScriptConversionFirst: {
+  label: "BEScript 文本与局部 AST 转换"
+}
+ToolkitScriptText: {
+  label: "原版文本层"
+
+  Code_file: {
+    label: ".code 文件"
+  }
+  Vocabulary: {
+    label: "类型与转义"
+  }
+}
+SpecificationsBescript: {
+  label: "BEScript 内部格式"
+}
+
+ToolkitScriptText.Code_file -> ToolkitScriptText.Vocabulary
+ToolkitScriptAst.Local_ast -> ToolkitScriptText.Vocabulary
+ToolkitScriptAst.Local_ast -> ToolkitScriptText.Code_file
+ToolkitScriptConversionFirst -> SpecificationsBescript
+ToolkitScriptText.Vocabulary -> SpecificationsBescript
+ToolkitScriptText.Code_file -> SpecificationsBescript
+ToolkitScriptAst.Local_ast -> SpecificationsBescript
+`;case`bescript_second_layer`:return`direction: down
+
+ToolkitHostLogic: {
+  label: "Host 生命周期与工程 IO"
+}
+ToolkitScriptContext: {
+  label: "零件上下文层"
+
+  Device_context: {
+    label: "全局变量、零件元数据与零件上下文"
+  }
+}
+ToolkitProject_modelTests: {
+  label: "工程格式测试"
+}
+ToolkitScriptConversionSecond: {
+  label: "Context 与官方 TS AST 业务转换"
+}
+ToolkitProject_modelLogic: {
+  label: "工程设置解析"
+}
+ToolkitScriptAst: {
+  label: "局部 AST 层"
+
+  Local_ast: {
+    label: "局部 AST"
+  }
+}
+SpecificationsBescript: {
+  label: "BEScript 内部格式"
+}
+
+ToolkitHostLogic -> ToolkitScriptConversionSecond
+ToolkitScriptContext.Device_context -> ToolkitScriptAst.Local_ast
+ToolkitHostLogic -> ToolkitProject_modelLogic
+ToolkitProject_modelTests -> ToolkitProject_modelLogic
+ToolkitScriptConversionSecond -> SpecificationsBescript
+ToolkitScriptAst.Local_ast -> SpecificationsBescript
+ToolkitScriptContext.Device_context -> SpecificationsBescript
+`;case`bescript_third_layer`:return`direction: down
+
+ToolkitHost: {
+  label: "工作区 Host"
+
+  Logic: {
+    label: "Host 生命周期与工程 IO"
+  }
+}
+ToolkitScript: {
+  label: "BEScript 纯计算包"
+
+  ConversionThird: {
+    label: "官方 TS 解析打印与局部装配"
+  }
+}
+SpecificationsBescript: {
+  label: "BEScript 内部格式"
+}
+
+ToolkitHost.Logic -> ToolkitScript.ConversionThird
+ToolkitScript.ConversionThird -> SpecificationsBescript
 `;case`canvas_render`:return`direction: down
 
 RendererEntry: {
@@ -208,8 +302,12 @@ ToolkitHost: {
 ToolkitProject_model: {
   label: "工程格式纯计算包"
 }
+ToolkitScript: {
+  label: "BEScript 纯计算包"
+}
 
 ToolkitHost -> ToolkitProject_model
+ToolkitHost -> ToolkitScript
 ToolkitMcp -> ToolkitHost
 ToolkitFrontend -> ToolkitHost
 ToolkitVscode_plugin -> ToolkitHost
@@ -246,6 +344,9 @@ SpecificationsDevelopment: {
 }
 SpecificationsRuntime: {
   label: "Toolkit 运行时合同"
+}
+SpecificationsBescript: {
+  label: "BEScript 内部格式"
 }
 SpecificationsCanvas_render: {
   label: "Canvas 渲染规范"

@@ -79,6 +79,199 @@ Product .[#8D8D8D,thickness=2].> Fixtures
 Product .[#8D8D8D,thickness=2].> Resources
 Product .[#8D8D8D,thickness=2].> Documentation
 @enduml
+`;case`bescript_first_layer`:return`@startuml
+title "第一层：BEScript 文本与局部 AST"
+top to bottom direction
+
+hide stereotype
+skinparam ranksep 60
+skinparam nodesep 30
+skinparam {
+  arrowFontSize 10
+  defaultTextAlignment center
+  wrapWidth 200
+  maxMessageSize 100
+  shadowing false
+}
+
+skinparam rectangle<<ToolkitScriptConversionFirst>>{
+  BackgroundColor #3b82f6
+  FontColor #eff6ff
+  BorderColor #2563eb
+}
+skinparam rectangle<<ToolkitScriptAstLocal_ast>>{
+  BackgroundColor #3b82f6
+  FontColor #eff6ff
+  BorderColor #2563eb
+}
+skinparam rectangle<<ToolkitScriptTextCode_file>>{
+  BackgroundColor #3b82f6
+  FontColor #eff6ff
+  BorderColor #2563eb
+}
+skinparam rectangle<<ToolkitScriptTextVocabulary>>{
+  BackgroundColor #3b82f6
+  FontColor #eff6ff
+  BorderColor #2563eb
+}
+skinparam rectangle<<SpecificationsBescript>>{
+  BackgroundColor #3b82f6
+  FontColor #eff6ff
+  BorderColor #2563eb
+}
+rectangle "局部 AST 层" <<ToolkitScriptAst>> as ToolkitScriptAst {
+  skinparam RectangleBorderColor<<ToolkitScriptAst>> #3b82f6
+  skinparam RectangleFontColor<<ToolkitScriptAst>> #3b82f6
+  skinparam RectangleBorderStyle<<ToolkitScriptAst>> dashed
+
+  rectangle "==局部 AST" <<ToolkitScriptAstLocal_ast>> as ToolkitScriptAstLocal_ast
+}
+rectangle "==BEScript 文本与局部 AST 转换\\n\\nIssue 45 的实现归属：唯一正文词法、控制结构、调用与反向序列化入口；依赖文本合同和局部 AST，不依赖 Host" <<ToolkitScriptConversionFirst>> as ToolkitScriptConversionFirst
+rectangle "原版文本层" <<ToolkitScriptText>> as ToolkitScriptText {
+  skinparam RectangleBorderColor<<ToolkitScriptText>> #3b82f6
+  skinparam RectangleFontColor<<ToolkitScriptText>> #3b82f6
+  skinparam RectangleBorderStyle<<ToolkitScriptText>> dashed
+
+  rectangle "==.code 文件" <<ToolkitScriptTextCode_file>> as ToolkitScriptTextCode_file
+  rectangle "==类型与转义" <<ToolkitScriptTextVocabulary>> as ToolkitScriptTextVocabulary
+}
+rectangle "==BEScript 内部格式" <<SpecificationsBescript>> as SpecificationsBescript
+
+ToolkitScriptTextCode_file .[#8D8D8D,thickness=2].> ToolkitScriptTextVocabulary
+ToolkitScriptAstLocal_ast .[#8D8D8D,thickness=2].> ToolkitScriptTextVocabulary
+ToolkitScriptAstLocal_ast .[#8D8D8D,thickness=2].> ToolkitScriptTextCode_file
+ToolkitScriptConversionFirst .[#8D8D8D,thickness=2].> SpecificationsBescript
+ToolkitScriptTextVocabulary .[#8D8D8D,thickness=2].> SpecificationsBescript
+ToolkitScriptTextCode_file .[#8D8D8D,thickness=2].> SpecificationsBescript
+ToolkitScriptAstLocal_ast .[#8D8D8D,thickness=2].> SpecificationsBescript
+@enduml
+`;case`bescript_second_layer`:return`@startuml
+title "第二层：零件 Context 与官方 TS AST 的转换边界"
+top to bottom direction
+
+hide stereotype
+skinparam ranksep 60
+skinparam nodesep 30
+skinparam {
+  arrowFontSize 10
+  defaultTextAlignment center
+  wrapWidth 200
+  maxMessageSize 100
+  shadowing false
+}
+
+skinparam rectangle<<ToolkitHostLogic>>{
+  BackgroundColor #3b82f6
+  FontColor #eff6ff
+  BorderColor #2563eb
+}
+skinparam rectangle<<ToolkitProject_modelTests>>{
+  BackgroundColor #3b82f6
+  FontColor #eff6ff
+  BorderColor #2563eb
+}
+skinparam rectangle<<ToolkitScriptConversionSecond>>{
+  BackgroundColor #3b82f6
+  FontColor #eff6ff
+  BorderColor #2563eb
+}
+skinparam rectangle<<ToolkitScriptContextDevice_context>>{
+  BackgroundColor #3b82f6
+  FontColor #eff6ff
+  BorderColor #2563eb
+}
+skinparam rectangle<<ToolkitProject_modelLogic>>{
+  BackgroundColor #3b82f6
+  FontColor #eff6ff
+  BorderColor #2563eb
+}
+skinparam rectangle<<ToolkitScriptAstLocal_ast>>{
+  BackgroundColor #3b82f6
+  FontColor #eff6ff
+  BorderColor #2563eb
+}
+skinparam rectangle<<SpecificationsBescript>>{
+  BackgroundColor #3b82f6
+  FontColor #eff6ff
+  BorderColor #2563eb
+}
+rectangle "==Host 生命周期与工程 IO\\n\\n工作区读取、语义输入闭包与视图运行时缓存的唯一所有者；编排三层纯转换，缓存随 Host 生命周期释放" <<ToolkitHostLogic>> as ToolkitHostLogic
+rectangle "零件上下文层" <<ToolkitScriptContext>> as ToolkitScriptContext {
+  skinparam RectangleBorderColor<<ToolkitScriptContext>> #3b82f6
+  skinparam RectangleFontColor<<ToolkitScriptContext>> #3b82f6
+  skinparam RectangleBorderStyle<<ToolkitScriptContext>> dashed
+
+  rectangle "==全局变量、零件元数据与零件上下文" <<ToolkitScriptContextDevice_context>> as ToolkitScriptContextDevice_context
+}
+rectangle "==工程格式测试" <<ToolkitProject_modelTests>> as ToolkitProject_modelTests
+rectangle "==Context 与官方 TS AST 业务转换\\n\\nIssue 46 的实现归属：引用身份、变量语义、平台方法和 Canvas 业务映射；仅消费 Context 与显式语义输入，不读取工程或缓存" <<ToolkitScriptConversionSecond>> as ToolkitScriptConversionSecond
+rectangle "==工程设置解析" <<ToolkitProject_modelLogic>> as ToolkitProject_modelLogic
+rectangle "局部 AST 层" <<ToolkitScriptAst>> as ToolkitScriptAst {
+  skinparam RectangleBorderColor<<ToolkitScriptAst>> #3b82f6
+  skinparam RectangleFontColor<<ToolkitScriptAst>> #3b82f6
+  skinparam RectangleBorderStyle<<ToolkitScriptAst>> dashed
+
+  rectangle "==局部 AST" <<ToolkitScriptAstLocal_ast>> as ToolkitScriptAstLocal_ast
+}
+rectangle "==BEScript 内部格式" <<SpecificationsBescript>> as SpecificationsBescript
+
+ToolkitHostLogic .[#8D8D8D,thickness=2].> ToolkitScriptConversionSecond
+ToolkitScriptContextDevice_context .[#8D8D8D,thickness=2].> ToolkitScriptAstLocal_ast
+ToolkitHostLogic .[#8D8D8D,thickness=2].> ToolkitProject_modelLogic
+ToolkitProject_modelTests .[#8D8D8D,thickness=2].> ToolkitProject_modelLogic
+ToolkitScriptConversionSecond .[#8D8D8D,thickness=2].> SpecificationsBescript
+ToolkitScriptAstLocal_ast .[#8D8D8D,thickness=2].> SpecificationsBescript
+ToolkitScriptContextDevice_context .[#8D8D8D,thickness=2].> SpecificationsBescript
+@enduml
+`;case`bescript_third_layer`:return`@startuml
+title "第三层：官方 TS 解析、打印与 Host 视图缓存归属"
+top to bottom direction
+
+hide stereotype
+skinparam ranksep 60
+skinparam nodesep 30
+skinparam {
+  arrowFontSize 10
+  defaultTextAlignment center
+  wrapWidth 200
+  maxMessageSize 100
+  shadowing false
+}
+
+skinparam rectangle<<ToolkitHostLogic>>{
+  BackgroundColor #3b82f6
+  FontColor #eff6ff
+  BorderColor #2563eb
+}
+skinparam rectangle<<ToolkitScriptConversionThird>>{
+  BackgroundColor #3b82f6
+  FontColor #eff6ff
+  BorderColor #2563eb
+}
+skinparam rectangle<<SpecificationsBescript>>{
+  BackgroundColor #3b82f6
+  FontColor #eff6ff
+  BorderColor #2563eb
+}
+rectangle "工作区 Host" <<ToolkitHost>> as ToolkitHost {
+  skinparam RectangleBorderColor<<ToolkitHost>> #3b82f6
+  skinparam RectangleFontColor<<ToolkitHost>> #3b82f6
+  skinparam RectangleBorderStyle<<ToolkitHost>> dashed
+
+  rectangle "==Host 生命周期与工程 IO\\n\\n工作区读取、语义输入闭包与视图运行时缓存的唯一所有者；编排三层纯转换，缓存随 Host 生命周期释放" <<ToolkitHostLogic>> as ToolkitHostLogic
+}
+rectangle "BEScript 纯计算包" <<ToolkitScript>> as ToolkitScript {
+  skinparam RectangleBorderColor<<ToolkitScript>> #3b82f6
+  skinparam RectangleFontColor<<ToolkitScript>> #3b82f6
+  skinparam RectangleBorderStyle<<ToolkitScript>> dashed
+
+  rectangle "==官方 TS 解析打印与局部装配\\n\\nIssue 47 的实现归属：官方 parser、factory、printer 和有独立差分依据的局部片段装配；缓存状态由 Host 显式传入，无进程全局状态，无 BEScript 业务解释" <<ToolkitScriptConversionThird>> as ToolkitScriptConversionThird
+}
+rectangle "==BEScript 内部格式" <<SpecificationsBescript>> as SpecificationsBescript
+
+ToolkitHostLogic .[#8D8D8D,thickness=2].> ToolkitScriptConversionThird
+ToolkitScriptConversionThird .[#8D8D8D,thickness=2].> SpecificationsBescript
+@enduml
 `;case`canvas_render`:return`@startuml
 title "Canvas 渲染引擎"
 top to bottom direction
@@ -401,6 +594,11 @@ skinparam rectangle<<ToolkitProject_model>>{
   FontColor #eff6ff
   BorderColor #2563eb
 }
+skinparam rectangle<<ToolkitScript>>{
+  BackgroundColor #3b82f6
+  FontColor #eff6ff
+  BorderColor #2563eb
+}
 rectangle "==产品类型检查配置" <<ToolkitConfiguration>> as ToolkitConfiguration
 rectangle "==配置来源抽象与实现" <<ToolkitConfig>> as ToolkitConfig
 rectangle "==VS Code 插件启动入口" <<ToolkitVscode_plugin>> as ToolkitVscode_plugin
@@ -409,8 +607,10 @@ rectangle "==前端容器栈" <<ToolkitFrontend>> as ToolkitFrontend
 rectangle "==MCP 协议接入" <<ToolkitMcp>> as ToolkitMcp
 rectangle "==工作区 Host" <<ToolkitHost>> as ToolkitHost
 rectangle "==工程格式纯计算包" <<ToolkitProject_model>> as ToolkitProject_model
+rectangle "==BEScript 纯计算包\\n\\n数据合同与三层纯转换设计分开登记；转换函数不读取工程或拥有跨请求缓存，Host 持有缓存状态并传入完整语义依据" <<ToolkitScript>> as ToolkitScript
 
 ToolkitHost .[#8D8D8D,thickness=2].> ToolkitProject_model
+ToolkitHost .[#8D8D8D,thickness=2].> ToolkitScript
 ToolkitMcp .[#8D8D8D,thickness=2].> ToolkitHost
 ToolkitFrontend .[#8D8D8D,thickness=2].> ToolkitHost
 ToolkitVscode_plugin .[#8D8D8D,thickness=2].> ToolkitHost
@@ -499,6 +699,11 @@ skinparam rectangle<<SpecificationsRuntime>>{
   FontColor #eff6ff
   BorderColor #2563eb
 }
+skinparam rectangle<<SpecificationsBescript>>{
+  BackgroundColor #3b82f6
+  FontColor #eff6ff
+  BorderColor #2563eb
+}
 skinparam rectangle<<SpecificationsCanvas_render>>{
   BackgroundColor #3b82f6
   FontColor #eff6ff
@@ -508,6 +713,7 @@ rectangle "==治理契约" <<SpecificationsTooling>> as SpecificationsTooling
 rectangle "==文件布局契约" <<SpecificationsLayout>> as SpecificationsLayout
 rectangle "==开发与协作契约" <<SpecificationsDevelopment>> as SpecificationsDevelopment
 rectangle "==Toolkit 运行时合同" <<SpecificationsRuntime>> as SpecificationsRuntime
+rectangle "==BEScript 内部格式" <<SpecificationsBescript>> as SpecificationsBescript
 rectangle "==Canvas 渲染规范" <<SpecificationsCanvas_render>> as SpecificationsCanvas_render
 @enduml
 `;case`product`:return`@startuml
