@@ -9,10 +9,11 @@ graph TB
   Legacy@{ shape: rectangle, label: "旧产品参考区" }
   Renderer@{ shape: rectangle, label: "Canvas 渲染引擎" }
   Repository@{ shape: rectangle, label: "仓库工程基础" }
-  Specifications@{ shape: rectangle, label: "工具链规范" }
+  Frontend@{ shape: rectangle, label: "单一前端扩展" }
   Fixtures@{ shape: rectangle, label: "跨组件夹具" }
-  Documentation@{ shape: rectangle, label: "产品规范与参考" }
+  Specifications@{ shape: rectangle, label: "工具链规范" }
   Resources@{ shape: rectangle, label: "共享静态资源" }
+  Documentation@{ shape: rectangle, label: "产品规范与参考" }
   Pure -.-> Specifications
   Renderer -. "\`字体与样式资源\`" .-> Resources
   Canvas -. "\`渲染行为测试\`" .-> Renderer
@@ -20,10 +21,13 @@ graph TB
   Tools -.-> Specifications
   Toolkit -.-> Repository
   Toolkit -.-> Specifications
+  Frontend -.-> Specifications
+  Toolkit -.-> Frontend
   Toolkit -.-> Fixtures
+  Frontend -.-> Toolkit
   Legacy -.-> Fixtures
-  Legacy -.-> Resources
-  Legacy -.-> Documentation
+  Frontend -.-> Resources
+  Frontend -.-> Documentation
 `;case`bescript_first_layer`:return`---
 title: "第一层：BEScript 文本与局部 AST"
 ---
@@ -95,10 +99,11 @@ graph TB
   Legacy@{ shape: rectangle, label: "旧产品参考区" }
   Renderer@{ shape: rectangle, label: "Canvas 渲染引擎" }
   Repository@{ shape: rectangle, label: "仓库工程基础" }
-  Specifications@{ shape: rectangle, label: "工具链规范" }
+  Frontend@{ shape: rectangle, label: "单一前端扩展" }
   Fixtures@{ shape: rectangle, label: "跨组件夹具" }
-  Documentation@{ shape: rectangle, label: "产品规范与参考" }
+  Specifications@{ shape: rectangle, label: "工具链规范" }
   Resources@{ shape: rectangle, label: "共享静态资源" }
+  Documentation@{ shape: rectangle, label: "产品规范与参考" }
   Pure -.-> Specifications
   Renderer -. "\`字体与样式资源\`" .-> Resources
   Canvas -. "\`渲染行为测试\`" .-> Renderer
@@ -106,10 +111,13 @@ graph TB
   Tools -.-> Specifications
   Toolkit -.-> Repository
   Toolkit -.-> Specifications
+  Frontend -.-> Specifications
+  Toolkit -.-> Frontend
   Toolkit -.-> Fixtures
+  Frontend -.-> Toolkit
   Legacy -.-> Fixtures
-  Legacy -.-> Resources
-  Legacy -.-> Documentation
+  Frontend -.-> Resources
+  Frontend -.-> Documentation
 `;case`tooling`:return`---
 title: "自举检查工具"
 ---
@@ -137,9 +145,7 @@ title: "Toolkit TypeScript 产品"
 graph TB
   ToolkitConfiguration@{ shape: rectangle, label: "产品类型检查配置" }
   ToolkitConfig@{ shape: rectangle, label: "配置来源抽象与实现" }
-  ToolkitVscode_plugin@{ shape: rectangle, label: "VS Code 插件启动入口" }
   ToolkitPi_plugin@{ shape: rectangle, label: "Pi Agent 插件启动入口" }
-  ToolkitFrontend@{ shape: rectangle, label: "前端容器栈" }
   ToolkitMcp@{ shape: rectangle, label: "MCP 协议接入" }
   ToolkitHost@{ shape: rectangle, label: "工作区 Host" }
   ToolkitProject_model@{ shape: rectangle, label: "工程格式纯计算包" }
@@ -147,11 +153,7 @@ graph TB
   ToolkitHost -.-> ToolkitProject_model
   ToolkitHost -.-> ToolkitScript
   ToolkitMcp -.-> ToolkitHost
-  ToolkitFrontend -.-> ToolkitHost
-  ToolkitVscode_plugin -.-> ToolkitHost
-  ToolkitVscode_plugin -.-> ToolkitMcp
   ToolkitPi_plugin -.-> ToolkitMcp
-  ToolkitVscode_plugin -.-> ToolkitFrontend
 `;case`repository`:return`---
 title: "仓库工程基础"
 ---
@@ -168,8 +170,10 @@ graph TB
   SpecificationsLayout@{ shape: rectangle, label: "文件布局契约" }
   SpecificationsDevelopment@{ shape: rectangle, label: "开发与协作契约" }
   SpecificationsRuntime@{ shape: rectangle, label: "Toolkit 运行时合同" }
+  SpecificationsHost_configuration@{ shape: rectangle, label: "保留 Host 配置合同" }
   SpecificationsBescript@{ shape: rectangle, label: "BEScript 内部格式" }
   SpecificationsCanvas_render@{ shape: rectangle, label: "Canvas 渲染规范" }
+  SpecificationsVscode_frontend@{ shape: rectangle, label: "VS Code 前端职责" }
   SpecificationsCanvas@{ shape: rectangle, label: "Canvas 四向转换合同" }
 `;case`legacy`:return`---
 title: "旧产品参考区"
@@ -177,11 +181,9 @@ title: "旧产品参考区"
 graph TB
   LegacyMcp@{ shape: rectangle, label: "MCP 协议入口" }
   LegacyHost@{ shape: rectangle, label: "VSCode Host 入口" }
-  LegacyFrontend@{ shape: rectangle, label: "前端" }
   LegacyCore@{ shape: rectangle, label: "核心逻辑" }
   LegacyMcp -.-> LegacyCore
   LegacyHost -.-> LegacyCore
-  LegacyFrontend -.-> LegacyCore
 `;case`legacy_core`:return`---
 title: "核心逻辑"
 ---

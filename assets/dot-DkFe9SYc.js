@@ -92,8 +92,14 @@ var e=e=>{switch(e){case`index`:return`digraph {
     toolkit -> repository [arrowhead=normal,
         likec4_id="15fjhza",
         style=dashed];
-    toolkit -> specifications [arrowhead=normal,
-        likec4_id="1lqfw2y",
+    frontend [height=2.5,
+        label=<<FONT POINT-SIZE="20">单一前端扩展</FONT>>,
+        likec4_id=frontend,
+        likec4_level=0,
+        margin="0.223,0.223",
+        width=4.445];
+    toolkit -> frontend [arrowhead=normal,
+        likec4_id="1t0kw96",
         style=dashed];
     fixtures [height=2.5,
         label=<<FONT POINT-SIZE="20">跨组件夹具</FONT>>,
@@ -104,6 +110,9 @@ var e=e=>{switch(e){case`index`:return`digraph {
     toolkit -> fixtures [arrowhead=normal,
         likec4_id="1xxd1me",
         style=dashed];
+    toolkit -> specifications [arrowhead=normal,
+        likec4_id="1lqfw2y",
+        style=dashed];
     legacy [height=2.5,
         label=<<FONT POINT-SIZE="20">旧产品参考区</FONT>>,
         likec4_id=legacy,
@@ -112,15 +121,6 @@ var e=e=>{switch(e){case`index`:return`digraph {
         width=4.445];
     legacy -> fixtures [arrowhead=normal,
         likec4_id="1jkh48d",
-        style=dashed];
-    documentation [height=2.5,
-        label=<<FONT POINT-SIZE="20">产品规范与参考</FONT>>,
-        likec4_id=documentation,
-        likec4_level=0,
-        margin="0.223,0.223",
-        width=4.445];
-    legacy -> documentation [arrowhead=normal,
-        likec4_id=x0rkrx,
         minlen=1,
         style=dashed];
     resources [height=2.5,
@@ -129,12 +129,28 @@ var e=e=>{switch(e){case`index`:return`digraph {
         likec4_level=0,
         margin="0.223,0.223",
         width=4.445];
-    legacy -> resources [arrowhead=normal,
-        likec4_id=yk1buu,
-        style=dashed];
     renderer -> resources [arrowhead=normal,
         label=<<TABLE BORDER="0" CELLPADDING="3" CELLSPACING="0" BGCOLOR="#18191BA0"><TR><TD ALIGN="TEXT" BALIGN="LEFT"><FONT POINT-SIZE="14">字体与样式资源</FONT></TD></TR></TABLE>>,
         likec4_id="1xbbocu",
+        style=dashed];
+    frontend -> toolkit [arrowhead=normal,
+        likec4_id=dht39m,
+        style=dashed];
+    frontend -> specifications [arrowhead=normal,
+        likec4_id="187rwfe",
+        style=dashed];
+    frontend -> resources [arrowhead=normal,
+        likec4_id=z4nel,
+        style=dashed];
+    documentation [height=2.5,
+        label=<<FONT POINT-SIZE="20">产品规范与参考</FONT>>,
+        likec4_id=documentation,
+        likec4_level=0,
+        margin="0.223,0.223",
+        width=4.445];
+    frontend -> documentation [arrowhead=normal,
+        likec4_id=blqj86,
+        minlen=1,
         style=dashed];
 }
 `;case`bescript_first_layer`:return`digraph {
@@ -814,8 +830,14 @@ var e=e=>{switch(e){case`index`:return`digraph {
     toolkit -> repository [arrowhead=normal,
         likec4_id="15fjhza",
         style=dashed];
-    toolkit -> specifications [arrowhead=normal,
-        likec4_id="1lqfw2y",
+    frontend [height=2.5,
+        label=<<FONT POINT-SIZE="20">单一前端扩展</FONT>>,
+        likec4_id=frontend,
+        likec4_level=0,
+        margin="0.223,0.223",
+        width=4.445];
+    toolkit -> frontend [arrowhead=normal,
+        likec4_id="1t0kw96",
         style=dashed];
     fixtures [height=2.5,
         label=<<FONT POINT-SIZE="20">跨组件夹具</FONT>>,
@@ -826,6 +848,9 @@ var e=e=>{switch(e){case`index`:return`digraph {
     toolkit -> fixtures [arrowhead=normal,
         likec4_id="1xxd1me",
         style=dashed];
+    toolkit -> specifications [arrowhead=normal,
+        likec4_id="1lqfw2y",
+        style=dashed];
     legacy [height=2.5,
         label=<<FONT POINT-SIZE="20">旧产品参考区</FONT>>,
         likec4_id=legacy,
@@ -834,15 +859,6 @@ var e=e=>{switch(e){case`index`:return`digraph {
         width=4.445];
     legacy -> fixtures [arrowhead=normal,
         likec4_id="1jkh48d",
-        style=dashed];
-    documentation [height=2.5,
-        label=<<FONT POINT-SIZE="20">产品规范与参考</FONT>>,
-        likec4_id=documentation,
-        likec4_level=0,
-        margin="0.223,0.223",
-        width=4.445];
-    legacy -> documentation [arrowhead=normal,
-        likec4_id=x0rkrx,
         minlen=1,
         style=dashed];
     resources [height=2.5,
@@ -851,12 +867,28 @@ var e=e=>{switch(e){case`index`:return`digraph {
         likec4_level=0,
         margin="0.223,0.223",
         width=4.445];
-    legacy -> resources [arrowhead=normal,
-        likec4_id=yk1buu,
-        style=dashed];
     renderer -> resources [arrowhead=normal,
         label=<<TABLE BORDER="0" CELLPADDING="3" CELLSPACING="0" BGCOLOR="#18191BA0"><TR><TD ALIGN="TEXT" BALIGN="LEFT"><FONT POINT-SIZE="14">字体与样式资源</FONT></TD></TR></TABLE>>,
         likec4_id="1xbbocu",
+        style=dashed];
+    frontend -> toolkit [arrowhead=normal,
+        likec4_id=dht39m,
+        style=dashed];
+    frontend -> specifications [arrowhead=normal,
+        likec4_id="187rwfe",
+        style=dashed];
+    frontend -> resources [arrowhead=normal,
+        likec4_id=z4nel,
+        style=dashed];
+    documentation [height=2.5,
+        label=<<FONT POINT-SIZE="20">产品规范与参考</FONT>>,
+        likec4_id=documentation,
+        likec4_level=0,
+        margin="0.223,0.223",
+        width=4.445];
+    frontend -> documentation [arrowhead=normal,
+        likec4_id=blqj86,
+        minlen=1,
         style=dashed];
 }
 `;case`tooling`:return`digraph {
@@ -1011,42 +1043,15 @@ var e=e=>{switch(e){case`index`:return`digraph {
         margin="0.223,0.223",
         width=4.445];
     configuration -> config [style=invis];
-    vscode_plugin [height=2.5,
-        label=<<FONT POINT-SIZE="20">VS Code 插件启动入口</FONT>>,
-        likec4_id="toolkit.vscode_plugin",
-        likec4_level=0,
-        margin="0.223,0.223",
-        width=4.445];
-    frontend [height=2.5,
-        label=<<FONT POINT-SIZE="20">前端容器栈</FONT>>,
-        likec4_id="toolkit.frontend",
-        likec4_level=0,
-        margin="0.223,0.223",
-        width=4.445];
-    vscode_plugin -> frontend [arrowhead=normal,
-        likec4_id=an7aje,
-        style=dashed];
-    mcp [height=2.5,
-        label=<<FONT POINT-SIZE="20">MCP 协议接入</FONT>>,
-        likec4_id="toolkit.mcp",
-        likec4_level=0,
-        margin="0.223,0.223",
-        width=4.445];
-    vscode_plugin -> mcp [arrowhead=normal,
-        likec4_id=hxy50q,
-        style=dashed];
-    host [height=2.5,
-        label=<<FONT POINT-SIZE="20">工作区 Host</FONT>>,
-        likec4_id="toolkit.host",
-        likec4_level=0,
-        margin="0.223,0.223",
-        width=4.445];
-    vscode_plugin -> host [arrowhead=normal,
-        likec4_id=nvhn4k,
-        style=dashed];
     pi_plugin [height=2.5,
         label=<<FONT POINT-SIZE="20">Pi Agent 插件启动入口</FONT>>,
         likec4_id="toolkit.pi_plugin",
+        likec4_level=0,
+        margin="0.223,0.223",
+        width=4.445];
+    mcp [height=2.5,
+        label=<<FONT POINT-SIZE="20">MCP 协议接入</FONT>>,
+        likec4_id="toolkit.mcp",
         likec4_level=0,
         margin="0.223,0.223",
         width=4.445];
@@ -1054,9 +1059,12 @@ var e=e=>{switch(e){case`index`:return`digraph {
         likec4_id="1hz4l2z",
         minlen=1,
         style=dashed];
-    frontend -> host [arrowhead=normal,
-        likec4_id="1vvahxg",
-        style=dashed];
+    host [height=2.5,
+        label=<<FONT POINT-SIZE="20">工作区 Host</FONT>>,
+        likec4_id="toolkit.host",
+        likec4_level=0,
+        margin="0.223,0.223",
+        width=4.445];
     mcp -> host [arrowhead=normal,
         likec4_id="8i5zec",
         style=dashed];
@@ -1204,12 +1212,19 @@ var e=e=>{switch(e){case`index`:return`digraph {
         margin="0.223,0.223",
         width=4.445];
     development -> runtime [style=invis];
+    host_configuration [height=2.5,
+        label=<<FONT POINT-SIZE="20">保留 Host 配置合同</FONT>>,
+        likec4_id="specifications.host_configuration",
+        likec4_level=0,
+        margin="0.223,0.223",
+        width=4.445];
     bescript [height=2.5,
         label=<<FONT POINT-SIZE="20">BEScript 内部格式</FONT>>,
         likec4_id="specifications.bescript",
         likec4_level=0,
         margin="0.223,0.223",
         width=4.445];
+    host_configuration -> bescript [style=invis];
     canvas_render [height=2.5,
         label=<<FONT POINT-SIZE="20">Canvas 渲染规范</FONT>>,
         likec4_id="specifications.canvas_render",
@@ -1217,13 +1232,19 @@ var e=e=>{switch(e){case`index`:return`digraph {
         margin="0.223,0.223",
         width=4.445];
     bescript -> canvas_render [style=invis];
+    vscode_frontend [height=2.5,
+        label=<<FONT POINT-SIZE="20">VS Code 前端职责</FONT>>,
+        likec4_id="specifications.vscode_frontend",
+        likec4_level=0,
+        margin="0.223,0.223",
+        width=4.445];
+    canvas_render -> vscode_frontend [style=invis];
     canvas [height=2.5,
         label=<<FONT POINT-SIZE="20">Canvas 四向转换合同</FONT>>,
         likec4_id="specifications.canvas",
         likec4_level=0,
         margin="0.223,0.223",
         width=4.445];
-    canvas_render -> canvas [style=invis];
 }
 `;case`legacy`:return`digraph {
     graph [TBbalance=min,
@@ -1283,16 +1304,6 @@ var e=e=>{switch(e){case`index`:return`digraph {
         width=4.445];
     host -> core [arrowhead=normal,
         likec4_id="1xjal5d",
-        minlen=1,
-        style=dashed];
-    frontend [height=2.5,
-        label=<<FONT POINT-SIZE="20">前端</FONT>>,
-        likec4_id="legacy.frontend",
-        likec4_level=0,
-        margin="0.223,0.223",
-        width=4.445];
-    frontend -> core [arrowhead=normal,
-        likec4_id=fq2hun,
         minlen=1,
         style=dashed];
 }
@@ -1525,8 +1536,8 @@ var e=e=>{switch(e){case`index`:return`digraph {
 <!-- Generated by graphviz version 15.0.0 (0)
  -->
 <!-- Pages: 1 -->
-<svg width="3116pt" height="856pt"
- viewBox="0.00 0.00 3116.00 856.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<svg width="2970pt" height="856pt"
+ viewBox="0.00 0.00 2970.00 856.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 <g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(15.05 840.65)">
 <!-- pure -->
 <g id="node1" class="node">
@@ -1538,22 +1549,22 @@ var e=e=>{switch(e){case`index`:return`digraph {
 <!-- specifications -->
 <g id="node2" class="node">
 <title>specifications</title>
-<polygon fill="#3b82f6" stroke="#2563eb" stroke-width="0" points="973.65,-180 653.61,-180 653.61,0 973.65,0 973.65,-180"/>
-<text xml:space="preserve" text-anchor="start" x="771.95" y="-82" font-family="Arial" font-size="20.00" fill="#eff6ff">工具链规范</text>
+<polygon fill="#3b82f6" stroke="#2563eb" stroke-width="0" points="1143.65,-180 823.61,-180 823.61,0 1143.65,0 1143.65,-180"/>
+<text xml:space="preserve" text-anchor="start" x="941.95" y="-82" font-family="Arial" font-size="20.00" fill="#eff6ff">工具链规范</text>
 </g>
 <!-- canvas -->
 <g id="node3" class="node">
 <title>canvas</title>
-<polygon fill="#3b82f6" stroke="#2563eb" stroke-width="0" points="2969.65,-825.6 2649.61,-825.6 2649.61,-645.6 2969.65,-645.6 2969.65,-825.6"/>
-<text xml:space="preserve" text-anchor="start" x="2739.6" y="-727.6" font-family="Arial" font-size="20.00" fill="#eff6ff">Canvas 渲染产品</text>
+<polygon fill="#3b82f6" stroke="#2563eb" stroke-width="0" points="2823.65,-825.6 2503.61,-825.6 2503.61,-645.6 2823.65,-645.6 2823.65,-825.6"/>
+<text xml:space="preserve" text-anchor="start" x="2593.6" y="-727.6" font-family="Arial" font-size="20.00" fill="#eff6ff">Canvas 渲染产品</text>
 </g>
 <!-- renderer -->
 <g id="node4" class="node">
 <title>renderer</title>
-<polygon fill="#3b82f6" stroke="#2563eb" stroke-width="0" points="3085.98,-502.8 2533.27,-502.8 2533.27,-322.8 3085.98,-322.8 3085.98,-502.8"/>
-<text xml:space="preserve" text-anchor="start" x="2739.6" y="-424.8" font-family="Arial" font-size="20.00" fill="#eff6ff">Canvas 渲染引擎</text>
-<text xml:space="preserve" text-anchor="start" x="2731.69" y="-401.8" font-family="Arial" font-size="15.00" fill="#bfdbfe">HTML 属性经显式 Option</text>
-<text xml:space="preserve" text-anchor="start" x="2553.33" y="-383.8" font-family="Arial" font-size="15.00" fill="#bfdbfe">解析为节点输入；节点按固定顺序应用特性，管线统一递归与排版，页面只有一次自动渲染。</text>
+<polygon fill="#3b82f6" stroke="#2563eb" stroke-width="0" points="2939.98,-502.8 2387.27,-502.8 2387.27,-322.8 2939.98,-322.8 2939.98,-502.8"/>
+<text xml:space="preserve" text-anchor="start" x="2593.6" y="-424.8" font-family="Arial" font-size="20.00" fill="#eff6ff">Canvas 渲染引擎</text>
+<text xml:space="preserve" text-anchor="start" x="2585.69" y="-401.8" font-family="Arial" font-size="15.00" fill="#bfdbfe">HTML 属性经显式 Option</text>
+<text xml:space="preserve" text-anchor="start" x="2407.33" y="-383.8" font-family="Arial" font-size="15.00" fill="#bfdbfe">解析为节点输入；节点按固定顺序应用特性，管线统一递归与排版，页面只有一次自动渲染。</text>
 </g>
 <!-- tools -->
 <g id="node5" class="node">
@@ -1564,108 +1575,132 @@ var e=e=>{switch(e){case`index`:return`digraph {
 <!-- repository -->
 <g id="node6" class="node">
 <title>repository</title>
-<polygon fill="#3b82f6" stroke="#2563eb" stroke-width="0" points="1417.65,-180 1097.61,-180 1097.61,0 1417.65,0 1417.65,-180"/>
-<text xml:space="preserve" text-anchor="start" x="1207.62" y="-82" font-family="Arial" font-size="20.00" fill="#eff6ff">仓库工程基础</text>
+<polygon fill="#3b82f6" stroke="#2563eb" stroke-width="0" points="1195.65,-502.8 875.61,-502.8 875.61,-322.8 1195.65,-322.8 1195.65,-502.8"/>
+<text xml:space="preserve" text-anchor="start" x="985.62" y="-404.8" font-family="Arial" font-size="20.00" fill="#eff6ff">仓库工程基础</text>
 </g>
 <!-- toolkit -->
 <g id="node7" class="node">
 <title>toolkit</title>
-<polygon fill="#3b82f6" stroke="#2563eb" stroke-width="0" points="1639.65,-825.6 1319.61,-825.6 1319.61,-645.6 1639.65,-645.6 1639.65,-825.6"/>
-<text xml:space="preserve" text-anchor="start" x="1380.15" y="-727.6" font-family="Arial" font-size="20.00" fill="#eff6ff">Toolkit TypeScript 产品</text>
+<polygon fill="#3b82f6" stroke="#2563eb" stroke-width="0" points="1847.65,-825.6 1527.61,-825.6 1527.61,-645.6 1847.65,-645.6 1847.65,-825.6"/>
+<text xml:space="preserve" text-anchor="start" x="1588.15" y="-727.6" font-family="Arial" font-size="20.00" fill="#eff6ff">Toolkit TypeScript 产品</text>
+</g>
+<!-- frontend -->
+<g id="node8" class="node">
+<title>frontend</title>
+<polygon fill="#3b82f6" stroke="#2563eb" stroke-width="0" points="1847.65,-502.8 1527.61,-502.8 1527.61,-322.8 1847.65,-322.8 1847.65,-502.8"/>
+<text xml:space="preserve" text-anchor="start" x="1637.62" y="-404.8" font-family="Arial" font-size="20.00" fill="#eff6ff">单一前端扩展</text>
 </g>
 <!-- fixtures -->
-<g id="node8" class="node">
+<g id="node9" class="node">
 <title>fixtures</title>
-<polygon fill="#3b82f6" stroke="#2563eb" stroke-width="0" points="1868.65,-180 1548.61,-180 1548.61,0 1868.65,0 1868.65,-180"/>
-<text xml:space="preserve" text-anchor="start" x="1666.95" y="-82" font-family="Arial" font-size="20.00" fill="#eff6ff">跨组件夹具</text>
+<polygon fill="#3b82f6" stroke="#2563eb" stroke-width="0" points="2277.65,-502.8 1957.61,-502.8 1957.61,-322.8 2277.65,-322.8 2277.65,-502.8"/>
+<text xml:space="preserve" text-anchor="start" x="2075.95" y="-404.8" font-family="Arial" font-size="20.00" fill="#eff6ff">跨组件夹具</text>
 </g>
 <!-- legacy -->
-<g id="node9" class="node">
-<title>legacy</title>
-<polygon fill="#3b82f6" stroke="#2563eb" stroke-width="0" points="2305.65,-825.6 1985.61,-825.6 1985.61,-645.6 2305.65,-645.6 2305.65,-825.6"/>
-<text xml:space="preserve" text-anchor="start" x="2095.62" y="-727.6" font-family="Arial" font-size="20.00" fill="#eff6ff">旧产品参考区</text>
-</g>
-<!-- documentation -->
 <g id="node10" class="node">
-<title>documentation</title>
-<polygon fill="#3b82f6" stroke="#2563eb" stroke-width="0" points="2305.65,-180 1985.61,-180 1985.61,0 2305.65,0 2305.65,-180"/>
-<text xml:space="preserve" text-anchor="start" x="2087.28" y="-82" font-family="Arial" font-size="20.00" fill="#eff6ff">产品规范与参考</text>
+<title>legacy</title>
+<polygon fill="#3b82f6" stroke="#2563eb" stroke-width="0" points="2277.65,-825.6 1957.61,-825.6 1957.61,-645.6 2277.65,-645.6 2277.65,-825.6"/>
+<text xml:space="preserve" text-anchor="start" x="2067.62" y="-727.6" font-family="Arial" font-size="20.00" fill="#eff6ff">旧产品参考区</text>
 </g>
 <!-- resources -->
 <g id="node11" class="node">
 <title>resources</title>
-<polygon fill="#3b82f6" stroke="#2563eb" stroke-width="0" points="2852.65,-180 2532.61,-180 2532.61,0 2852.65,0 2852.65,-180"/>
-<text xml:space="preserve" text-anchor="start" x="2642.62" y="-82" font-family="Arial" font-size="20.00" fill="#eff6ff">共享静态资源</text>
+<polygon fill="#3b82f6" stroke="#2563eb" stroke-width="0" points="2550.65,-180 2230.61,-180 2230.61,0 2550.65,0 2550.65,-180"/>
+<text xml:space="preserve" text-anchor="start" x="2340.62" y="-82" font-family="Arial" font-size="20.00" fill="#eff6ff">共享静态资源</text>
+</g>
+<!-- documentation -->
+<g id="node12" class="node">
+<title>documentation</title>
+<polygon fill="#3b82f6" stroke="#2563eb" stroke-width="0" points="1847.65,-180 1527.61,-180 1527.61,0 1847.65,0 1847.65,-180"/>
+<text xml:space="preserve" text-anchor="start" x="1629.28" y="-82" font-family="Arial" font-size="20.00" fill="#eff6ff">产品规范与参考</text>
 </g>
 <!-- pure&#45;&gt;specifications -->
 <g id="edge1" class="edge">
 <title>pure&#45;&gt;specifications</title>
-<path fill="none" stroke="#8d8d8d" stroke-width="2" stroke-dasharray="5,2" d="M442.1,-645.79C522.47,-525.78 665.22,-312.61 748.43,-188.36"/>
-<polygon fill="#8d8d8d" stroke="#8d8d8d" stroke-width="2" points="750.39,-190.14 752.39,-182.45 746.03,-187.22 750.39,-190.14"/>
+<path fill="none" stroke="#8d8d8d" stroke-width="2" stroke-dasharray="5,2" d="M456.29,-645.87C541.24,-544.89 686.46,-376.3 820.63,-240 837.96,-222.39 856.9,-204.21 875.53,-186.85"/>
+<polygon fill="#8d8d8d" stroke="#8d8d8d" stroke-width="2" points="877,-189.07 880.71,-182.04 873.43,-185.22 877,-189.07"/>
 </g>
 <!-- canvas&#45;&gt;renderer -->
 <g id="edge2" class="edge">
 <title>canvas&#45;&gt;renderer</title>
-<path fill="none" stroke="#8d8d8d" stroke-width="2" stroke-dasharray="5,2" d="M2809.63,-645.67C2809.63,-604.47 2809.63,-555.36 2809.63,-512.97"/>
-<polygon fill="#8d8d8d" stroke="#8d8d8d" stroke-width="2" points="2812.25,-513.16 2809.63,-505.66 2807,-513.16 2812.25,-513.16"/>
-<polygon fill="#18191b" fill-opacity="0.627451" stroke="none" points="2809.63,-562.8 2809.63,-585.6 2885.64,-585.6 2885.64,-562.8 2809.63,-562.8"/>
-<text xml:space="preserve" text-anchor="start" x="2812.63" y="-568.6" font-family="Arial" font-size="14.00" fill="#c9c9c9">渲染行为测试</text>
+<path fill="none" stroke="#8d8d8d" stroke-width="2" stroke-dasharray="5,2" d="M2663.63,-645.67C2663.63,-604.47 2663.63,-555.36 2663.63,-512.97"/>
+<polygon fill="#8d8d8d" stroke="#8d8d8d" stroke-width="2" points="2666.25,-513.16 2663.63,-505.66 2661,-513.16 2666.25,-513.16"/>
+<polygon fill="#18191b" fill-opacity="0.627451" stroke="none" points="2663.63,-562.8 2663.63,-585.6 2739.64,-585.6 2739.64,-562.8 2663.63,-562.8"/>
+<text xml:space="preserve" text-anchor="start" x="2666.63" y="-568.6" font-family="Arial" font-size="14.00" fill="#c9c9c9">渲染行为测试</text>
 </g>
 <!-- renderer&#45;&gt;resources -->
-<g id="edge11" class="edge">
+<g id="edge10" class="edge">
 <title>renderer&#45;&gt;resources</title>
-<path fill="none" stroke="#8d8d8d" stroke-width="2" stroke-dasharray="5,2" d="M2777.19,-322.87C2762.1,-281.49 2744.1,-232.15 2728.6,-189.63"/>
-<polygon fill="#8d8d8d" stroke="#8d8d8d" stroke-width="2" points="2731.1,-188.82 2726.06,-182.67 2726.17,-190.62 2731.1,-188.82"/>
-<polygon fill="#18191b" fill-opacity="0.627451" stroke="none" points="2754.63,-240 2754.63,-262.8 2842.32,-262.8 2842.32,-240 2754.63,-240"/>
-<text xml:space="preserve" text-anchor="start" x="2757.63" y="-245.8" font-family="Arial" font-size="14.00" fill="#c9c9c9">字体与样式资源</text>
+<path fill="none" stroke="#8d8d8d" stroke-width="2" stroke-dasharray="5,2" d="M2587.94,-322.87C2552.22,-280.88 2509.5,-230.69 2472.97,-187.76"/>
+<polygon fill="#8d8d8d" stroke="#8d8d8d" stroke-width="2" points="2475.04,-186.15 2468.18,-182.13 2471.04,-189.55 2475.04,-186.15"/>
+<polygon fill="#18191b" fill-opacity="0.627451" stroke="none" points="2535.31,-240 2535.31,-262.8 2623,-262.8 2623,-240 2535.31,-240"/>
+<text xml:space="preserve" text-anchor="start" x="2538.31" y="-245.8" font-family="Arial" font-size="14.00" fill="#c9c9c9">字体与样式资源</text>
 </g>
 <!-- tools&#45;&gt;specifications -->
 <g id="edge4" class="edge">
 <title>tools&#45;&gt;specifications</title>
-<path fill="none" stroke="#8d8d8d" stroke-width="2" stroke-dasharray="5,2" d="M1004.99,-645.79C963.76,-526.26 890.65,-314.31 847.72,-189.85"/>
-<polygon fill="#8d8d8d" stroke="#8d8d8d" stroke-width="2" points="850.22,-189.03 845.29,-182.8 845.25,-190.74 850.22,-189.03"/>
+<path fill="none" stroke="#8d8d8d" stroke-width="2" stroke-dasharray="5,2" d="M923.43,-645.72C882.97,-606.71 842.03,-557.35 820.63,-502.8 791.41,-428.33 796.49,-399.07 820.63,-322.8 836.01,-274.19 865.64,-226.95 895.48,-187.94"/>
+<polygon fill="#8d8d8d" stroke="#8d8d8d" stroke-width="2" points="897.46,-189.67 899.98,-182.14 893.31,-186.45 897.46,-189.67"/>
 </g>
 <!-- tools&#45;&gt;repository -->
 <g id="edge3" class="edge">
 <title>tools&#45;&gt;repository</title>
-<path fill="none" stroke="#8d8d8d" stroke-width="2" stroke-dasharray="5,2" d="M1066.26,-645.79C1107.49,-526.26 1180.6,-314.31 1223.53,-189.85"/>
-<polygon fill="#8d8d8d" stroke="#8d8d8d" stroke-width="2" points="1226,-190.74 1225.96,-182.8 1221.04,-189.03 1226,-190.74"/>
+<path fill="none" stroke="#8d8d8d" stroke-width="2" stroke-dasharray="5,2" d="M1035.63,-645.67C1035.63,-604.47 1035.63,-555.36 1035.63,-512.97"/>
+<polygon fill="#8d8d8d" stroke="#8d8d8d" stroke-width="2" points="1038.25,-513.16 1035.63,-505.66 1033,-513.16 1038.25,-513.16"/>
 </g>
 <!-- toolkit&#45;&gt;specifications -->
-<g id="edge6" class="edge">
+<g id="edge8" class="edge">
 <title>toolkit&#45;&gt;specifications</title>
-<path fill="none" stroke="#8d8d8d" stroke-width="2" stroke-dasharray="5,2" d="M1387.72,-645.79C1263.17,-525.42 1041.62,-311.33 913.22,-187.24"/>
-<polygon fill="#8d8d8d" stroke="#8d8d8d" stroke-width="2" points="915.05,-185.36 907.83,-182.04 911.4,-189.14 915.05,-185.36"/>
+<path fill="none" stroke="#8d8d8d" stroke-width="2" stroke-dasharray="5,2" d="M1595.73,-645.93C1507.99,-561.77 1371.62,-432.24 1250.63,-322.8 1200.39,-277.36 1143.85,-228.02 1095.77,-186.58"/>
+<polygon fill="#8d8d8d" stroke="#8d8d8d" stroke-width="2" points="1097.51,-184.62 1090.12,-181.72 1094.09,-188.6 1097.51,-184.62"/>
 </g>
 <!-- toolkit&#45;&gt;repository -->
 <g id="edge5" class="edge">
 <title>toolkit&#45;&gt;repository</title>
-<path fill="none" stroke="#8d8d8d" stroke-width="2" stroke-dasharray="5,2" d="M1461.3,-645.85C1439.01,-545.22 1397.24,-377.29 1340.63,-240 1333.67,-223.14 1325.26,-205.77 1316.5,-189.1"/>
-<polygon fill="#8d8d8d" stroke="#8d8d8d" stroke-width="2" points="1318.87,-187.98 1313.02,-182.6 1314.24,-190.45 1318.87,-187.98"/>
+<path fill="none" stroke="#8d8d8d" stroke-width="2" stroke-dasharray="5,2" d="M1528.08,-687.45C1450.7,-661.86 1357.63,-626.97 1278.63,-585.6 1237.03,-563.82 1194.35,-535.85 1156.59,-508.84"/>
+<polygon fill="#8d8d8d" stroke="#8d8d8d" stroke-width="2" points="1158.18,-506.75 1150.56,-504.5 1155.11,-511.01 1158.18,-506.75"/>
+</g>
+<!-- toolkit&#45;&gt;frontend -->
+<g id="edge6" class="edge">
+<title>toolkit&#45;&gt;frontend</title>
+<path fill="none" stroke="#8d8d8d" stroke-width="2" stroke-dasharray="5,2" d="M1650.26,-645.67C1645.47,-604.47 1645.11,-555.36 1649.17,-512.97"/>
+<polygon fill="#8d8d8d" stroke="#8d8d8d" stroke-width="2" points="1651.77,-513.37 1649.95,-505.64 1646.55,-512.82 1651.77,-513.37"/>
 </g>
 <!-- toolkit&#45;&gt;fixtures -->
 <g id="edge7" class="edge">
 <title>toolkit&#45;&gt;fixtures</title>
-<path fill="none" stroke="#8d8d8d" stroke-width="2" stroke-dasharray="5,2" d="M1511.23,-645.79C1553.76,-526.26 1629.17,-314.31 1673.45,-189.85"/>
-<polygon fill="#8d8d8d" stroke="#8d8d8d" stroke-width="2" points="1675.93,-190.73 1675.97,-182.79 1670.98,-188.97 1675.93,-190.73"/>
+<path fill="none" stroke="#8d8d8d" stroke-width="2" stroke-dasharray="5,2" d="M1806.83,-645.67C1863.93,-603.07 1932.34,-552.03 1990.43,-508.69"/>
+<polygon fill="#8d8d8d" stroke="#8d8d8d" stroke-width="2" points="1991.69,-511.03 1996.13,-504.44 1988.55,-506.82 1991.69,-511.03"/>
+</g>
+<!-- frontend&#45;&gt;specifications -->
+<g id="edge12" class="edge">
+<title>frontend&#45;&gt;specifications</title>
+<path fill="none" stroke="#8d8d8d" stroke-width="2" stroke-dasharray="5,2" d="M1576.85,-322.81C1536.84,-293.61 1490.25,-262.83 1444.63,-240 1352.37,-193.83 1242.7,-157.7 1153.47,-132.58"/>
+<polygon fill="#8d8d8d" stroke="#8d8d8d" stroke-width="2" points="1154.37,-130.11 1146.44,-130.62 1152.96,-135.17 1154.37,-130.11"/>
+</g>
+<!-- frontend&#45;&gt;toolkit -->
+<g id="edge11" class="edge">
+<title>frontend&#45;&gt;toolkit</title>
+<path fill="none" stroke="#8d8d8d" stroke-width="2" stroke-dasharray="5,2" d="M1724.99,-502.63C1729.77,-543.81 1730.14,-592.92 1726.09,-635.32"/>
+<polygon fill="#8d8d8d" stroke="#8d8d8d" stroke-width="2" points="1723.49,-634.92 1725.32,-642.65 1728.71,-635.47 1723.49,-634.92"/>
+</g>
+<!-- frontend&#45;&gt;resources -->
+<g id="edge13" class="edge">
+<title>frontend&#45;&gt;resources</title>
+<path fill="none" stroke="#8d8d8d" stroke-width="2" stroke-dasharray="5,2" d="M1847.59,-338.8C1959.12,-287.91 2107.68,-220.12 2221.23,-168.3"/>
+<polygon fill="#8d8d8d" stroke="#8d8d8d" stroke-width="2" points="2222.23,-170.73 2227.96,-165.23 2220.05,-165.95 2222.23,-170.73"/>
+</g>
+<!-- frontend&#45;&gt;documentation -->
+<g id="edge14" class="edge">
+<title>frontend&#45;&gt;documentation</title>
+<path fill="none" stroke="#8d8d8d" stroke-width="2" stroke-dasharray="5,2" d="M1687.63,-322.87C1687.63,-281.67 1687.63,-232.56 1687.63,-190.17"/>
+<polygon fill="#8d8d8d" stroke="#8d8d8d" stroke-width="2" points="1690.25,-190.36 1687.63,-182.86 1685,-190.36 1690.25,-190.36"/>
 </g>
 <!-- legacy&#45;&gt;fixtures -->
-<g id="edge8" class="edge">
-<title>legacy&#45;&gt;fixtures</title>
-<path fill="none" stroke="#8d8d8d" stroke-width="2" stroke-dasharray="5,2" d="M2085.32,-645.79C2003.84,-525.78 1859.1,-312.61 1774.73,-188.36"/>
-<polygon fill="#8d8d8d" stroke="#8d8d8d" stroke-width="2" points="1777.1,-187.17 1770.71,-182.44 1772.76,-190.12 1777.1,-187.17"/>
-</g>
-<!-- legacy&#45;&gt;documentation -->
 <g id="edge9" class="edge">
-<title>legacy&#45;&gt;documentation</title>
-<path fill="none" stroke="#8d8d8d" stroke-width="2" stroke-dasharray="5,2" d="M2145.63,-645.79C2145.63,-526.38 2145.63,-314.73 2145.63,-190.23"/>
-<polygon fill="#8d8d8d" stroke="#8d8d8d" stroke-width="2" points="2148.25,-190.46 2145.63,-182.96 2143,-190.46 2148.25,-190.46"/>
-</g>
-<!-- legacy&#45;&gt;resources -->
-<g id="edge10" class="edge">
-<title>legacy&#45;&gt;resources</title>
-<path fill="none" stroke="#8d8d8d" stroke-width="2" stroke-dasharray="5,2" d="M2214.8,-645.67C2281.04,-561.32 2384.54,-431.66 2478.63,-322.8 2517.82,-277.45 2562.61,-228.51 2601.06,-187.34"/>
-<polygon fill="#8d8d8d" stroke="#8d8d8d" stroke-width="2" points="2602.88,-189.23 2606.09,-181.96 2599.05,-185.64 2602.88,-189.23"/>
+<title>legacy&#45;&gt;fixtures</title>
+<path fill="none" stroke="#8d8d8d" stroke-width="2" stroke-dasharray="5,2" d="M2117.63,-645.67C2117.63,-604.47 2117.63,-555.36 2117.63,-512.97"/>
+<polygon fill="#8d8d8d" stroke="#8d8d8d" stroke-width="2" points="2120.25,-513.16 2117.63,-505.66 2115,-513.16 2120.25,-513.16"/>
 </g>
 </g>
 </svg>
@@ -2343,8 +2378,8 @@ var e=e=>{switch(e){case`index`:return`digraph {
 <!-- Generated by graphviz version 15.0.0 (0)
  -->
 <!-- Pages: 1 -->
-<svg width="3116pt" height="856pt"
- viewBox="0.00 0.00 3116.00 856.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<svg width="2970pt" height="856pt"
+ viewBox="0.00 0.00 2970.00 856.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 <g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(15.05 840.65)">
 <!-- pure -->
 <g id="node1" class="node">
@@ -2356,22 +2391,22 @@ var e=e=>{switch(e){case`index`:return`digraph {
 <!-- specifications -->
 <g id="node2" class="node">
 <title>specifications</title>
-<polygon fill="#3b82f6" stroke="#2563eb" stroke-width="0" points="973.65,-180 653.61,-180 653.61,0 973.65,0 973.65,-180"/>
-<text xml:space="preserve" text-anchor="start" x="771.95" y="-82" font-family="Arial" font-size="20.00" fill="#eff6ff">工具链规范</text>
+<polygon fill="#3b82f6" stroke="#2563eb" stroke-width="0" points="1143.65,-180 823.61,-180 823.61,0 1143.65,0 1143.65,-180"/>
+<text xml:space="preserve" text-anchor="start" x="941.95" y="-82" font-family="Arial" font-size="20.00" fill="#eff6ff">工具链规范</text>
 </g>
 <!-- canvas -->
 <g id="node3" class="node">
 <title>canvas</title>
-<polygon fill="#3b82f6" stroke="#2563eb" stroke-width="0" points="2969.65,-825.6 2649.61,-825.6 2649.61,-645.6 2969.65,-645.6 2969.65,-825.6"/>
-<text xml:space="preserve" text-anchor="start" x="2739.6" y="-727.6" font-family="Arial" font-size="20.00" fill="#eff6ff">Canvas 渲染产品</text>
+<polygon fill="#3b82f6" stroke="#2563eb" stroke-width="0" points="2823.65,-825.6 2503.61,-825.6 2503.61,-645.6 2823.65,-645.6 2823.65,-825.6"/>
+<text xml:space="preserve" text-anchor="start" x="2593.6" y="-727.6" font-family="Arial" font-size="20.00" fill="#eff6ff">Canvas 渲染产品</text>
 </g>
 <!-- renderer -->
 <g id="node4" class="node">
 <title>renderer</title>
-<polygon fill="#3b82f6" stroke="#2563eb" stroke-width="0" points="3085.98,-502.8 2533.27,-502.8 2533.27,-322.8 3085.98,-322.8 3085.98,-502.8"/>
-<text xml:space="preserve" text-anchor="start" x="2739.6" y="-424.8" font-family="Arial" font-size="20.00" fill="#eff6ff">Canvas 渲染引擎</text>
-<text xml:space="preserve" text-anchor="start" x="2731.69" y="-401.8" font-family="Arial" font-size="15.00" fill="#bfdbfe">HTML 属性经显式 Option</text>
-<text xml:space="preserve" text-anchor="start" x="2553.33" y="-383.8" font-family="Arial" font-size="15.00" fill="#bfdbfe">解析为节点输入；节点按固定顺序应用特性，管线统一递归与排版，页面只有一次自动渲染。</text>
+<polygon fill="#3b82f6" stroke="#2563eb" stroke-width="0" points="2939.98,-502.8 2387.27,-502.8 2387.27,-322.8 2939.98,-322.8 2939.98,-502.8"/>
+<text xml:space="preserve" text-anchor="start" x="2593.6" y="-424.8" font-family="Arial" font-size="20.00" fill="#eff6ff">Canvas 渲染引擎</text>
+<text xml:space="preserve" text-anchor="start" x="2585.69" y="-401.8" font-family="Arial" font-size="15.00" fill="#bfdbfe">HTML 属性经显式 Option</text>
+<text xml:space="preserve" text-anchor="start" x="2407.33" y="-383.8" font-family="Arial" font-size="15.00" fill="#bfdbfe">解析为节点输入；节点按固定顺序应用特性，管线统一递归与排版，页面只有一次自动渲染。</text>
 </g>
 <!-- tools -->
 <g id="node5" class="node">
@@ -2382,108 +2417,132 @@ var e=e=>{switch(e){case`index`:return`digraph {
 <!-- repository -->
 <g id="node6" class="node">
 <title>repository</title>
-<polygon fill="#3b82f6" stroke="#2563eb" stroke-width="0" points="1417.65,-180 1097.61,-180 1097.61,0 1417.65,0 1417.65,-180"/>
-<text xml:space="preserve" text-anchor="start" x="1207.62" y="-82" font-family="Arial" font-size="20.00" fill="#eff6ff">仓库工程基础</text>
+<polygon fill="#3b82f6" stroke="#2563eb" stroke-width="0" points="1195.65,-502.8 875.61,-502.8 875.61,-322.8 1195.65,-322.8 1195.65,-502.8"/>
+<text xml:space="preserve" text-anchor="start" x="985.62" y="-404.8" font-family="Arial" font-size="20.00" fill="#eff6ff">仓库工程基础</text>
 </g>
 <!-- toolkit -->
 <g id="node7" class="node">
 <title>toolkit</title>
-<polygon fill="#3b82f6" stroke="#2563eb" stroke-width="0" points="1639.65,-825.6 1319.61,-825.6 1319.61,-645.6 1639.65,-645.6 1639.65,-825.6"/>
-<text xml:space="preserve" text-anchor="start" x="1380.15" y="-727.6" font-family="Arial" font-size="20.00" fill="#eff6ff">Toolkit TypeScript 产品</text>
+<polygon fill="#3b82f6" stroke="#2563eb" stroke-width="0" points="1847.65,-825.6 1527.61,-825.6 1527.61,-645.6 1847.65,-645.6 1847.65,-825.6"/>
+<text xml:space="preserve" text-anchor="start" x="1588.15" y="-727.6" font-family="Arial" font-size="20.00" fill="#eff6ff">Toolkit TypeScript 产品</text>
+</g>
+<!-- frontend -->
+<g id="node8" class="node">
+<title>frontend</title>
+<polygon fill="#3b82f6" stroke="#2563eb" stroke-width="0" points="1847.65,-502.8 1527.61,-502.8 1527.61,-322.8 1847.65,-322.8 1847.65,-502.8"/>
+<text xml:space="preserve" text-anchor="start" x="1637.62" y="-404.8" font-family="Arial" font-size="20.00" fill="#eff6ff">单一前端扩展</text>
 </g>
 <!-- fixtures -->
-<g id="node8" class="node">
+<g id="node9" class="node">
 <title>fixtures</title>
-<polygon fill="#3b82f6" stroke="#2563eb" stroke-width="0" points="1868.65,-180 1548.61,-180 1548.61,0 1868.65,0 1868.65,-180"/>
-<text xml:space="preserve" text-anchor="start" x="1666.95" y="-82" font-family="Arial" font-size="20.00" fill="#eff6ff">跨组件夹具</text>
+<polygon fill="#3b82f6" stroke="#2563eb" stroke-width="0" points="2277.65,-502.8 1957.61,-502.8 1957.61,-322.8 2277.65,-322.8 2277.65,-502.8"/>
+<text xml:space="preserve" text-anchor="start" x="2075.95" y="-404.8" font-family="Arial" font-size="20.00" fill="#eff6ff">跨组件夹具</text>
 </g>
 <!-- legacy -->
-<g id="node9" class="node">
-<title>legacy</title>
-<polygon fill="#3b82f6" stroke="#2563eb" stroke-width="0" points="2305.65,-825.6 1985.61,-825.6 1985.61,-645.6 2305.65,-645.6 2305.65,-825.6"/>
-<text xml:space="preserve" text-anchor="start" x="2095.62" y="-727.6" font-family="Arial" font-size="20.00" fill="#eff6ff">旧产品参考区</text>
-</g>
-<!-- documentation -->
 <g id="node10" class="node">
-<title>documentation</title>
-<polygon fill="#3b82f6" stroke="#2563eb" stroke-width="0" points="2305.65,-180 1985.61,-180 1985.61,0 2305.65,0 2305.65,-180"/>
-<text xml:space="preserve" text-anchor="start" x="2087.28" y="-82" font-family="Arial" font-size="20.00" fill="#eff6ff">产品规范与参考</text>
+<title>legacy</title>
+<polygon fill="#3b82f6" stroke="#2563eb" stroke-width="0" points="2277.65,-825.6 1957.61,-825.6 1957.61,-645.6 2277.65,-645.6 2277.65,-825.6"/>
+<text xml:space="preserve" text-anchor="start" x="2067.62" y="-727.6" font-family="Arial" font-size="20.00" fill="#eff6ff">旧产品参考区</text>
 </g>
 <!-- resources -->
 <g id="node11" class="node">
 <title>resources</title>
-<polygon fill="#3b82f6" stroke="#2563eb" stroke-width="0" points="2852.65,-180 2532.61,-180 2532.61,0 2852.65,0 2852.65,-180"/>
-<text xml:space="preserve" text-anchor="start" x="2642.62" y="-82" font-family="Arial" font-size="20.00" fill="#eff6ff">共享静态资源</text>
+<polygon fill="#3b82f6" stroke="#2563eb" stroke-width="0" points="2550.65,-180 2230.61,-180 2230.61,0 2550.65,0 2550.65,-180"/>
+<text xml:space="preserve" text-anchor="start" x="2340.62" y="-82" font-family="Arial" font-size="20.00" fill="#eff6ff">共享静态资源</text>
+</g>
+<!-- documentation -->
+<g id="node12" class="node">
+<title>documentation</title>
+<polygon fill="#3b82f6" stroke="#2563eb" stroke-width="0" points="1847.65,-180 1527.61,-180 1527.61,0 1847.65,0 1847.65,-180"/>
+<text xml:space="preserve" text-anchor="start" x="1629.28" y="-82" font-family="Arial" font-size="20.00" fill="#eff6ff">产品规范与参考</text>
 </g>
 <!-- pure&#45;&gt;specifications -->
 <g id="edge1" class="edge">
 <title>pure&#45;&gt;specifications</title>
-<path fill="none" stroke="#8d8d8d" stroke-width="2" stroke-dasharray="5,2" d="M442.1,-645.79C522.47,-525.78 665.22,-312.61 748.43,-188.36"/>
-<polygon fill="#8d8d8d" stroke="#8d8d8d" stroke-width="2" points="750.39,-190.14 752.39,-182.45 746.03,-187.22 750.39,-190.14"/>
+<path fill="none" stroke="#8d8d8d" stroke-width="2" stroke-dasharray="5,2" d="M456.29,-645.87C541.24,-544.89 686.46,-376.3 820.63,-240 837.96,-222.39 856.9,-204.21 875.53,-186.85"/>
+<polygon fill="#8d8d8d" stroke="#8d8d8d" stroke-width="2" points="877,-189.07 880.71,-182.04 873.43,-185.22 877,-189.07"/>
 </g>
 <!-- canvas&#45;&gt;renderer -->
 <g id="edge2" class="edge">
 <title>canvas&#45;&gt;renderer</title>
-<path fill="none" stroke="#8d8d8d" stroke-width="2" stroke-dasharray="5,2" d="M2809.63,-645.67C2809.63,-604.47 2809.63,-555.36 2809.63,-512.97"/>
-<polygon fill="#8d8d8d" stroke="#8d8d8d" stroke-width="2" points="2812.25,-513.16 2809.63,-505.66 2807,-513.16 2812.25,-513.16"/>
-<polygon fill="#18191b" fill-opacity="0.627451" stroke="none" points="2809.63,-562.8 2809.63,-585.6 2885.64,-585.6 2885.64,-562.8 2809.63,-562.8"/>
-<text xml:space="preserve" text-anchor="start" x="2812.63" y="-568.6" font-family="Arial" font-size="14.00" fill="#c9c9c9">渲染行为测试</text>
+<path fill="none" stroke="#8d8d8d" stroke-width="2" stroke-dasharray="5,2" d="M2663.63,-645.67C2663.63,-604.47 2663.63,-555.36 2663.63,-512.97"/>
+<polygon fill="#8d8d8d" stroke="#8d8d8d" stroke-width="2" points="2666.25,-513.16 2663.63,-505.66 2661,-513.16 2666.25,-513.16"/>
+<polygon fill="#18191b" fill-opacity="0.627451" stroke="none" points="2663.63,-562.8 2663.63,-585.6 2739.64,-585.6 2739.64,-562.8 2663.63,-562.8"/>
+<text xml:space="preserve" text-anchor="start" x="2666.63" y="-568.6" font-family="Arial" font-size="14.00" fill="#c9c9c9">渲染行为测试</text>
 </g>
 <!-- renderer&#45;&gt;resources -->
-<g id="edge11" class="edge">
+<g id="edge10" class="edge">
 <title>renderer&#45;&gt;resources</title>
-<path fill="none" stroke="#8d8d8d" stroke-width="2" stroke-dasharray="5,2" d="M2777.19,-322.87C2762.1,-281.49 2744.1,-232.15 2728.6,-189.63"/>
-<polygon fill="#8d8d8d" stroke="#8d8d8d" stroke-width="2" points="2731.1,-188.82 2726.06,-182.67 2726.17,-190.62 2731.1,-188.82"/>
-<polygon fill="#18191b" fill-opacity="0.627451" stroke="none" points="2754.63,-240 2754.63,-262.8 2842.32,-262.8 2842.32,-240 2754.63,-240"/>
-<text xml:space="preserve" text-anchor="start" x="2757.63" y="-245.8" font-family="Arial" font-size="14.00" fill="#c9c9c9">字体与样式资源</text>
+<path fill="none" stroke="#8d8d8d" stroke-width="2" stroke-dasharray="5,2" d="M2587.94,-322.87C2552.22,-280.88 2509.5,-230.69 2472.97,-187.76"/>
+<polygon fill="#8d8d8d" stroke="#8d8d8d" stroke-width="2" points="2475.04,-186.15 2468.18,-182.13 2471.04,-189.55 2475.04,-186.15"/>
+<polygon fill="#18191b" fill-opacity="0.627451" stroke="none" points="2535.31,-240 2535.31,-262.8 2623,-262.8 2623,-240 2535.31,-240"/>
+<text xml:space="preserve" text-anchor="start" x="2538.31" y="-245.8" font-family="Arial" font-size="14.00" fill="#c9c9c9">字体与样式资源</text>
 </g>
 <!-- tools&#45;&gt;specifications -->
 <g id="edge4" class="edge">
 <title>tools&#45;&gt;specifications</title>
-<path fill="none" stroke="#8d8d8d" stroke-width="2" stroke-dasharray="5,2" d="M1004.99,-645.79C963.76,-526.26 890.65,-314.31 847.72,-189.85"/>
-<polygon fill="#8d8d8d" stroke="#8d8d8d" stroke-width="2" points="850.22,-189.03 845.29,-182.8 845.25,-190.74 850.22,-189.03"/>
+<path fill="none" stroke="#8d8d8d" stroke-width="2" stroke-dasharray="5,2" d="M923.43,-645.72C882.97,-606.71 842.03,-557.35 820.63,-502.8 791.41,-428.33 796.49,-399.07 820.63,-322.8 836.01,-274.19 865.64,-226.95 895.48,-187.94"/>
+<polygon fill="#8d8d8d" stroke="#8d8d8d" stroke-width="2" points="897.46,-189.67 899.98,-182.14 893.31,-186.45 897.46,-189.67"/>
 </g>
 <!-- tools&#45;&gt;repository -->
 <g id="edge3" class="edge">
 <title>tools&#45;&gt;repository</title>
-<path fill="none" stroke="#8d8d8d" stroke-width="2" stroke-dasharray="5,2" d="M1066.26,-645.79C1107.49,-526.26 1180.6,-314.31 1223.53,-189.85"/>
-<polygon fill="#8d8d8d" stroke="#8d8d8d" stroke-width="2" points="1226,-190.74 1225.96,-182.8 1221.04,-189.03 1226,-190.74"/>
+<path fill="none" stroke="#8d8d8d" stroke-width="2" stroke-dasharray="5,2" d="M1035.63,-645.67C1035.63,-604.47 1035.63,-555.36 1035.63,-512.97"/>
+<polygon fill="#8d8d8d" stroke="#8d8d8d" stroke-width="2" points="1038.25,-513.16 1035.63,-505.66 1033,-513.16 1038.25,-513.16"/>
 </g>
 <!-- toolkit&#45;&gt;specifications -->
-<g id="edge6" class="edge">
+<g id="edge8" class="edge">
 <title>toolkit&#45;&gt;specifications</title>
-<path fill="none" stroke="#8d8d8d" stroke-width="2" stroke-dasharray="5,2" d="M1387.72,-645.79C1263.17,-525.42 1041.62,-311.33 913.22,-187.24"/>
-<polygon fill="#8d8d8d" stroke="#8d8d8d" stroke-width="2" points="915.05,-185.36 907.83,-182.04 911.4,-189.14 915.05,-185.36"/>
+<path fill="none" stroke="#8d8d8d" stroke-width="2" stroke-dasharray="5,2" d="M1595.73,-645.93C1507.99,-561.77 1371.62,-432.24 1250.63,-322.8 1200.39,-277.36 1143.85,-228.02 1095.77,-186.58"/>
+<polygon fill="#8d8d8d" stroke="#8d8d8d" stroke-width="2" points="1097.51,-184.62 1090.12,-181.72 1094.09,-188.6 1097.51,-184.62"/>
 </g>
 <!-- toolkit&#45;&gt;repository -->
 <g id="edge5" class="edge">
 <title>toolkit&#45;&gt;repository</title>
-<path fill="none" stroke="#8d8d8d" stroke-width="2" stroke-dasharray="5,2" d="M1461.3,-645.85C1439.01,-545.22 1397.24,-377.29 1340.63,-240 1333.67,-223.14 1325.26,-205.77 1316.5,-189.1"/>
-<polygon fill="#8d8d8d" stroke="#8d8d8d" stroke-width="2" points="1318.87,-187.98 1313.02,-182.6 1314.24,-190.45 1318.87,-187.98"/>
+<path fill="none" stroke="#8d8d8d" stroke-width="2" stroke-dasharray="5,2" d="M1528.08,-687.45C1450.7,-661.86 1357.63,-626.97 1278.63,-585.6 1237.03,-563.82 1194.35,-535.85 1156.59,-508.84"/>
+<polygon fill="#8d8d8d" stroke="#8d8d8d" stroke-width="2" points="1158.18,-506.75 1150.56,-504.5 1155.11,-511.01 1158.18,-506.75"/>
+</g>
+<!-- toolkit&#45;&gt;frontend -->
+<g id="edge6" class="edge">
+<title>toolkit&#45;&gt;frontend</title>
+<path fill="none" stroke="#8d8d8d" stroke-width="2" stroke-dasharray="5,2" d="M1650.26,-645.67C1645.47,-604.47 1645.11,-555.36 1649.17,-512.97"/>
+<polygon fill="#8d8d8d" stroke="#8d8d8d" stroke-width="2" points="1651.77,-513.37 1649.95,-505.64 1646.55,-512.82 1651.77,-513.37"/>
 </g>
 <!-- toolkit&#45;&gt;fixtures -->
 <g id="edge7" class="edge">
 <title>toolkit&#45;&gt;fixtures</title>
-<path fill="none" stroke="#8d8d8d" stroke-width="2" stroke-dasharray="5,2" d="M1511.23,-645.79C1553.76,-526.26 1629.17,-314.31 1673.45,-189.85"/>
-<polygon fill="#8d8d8d" stroke="#8d8d8d" stroke-width="2" points="1675.93,-190.73 1675.97,-182.79 1670.98,-188.97 1675.93,-190.73"/>
+<path fill="none" stroke="#8d8d8d" stroke-width="2" stroke-dasharray="5,2" d="M1806.83,-645.67C1863.93,-603.07 1932.34,-552.03 1990.43,-508.69"/>
+<polygon fill="#8d8d8d" stroke="#8d8d8d" stroke-width="2" points="1991.69,-511.03 1996.13,-504.44 1988.55,-506.82 1991.69,-511.03"/>
+</g>
+<!-- frontend&#45;&gt;specifications -->
+<g id="edge12" class="edge">
+<title>frontend&#45;&gt;specifications</title>
+<path fill="none" stroke="#8d8d8d" stroke-width="2" stroke-dasharray="5,2" d="M1576.85,-322.81C1536.84,-293.61 1490.25,-262.83 1444.63,-240 1352.37,-193.83 1242.7,-157.7 1153.47,-132.58"/>
+<polygon fill="#8d8d8d" stroke="#8d8d8d" stroke-width="2" points="1154.37,-130.11 1146.44,-130.62 1152.96,-135.17 1154.37,-130.11"/>
+</g>
+<!-- frontend&#45;&gt;toolkit -->
+<g id="edge11" class="edge">
+<title>frontend&#45;&gt;toolkit</title>
+<path fill="none" stroke="#8d8d8d" stroke-width="2" stroke-dasharray="5,2" d="M1724.99,-502.63C1729.77,-543.81 1730.14,-592.92 1726.09,-635.32"/>
+<polygon fill="#8d8d8d" stroke="#8d8d8d" stroke-width="2" points="1723.49,-634.92 1725.32,-642.65 1728.71,-635.47 1723.49,-634.92"/>
+</g>
+<!-- frontend&#45;&gt;resources -->
+<g id="edge13" class="edge">
+<title>frontend&#45;&gt;resources</title>
+<path fill="none" stroke="#8d8d8d" stroke-width="2" stroke-dasharray="5,2" d="M1847.59,-338.8C1959.12,-287.91 2107.68,-220.12 2221.23,-168.3"/>
+<polygon fill="#8d8d8d" stroke="#8d8d8d" stroke-width="2" points="2222.23,-170.73 2227.96,-165.23 2220.05,-165.95 2222.23,-170.73"/>
+</g>
+<!-- frontend&#45;&gt;documentation -->
+<g id="edge14" class="edge">
+<title>frontend&#45;&gt;documentation</title>
+<path fill="none" stroke="#8d8d8d" stroke-width="2" stroke-dasharray="5,2" d="M1687.63,-322.87C1687.63,-281.67 1687.63,-232.56 1687.63,-190.17"/>
+<polygon fill="#8d8d8d" stroke="#8d8d8d" stroke-width="2" points="1690.25,-190.36 1687.63,-182.86 1685,-190.36 1690.25,-190.36"/>
 </g>
 <!-- legacy&#45;&gt;fixtures -->
-<g id="edge8" class="edge">
-<title>legacy&#45;&gt;fixtures</title>
-<path fill="none" stroke="#8d8d8d" stroke-width="2" stroke-dasharray="5,2" d="M2085.32,-645.79C2003.84,-525.78 1859.1,-312.61 1774.73,-188.36"/>
-<polygon fill="#8d8d8d" stroke="#8d8d8d" stroke-width="2" points="1777.1,-187.17 1770.71,-182.44 1772.76,-190.12 1777.1,-187.17"/>
-</g>
-<!-- legacy&#45;&gt;documentation -->
 <g id="edge9" class="edge">
-<title>legacy&#45;&gt;documentation</title>
-<path fill="none" stroke="#8d8d8d" stroke-width="2" stroke-dasharray="5,2" d="M2145.63,-645.79C2145.63,-526.38 2145.63,-314.73 2145.63,-190.23"/>
-<polygon fill="#8d8d8d" stroke="#8d8d8d" stroke-width="2" points="2148.25,-190.46 2145.63,-182.96 2143,-190.46 2148.25,-190.46"/>
-</g>
-<!-- legacy&#45;&gt;resources -->
-<g id="edge10" class="edge">
-<title>legacy&#45;&gt;resources</title>
-<path fill="none" stroke="#8d8d8d" stroke-width="2" stroke-dasharray="5,2" d="M2214.8,-645.67C2281.04,-561.32 2384.54,-431.66 2478.63,-322.8 2517.82,-277.45 2562.61,-228.51 2601.06,-187.34"/>
-<polygon fill="#8d8d8d" stroke="#8d8d8d" stroke-width="2" points="2602.88,-189.23 2606.09,-181.96 2599.05,-185.64 2602.88,-189.23"/>
+<title>legacy&#45;&gt;fixtures</title>
+<path fill="none" stroke="#8d8d8d" stroke-width="2" stroke-dasharray="5,2" d="M2117.63,-645.67C2117.63,-604.47 2117.63,-555.36 2117.63,-512.97"/>
+<polygon fill="#8d8d8d" stroke="#8d8d8d" stroke-width="2" points="2120.25,-513.16 2117.63,-505.66 2115,-513.16 2120.25,-513.16"/>
 </g>
 </g>
 </svg>
@@ -2608,8 +2667,8 @@ var e=e=>{switch(e){case`index`:return`digraph {
 <!-- Generated by graphviz version 15.0.0 (0)
  -->
 <!-- Pages: 1 -->
-<svg width="1484pt" height="1110pt"
- viewBox="0.00 0.00 1484.00 1110.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<svg width="1136pt" height="1110pt"
+ viewBox="0.00 0.00 1136.00 1110.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 <g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(15.05 1095.05)">
 <!-- configuration -->
 <g id="node1" class="node">
@@ -2623,98 +2682,62 @@ var e=e=>{switch(e){case`index`:return`digraph {
 <polygon fill="#3b82f6" stroke="#2563eb" stroke-width="0" points="320.04,-780 0,-780 0,-600 320.04,-600 320.04,-780"/>
 <text xml:space="preserve" text-anchor="start" x="85.01" y="-682" font-family="Arial" font-size="20.00" fill="#eff6ff">配置来源抽象与实现</text>
 </g>
-<!-- vscode_plugin -->
+<!-- pi_plugin -->
 <g id="node3" class="node">
-<title>vscode_plugin</title>
-<polygon fill="#3b82f6" stroke="#2563eb" stroke-width="0" points="1024.04,-1080 704,-1080 704,-900 1024.04,-900 1024.04,-1080"/>
-<text xml:space="preserve" text-anchor="start" x="771.21" y="-982" font-family="Arial" font-size="20.00" fill="#eff6ff">VS Code 插件启动入口</text>
-</g>
-<!-- frontend -->
-<g id="node4" class="node">
-<title>frontend</title>
-<polygon fill="#3b82f6" stroke="#2563eb" stroke-width="0" points="750.04,-780 430,-780 430,-600 750.04,-600 750.04,-780"/>
-<text xml:space="preserve" text-anchor="start" x="548.35" y="-682" font-family="Arial" font-size="20.00" fill="#eff6ff">前端容器栈</text>
+<title>pi_plugin</title>
+<polygon fill="#3b82f6" stroke="#2563eb" stroke-width="0" points="750.04,-1080 430,-1080 430,-900 750.04,-900 750.04,-1080"/>
+<text xml:space="preserve" text-anchor="start" x="499.43" y="-982" font-family="Arial" font-size="20.00" fill="#eff6ff">Pi Agent 插件启动入口</text>
 </g>
 <!-- mcp -->
-<g id="node5" class="node">
+<g id="node4" class="node">
 <title>mcp</title>
-<polygon fill="#3b82f6" stroke="#2563eb" stroke-width="0" points="1402.04,-780 1082,-780 1082,-600 1402.04,-600 1402.04,-780"/>
-<text xml:space="preserve" text-anchor="start" x="1183.68" y="-682" font-family="Arial" font-size="20.00" fill="#eff6ff">MCP 协议接入</text>
+<polygon fill="#3b82f6" stroke="#2563eb" stroke-width="0" points="750.04,-780 430,-780 430,-600 750.04,-600 750.04,-780"/>
+<text xml:space="preserve" text-anchor="start" x="531.68" y="-682" font-family="Arial" font-size="20.00" fill="#eff6ff">MCP 协议接入</text>
 </g>
 <!-- host -->
-<g id="node6" class="node">
+<g id="node5" class="node">
 <title>host</title>
-<polygon fill="#3b82f6" stroke="#2563eb" stroke-width="0" points="1076.04,-480 756,-480 756,-300 1076.04,-300 1076.04,-480"/>
-<text xml:space="preserve" text-anchor="start" x="867.68" y="-382" font-family="Arial" font-size="20.00" fill="#eff6ff">工作区 Host</text>
-</g>
-<!-- pi_plugin -->
-<g id="node7" class="node">
-<title>pi_plugin</title>
-<polygon fill="#3b82f6" stroke="#2563eb" stroke-width="0" points="1454.04,-1080 1134,-1080 1134,-900 1454.04,-900 1454.04,-1080"/>
-<text xml:space="preserve" text-anchor="start" x="1203.43" y="-982" font-family="Arial" font-size="20.00" fill="#eff6ff">Pi Agent 插件启动入口</text>
+<polygon fill="#3b82f6" stroke="#2563eb" stroke-width="0" points="750.04,-480 430,-480 430,-300 750.04,-300 750.04,-480"/>
+<text xml:space="preserve" text-anchor="start" x="541.68" y="-382" font-family="Arial" font-size="20.00" fill="#eff6ff">工作区 Host</text>
 </g>
 <!-- project_model -->
-<g id="node8" class="node">
+<g id="node6" class="node">
 <title>project_model</title>
-<polygon fill="#3b82f6" stroke="#2563eb" stroke-width="0" points="814.04,-180 494,-180 494,0 814.04,0 814.04,-180"/>
-<text xml:space="preserve" text-anchor="start" x="587.34" y="-82" font-family="Arial" font-size="20.00" fill="#eff6ff">工程格式纯计算包</text>
+<polygon fill="#3b82f6" stroke="#2563eb" stroke-width="0" points="488.04,-180 168,-180 168,0 488.04,0 488.04,-180"/>
+<text xml:space="preserve" text-anchor="start" x="261.34" y="-82" font-family="Arial" font-size="20.00" fill="#eff6ff">工程格式纯计算包</text>
 </g>
 <!-- script -->
-<g id="node9" class="node">
+<g id="node7" class="node">
 <title>script</title>
-<polygon fill="#3b82f6" stroke="#2563eb" stroke-width="0" points="1432.29,-180 923.75,-180 923.75,0 1432.29,0 1432.29,-180"/>
-<text xml:space="preserve" text-anchor="start" x="1103" y="-102" font-family="Arial" font-size="20.00" fill="#eff6ff">BEScript 纯计算包</text>
-<text xml:space="preserve" text-anchor="start" x="943.81" y="-79" font-family="Arial" font-size="15.00" fill="#bfdbfe">数据合同与三层纯转换设计分开登记；转换函数不读取工程或拥有跨请求缓存，Host</text>
-<text xml:space="preserve" text-anchor="start" x="1084.25" y="-61" font-family="Arial" font-size="15.00" fill="#bfdbfe">持有缓存状态并传入完整语义依据</text>
+<polygon fill="#3b82f6" stroke="#2563eb" stroke-width="0" points="1106.29,-180 597.75,-180 597.75,0 1106.29,0 1106.29,-180"/>
+<text xml:space="preserve" text-anchor="start" x="777" y="-102" font-family="Arial" font-size="20.00" fill="#eff6ff">BEScript 纯计算包</text>
+<text xml:space="preserve" text-anchor="start" x="617.81" y="-79" font-family="Arial" font-size="15.00" fill="#bfdbfe">数据合同与三层纯转换设计分开登记；转换函数不读取工程或拥有跨请求缓存，Host</text>
+<text xml:space="preserve" text-anchor="start" x="758.25" y="-61" font-family="Arial" font-size="15.00" fill="#bfdbfe">持有缓存状态并传入完整语义依据</text>
 </g>
 <!-- configuration&#45;&gt;config -->
-<!-- vscode_plugin&#45;&gt;frontend -->
+<!-- pi_plugin&#45;&gt;mcp -->
 <g id="edge2" class="edge">
-<title>vscode_plugin&#45;&gt;frontend</title>
-<path fill="none" stroke="#8d8d8d" stroke-width="2" stroke-dasharray="5,2" d="M782.55,-900.4C749.86,-864.84 712.08,-823.76 678.7,-787.45"/>
-<polygon fill="#8d8d8d" stroke="#8d8d8d" stroke-width="2" points="680.7,-785.75 673.7,-782 676.84,-789.3 680.7,-785.75"/>
-</g>
-<!-- vscode_plugin&#45;&gt;mcp -->
-<g id="edge3" class="edge">
-<title>vscode_plugin&#45;&gt;mcp</title>
-<path fill="none" stroke="#8d8d8d" stroke-width="2" stroke-dasharray="5,2" d="M976.66,-900.2C1022.13,-864.35 1074.68,-822.92 1120.96,-786.44"/>
-<polygon fill="#8d8d8d" stroke="#8d8d8d" stroke-width="2" points="1122.59,-788.5 1126.85,-781.79 1119.34,-784.38 1122.59,-788.5"/>
-</g>
-<!-- vscode_plugin&#45;&gt;host -->
-<g id="edge4" class="edge">
-<title>vscode_plugin&#45;&gt;host</title>
-<path fill="none" stroke="#8d8d8d" stroke-width="2" stroke-dasharray="5,2" d="M871.75,-900.12C881.28,-790.48 897.44,-604.62 907.38,-490.37"/>
-<polygon fill="#8d8d8d" stroke="#8d8d8d" stroke-width="2" points="909.99,-490.6 908.03,-482.9 904.76,-490.14 909.99,-490.6"/>
-</g>
-<!-- frontend&#45;&gt;host -->
-<g id="edge6" class="edge">
-<title>frontend&#45;&gt;host</title>
-<path fill="none" stroke="#8d8d8d" stroke-width="2" stroke-dasharray="5,2" d="M686.95,-600.4C726.17,-564.54 771.54,-523.07 811.51,-486.54"/>
-<polygon fill="#8d8d8d" stroke="#8d8d8d" stroke-width="2" points="812.9,-488.82 816.67,-481.82 809.36,-484.94 812.9,-488.82"/>
+<title>pi_plugin&#45;&gt;mcp</title>
+<path fill="none" stroke="#8d8d8d" stroke-width="2" stroke-dasharray="5,2" d="M590.02,-900.4C590.02,-865.73 590.02,-825.81 590.02,-790.19"/>
+<polygon fill="#8d8d8d" stroke="#8d8d8d" stroke-width="2" points="592.65,-790.3 590.02,-782.8 587.4,-790.3 592.65,-790.3"/>
 </g>
 <!-- mcp&#45;&gt;host -->
-<g id="edge7" class="edge">
+<g id="edge3" class="edge">
 <title>mcp&#45;&gt;host</title>
-<path fill="none" stroke="#8d8d8d" stroke-width="2" stroke-dasharray="5,2" d="M1145.09,-600.4C1105.87,-564.54 1060.5,-523.07 1020.53,-486.54"/>
-<polygon fill="#8d8d8d" stroke="#8d8d8d" stroke-width="2" points="1022.68,-484.94 1015.37,-481.82 1019.14,-488.82 1022.68,-484.94"/>
+<path fill="none" stroke="#8d8d8d" stroke-width="2" stroke-dasharray="5,2" d="M590.02,-600.4C590.02,-565.73 590.02,-525.81 590.02,-490.19"/>
+<polygon fill="#8d8d8d" stroke="#8d8d8d" stroke-width="2" points="592.65,-490.3 590.02,-482.8 587.4,-490.3 592.65,-490.3"/>
 </g>
 <!-- host&#45;&gt;project_model -->
-<g id="edge8" class="edge">
+<g id="edge4" class="edge">
 <title>host&#45;&gt;project_model</title>
-<path fill="none" stroke="#8d8d8d" stroke-width="2" stroke-dasharray="5,2" d="M838.12,-300.4C806.86,-264.84 770.74,-223.76 738.82,-187.45"/>
-<polygon fill="#8d8d8d" stroke="#8d8d8d" stroke-width="2" points="740.99,-185.95 734.07,-182.05 737.05,-189.42 740.99,-185.95"/>
+<path fill="none" stroke="#8d8d8d" stroke-width="2" stroke-dasharray="5,2" d="M512.12,-300.4C480.86,-264.84 444.74,-223.76 412.82,-187.45"/>
+<polygon fill="#8d8d8d" stroke="#8d8d8d" stroke-width="2" points="414.99,-185.95 408.07,-182.05 411.05,-189.42 414.99,-185.95"/>
 </g>
 <!-- host&#45;&gt;script -->
-<g id="edge9" class="edge">
-<title>host&#45;&gt;script</title>
-<path fill="none" stroke="#8d8d8d" stroke-width="2" stroke-dasharray="5,2" d="M993.92,-300.4C1025.18,-264.84 1061.3,-223.76 1093.22,-187.45"/>
-<polygon fill="#8d8d8d" stroke="#8d8d8d" stroke-width="2" points="1094.99,-189.42 1097.97,-182.05 1091.05,-185.95 1094.99,-189.42"/>
-</g>
-<!-- pi_plugin&#45;&gt;mcp -->
 <g id="edge5" class="edge">
-<title>pi_plugin&#45;&gt;mcp</title>
-<path fill="none" stroke="#8d8d8d" stroke-width="2" stroke-dasharray="5,2" d="M1278.56,-900.4C1272.48,-865.58 1265.48,-825.47 1259.25,-789.73"/>
-<polygon fill="#8d8d8d" stroke="#8d8d8d" stroke-width="2" points="1261.91,-789.7 1258.03,-782.76 1256.73,-790.6 1261.91,-789.7"/>
+<title>host&#45;&gt;script</title>
+<path fill="none" stroke="#8d8d8d" stroke-width="2" stroke-dasharray="5,2" d="M667.92,-300.4C699.18,-264.84 735.3,-223.76 767.22,-187.45"/>
+<polygon fill="#8d8d8d" stroke="#8d8d8d" stroke-width="2" points="768.99,-189.42 771.97,-182.05 765.05,-185.95 768.99,-189.42"/>
 </g>
 </g>
 </svg>
@@ -2762,8 +2785,8 @@ var e=e=>{switch(e){case`index`:return`digraph {
 <!-- Generated by graphviz version 15.0.0 (0)
  -->
 <!-- Pages: 1 -->
-<svg width="780pt" height="1110pt"
- viewBox="0.00 0.00 780.00 1110.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<svg width="1210pt" height="1110pt"
+ viewBox="0.00 0.00 1210.00 1110.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 <g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(15.05 1095.05)">
 <!-- tooling -->
 <g id="node1" class="node">
@@ -2789,29 +2812,42 @@ var e=e=>{switch(e){case`index`:return`digraph {
 <polygon fill="#3b82f6" stroke="#2563eb" stroke-width="0" points="320.04,-180 0,-180 0,0 320.04,0 320.04,-180"/>
 <text xml:space="preserve" text-anchor="start" x="86.11" y="-82" font-family="Arial" font-size="20.00" fill="#eff6ff">Toolkit 运行时合同</text>
 </g>
-<!-- bescript -->
+<!-- host_configuration -->
 <g id="node5" class="node">
-<title>bescript</title>
+<title>host_configuration</title>
 <polygon fill="#3b82f6" stroke="#2563eb" stroke-width="0" points="750.04,-1080 430,-1080 430,-900 750.04,-900 750.04,-1080"/>
-<text xml:space="preserve" text-anchor="start" x="515" y="-982" font-family="Arial" font-size="20.00" fill="#eff6ff">BEScript 内部格式</text>
+<text xml:space="preserve" text-anchor="start" x="513.89" y="-982" font-family="Arial" font-size="20.00" fill="#eff6ff">保留 Host 配置合同</text>
+</g>
+<!-- bescript -->
+<g id="node6" class="node">
+<title>bescript</title>
+<polygon fill="#3b82f6" stroke="#2563eb" stroke-width="0" points="750.04,-780 430,-780 430,-600 750.04,-600 750.04,-780"/>
+<text xml:space="preserve" text-anchor="start" x="515" y="-682" font-family="Arial" font-size="20.00" fill="#eff6ff">BEScript 内部格式</text>
 </g>
 <!-- canvas_render -->
-<g id="node6" class="node">
+<g id="node7" class="node">
 <title>canvas_render</title>
-<polygon fill="#3b82f6" stroke="#2563eb" stroke-width="0" points="750.04,-780 430,-780 430,-600 750.04,-600 750.04,-780"/>
-<text xml:space="preserve" text-anchor="start" x="520" y="-682" font-family="Arial" font-size="20.00" fill="#eff6ff">Canvas 渲染规范</text>
+<polygon fill="#3b82f6" stroke="#2563eb" stroke-width="0" points="750.04,-480 430,-480 430,-300 750.04,-300 750.04,-480"/>
+<text xml:space="preserve" text-anchor="start" x="520" y="-382" font-family="Arial" font-size="20.00" fill="#eff6ff">Canvas 渲染规范</text>
+</g>
+<!-- vscode_frontend -->
+<g id="node8" class="node">
+<title>vscode_frontend</title>
+<polygon fill="#3b82f6" stroke="#2563eb" stroke-width="0" points="750.04,-180 430,-180 430,0 750.04,0 750.04,-180"/>
+<text xml:space="preserve" text-anchor="start" x="513.88" y="-82" font-family="Arial" font-size="20.00" fill="#eff6ff">VS Code 前端职责</text>
 </g>
 <!-- canvas -->
-<g id="node7" class="node">
+<g id="node9" class="node">
 <title>canvas</title>
-<polygon fill="#3b82f6" stroke="#2563eb" stroke-width="0" points="750.04,-480 430,-480 430,-300 750.04,-300 750.04,-480"/>
-<text xml:space="preserve" text-anchor="start" x="503.33" y="-382" font-family="Arial" font-size="20.00" fill="#eff6ff">Canvas 四向转换合同</text>
+<polygon fill="#3b82f6" stroke="#2563eb" stroke-width="0" points="1180.04,-1080 860,-1080 860,-900 1180.04,-900 1180.04,-1080"/>
+<text xml:space="preserve" text-anchor="start" x="933.33" y="-982" font-family="Arial" font-size="20.00" fill="#eff6ff">Canvas 四向转换合同</text>
 </g>
 <!-- tooling&#45;&gt;layout -->
 <!-- layout&#45;&gt;development -->
 <!-- development&#45;&gt;runtime -->
+<!-- host_configuration&#45;&gt;bescript -->
 <!-- bescript&#45;&gt;canvas_render -->
-<!-- canvas_render&#45;&gt;canvas -->
+<!-- canvas_render&#45;&gt;vscode_frontend -->
 </g>
 </svg>
 `;case`legacy`:return`<?xml version="1.0" encoding="UTF-8" standalone="no"?>
@@ -2820,8 +2856,8 @@ var e=e=>{switch(e){case`index`:return`digraph {
 <!-- Generated by graphviz version 15.0.0 (0)
  -->
 <!-- Pages: 1 -->
-<svg width="1210pt" height="510pt"
- viewBox="0.00 0.00 1210.00 510.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<svg width="780pt" height="510pt"
+ viewBox="0.00 0.00 780.00 510.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 <g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(15.05 495.05)">
 <!-- mcp -->
 <g id="node1" class="node">
@@ -2832,8 +2868,8 @@ var e=e=>{switch(e){case`index`:return`digraph {
 <!-- core -->
 <g id="node2" class="node">
 <title>core</title>
-<polygon fill="#3b82f6" stroke="#2563eb" stroke-width="0" points="750.04,-180 430,-180 430,0 750.04,0 750.04,-180"/>
-<text xml:space="preserve" text-anchor="start" x="556.68" y="-82" font-family="Arial" font-size="20.00" fill="#eff6ff">核心逻辑</text>
+<polygon fill="#3b82f6" stroke="#2563eb" stroke-width="0" points="535.04,-180 215,-180 215,0 535.04,0 535.04,-180"/>
+<text xml:space="preserve" text-anchor="start" x="341.68" y="-82" font-family="Arial" font-size="20.00" fill="#eff6ff">核心逻辑</text>
 </g>
 <!-- host -->
 <g id="node3" class="node">
@@ -2841,29 +2877,17 @@ var e=e=>{switch(e){case`index`:return`digraph {
 <polygon fill="#3b82f6" stroke="#2563eb" stroke-width="0" points="750.04,-480 430,-480 430,-300 750.04,-300 750.04,-480"/>
 <text xml:space="preserve" text-anchor="start" x="509.99" y="-382" font-family="Arial" font-size="20.00" fill="#eff6ff">VSCode Host 入口</text>
 </g>
-<!-- frontend -->
-<g id="node4" class="node">
-<title>frontend</title>
-<polygon fill="#3b82f6" stroke="#2563eb" stroke-width="0" points="1180.04,-480 860,-480 860,-300 1180.04,-300 1180.04,-480"/>
-<text xml:space="preserve" text-anchor="start" x="1003.35" y="-382" font-family="Arial" font-size="20.00" fill="#eff6ff">前端</text>
-</g>
 <!-- mcp&#45;&gt;core -->
 <g id="edge1" class="edge">
 <title>mcp&#45;&gt;core</title>
-<path fill="none" stroke="#8d8d8d" stroke-width="2" stroke-dasharray="5,2" d="M288.16,-300.2C340.2,-264.13 400.41,-222.41 453.29,-185.76"/>
-<polygon fill="#8d8d8d" stroke="#8d8d8d" stroke-width="2" points="454.56,-188.07 459.23,-181.64 451.57,-183.76 454.56,-188.07"/>
+<path fill="none" stroke="#8d8d8d" stroke-width="2" stroke-dasharray="5,2" d="M223.94,-300.4C249.49,-264.99 278.99,-224.1 305.11,-187.9"/>
+<polygon fill="#8d8d8d" stroke="#8d8d8d" stroke-width="2" points="306.94,-189.85 309.2,-182.23 302.68,-186.78 306.94,-189.85"/>
 </g>
 <!-- host&#45;&gt;core -->
 <g id="edge2" class="edge">
 <title>host&#45;&gt;core</title>
-<path fill="none" stroke="#8d8d8d" stroke-width="2" stroke-dasharray="5,2" d="M590.02,-300.4C590.02,-265.73 590.02,-225.81 590.02,-190.19"/>
-<polygon fill="#8d8d8d" stroke="#8d8d8d" stroke-width="2" points="592.65,-190.3 590.02,-182.8 587.4,-190.3 592.65,-190.3"/>
-</g>
-<!-- frontend&#45;&gt;core -->
-<g id="edge3" class="edge">
-<title>frontend&#45;&gt;core</title>
-<path fill="none" stroke="#8d8d8d" stroke-width="2" stroke-dasharray="5,2" d="M891.88,-300.2C839.84,-264.13 779.63,-222.41 726.75,-185.76"/>
-<polygon fill="#8d8d8d" stroke="#8d8d8d" stroke-width="2" points="728.47,-183.76 720.81,-181.64 725.48,-188.07 728.47,-183.76"/>
+<path fill="none" stroke="#8d8d8d" stroke-width="2" stroke-dasharray="5,2" d="M526.1,-300.4C500.55,-264.99 471.05,-224.1 444.93,-187.9"/>
+<polygon fill="#8d8d8d" stroke="#8d8d8d" stroke-width="2" points="447.36,-186.78 440.84,-182.23 443.1,-189.85 447.36,-186.78"/>
 </g>
 </g>
 </svg>

@@ -48,7 +48,7 @@ skinparam rectangle<<Repository>>{
   FontColor #eff6ff
   BorderColor #2563eb
 }
-skinparam rectangle<<Specifications>>{
+skinparam rectangle<<Frontend>>{
   BackgroundColor #3b82f6
   FontColor #eff6ff
   BorderColor #2563eb
@@ -58,12 +58,17 @@ skinparam rectangle<<Fixtures>>{
   FontColor #eff6ff
   BorderColor #2563eb
 }
-skinparam rectangle<<Documentation>>{
+skinparam rectangle<<Specifications>>{
   BackgroundColor #3b82f6
   FontColor #eff6ff
   BorderColor #2563eb
 }
 skinparam rectangle<<Resources>>{
+  BackgroundColor #3b82f6
+  FontColor #eff6ff
+  BorderColor #2563eb
+}
+skinparam rectangle<<Documentation>>{
   BackgroundColor #3b82f6
   FontColor #eff6ff
   BorderColor #2563eb
@@ -75,10 +80,11 @@ rectangle "==Toolkit TypeScript 产品" <<Toolkit>> as Toolkit
 rectangle "==旧产品参考区" <<Legacy>> as Legacy
 rectangle "==Canvas 渲染引擎\\n\\nHTML 属性经显式 Option 解析为节点输入；节点按固定顺序应用特性，管线统一递归与排版，页面只有一次自动渲染。" <<Renderer>> as Renderer
 rectangle "==仓库工程基础" <<Repository>> as Repository
-rectangle "==工具链规范" <<Specifications>> as Specifications
+rectangle "==单一前端扩展" <<Frontend>> as Frontend
 rectangle "==跨组件夹具" <<Fixtures>> as Fixtures
-rectangle "==产品规范与参考" <<Documentation>> as Documentation
+rectangle "==工具链规范" <<Specifications>> as Specifications
 rectangle "==共享静态资源" <<Resources>> as Resources
+rectangle "==产品规范与参考" <<Documentation>> as Documentation
 
 Pure .[#8D8D8D,thickness=2].> Specifications
 Renderer .[#8D8D8D,thickness=2].> Resources : <color:#8D8D8D>字体与样式资源
@@ -87,10 +93,13 @@ Tools .[#8D8D8D,thickness=2].> Repository
 Tools .[#8D8D8D,thickness=2].> Specifications
 Toolkit .[#8D8D8D,thickness=2].> Repository
 Toolkit .[#8D8D8D,thickness=2].> Specifications
+Frontend .[#8D8D8D,thickness=2].> Specifications
+Toolkit .[#8D8D8D,thickness=2].> Frontend
 Toolkit .[#8D8D8D,thickness=2].> Fixtures
+Frontend .[#8D8D8D,thickness=2].> Toolkit
 Legacy .[#8D8D8D,thickness=2].> Fixtures
-Legacy .[#8D8D8D,thickness=2].> Resources
-Legacy .[#8D8D8D,thickness=2].> Documentation
+Frontend .[#8D8D8D,thickness=2].> Resources
+Frontend .[#8D8D8D,thickness=2].> Documentation
 @enduml
 `;case`bescript_first_layer`:return`@startuml
 title "第一层：BEScript 文本与局部 AST"
@@ -466,7 +475,7 @@ skinparam rectangle<<Repository>>{
   FontColor #eff6ff
   BorderColor #2563eb
 }
-skinparam rectangle<<Specifications>>{
+skinparam rectangle<<Frontend>>{
   BackgroundColor #3b82f6
   FontColor #eff6ff
   BorderColor #2563eb
@@ -476,12 +485,17 @@ skinparam rectangle<<Fixtures>>{
   FontColor #eff6ff
   BorderColor #2563eb
 }
-skinparam rectangle<<Documentation>>{
+skinparam rectangle<<Specifications>>{
   BackgroundColor #3b82f6
   FontColor #eff6ff
   BorderColor #2563eb
 }
 skinparam rectangle<<Resources>>{
+  BackgroundColor #3b82f6
+  FontColor #eff6ff
+  BorderColor #2563eb
+}
+skinparam rectangle<<Documentation>>{
   BackgroundColor #3b82f6
   FontColor #eff6ff
   BorderColor #2563eb
@@ -493,10 +507,11 @@ rectangle "==Toolkit TypeScript 产品" <<Toolkit>> as Toolkit
 rectangle "==旧产品参考区" <<Legacy>> as Legacy
 rectangle "==Canvas 渲染引擎\\n\\nHTML 属性经显式 Option 解析为节点输入；节点按固定顺序应用特性，管线统一递归与排版，页面只有一次自动渲染。" <<Renderer>> as Renderer
 rectangle "==仓库工程基础" <<Repository>> as Repository
-rectangle "==工具链规范" <<Specifications>> as Specifications
+rectangle "==单一前端扩展" <<Frontend>> as Frontend
 rectangle "==跨组件夹具" <<Fixtures>> as Fixtures
-rectangle "==产品规范与参考" <<Documentation>> as Documentation
+rectangle "==工具链规范" <<Specifications>> as Specifications
 rectangle "==共享静态资源" <<Resources>> as Resources
+rectangle "==产品规范与参考" <<Documentation>> as Documentation
 
 Pure .[#8D8D8D,thickness=2].> Specifications
 Renderer .[#8D8D8D,thickness=2].> Resources : <color:#8D8D8D>字体与样式资源
@@ -505,10 +520,13 @@ Tools .[#8D8D8D,thickness=2].> Repository
 Tools .[#8D8D8D,thickness=2].> Specifications
 Toolkit .[#8D8D8D,thickness=2].> Repository
 Toolkit .[#8D8D8D,thickness=2].> Specifications
+Frontend .[#8D8D8D,thickness=2].> Specifications
+Toolkit .[#8D8D8D,thickness=2].> Frontend
 Toolkit .[#8D8D8D,thickness=2].> Fixtures
+Frontend .[#8D8D8D,thickness=2].> Toolkit
 Legacy .[#8D8D8D,thickness=2].> Fixtures
-Legacy .[#8D8D8D,thickness=2].> Resources
-Legacy .[#8D8D8D,thickness=2].> Documentation
+Frontend .[#8D8D8D,thickness=2].> Resources
+Frontend .[#8D8D8D,thickness=2].> Documentation
 @enduml
 `;case`tooling`:return`@startuml
 title "自举检查工具"
@@ -599,17 +617,7 @@ skinparam rectangle<<ToolkitConfig>>{
   FontColor #eff6ff
   BorderColor #2563eb
 }
-skinparam rectangle<<ToolkitVscode_plugin>>{
-  BackgroundColor #3b82f6
-  FontColor #eff6ff
-  BorderColor #2563eb
-}
 skinparam rectangle<<ToolkitPi_plugin>>{
-  BackgroundColor #3b82f6
-  FontColor #eff6ff
-  BorderColor #2563eb
-}
-skinparam rectangle<<ToolkitFrontend>>{
   BackgroundColor #3b82f6
   FontColor #eff6ff
   BorderColor #2563eb
@@ -636,9 +644,7 @@ skinparam rectangle<<ToolkitScript>>{
 }
 rectangle "==产品类型检查配置" <<ToolkitConfiguration>> as ToolkitConfiguration
 rectangle "==配置来源抽象与实现" <<ToolkitConfig>> as ToolkitConfig
-rectangle "==VS Code 插件启动入口" <<ToolkitVscode_plugin>> as ToolkitVscode_plugin
 rectangle "==Pi Agent 插件启动入口" <<ToolkitPi_plugin>> as ToolkitPi_plugin
-rectangle "==前端容器栈" <<ToolkitFrontend>> as ToolkitFrontend
 rectangle "==MCP 协议接入" <<ToolkitMcp>> as ToolkitMcp
 rectangle "==工作区 Host" <<ToolkitHost>> as ToolkitHost
 rectangle "==工程格式纯计算包" <<ToolkitProject_model>> as ToolkitProject_model
@@ -647,11 +653,7 @@ rectangle "==BEScript 纯计算包\\n\\n数据合同与三层纯转换设计分�
 ToolkitHost .[#8D8D8D,thickness=2].> ToolkitProject_model
 ToolkitHost .[#8D8D8D,thickness=2].> ToolkitScript
 ToolkitMcp .[#8D8D8D,thickness=2].> ToolkitHost
-ToolkitFrontend .[#8D8D8D,thickness=2].> ToolkitHost
-ToolkitVscode_plugin .[#8D8D8D,thickness=2].> ToolkitHost
-ToolkitVscode_plugin .[#8D8D8D,thickness=2].> ToolkitMcp
 ToolkitPi_plugin .[#8D8D8D,thickness=2].> ToolkitMcp
-ToolkitVscode_plugin .[#8D8D8D,thickness=2].> ToolkitFrontend
 @enduml
 `;case`repository`:return`@startuml
 title "仓库工程基础"
@@ -728,12 +730,22 @@ skinparam rectangle<<SpecificationsRuntime>>{
   FontColor #eff6ff
   BorderColor #2563eb
 }
+skinparam rectangle<<SpecificationsHost_configuration>>{
+  BackgroundColor #3b82f6
+  FontColor #eff6ff
+  BorderColor #2563eb
+}
 skinparam rectangle<<SpecificationsBescript>>{
   BackgroundColor #3b82f6
   FontColor #eff6ff
   BorderColor #2563eb
 }
 skinparam rectangle<<SpecificationsCanvas_render>>{
+  BackgroundColor #3b82f6
+  FontColor #eff6ff
+  BorderColor #2563eb
+}
+skinparam rectangle<<SpecificationsVscode_frontend>>{
   BackgroundColor #3b82f6
   FontColor #eff6ff
   BorderColor #2563eb
@@ -747,8 +759,10 @@ rectangle "==治理契约" <<SpecificationsTooling>> as SpecificationsTooling
 rectangle "==文件布局契约" <<SpecificationsLayout>> as SpecificationsLayout
 rectangle "==开发与协作契约" <<SpecificationsDevelopment>> as SpecificationsDevelopment
 rectangle "==Toolkit 运行时合同" <<SpecificationsRuntime>> as SpecificationsRuntime
+rectangle "==保留 Host 配置合同" <<SpecificationsHost_configuration>> as SpecificationsHost_configuration
 rectangle "==BEScript 内部格式" <<SpecificationsBescript>> as SpecificationsBescript
 rectangle "==Canvas 渲染规范" <<SpecificationsCanvas_render>> as SpecificationsCanvas_render
+rectangle "==VS Code 前端职责" <<SpecificationsVscode_frontend>> as SpecificationsVscode_frontend
 rectangle "==Canvas 四向转换合同" <<SpecificationsCanvas>> as SpecificationsCanvas
 @enduml
 `;case`legacy`:return`@startuml
@@ -776,11 +790,6 @@ skinparam rectangle<<LegacyHost>>{
   FontColor #eff6ff
   BorderColor #2563eb
 }
-skinparam rectangle<<LegacyFrontend>>{
-  BackgroundColor #3b82f6
-  FontColor #eff6ff
-  BorderColor #2563eb
-}
 skinparam rectangle<<LegacyCore>>{
   BackgroundColor #3b82f6
   FontColor #eff6ff
@@ -788,12 +797,10 @@ skinparam rectangle<<LegacyCore>>{
 }
 rectangle "==MCP 协议入口" <<LegacyMcp>> as LegacyMcp
 rectangle "==VSCode Host 入口" <<LegacyHost>> as LegacyHost
-rectangle "==前端" <<LegacyFrontend>> as LegacyFrontend
 rectangle "==核心逻辑" <<LegacyCore>> as LegacyCore
 
 LegacyMcp .[#8D8D8D,thickness=2].> LegacyCore
 LegacyHost .[#8D8D8D,thickness=2].> LegacyCore
-LegacyFrontend .[#8D8D8D,thickness=2].> LegacyCore
 @enduml
 `;case`legacy_core`:return`@startuml
 title "核心逻辑"

@@ -21,17 +21,20 @@ Renderer: {
 Repository: {
   label: "仓库工程基础"
 }
-Specifications: {
-  label: "工具链规范"
+Frontend: {
+  label: "单一前端扩展"
 }
 Fixtures: {
   label: "跨组件夹具"
 }
-Documentation: {
-  label: "产品规范与参考"
+Specifications: {
+  label: "工具链规范"
 }
 Resources: {
   label: "共享静态资源"
+}
+Documentation: {
+  label: "产品规范与参考"
 }
 
 Pure -> Specifications
@@ -41,10 +44,13 @@ Tools -> Repository
 Tools -> Specifications
 Toolkit -> Repository
 Toolkit -> Specifications
+Frontend -> Specifications
+Toolkit -> Frontend
 Toolkit -> Fixtures
+Frontend -> Toolkit
 Legacy -> Fixtures
-Legacy -> Resources
-Legacy -> Documentation
+Frontend -> Resources
+Frontend -> Documentation
 `;case`bescript_first_layer`:return`direction: down
 
 ToolkitScriptConversion: {
@@ -241,17 +247,20 @@ Renderer: {
 Repository: {
   label: "仓库工程基础"
 }
-Specifications: {
-  label: "工具链规范"
+Frontend: {
+  label: "单一前端扩展"
 }
 Fixtures: {
   label: "跨组件夹具"
 }
-Documentation: {
-  label: "产品规范与参考"
+Specifications: {
+  label: "工具链规范"
 }
 Resources: {
   label: "共享静态资源"
+}
+Documentation: {
+  label: "产品规范与参考"
 }
 
 Pure -> Specifications
@@ -261,10 +270,13 @@ Tools -> Repository
 Tools -> Specifications
 Toolkit -> Repository
 Toolkit -> Specifications
+Frontend -> Specifications
+Toolkit -> Frontend
 Toolkit -> Fixtures
+Frontend -> Toolkit
 Legacy -> Fixtures
-Legacy -> Resources
-Legacy -> Documentation
+Frontend -> Resources
+Frontend -> Documentation
 `;case`tooling`:return`direction: down
 
 ToolsTests: {
@@ -305,14 +317,8 @@ ToolkitConfiguration: {
 ToolkitConfig: {
   label: "配置来源抽象与实现"
 }
-ToolkitVscode_plugin: {
-  label: "VS Code 插件启动入口"
-}
 ToolkitPi_plugin: {
   label: "Pi Agent 插件启动入口"
-}
-ToolkitFrontend: {
-  label: "前端容器栈"
 }
 ToolkitMcp: {
   label: "MCP 协议接入"
@@ -330,11 +336,7 @@ ToolkitScript: {
 ToolkitHost -> ToolkitProject_model
 ToolkitHost -> ToolkitScript
 ToolkitMcp -> ToolkitHost
-ToolkitFrontend -> ToolkitHost
-ToolkitVscode_plugin -> ToolkitHost
-ToolkitVscode_plugin -> ToolkitMcp
 ToolkitPi_plugin -> ToolkitMcp
-ToolkitVscode_plugin -> ToolkitFrontend
 `;case`repository`:return`direction: down
 
 RepositoryBuild: {
@@ -363,11 +365,17 @@ SpecificationsDevelopment: {
 SpecificationsRuntime: {
   label: "Toolkit 运行时合同"
 }
+SpecificationsHost_configuration: {
+  label: "保留 Host 配置合同"
+}
 SpecificationsBescript: {
   label: "BEScript 内部格式"
 }
 SpecificationsCanvas_render: {
   label: "Canvas 渲染规范"
+}
+SpecificationsVscode_frontend: {
+  label: "VS Code 前端职责"
 }
 SpecificationsCanvas: {
   label: "Canvas 四向转换合同"
@@ -380,16 +388,12 @@ LegacyMcp: {
 LegacyHost: {
   label: "VSCode Host 入口"
 }
-LegacyFrontend: {
-  label: "前端"
-}
 LegacyCore: {
   label: "核心逻辑"
 }
 
 LegacyMcp -> LegacyCore
 LegacyHost -> LegacyCore
-LegacyFrontend -> LegacyCore
 `;case`legacy_core`:return`direction: down
 
 LegacyCoreComposition: {
