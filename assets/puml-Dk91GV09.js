@@ -132,6 +132,13 @@ skinparam rectangle<<SpecificationsBescript>>{
   FontColor #eff6ff
   BorderColor #2563eb
 }
+rectangle "三层纯转换设计" <<ToolkitScriptConversion>> as ToolkitScriptConversion {
+  skinparam RectangleBorderColor<<ToolkitScriptConversion>> #3b82f6
+  skinparam RectangleFontColor<<ToolkitScriptConversion>> #3b82f6
+  skinparam RectangleBorderStyle<<ToolkitScriptConversion>> dashed
+
+  rectangle "==BEScript 文本与局部 AST 转换\\n\\nIssue 45 的实现归属：唯一正文词法、控制结构、调用与反向序列化入口；依赖文本合同和局部 AST，不依赖 Host" <<ToolkitScriptConversionFirst>> as ToolkitScriptConversionFirst
+}
 rectangle "局部 AST 层" <<ToolkitScriptAst>> as ToolkitScriptAst {
   skinparam RectangleBorderColor<<ToolkitScriptAst>> #3b82f6
   skinparam RectangleFontColor<<ToolkitScriptAst>> #3b82f6
@@ -139,7 +146,6 @@ rectangle "局部 AST 层" <<ToolkitScriptAst>> as ToolkitScriptAst {
 
   rectangle "==局部 AST" <<ToolkitScriptAstLocal_ast>> as ToolkitScriptAstLocal_ast
 }
-rectangle "==BEScript 文本与局部 AST 转换\\n\\nIssue 45 的实现归属：唯一正文词法、控制结构、调用与反向序列化入口；依赖文本合同和局部 AST，不依赖 Host" <<ToolkitScriptConversionFirst>> as ToolkitScriptConversionFirst
 rectangle "原版文本层" <<ToolkitScriptText>> as ToolkitScriptText {
   skinparam RectangleBorderColor<<ToolkitScriptText>> #3b82f6
   skinparam RectangleFontColor<<ToolkitScriptText>> #3b82f6
@@ -150,7 +156,10 @@ rectangle "原版文本层" <<ToolkitScriptText>> as ToolkitScriptText {
 }
 rectangle "==BEScript 内部格式" <<SpecificationsBescript>> as SpecificationsBescript
 
+ToolkitScriptConversionFirst .[#8D8D8D,thickness=2].> ToolkitScriptTextVocabulary
+ToolkitScriptConversionFirst .[#8D8D8D,thickness=2].> ToolkitScriptTextCode_file
 ToolkitScriptTextCode_file .[#8D8D8D,thickness=2].> ToolkitScriptTextVocabulary
+ToolkitScriptConversionFirst .[#8D8D8D,thickness=2].> ToolkitScriptAstLocal_ast
 ToolkitScriptAstLocal_ast .[#8D8D8D,thickness=2].> ToolkitScriptTextVocabulary
 ToolkitScriptAstLocal_ast .[#8D8D8D,thickness=2].> ToolkitScriptTextCode_file
 ToolkitScriptConversionFirst .[#8D8D8D,thickness=2].> SpecificationsBescript

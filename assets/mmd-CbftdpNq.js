@@ -28,19 +28,24 @@ graph TB
 title: "第一层：BEScript 文本与局部 AST"
 ---
 graph TB
+  subgraph ToolkitScriptConversion["\`三层纯转换设计\`"]
+    ToolkitScriptConversion.First@{ shape: rectangle, label: "BEScript 文本与局部 AST 转换" }
+  end
   subgraph ToolkitScriptAst["\`局部 AST 层\`"]
     ToolkitScriptAst.Local_ast@{ shape: rectangle, label: "局部 AST" }
   end
-  ToolkitScriptConversionFirst@{ shape: rectangle, label: "BEScript 文本与局部 AST 转换" }
   subgraph ToolkitScriptText["\`原版文本层\`"]
     ToolkitScriptText.Code_file@{ shape: rectangle, label: ".code 文件" }
     ToolkitScriptText.Vocabulary@{ shape: rectangle, label: "类型与转义" }
   end
   SpecificationsBescript@{ shape: rectangle, label: "BEScript 内部格式" }
+  ToolkitScriptConversion.First -.-> ToolkitScriptText.Vocabulary
+  ToolkitScriptConversion.First -.-> ToolkitScriptText.Code_file
   ToolkitScriptText.Code_file -.-> ToolkitScriptText.Vocabulary
+  ToolkitScriptConversion.First -.-> ToolkitScriptAst.Local_ast
   ToolkitScriptAst.Local_ast -.-> ToolkitScriptText.Vocabulary
   ToolkitScriptAst.Local_ast -.-> ToolkitScriptText.Code_file
-  ToolkitScriptConversionFirst -.-> SpecificationsBescript
+  ToolkitScriptConversion.First -.-> SpecificationsBescript
   ToolkitScriptText.Vocabulary -.-> SpecificationsBescript
   ToolkitScriptText.Code_file -.-> SpecificationsBescript
   ToolkitScriptAst.Local_ast -.-> SpecificationsBescript

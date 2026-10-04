@@ -47,15 +47,19 @@ Legacy -> Resources
 Legacy -> Documentation
 `;case`bescript_first_layer`:return`direction: down
 
+ToolkitScriptConversion: {
+  label: "三层纯转换设计"
+
+  First: {
+    label: "BEScript 文本与局部 AST 转换"
+  }
+}
 ToolkitScriptAst: {
   label: "局部 AST 层"
 
   Local_ast: {
     label: "局部 AST"
   }
-}
-ToolkitScriptConversionFirst: {
-  label: "BEScript 文本与局部 AST 转换"
 }
 ToolkitScriptText: {
   label: "原版文本层"
@@ -71,10 +75,13 @@ SpecificationsBescript: {
   label: "BEScript 内部格式"
 }
 
+ToolkitScriptConversion.First -> ToolkitScriptText.Vocabulary
+ToolkitScriptConversion.First -> ToolkitScriptText.Code_file
 ToolkitScriptText.Code_file -> ToolkitScriptText.Vocabulary
+ToolkitScriptConversion.First -> ToolkitScriptAst.Local_ast
 ToolkitScriptAst.Local_ast -> ToolkitScriptText.Vocabulary
 ToolkitScriptAst.Local_ast -> ToolkitScriptText.Code_file
-ToolkitScriptConversionFirst -> SpecificationsBescript
+ToolkitScriptConversion.First -> SpecificationsBescript
 ToolkitScriptText.Vocabulary -> SpecificationsBescript
 ToolkitScriptText.Code_file -> SpecificationsBescript
 ToolkitScriptAst.Local_ast -> SpecificationsBescript
