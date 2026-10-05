@@ -553,6 +553,11 @@ skinparam rectangle<<ToolsHooks>>{
   FontColor #eff6ff
   BorderColor #2563eb
 }
+skinparam rectangle<<ToolsTesting>>{
+  BackgroundColor #3b82f6
+  FontColor #eff6ff
+  BorderColor #2563eb
+}
 skinparam rectangle<<ToolsCli>>{
   BackgroundColor #3b82f6
   FontColor #eff6ff
@@ -573,17 +578,25 @@ skinparam rectangle<<ToolsAnchoring>>{
   FontColor #eff6ff
   BorderColor #2563eb
 }
+skinparam rectangle<<ToolsReview_state>>{
+  BackgroundColor #3b82f6
+  FontColor #eff6ff
+  BorderColor #2563eb
+}
 rectangle "==自身回归测试" <<ToolsTests>> as ToolsTests
 rectangle "==Git 钩子转发\\n\\n纯转发薄壳：零判定逻辑，全部判定经唯一入口 cli" <<ToolsHooks>> as ToolsHooks
+rectangle "==真实 Git 审计夹具" <<ToolsTesting>> as ToolsTesting
 rectangle "==CLI 与进程边界\\n\\n项目特有检查与逐锚点检视；标准工具由 pnpm scripts 直接执行" <<ToolsCli>> as ToolsCli
 rectangle "==Java 风格规则" <<ToolsCoding>> as ToolsCoding
 rectangle "==架构模型解析" <<ToolsArchitecture>> as ToolsArchitecture
 rectangle "==规范与代码锚定" <<ToolsAnchoring>> as ToolsAnchoring
+rectangle "==当前 Git tree 的审计终态\\n\\nSQLite 单文件，三方语义合并；令牌和未提交确认仅在 worktree 私有 Git 目录" <<ToolsReview_state>> as ToolsReview_state
 
 ToolsCli .[#8D8D8D,thickness=2].> ToolsArchitecture
 ToolsCli .[#8D8D8D,thickness=2].> ToolsAnchoring
 ToolsCli .[#8D8D8D,thickness=2].> ToolsCoding
 ToolsTests .[#8D8D8D,thickness=2].> ToolsCli
+ToolsTesting .[#8D8D8D,thickness=2].> ToolsCli
 ToolsHooks .[#8D8D8D,thickness=2].> ToolsCli
 ToolsArchitecture .[#8D8D8D,thickness=2].> ToolsAnchoring
 ToolsCoding .[#8D8D8D,thickness=2].> ToolsArchitecture
@@ -591,6 +604,7 @@ ToolsTests .[#8D8D8D,thickness=2].> ToolsArchitecture
 ToolsCoding .[#8D8D8D,thickness=2].> ToolsAnchoring
 ToolsTests .[#8D8D8D,thickness=2].> ToolsAnchoring
 ToolsTests .[#8D8D8D,thickness=2].> ToolsCoding
+ToolsTests .[#8D8D8D,thickness=2].> ToolsTesting
 @enduml
 `;case`runtime`:return`@startuml
 title "Toolkit TypeScript 产品"

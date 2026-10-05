@@ -124,14 +124,17 @@ title: "自举检查工具"
 graph TB
   ToolsTests@{ shape: rectangle, label: "自身回归测试" }
   ToolsHooks@{ shape: rectangle, label: "Git 钩子转发" }
+  ToolsTesting@{ shape: rectangle, label: "真实 Git 审计夹具" }
   ToolsCli@{ shape: rectangle, label: "CLI 与进程边界" }
   ToolsCoding@{ shape: rectangle, label: "Java 风格规则" }
   ToolsArchitecture@{ shape: rectangle, label: "架构模型解析" }
   ToolsAnchoring@{ shape: rectangle, label: "规范与代码锚定" }
+  ToolsReview_state@{ shape: rectangle, label: "当前 Git tree 的审计终态" }
   ToolsCli -.-> ToolsArchitecture
   ToolsCli -.-> ToolsAnchoring
   ToolsCli -.-> ToolsCoding
   ToolsTests -.-> ToolsCli
+  ToolsTesting -.-> ToolsCli
   ToolsHooks -.-> ToolsCli
   ToolsArchitecture -.-> ToolsAnchoring
   ToolsCoding -.-> ToolsArchitecture
@@ -139,6 +142,7 @@ graph TB
   ToolsCoding -.-> ToolsAnchoring
   ToolsTests -.-> ToolsAnchoring
   ToolsTests -.-> ToolsCoding
+  ToolsTests -.-> ToolsTesting
 `;case`runtime`:return`---
 title: "Toolkit TypeScript 产品"
 ---

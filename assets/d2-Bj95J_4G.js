@@ -285,6 +285,9 @@ ToolsTests: {
 ToolsHooks: {
   label: "Git 钩子转发"
 }
+ToolsTesting: {
+  label: "真实 Git 审计夹具"
+}
 ToolsCli: {
   label: "CLI 与进程边界"
 }
@@ -297,11 +300,15 @@ ToolsArchitecture: {
 ToolsAnchoring: {
   label: "规范与代码锚定"
 }
+ToolsReview_state: {
+  label: "当前 Git tree 的审计终态"
+}
 
 ToolsCli -> ToolsArchitecture
 ToolsCli -> ToolsAnchoring
 ToolsCli -> ToolsCoding
 ToolsTests -> ToolsCli
+ToolsTesting -> ToolsCli
 ToolsHooks -> ToolsCli
 ToolsArchitecture -> ToolsAnchoring
 ToolsCoding -> ToolsArchitecture
@@ -309,6 +316,7 @@ ToolsTests -> ToolsArchitecture
 ToolsCoding -> ToolsAnchoring
 ToolsTests -> ToolsAnchoring
 ToolsTests -> ToolsCoding
+ToolsTests -> ToolsTesting
 `;case`runtime`:return`direction: down
 
 ToolkitConfiguration: {
