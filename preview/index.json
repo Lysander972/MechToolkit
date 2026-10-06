@@ -1,0 +1,1 @@
+{"v":5,"entries":{"plugin-sidebar--overview":{"type":"story","subtype":"story","id":"plugin-sidebar--overview","name":"Overview","title":"Plugin/Sidebar","importPath":"./src/preview/storybook/Sidebar.stories.tsx","componentPath":"./src/preview/scenes/SidebarPreview.tsx","tags":["dev","test","manifest"],"exportName":"Overview"}}}

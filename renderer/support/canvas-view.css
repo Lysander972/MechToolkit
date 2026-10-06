@@ -1,0 +1,140 @@
+/* res/styles/canvas-view.css */
+@font-face {
+  font-family: "ToolkitAlibabaPuHuiTiMedium";
+  src: url("./fonts/Alibaba-Puhui_Medium.ttf") format("truetype");
+  font-display: swap;
+}
+@font-face {
+  font-family: "ToolkitAlibabaPuHuiTiLight";
+  src: url("./fonts/AlibabaPuHuiTi-3-45-Light.ttf") format("truetype");
+  font-display: swap;
+}
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  background: rgba(45, 45, 48, 1);
+  color: rgba(204, 204, 204, 1);
+  user-select: none;
+}
+.f0 {
+  font-family: "ToolkitAlibabaPuHuiTiMedium";
+  font-weight: 400;
+}
+.f1 {
+  font-family: "ToolkitAlibabaPuHuiTiLight";
+  font-weight: 400;
+}
+.viewport {
+  position: relative;
+  overflow: hidden;
+  background: rgba(45, 45, 48, 1);
+}
+BeCanvas {
+  display: block;
+  position: relative;
+  overflow: hidden;
+  background: rgba(45, 45, 48, 1);
+}
+.canvas-element {
+  position: absolute;
+  box-sizing: border-box;
+}
+.canvas-element.highlighted {
+  outline: 2px solid rgba(0, 122, 204, 1);
+  outline-offset: -1px;
+}
+.canvas-element.hidden-by-user {
+  opacity: 0.15;
+}
+.canvas-element.canvas-mask-enabled.canvas-graphic-alpha-zero {
+  visibility: hidden;
+}
+.canvas-element.UIButton,
+.canvas-element.UILabel,
+.canvas-element.TextPro,
+.canvas-element.UIInput {
+  display: flex;
+  font-family: "ToolkitAlibabaPuHuiTiMedium";
+  font-weight: 400;
+}
+.canvas-element.UIButton *,
+.canvas-element.UILabel *,
+.canvas-element.TextPro *,
+.canvas-element.UIInput * {
+  font-weight: inherit !important;
+  font-family: inherit !important;
+}
+.canvas-element.UIButton {
+  cursor: pointer;
+}
+.canvas-element.UIButton:hover {
+  filter: brightness(1.1);
+}
+.canvas-element.UILabel,
+.canvas-element.TextPro {
+  white-space: pre-wrap;
+  overflow: visible;
+}
+.canvas-element.UIInput {
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  padding: 2px 4px;
+}
+.canvas-element.UIInput.multiline {
+  flex-direction: column;
+  align-items: flex-start;
+}
+.canvas-element.UIInput .input-placeholder {
+  color: rgba(255, 255, 255, 0.4);
+  font-style: italic;
+}
+.canvas-element.has-image {
+  background-color: transparent;
+  background-size: 100% 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.canvas-element.has-image > canvas.canvas-render-image {
+  filter: var(--canvas-graphic-shadow, none);
+}
+.canvas-element.has-image.sliced {
+  background: none !important;
+}
+.text-pro {
+  position: relative;
+}
+.scroll-indicator {
+  position: absolute;
+  bottom: 2px;
+  right: 2px;
+  font-size: 10px;
+  background: rgba(0, 0, 0, 0.6);
+  color: rgba(170, 170, 170, 1);
+  padding: 1px 4px;
+  border-radius: 2px;
+  pointer-events: none;
+  display: flex;
+  gap: 4px;
+}
+.scroll-indicator .disabled {
+  text-decoration: line-through;
+  color: rgba(244, 135, 113, 1);
+}
+.cb-tag {
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  font-size: 10px;
+  background: rgba(0, 122, 204, 0.85);
+  color: rgba(255, 255, 255, 1);
+  padding: 1px 4px;
+  border-radius: 2px;
+  pointer-events: none;
+}
+.canvas-error {
+  color: rgba(244, 135, 113, 1);
+  font-family: sans-serif;
+  padding: 16px;
+}

@@ -3,6 +3,7 @@ title: "Landscape view"
 ---
 graph TB
   Toolkit@{ shape: rectangle, label: "Toolkit TypeScript 产品" }
+  Preview@{ shape: rectangle, label: "公开产品预览" }
   Canvas@{ shape: rectangle, label: "Canvas 渲染产品" }
   Tools@{ shape: rectangle, label: "自举检查工具" }
   Legacy@{ shape: rectangle, label: "旧产品参考区" }
@@ -16,6 +17,7 @@ graph TB
   Resources@{ shape: rectangle, label: "共享静态资源" }
   Pure -.-> Specifications
   Toolkit -.-> Pure
+  Preview -.-> Pure
   Renderer -. "\`字体与样式资源\`" .-> Resources
   Canvas -. "\`渲染行为测试\`" .-> Renderer
   Tools -.-> Repository
@@ -23,12 +25,16 @@ graph TB
   Toolkit -.-> Repository
   Toolkit -.-> Specifications
   Frontend -.-> Specifications
+  Preview -.-> Specifications
   Toolkit -.-> Frontend
   Toolkit -.-> Fixtures
   Frontend -.-> Toolkit
   Legacy -.-> Fixtures
   Frontend -.-> Resources
   Frontend -.-> Documentation
+  Preview -.-> Frontend
+  Preview -.-> Fixtures
+  Preview -.-> Resources
 `;case`bescript_first_layer`:return`---
 title: "第一层：BEScript 文本与局部 AST"
 ---
@@ -97,6 +103,7 @@ title: "core"
 ---
 graph TB
   Toolkit@{ shape: rectangle, label: "Toolkit TypeScript 产品" }
+  Preview@{ shape: rectangle, label: "公开产品预览" }
   Canvas@{ shape: rectangle, label: "Canvas 渲染产品" }
   Tools@{ shape: rectangle, label: "自举检查工具" }
   Legacy@{ shape: rectangle, label: "旧产品参考区" }
@@ -110,6 +117,7 @@ graph TB
   Resources@{ shape: rectangle, label: "共享静态资源" }
   Pure -.-> Specifications
   Toolkit -.-> Pure
+  Preview -.-> Pure
   Renderer -. "\`字体与样式资源\`" .-> Resources
   Canvas -. "\`渲染行为测试\`" .-> Renderer
   Tools -.-> Repository
@@ -117,12 +125,16 @@ graph TB
   Toolkit -.-> Repository
   Toolkit -.-> Specifications
   Frontend -.-> Specifications
+  Preview -.-> Specifications
   Toolkit -.-> Frontend
   Toolkit -.-> Fixtures
   Frontend -.-> Toolkit
   Legacy -.-> Fixtures
   Frontend -.-> Resources
   Frontend -.-> Documentation
+  Preview -.-> Frontend
+  Preview -.-> Fixtures
+  Preview -.-> Resources
 `;case`tooling`:return`---
 title: "自举检查工具"
 ---
@@ -184,6 +196,7 @@ graph TB
   SpecificationsCanvas_render@{ shape: rectangle, label: "Canvas 渲染规范" }
   SpecificationsVscode_frontend@{ shape: rectangle, label: "VS Code 前端职责" }
   SpecificationsCanvas@{ shape: rectangle, label: "Canvas 四向转换合同" }
+  SpecificationsPreview@{ shape: rectangle, label: "静态预览与发布合同" }
 `;case`legacy`:return`---
 title: "旧产品参考区"
 ---

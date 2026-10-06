@@ -1,0 +1,21 @@
+<!--
+  Canvas HTML 视图。width 与 height 只供视图使用，不进入节点。
+-->
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="support/canvas-view.css" />
+  </head>
+  <body>
+  <BeCanvas name="GameOver" width="1080" height="2160">
+    <BeUIRect name="background" pos="0,0,0" parentanchor="MIDDLE_CENTER" anchor="MIDDLE_CENTER" widthextend="PERCENT" heightextend="PERCENT" size="1,1,1" color="rgba(0,0,0,0)" borderwidth="0" radius="0">
+      <BeUIRawImage name="无名0" pos="0,50,0" parentanchor="MIDDLE_CENTER" anchor="MIDDLE_CENTER" size="644,107,1" color="rgba(255,255,255,255)" fileguid="05f05568be71425ab117b802feb29fbd"></BeUIRawImage>
+      <BeUILabelTextPro name="title" pos="0,-80,0" parentanchor="MIDDLE_CENTER" anchor="MIDDLE_CENTER" size="800,300,1" color="rgba(255,255,255,255)" text="" fontsize="96" linespacing="1" facedilate="0.1" underlayenabled="1" underlaycolor="rgba(0,0,0,255)" underlayoffset="1,-1,0" underlaysoftness="1" outlinewidth="0.1" outlinedistance="0.1,0.1,0.1" outlinecolor="rgba(0,0,0,255)" bevelenabled="1" specularcolor="rgba(255,255,255,255)" lightangle="0.7853982" specularpower="1" reflectivity="15" diffuse="0.3" ambient="0.3" bevel="0.5" beveloffset="0" bevelwidth="0" bevelroundness="1" bevelclamp="0"></BeUILabelTextPro>
+    </BeUIRect>
+  </BeCanvas>
+    <script src="support/canvas-palette.js"></script>
+    <script src="support/canvas-guid-map.js"></script>
+    <script src="support/CanvasLayoutEngine.DO_NOT_READ_OR_EDIT.generated.js"></script>
+  </body>
+</html>

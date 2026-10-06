@@ -3,6 +3,9 @@ var e=e=>{switch(e){case`index`:return`direction: down
 Toolkit: {
   label: "Toolkit TypeScript 产品"
 }
+Preview: {
+  label: "公开产品预览"
+}
 Canvas: {
   label: "Canvas 渲染产品"
 }
@@ -39,6 +42,7 @@ Resources: {
 
 Pure -> Specifications
 Toolkit -> Pure
+Preview -> Pure
 Renderer -> Resources: "字体与样式资源"
 Canvas -> Renderer: "渲染行为测试"
 Tools -> Repository
@@ -46,12 +50,16 @@ Tools -> Specifications
 Toolkit -> Repository
 Toolkit -> Specifications
 Frontend -> Specifications
+Preview -> Specifications
 Toolkit -> Frontend
 Toolkit -> Fixtures
 Frontend -> Toolkit
 Legacy -> Fixtures
 Frontend -> Resources
 Frontend -> Documentation
+Preview -> Frontend
+Preview -> Fixtures
+Preview -> Resources
 `;case`bescript_first_layer`:return`direction: down
 
 ToolkitScriptConversion: {
@@ -235,6 +243,9 @@ RendererEntry -> RendererPipeline: "驱动三阶段管线"
 Toolkit: {
   label: "Toolkit TypeScript 产品"
 }
+Preview: {
+  label: "公开产品预览"
+}
 Canvas: {
   label: "Canvas 渲染产品"
 }
@@ -271,6 +282,7 @@ Resources: {
 
 Pure -> Specifications
 Toolkit -> Pure
+Preview -> Pure
 Renderer -> Resources: "字体与样式资源"
 Canvas -> Renderer: "渲染行为测试"
 Tools -> Repository
@@ -278,12 +290,16 @@ Tools -> Specifications
 Toolkit -> Repository
 Toolkit -> Specifications
 Frontend -> Specifications
+Preview -> Specifications
 Toolkit -> Frontend
 Toolkit -> Fixtures
 Frontend -> Toolkit
 Legacy -> Fixtures
 Frontend -> Resources
 Frontend -> Documentation
+Preview -> Frontend
+Preview -> Fixtures
+Preview -> Resources
 `;case`tooling`:return`direction: down
 
 ToolsTests: {
@@ -394,6 +410,9 @@ SpecificationsVscode_frontend: {
 }
 SpecificationsCanvas: {
   label: "Canvas 四向转换合同"
+}
+SpecificationsPreview: {
+  label: "静态预览与发布合同"
 }
 `;case`legacy`:return`direction: down
 

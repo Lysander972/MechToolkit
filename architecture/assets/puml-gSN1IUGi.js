@@ -18,6 +18,11 @@ skinparam rectangle<<Toolkit>>{
   FontColor #eff6ff
   BorderColor #2563eb
 }
+skinparam rectangle<<Preview>>{
+  BackgroundColor #3b82f6
+  FontColor #eff6ff
+  BorderColor #2563eb
+}
 skinparam rectangle<<Canvas>>{
   BackgroundColor #3b82f6
   FontColor #eff6ff
@@ -74,6 +79,7 @@ skinparam rectangle<<Resources>>{
   BorderColor #2563eb
 }
 rectangle "==Toolkit TypeScript 产品" <<Toolkit>> as Toolkit
+rectangle "==公开产品预览" <<Preview>> as Preview
 rectangle "==Canvas 渲染产品" <<Canvas>> as Canvas
 rectangle "==自举检查工具" <<Tools>> as Tools
 rectangle "==旧产品参考区" <<Legacy>> as Legacy
@@ -88,6 +94,7 @@ rectangle "==共享静态资源" <<Resources>> as Resources
 
 Pure .[#8D8D8D,thickness=2].> Specifications
 Toolkit .[#8D8D8D,thickness=2].> Pure
+Preview .[#8D8D8D,thickness=2].> Pure
 Renderer .[#8D8D8D,thickness=2].> Resources : <color:#8D8D8D>字体与样式资源
 Canvas .[#8D8D8D,thickness=2].> Renderer : <color:#8D8D8D>渲染行为测试
 Tools .[#8D8D8D,thickness=2].> Repository
@@ -95,12 +102,16 @@ Tools .[#8D8D8D,thickness=2].> Specifications
 Toolkit .[#8D8D8D,thickness=2].> Repository
 Toolkit .[#8D8D8D,thickness=2].> Specifications
 Frontend .[#8D8D8D,thickness=2].> Specifications
+Preview .[#8D8D8D,thickness=2].> Specifications
 Toolkit .[#8D8D8D,thickness=2].> Frontend
 Toolkit .[#8D8D8D,thickness=2].> Fixtures
 Frontend .[#8D8D8D,thickness=2].> Toolkit
 Legacy .[#8D8D8D,thickness=2].> Fixtures
 Frontend .[#8D8D8D,thickness=2].> Resources
 Frontend .[#8D8D8D,thickness=2].> Documentation
+Preview .[#8D8D8D,thickness=2].> Frontend
+Preview .[#8D8D8D,thickness=2].> Fixtures
+Preview .[#8D8D8D,thickness=2].> Resources
 @enduml
 `;case`bescript_first_layer`:return`@startuml
 title "第一层：BEScript 文本与局部 AST"
@@ -453,6 +464,11 @@ skinparam rectangle<<Toolkit>>{
   FontColor #eff6ff
   BorderColor #2563eb
 }
+skinparam rectangle<<Preview>>{
+  BackgroundColor #3b82f6
+  FontColor #eff6ff
+  BorderColor #2563eb
+}
 skinparam rectangle<<Canvas>>{
   BackgroundColor #3b82f6
   FontColor #eff6ff
@@ -509,6 +525,7 @@ skinparam rectangle<<Resources>>{
   BorderColor #2563eb
 }
 rectangle "==Toolkit TypeScript 产品" <<Toolkit>> as Toolkit
+rectangle "==公开产品预览" <<Preview>> as Preview
 rectangle "==Canvas 渲染产品" <<Canvas>> as Canvas
 rectangle "==自举检查工具" <<Tools>> as Tools
 rectangle "==旧产品参考区" <<Legacy>> as Legacy
@@ -523,6 +540,7 @@ rectangle "==共享静态资源" <<Resources>> as Resources
 
 Pure .[#8D8D8D,thickness=2].> Specifications
 Toolkit .[#8D8D8D,thickness=2].> Pure
+Preview .[#8D8D8D,thickness=2].> Pure
 Renderer .[#8D8D8D,thickness=2].> Resources : <color:#8D8D8D>字体与样式资源
 Canvas .[#8D8D8D,thickness=2].> Renderer : <color:#8D8D8D>渲染行为测试
 Tools .[#8D8D8D,thickness=2].> Repository
@@ -530,12 +548,16 @@ Tools .[#8D8D8D,thickness=2].> Specifications
 Toolkit .[#8D8D8D,thickness=2].> Repository
 Toolkit .[#8D8D8D,thickness=2].> Specifications
 Frontend .[#8D8D8D,thickness=2].> Specifications
+Preview .[#8D8D8D,thickness=2].> Specifications
 Toolkit .[#8D8D8D,thickness=2].> Frontend
 Toolkit .[#8D8D8D,thickness=2].> Fixtures
 Frontend .[#8D8D8D,thickness=2].> Toolkit
 Legacy .[#8D8D8D,thickness=2].> Fixtures
 Frontend .[#8D8D8D,thickness=2].> Resources
 Frontend .[#8D8D8D,thickness=2].> Documentation
+Preview .[#8D8D8D,thickness=2].> Frontend
+Preview .[#8D8D8D,thickness=2].> Fixtures
+Preview .[#8D8D8D,thickness=2].> Resources
 @enduml
 `;case`tooling`:return`@startuml
 title "自举检查工具"
@@ -778,6 +800,11 @@ skinparam rectangle<<SpecificationsCanvas>>{
   FontColor #eff6ff
   BorderColor #2563eb
 }
+skinparam rectangle<<SpecificationsPreview>>{
+  BackgroundColor #3b82f6
+  FontColor #eff6ff
+  BorderColor #2563eb
+}
 rectangle "==治理契约" <<SpecificationsTooling>> as SpecificationsTooling
 rectangle "==文件布局契约" <<SpecificationsLayout>> as SpecificationsLayout
 rectangle "==开发与协作契约" <<SpecificationsDevelopment>> as SpecificationsDevelopment
@@ -787,6 +814,7 @@ rectangle "==BEScript 内部格式" <<SpecificationsBescript>> as Specifications
 rectangle "==Canvas 渲染规范" <<SpecificationsCanvas_render>> as SpecificationsCanvas_render
 rectangle "==VS Code 前端职责" <<SpecificationsVscode_frontend>> as SpecificationsVscode_frontend
 rectangle "==Canvas 四向转换合同" <<SpecificationsCanvas>> as SpecificationsCanvas
+rectangle "==静态预览与发布合同" <<SpecificationsPreview>> as SpecificationsPreview
 @enduml
 `;case`legacy`:return`@startuml
 title "旧产品参考区"

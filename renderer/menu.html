@@ -1,0 +1,132 @@
+<!--
+  Canvas HTML 视图。width 与 height 只供视图使用，不进入节点。
+-->
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="support/canvas-view.css" />
+  </head>
+  <body>
+  <BeCanvas name="Menu" width="1080" height="2160">
+    <BeUILabel name="engineVer" pos="0,0,0" parentanchor="UPPER_RIGHT" anchor="UPPER_RIGHT" size="200,30,1" color="rgba(255,255,255,255)" text="引擎版本  ???" fontsize="18" alignment="MIDDLE_RIGHT"></BeUILabel>
+    <BeUILabel name="platform" pos="0,0,0" parentanchor="UPPER_LEFT" anchor="UPPER_LEFT" size="200,30,1" color="rgba(255,255,255,255)" text="引擎版本  ???" fontsize="16" alignment="MIDDLE_LEFT"></BeUILabel>
+    <BeUIRect name="panel" pos="0,0,0" parentanchor="MIDDLE_CENTER" anchor="MIDDLE_CENTER" size="700,1000,1" color="rgba(255,255,255,255)" borderwidth="-1" radius="10" slicedpicguid="13d43509774f402381b4f837281f1c8d" slicedborderlb="46,46,0" slicedborderrt="46,46,0" slicedrectlb="0,0,0" slicedrectrt="92,92,0">
+      <BeUIButton name="设置分辨率" pos="50,-50,0" parentanchor="UPPER_LEFT" anchor="UPPER_LEFT" size="150,70,1" color="rgba(255,255,255,255)" borderwidth="0" radius="0" label="" clickcbname="ButtonMenu&apos;展开分辨率" slicedpicguid="ab93da026944467eae6e0eb9512837e5" slicedborderlb="90,55.5,0" slicedborderrt="90,55.5,0" slicedrectlb="0,0,0" slicedrectrt="180,111,0">
+        <BeUILabelTextPro name="label" pos="0,0,0" parentanchor="MIDDLE_CENTER" anchor="MIDDLE_CENTER" size="200,50,1" color="rgba(255,255,255,255)" text="设置分辨率" fontsize="24" linespacing="1"></BeUILabelTextPro>
+      </BeUIButton>
+      <BeUIRect name="bottom" pos="0,30,0" parentanchor="LOWER_CENTER" anchor="LOWER_CENTER" widthextend="TO_EDGE" size="50,340,1" color="rgba(0,0,0,0)" borderwidth="0" radius="0" verticalspacing="0" childexpandwidth="1" childexpandheight="1" layoutpadding="0,0,0">
+        <BeUIRect name="sub0" pos="0,-48.571426,0" parentanchor="MIDDLE_CENTER" size="600,48.571426,1" color="rgba(0,0,0,0)" borderwidth="0" radius="0">
+          <BeUILabel name="title" pos="0,0,0" parentanchor="MIDDLE_LEFT" anchor="MIDDLE_LEFT" heightextend="TO_EDGE" size="140,0,1" color="rgba(179.22392,179.22392,179.22392,255)" text="加时功能" fontsize="32"></BeUILabel>
+          <BeUIRect name="buttons" pos="0,0,0" parentanchor="MIDDLE_RIGHT" anchor="MIDDLE_RIGHT" widthextend="TO_EDGE" heightextend="TO_EDGE" size="140,0,1" color="rgba(0,0,0,0)" borderwidth="0" radius="0" childalignment="MIDDLE_LEFT" horizontalspacing="20" childexpandwidth="1" childexpandheight="1" layoutpadding="20,10,0">
+            <BeUIButton name="1" pos="20,-38.571426,0" parentanchor="MIDDLE_CENTER" size="200,28.571426,1" color="rgba(255,255,255,255)" borderwidth="5" radius="10" label="" clickcbname="ButtonMenu&apos;Click0_1" slicedpicguid="ab93da026944467eae6e0eb9512837e5" slicedborderlb="90,55.5,0" slicedborderrt="90,55.5,0" slicedrectlb="0,0,0" slicedrectrt="180,111,0">
+              <BeUILabel name="label" pos="0,0,0" parentanchor="MIDDLE_CENTER" anchor="MIDDLE_CENTER" widthextend="TO_EDGE" size="0,50,1" color="rgba(255,255,255,255)" outlinecolor="rgba(0,0,0,127.5)" outlinedistance="1,-1,0" text="关闭" fontsize="32"></BeUILabel>
+            </BeUIButton>
+            <BeUIButton name="2" pos="240,-38.571426,0" parentanchor="MIDDLE_CENTER" size="200,28.571426,1" color="rgba(255,255,255,255)" borderwidth="5" radius="10" label="" clickcbname="ButtonMenu&apos;Click0_2" slicedpicguid="ab93da026944467eae6e0eb9512837e5" slicedborderlb="90,55.5,0" slicedborderrt="90,55.5,0" slicedrectlb="0,0,0" slicedrectrt="180,111,0">
+              <BeUILabel name="label" pos="0,0,0" parentanchor="MIDDLE_CENTER" anchor="MIDDLE_CENTER" widthextend="TO_EDGE" size="0,50,1" color="rgba(255,255,255,255)" outlinecolor="rgba(0,0,0,127.5)" outlinedistance="1,-1,0" text="开启" fontsize="32"></BeUILabel>
+            </BeUIButton>
+          </BeUIRect>
+        </BeUIRect>
+        <BeUIRect name="sub1" pos="0,-97.14285,0" parentanchor="MIDDLE_CENTER" size="600,48.571426,1" color="rgba(0,0,0,0)" borderwidth="0" radius="0">
+          <BeUILabel name="title" pos="0,0,0" parentanchor="MIDDLE_LEFT" anchor="MIDDLE_LEFT" heightextend="TO_EDGE" size="140,0,1" color="rgba(179.22392,179.22392,179.22392,255)" text="本场时长" fontsize="32"></BeUILabel>
+          <BeUIRect name="buttons" pos="0,0,0" parentanchor="MIDDLE_RIGHT" anchor="MIDDLE_RIGHT" widthextend="TO_EDGE" heightextend="TO_EDGE" size="140,0,1" color="rgba(0,0,0,0)" borderwidth="0" radius="0" childalignment="MIDDLE_LEFT" horizontalspacing="20" childexpandwidth="1" childexpandheight="1" layoutpadding="20,10,0">
+            <BeUIButton name="1" pos="20,-38.571426,0" parentanchor="MIDDLE_CENTER" size="126.666664,28.571426,1" color="rgba(255,255,255,255)" borderwidth="5" radius="10" label="" clickcbname="ButtonMenu&apos;Click1_1" slicedpicguid="ab93da026944467eae6e0eb9512837e5" slicedborderlb="90,55.5,0" slicedborderrt="90,55.5,0" slicedrectlb="0,0,0" slicedrectrt="180,111,0">
+              <BeUILabel name="label" pos="0,0,0" parentanchor="MIDDLE_CENTER" anchor="MIDDLE_CENTER" widthextend="TO_EDGE" size="0,50,1" color="rgba(255,255,255,255)" outlinecolor="rgba(0,0,0,127.5)" outlinedistance="1,-1,0" text="20分钟" fontsize="32"></BeUILabel>
+            </BeUIButton>
+            <BeUIButton name="2" pos="166.66666,-38.571426,0" parentanchor="MIDDLE_CENTER" size="126.666664,28.571426,1" color="rgba(255,255,255,255)" borderwidth="5" radius="10" label="" clickcbname="ButtonMenu&apos;Click1_2" slicedpicguid="ab93da026944467eae6e0eb9512837e5" slicedborderlb="90,55.5,0" slicedborderrt="90,55.5,0" slicedrectlb="0,0,0" slicedrectrt="180,111,0">
+              <BeUILabel name="label" pos="0,0,0" parentanchor="MIDDLE_CENTER" anchor="MIDDLE_CENTER" widthextend="TO_EDGE" size="0,50,1" color="rgba(255,255,255,255)" outlinecolor="rgba(0,0,0,127.5)" outlinedistance="1,-1,0" text="30分钟" fontsize="32"></BeUILabel>
+            </BeUIButton>
+            <BeUIButton name="3" pos="313.3333,-38.571426,0" parentanchor="MIDDLE_CENTER" size="126.666664,28.571426,1" color="rgba(255,255,255,255)" borderwidth="5" radius="10" label="" clickcbname="ButtonMenu&apos;Click1_3" slicedpicguid="ab93da026944467eae6e0eb9512837e5" slicedborderlb="90,55.5,0" slicedborderrt="90,55.5,0" slicedrectlb="0,0,0" slicedrectrt="180,111,0">
+              <BeUILabel name="label" pos="0,0,0" parentanchor="MIDDLE_CENTER" anchor="MIDDLE_CENTER" widthextend="TO_EDGE" size="0,50,1" color="rgba(255,255,255,255)" outlinecolor="rgba(0,0,0,127.5)" outlinedistance="1,-1,0" text="45分钟" fontsize="32"></BeUILabel>
+            </BeUIButton>
+          </BeUIRect>
+        </BeUIRect>
+        <BeUIRect name="sub2" pos="0,-145.71428,0" parentanchor="MIDDLE_CENTER" size="600,48.571426,1" color="rgba(0,0,0,0)" borderwidth="0" radius="0">
+          <BeUILabel name="title" pos="0,0,0" parentanchor="MIDDLE_LEFT" anchor="MIDDLE_LEFT" heightextend="TO_EDGE" size="140,0,1" color="rgba(179.22392,179.22392,179.22392,255)" text="场地长度" fontsize="32"></BeUILabel>
+          <BeUIRect name="buttons" pos="0,0,0" parentanchor="MIDDLE_RIGHT" anchor="MIDDLE_RIGHT" widthextend="TO_EDGE" heightextend="TO_EDGE" size="140,0,1" color="rgba(0,0,0,0)" borderwidth="0" radius="0" childalignment="MIDDLE_LEFT" horizontalspacing="20" childexpandwidth="1" childexpandheight="1" layoutpadding="20,10,0">
+            <BeUIButton name="1" pos="20,-38.571426,0" parentanchor="MIDDLE_CENTER" size="126.666664,28.571426,1" color="rgba(255,255,255,255)" borderwidth="5" radius="10" label="" clickcbname="ButtonMenu&apos;Click2_1" slicedpicguid="ab93da026944467eae6e0eb9512837e5" slicedborderlb="90,55.5,0" slicedborderrt="90,55.5,0" slicedrectlb="0,0,0" slicedrectrt="180,111,0">
+              <BeUILabel name="label" pos="0,0,0" parentanchor="MIDDLE_CENTER" anchor="MIDDLE_CENTER" widthextend="TO_EDGE" size="0,50,1" color="rgba(255,255,255,255)" outlinecolor="rgba(0,0,0,127.5)" outlinedistance="1,-1,0" text="1000" fontsize="32"></BeUILabel>
+            </BeUIButton>
+            <BeUIButton name="2" pos="166.66666,-38.571426,0" parentanchor="MIDDLE_CENTER" size="126.666664,28.571426,1" color="rgba(255,255,255,255)" borderwidth="5" radius="10" label="" clickcbname="ButtonMenu&apos;Click2_2" slicedpicguid="ab93da026944467eae6e0eb9512837e5" slicedborderlb="90,55.5,0" slicedborderrt="90,55.5,0" slicedrectlb="0,0,0" slicedrectrt="180,111,0">
+              <BeUILabel name="label" pos="0,0,0" parentanchor="MIDDLE_CENTER" anchor="MIDDLE_CENTER" widthextend="TO_EDGE" size="0,50,1" color="rgba(255,255,255,255)" outlinecolor="rgba(0,0,0,127.5)" outlinedistance="1,-1,0" text="2000" fontsize="32"></BeUILabel>
+            </BeUIButton>
+            <BeUIButton name="3" pos="313.3333,-38.571426,0" parentanchor="MIDDLE_CENTER" size="126.666664,28.571426,1" color="rgba(255,255,255,255)" borderwidth="5" radius="10" label="" clickcbname="ButtonMenu&apos;Click2_3" slicedpicguid="ab93da026944467eae6e0eb9512837e5" slicedborderlb="90,55.5,0" slicedborderrt="90,55.5,0" slicedrectlb="0,0,0" slicedrectrt="180,111,0">
+              <BeUILabel name="label" pos="0,0,0" parentanchor="MIDDLE_CENTER" anchor="MIDDLE_CENTER" widthextend="TO_EDGE" size="0,50,1" color="rgba(255,255,255,255)" outlinecolor="rgba(0,0,0,127.5)" outlinedistance="1,-1,0" text="3000" fontsize="32"></BeUILabel>
+            </BeUIButton>
+          </BeUIRect>
+        </BeUIRect>
+        <BeUIRect name="sub4" pos="0,-194.2857,0" parentanchor="MIDDLE_CENTER" size="600,48.571426,1" color="rgba(0,0,0,0)" borderwidth="0" radius="0">
+          <BeUIButton name="button1" pos="-150,0,0" parentanchor="MIDDLE_CENTER" anchor="MIDDLE_CENTER" heightextend="TO_EDGE" size="240,10,1" color="rgba(255,255,255,255)" borderwidth="5" radius="10" label="" clickcbname="ButtonMenu&apos;Click4_1" slicedpicguid="f929a5d126b348509e90b1cfb934911d" slicedborderlb="90,55.5,0" slicedborderrt="90,55.5,0" slicedrectlb="0,0,0" slicedrectrt="180,111,0">
+            <BeUILabel name="label" pos="0,0,0" parentanchor="MIDDLE_CENTER" anchor="MIDDLE_CENTER" widthextend="TO_EDGE" size="0,50,1" color="rgba(255,255,255,255)" outlinecolor="rgba(0,0,0,127.5)" outlinedistance="1,-1,0" text="开始" fontsize="38"></BeUILabel>
+          </BeUIButton>
+          <BeUIButton name="button2" pos="150,0,0" parentanchor="MIDDLE_CENTER" anchor="MIDDLE_CENTER" heightextend="TO_EDGE" size="240,10,1" color="rgba(255,255,255,255)" borderwidth="5" radius="10" label="" clickcbname="ButtonMenu&apos;Click4_2" slicedpicguid="4cd8ec2fea6d4e5dbe63de37811c7d64" slicedborderlb="90,55.5,0" slicedborderrt="90,55.5,0" slicedrectlb="0,0,0" slicedrectrt="180,111,0">
+            <BeUILabel name="label" pos="0,0,0" parentanchor="MIDDLE_CENTER" anchor="MIDDLE_CENTER" widthextend="TO_EDGE" size="0,50,1" color="rgba(255,255,255,255)" outlinecolor="rgba(0,0,0,127.5)" outlinedistance="1,-1,0" text="返回" fontsize="38"></BeUILabel>
+          </BeUIButton>
+        </BeUIRect>
+        <BeUIRect name="sub5" pos="0,-242.85713,0" parentanchor="MIDDLE_CENTER" size="600,48.571426,1" color="rgba(0,0,0,0)" borderwidth="0" radius="0">
+          <BeUIButton name="button1" pos="0,0,0" parentanchor="MIDDLE_CENTER" anchor="MIDDLE_CENTER" heightextend="TO_EDGE" size="450,20,1" color="rgba(255,255,255,255)" borderwidth="5" radius="10" label="" clickcbname="ButtonMenu&apos;Click5_1" slicedpicguid="f929a5d126b348509e90b1cfb934911d" slicedborderlb="90,55.5,0" slicedborderrt="90,55.5,0" slicedrectlb="0,0,0" slicedrectrt="180,111,0">
+            <BeUILabel name="label" pos="0,0,0" parentanchor="MIDDLE_CENTER" anchor="MIDDLE_CENTER" widthextend="TO_EDGE" size="0,50,1" color="rgba(255,255,255,255)" outlinecolor="rgba(0,0,0,127.5)" outlinedistance="1,-1,0" text="快速模式(20分钟,1000米)" fontsize="32"></BeUILabel>
+            <BeUIRect name="tip" pos="-20,0,0" parentanchor="MIDDLE_LEFT" anchor="MIDDLE_RIGHT" size="100,70,1" color="rgba(255,255,255,52.135561)" borderwidth="0" radius="20">
+              <BeUILabel name="label" pos="0,0,0" parentanchor="MIDDLE_CENTER" anchor="MIDDLE_CENTER" widthextend="TO_EDGE" heightextend="TO_EDGE" size="0,0,1" color="rgba(255,255,255,255)" outlinecolor="rgba(0,0,0,127.5)" outlinedistance="3,-3,0" text="推荐" fontsize="32"></BeUILabel>
+            </BeUIRect>
+          </BeUIButton>
+        </BeUIRect>
+        <BeUIRect name="sub6" pos="0,-291.42856,0" parentanchor="MIDDLE_CENTER" size="600,48.571426,1" color="rgba(0,0,0,0)" borderwidth="0" radius="0">
+          <BeUIButton name="button1" pos="0,0,0" parentanchor="MIDDLE_CENTER" anchor="MIDDLE_CENTER" heightextend="TO_EDGE" size="450,20,1" color="rgba(255,255,255,255)" borderwidth="5" radius="10" label="" clickcbname="ButtonMenu&apos;Click6_1" slicedpicguid="4cd8ec2fea6d4e5dbe63de37811c7d64" slicedborderlb="90,55.5,0" slicedborderrt="90,55.5,0" slicedrectlb="0,0,0" slicedrectrt="180,111,0">
+            <BeUILabel name="label" pos="0,0,0" parentanchor="MIDDLE_CENTER" anchor="MIDDLE_CENTER" widthextend="TO_EDGE" size="0,50,1" color="rgba(255,255,255,255)" outlinecolor="rgba(0,0,0,127.5)" outlinedistance="1,-1,0" text="激战模式(30分钟,2000米,礼物加时)" fontsize="28"></BeUILabel>
+          </BeUIButton>
+        </BeUIRect>
+        <BeUIRect name="sub7" pos="0,-340,0" parentanchor="MIDDLE_CENTER" size="600,48.571426,1" color="rgba(0,0,0,0)" borderwidth="0" radius="0">
+          <BeUIButton name="button1" pos="0,0,0" parentanchor="MIDDLE_CENTER" anchor="MIDDLE_CENTER" heightextend="TO_EDGE" size="450,20,1" color="rgba(255,255,255,255)" borderwidth="5" radius="10" label="" clickcbname="ButtonMenu&apos;Click7_1" slicedpicguid="ab93da026944467eae6e0eb9512837e5" slicedborderlb="90,55.5,0" slicedborderrt="90,55.5,0" slicedrectlb="0,0,0" slicedrectrt="180,111,0">
+            <BeUILabel name="label" pos="0,0,0" parentanchor="MIDDLE_CENTER" anchor="MIDDLE_CENTER" widthextend="TO_EDGE" size="0,50,1" color="rgba(255,255,255,255)" outlinecolor="rgba(0,0,0,127.5)" outlinedistance="1,-1,0" text="自定义模式(自选规则)" fontsize="38"></BeUILabel>
+          </BeUIButton>
+        </BeUIRect>
+      </BeUIRect>
+      <BeUIRect name="rect" pos="0,0,0" parentanchor="MIDDLE_CENTER" anchor="MIDDLE_CENTER" widthextend="TO_EDGE" heightextend="TO_EDGE" size="0,0,1" color="rgba(255,255,255,255)" borderwidth="-1" radius="10" slicedpicguid="54a1f96c003348ba8f44126b75a67923" slicedborderlb="52,52,0" slicedborderrt="52,52,0" slicedrectlb="0,0,0" slicedrectrt="104,104,0"></BeUIRect>
+      <BeUIRect name="top" pos="0,-30,0" parentanchor="UPPER_CENTER" anchor="UPPER_CENTER" widthextend="TO_EDGE" size="50,600,1" color="rgba(0,0,0,0)" borderwidth="0" radius="0">
+        <BeUILabel name="label" pos="0,0,0" parentanchor="UPPER_CENTER" anchor="UPPER_CENTER" size="401,73,1" color="rgba(132,208.99998,255,255)" text="水果切切切" fontsize="45"></BeUILabel>
+        <BeUIRawImage name="pic" pos="0,-50,0" parentanchor="MIDDLE_CENTER" anchor="MIDDLE_CENTER" size="500,500,1" color="rgba(255,255,255,255)" fileguid="19f8c9c4c12e42a6bbb0afca95263cfb"></BeUIRawImage>
+      </BeUIRect>
+      <BeUIButton name="helpButton" pos="-50,-50,0" parentanchor="UPPER_RIGHT" anchor="UPPER_RIGHT" size="80,80,1" color="rgba(255,255,255,255)" borderwidth="0" radius="40" label="" slicedpicguid="43cc55e854be4769bf7cc473617cfe65" slicedborderlb="74,77.5,0" slicedborderrt="74,77.5,0" slicedrectlb="0,0,0" slicedrectrt="148,155,0">
+        <BeUILabel name="label" pos="0,0,0" parentanchor="MIDDLE_CENTER" anchor="MIDDLE_CENTER" size="50,50,1" color="rgba(255,255,255,255)" outlinecolor="rgba(0,0,0,255)" outlinedistance="3,-3,0" text="?" fontsize="40"></BeUILabel>
+        <BeUIRect name="bg" pos="0,0,0" parentanchor="UPPER_CENTER" anchor="LOWER_CENTER" size="300,100,1" color="rgba(128.831123,128.831123,128.831123,128.831123)" borderwidth="0" radius="30"></BeUIRect>
+        <BeUILabel name="提示" pos="0,0,0" parentanchor="UPPER_CENTER" anchor="LOWER_CENTER" size="300,100,1" color="rgba(255,255,255,255)" text="首次游玩请看我\n↓" fontsize="32"></BeUILabel>
+      </BeUIButton>
+      <BeUIRect name="help" pos="0,0,0" parentanchor="MIDDLE_CENTER" anchor="MIDDLE_CENTER" size="700,1000,1" color="rgba(255,255,255,255)" borderwidth="-1" radius="0" slicedpicguid="55793159475f4763b44ed45367073100" slicedborderlb="50,50,0" slicedborderrt="50,50,0" slicedrectlb="0,0,0" slicedrectrt="196,286,0">
+        <BeUILabel name="title" pos="0,-50,0" parentanchor="UPPER_CENTER" anchor="UPPER_CENTER" size="300,50,1" color="rgba(255,255,255,255)" text="帮助" fontsize="32"></BeUILabel>
+        <BeUILabel name="content" pos="0,-120,0" parentanchor="UPPER_CENTER" anchor="UPPER_CENTER" widthextend="TO_EDGE" heightextend="TO_EDGE" size="50,50,1" color="rgba(255,255,255,255)" text="上方点赞召唤各类,玩家本体升级增加水果血量\n下方点赞装填子弹,玩家本体升级增加发射数量\n\n上方礼物召唤各类水果,高级水果有特殊效果:\n香蕉串:被摧毁后原地产生5根香蕉\n冰块:持续冰冻对方所有人,冰冻期间射速减半\n煤气罐:会爆炸,对栅栏造成强制伤害\n大西瓜:持续召唤小西瓜\n\n下方礼物召唤各类子弹,高级子弹有额外效果:\n强化子弹:提高射速,但加快弹药消耗\n飞刀:穿透效果,可以把血量较低的水果切成两半\n重炮:爆炸时造成范围伤害\n滚筒:可以解除本体的冰冻效果\n栅栏:阻挡对方水果的推进\n火力倾泻:召唤密集炮击和大火球,可造成大范围伤害和击飞\n\n关于加时:\n上方礼物增加倒计时时间\n下方礼物增加剩余距离\n总时间和距离不会超过开局数值的1.5倍" fontsize="25" alignment="UPPER_LEFT"></BeUILabel>
+      </BeUIRect>
+      <BeUIRect name="分辨率选择" pos="0,0,0" parentanchor="MIDDLE_CENTER" anchor="MIDDLE_CENTER" size="600,800,1" color="rgba(65.4098,65.4098,65.4098,255)" outlinecolor="rgba(0,0,0,127.5)" outlinedistance="5,-5,0" borderwidth="0" radius="25">
+        <BeUIButton name="屏蔽器" pos="0,0,0" parentanchor="MIDDLE_CENTER" anchor="MIDDLE_CENTER" size="9999,9999,1" color="rgba(0,0,0,0)" borderwidth="0" radius="0" label=""></BeUIButton>
+        <BeUIRect name="排版区" pos="0,0,0" parentanchor="MIDDLE_CENTER" anchor="MIDDLE_CENTER" widthextend="TO_EDGE" heightextend="TO_EDGE" size="0,0,1" color="rgba(0,0,0,0)" borderwidth="0" radius="0" childalignment="MIDDLE_CENTER" verticalspacing="20" childexpandwidth="1" childexpandheight="1" layoutpadding="20,30,0">
+          <BeUILabel name="title" pos="20,-52.748005,0" parentanchor="MIDDLE_LEFT" anchor="MIDDLE_LEFT" size="560,45.49601,1" color="rgba(132,208.99998,255,255)" text="请选择分辨率" fontsize="40"></BeUILabel>
+          <BeUILabel name="tips" pos="20,-121.8358,0" parentanchor="MIDDLE_CENTER" size="560,26.339794,1" color="rgba(255,255,255,255)" text="进入玩法后无法调整分辨率" fontsize="24"></BeUILabel>
+          <BeUIRect name="buttons" pos="580,-455.9179,0" parentanchor="MIDDLE_RIGHT" anchor="MIDDLE_RIGHT" size="560,628.1642,1" color="rgba(0,0,0,0)" borderwidth="0" radius="0" childalignment="MIDDLE_CENTER" verticalspacing="10" childexpandwidth="1" childexpandheight="1" layoutpadding="10,10,0">
+            <BeUIButton name="1" pos="10,-103.02736,0" parentanchor="MIDDLE_CENTER" size="540,93.02736,1" color="rgba(255,255,255,255)" borderwidth="5" radius="10" label="" clickcbname="ButtonMenu&apos;分辨率_1" slicedpicguid="ab93da026944467eae6e0eb9512837e5" slicedborderlb="90,55.5,0" slicedborderrt="90,55.5,0" slicedrectlb="0,0,0" slicedrectrt="180,111,0">
+              <BeUILabel name="label" pos="0,0,0" parentanchor="MIDDLE_CENTER" anchor="MIDDLE_CENTER" widthextend="TO_EDGE" size="0,50,1" color="rgba(255,255,255,255)" outlinecolor="rgba(0,0,0,127.5)" outlinedistance="1,-1,0" text="750*1334" fontsize="32"></BeUILabel>
+            </BeUIButton>
+            <BeUIButton name="2" pos="10,-206.05472,0" parentanchor="MIDDLE_CENTER" size="540,93.02736,1" color="rgba(255,255,255,255)" borderwidth="5" radius="10" label="" clickcbname="ButtonMenu&apos;分辨率_2" slicedpicguid="ab93da026944467eae6e0eb9512837e5" slicedborderlb="90,55.5,0" slicedborderrt="90,55.5,0" slicedrectlb="0,0,0" slicedrectrt="180,111,0">
+              <BeUILabel name="label" pos="0,0,0" parentanchor="MIDDLE_CENTER" anchor="MIDDLE_CENTER" widthextend="TO_EDGE" size="0,50,1" color="rgba(255,255,255,255)" outlinecolor="rgba(0,0,0,127.5)" outlinedistance="1,-1,0" text="1080*1920" fontsize="32"></BeUILabel>
+            </BeUIButton>
+            <BeUIButton name="3" pos="10,-309.0821,0" parentanchor="MIDDLE_CENTER" size="540,93.02736,1" color="rgba(255,255,255,255)" borderwidth="5" radius="10" label="" clickcbname="ButtonMenu&apos;分辨率_3" slicedpicguid="ab93da026944467eae6e0eb9512837e5" slicedborderlb="90,55.5,0" slicedborderrt="90,55.5,0" slicedrectlb="0,0,0" slicedrectrt="180,111,0">
+              <BeUILabel name="label" pos="0,0,0" parentanchor="MIDDLE_CENTER" anchor="MIDDLE_CENTER" widthextend="TO_EDGE" size="0,50,1" color="rgba(255,255,255,255)" outlinecolor="rgba(0,0,0,127.5)" outlinedistance="1,-1,0" text="1440*2560" fontsize="32"></BeUILabel>
+            </BeUIButton>
+            <BeUIButton name="4" pos="10,-412.10944,0" parentanchor="MIDDLE_CENTER" size="540,93.02736,1" color="rgba(255,255,255,255)" borderwidth="5" radius="10" label="" clickcbname="ButtonMenu&apos;分辨率_4" slicedpicguid="ab93da026944467eae6e0eb9512837e5" slicedborderlb="90,55.5,0" slicedborderrt="90,55.5,0" slicedrectlb="0,0,0" slicedrectrt="180,111,0">
+              <BeUILabel name="label" pos="0,0,0" parentanchor="MIDDLE_CENTER" anchor="MIDDLE_CENTER" widthextend="TO_EDGE" size="0,50,1" color="rgba(255,255,255,255)" outlinecolor="rgba(0,0,0,127.5)" outlinedistance="1,-1,0" text="2160*3980" fontsize="32"></BeUILabel>
+            </BeUIButton>
+            <BeUIButton name="5" pos="10,-515.1368,0" parentanchor="MIDDLE_CENTER" size="540,93.02736,1" color="rgba(255,255,255,255)" borderwidth="5" radius="10" label="" clickcbname="ButtonMenu&apos;分辨率_5" slicedpicguid="ab93da026944467eae6e0eb9512837e5" slicedborderlb="90,55.5,0" slicedborderrt="90,55.5,0" slicedrectlb="0,0,0" slicedrectrt="180,111,0">
+              <BeUILabel name="label" pos="0,0,0" parentanchor="MIDDLE_CENTER" anchor="MIDDLE_CENTER" widthextend="TO_EDGE" size="0,80,1" color="rgba(255,255,255,255)" outlinecolor="rgba(0,0,0,127.5)" outlinedistance="1,-1,0" text="自定义分辨率\n(Alt+Enter退出全屏,拖动玩法窗口边框)" fontsize="24"></BeUILabel>
+            </BeUIButton>
+            <BeUIButton name="6" pos="10,-618.1641,0" parentanchor="MIDDLE_CENTER" size="540,93.02736,1" color="rgba(255,255,255,255)" borderwidth="5" radius="10" label="" clickcbname="ButtonMenu&apos;确认分辨率" slicedpicguid="f929a5d126b348509e90b1cfb934911d" slicedborderlb="90,55.5,0" slicedborderrt="90,55.5,0" slicedrectlb="0,0,0" slicedrectrt="180,111,0">
+              <BeUILabel name="label" pos="0,0,0" parentanchor="MIDDLE_CENTER" anchor="MIDDLE_CENTER" widthextend="TO_EDGE" size="0,50,1" color="rgba(255,255,255,255)" outlinecolor="rgba(0,0,0,127.5)" outlinedistance="1,-1,0" text="确认" fontsize="32"></BeUILabel>
+            </BeUIButton>
+          </BeUIRect>
+        </BeUIRect>
+      </BeUIRect>
+    </BeUIRect>
+  </BeCanvas>
+    <script src="support/canvas-palette.js"></script>
+    <script src="support/canvas-guid-map.js"></script>
+    <script src="support/CanvasLayoutEngine.DO_NOT_READ_OR_EDIT.generated.js"></script>
+  </body>
+</html>
