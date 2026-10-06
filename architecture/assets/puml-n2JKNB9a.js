@@ -1,119 +1,4 @@
-var e=e=>{switch(e){case`index`:return`@startuml
-title "Landscape view"
-top to bottom direction
-
-hide stereotype
-skinparam ranksep 60
-skinparam nodesep 30
-skinparam {
-  arrowFontSize 10
-  defaultTextAlignment center
-  wrapWidth 200
-  maxMessageSize 100
-  shadowing false
-}
-
-skinparam rectangle<<Toolkit>>{
-  BackgroundColor #3b82f6
-  FontColor #eff6ff
-  BorderColor #2563eb
-}
-skinparam rectangle<<Preview>>{
-  BackgroundColor #3b82f6
-  FontColor #eff6ff
-  BorderColor #2563eb
-}
-skinparam rectangle<<Canvas>>{
-  BackgroundColor #3b82f6
-  FontColor #eff6ff
-  BorderColor #2563eb
-}
-skinparam rectangle<<Tools>>{
-  BackgroundColor #3b82f6
-  FontColor #eff6ff
-  BorderColor #2563eb
-}
-skinparam rectangle<<Legacy>>{
-  BackgroundColor #3b82f6
-  FontColor #eff6ff
-  BorderColor #2563eb
-}
-skinparam rectangle<<Pure>>{
-  BackgroundColor #3b82f6
-  FontColor #eff6ff
-  BorderColor #2563eb
-}
-skinparam rectangle<<Frontend>>{
-  BackgroundColor #3b82f6
-  FontColor #eff6ff
-  BorderColor #2563eb
-}
-skinparam rectangle<<Renderer>>{
-  BackgroundColor #3b82f6
-  FontColor #eff6ff
-  BorderColor #2563eb
-}
-skinparam rectangle<<Repository>>{
-  BackgroundColor #3b82f6
-  FontColor #eff6ff
-  BorderColor #2563eb
-}
-skinparam rectangle<<Fixtures>>{
-  BackgroundColor #3b82f6
-  FontColor #eff6ff
-  BorderColor #2563eb
-}
-skinparam rectangle<<Specifications>>{
-  BackgroundColor #3b82f6
-  FontColor #eff6ff
-  BorderColor #2563eb
-}
-skinparam rectangle<<Documentation>>{
-  BackgroundColor #3b82f6
-  FontColor #eff6ff
-  BorderColor #2563eb
-}
-skinparam rectangle<<Resources>>{
-  BackgroundColor #3b82f6
-  FontColor #eff6ff
-  BorderColor #2563eb
-}
-rectangle "==Toolkit TypeScript 产品" <<Toolkit>> as Toolkit
-rectangle "==公开产品预览" <<Preview>> as Preview
-rectangle "==Canvas 渲染产品" <<Canvas>> as Canvas
-rectangle "==自举检查工具" <<Tools>> as Tools
-rectangle "==旧产品参考区" <<Legacy>> as Legacy
-rectangle "==业务纯计算\\n\\n无状态纯函数。完整输入由调用者提供，同样输入产生同样结果，不读取文件、网络、配置、环境变量、当前时间或进程全局状态。" <<Pure>> as Pure
-rectangle "==单一前端扩展" <<Frontend>> as Frontend
-rectangle "==Canvas 渲染引擎\\n\\nHTML 属性经显式 Option 解析为节点输入；节点按固定顺序应用特性，管线统一递归与排版，页面只有一次自动渲染。" <<Renderer>> as Renderer
-rectangle "==仓库工程基础" <<Repository>> as Repository
-rectangle "==跨组件夹具" <<Fixtures>> as Fixtures
-rectangle "==工具链规范" <<Specifications>> as Specifications
-rectangle "==产品规范与参考" <<Documentation>> as Documentation
-rectangle "==共享静态资源" <<Resources>> as Resources
-
-Pure .[#8D8D8D,thickness=2].> Specifications
-Toolkit .[#8D8D8D,thickness=2].> Pure
-Preview .[#8D8D8D,thickness=2].> Pure
-Renderer .[#8D8D8D,thickness=2].> Resources : <color:#8D8D8D>字体与样式资源
-Canvas .[#8D8D8D,thickness=2].> Renderer : <color:#8D8D8D>渲染行为测试
-Tools .[#8D8D8D,thickness=2].> Repository
-Tools .[#8D8D8D,thickness=2].> Specifications
-Toolkit .[#8D8D8D,thickness=2].> Repository
-Toolkit .[#8D8D8D,thickness=2].> Specifications
-Frontend .[#8D8D8D,thickness=2].> Specifications
-Preview .[#8D8D8D,thickness=2].> Specifications
-Toolkit .[#8D8D8D,thickness=2].> Frontend
-Toolkit .[#8D8D8D,thickness=2].> Fixtures
-Frontend .[#8D8D8D,thickness=2].> Toolkit
-Legacy .[#8D8D8D,thickness=2].> Fixtures
-Frontend .[#8D8D8D,thickness=2].> Resources
-Frontend .[#8D8D8D,thickness=2].> Documentation
-Preview .[#8D8D8D,thickness=2].> Frontend
-Preview .[#8D8D8D,thickness=2].> Fixtures
-Preview .[#8D8D8D,thickness=2].> Resources
-@enduml
-`;case`bescript_first_layer`:return`@startuml
+var e=e=>{switch(e){case`bescript_first_layer`:return`@startuml
 title "第一层：BEScript 文本与局部 AST"
 top to bottom direction
 
@@ -444,8 +329,8 @@ RendererPipeline .[#8D8D8D,thickness=2].> RendererState : <color:#8D8D8D>显式�
 RendererEntry .[#8D8D8D,thickness=2].> RendererState : <color:#8D8D8D>启动与完成状态
 RendererEntry .[#8D8D8D,thickness=2].> RendererPipeline : <color:#8D8D8D>驱动三阶段管线
 @enduml
-`;case`core`:return`@startuml
-title "core"
+`;case`index`:return`@startuml
+title "01 · 产品总览"
 top to bottom direction
 
 hide stereotype
@@ -459,27 +344,12 @@ skinparam {
   shadowing false
 }
 
+skinparam rectangle<<Frontend>>{
+  BackgroundColor #3b82f6
+  FontColor #eff6ff
+  BorderColor #2563eb
+}
 skinparam rectangle<<Toolkit>>{
-  BackgroundColor #3b82f6
-  FontColor #eff6ff
-  BorderColor #2563eb
-}
-skinparam rectangle<<Preview>>{
-  BackgroundColor #3b82f6
-  FontColor #eff6ff
-  BorderColor #2563eb
-}
-skinparam rectangle<<Canvas>>{
-  BackgroundColor #3b82f6
-  FontColor #eff6ff
-  BorderColor #2563eb
-}
-skinparam rectangle<<Tools>>{
-  BackgroundColor #3b82f6
-  FontColor #eff6ff
-  BorderColor #2563eb
-}
-skinparam rectangle<<Legacy>>{
   BackgroundColor #3b82f6
   FontColor #eff6ff
   BorderColor #2563eb
@@ -489,78 +359,288 @@ skinparam rectangle<<Pure>>{
   FontColor #eff6ff
   BorderColor #2563eb
 }
-skinparam rectangle<<Frontend>>{
+skinparam rectangle<<Canvas>>{
   BackgroundColor #3b82f6
   FontColor #eff6ff
   BorderColor #2563eb
 }
-skinparam rectangle<<Renderer>>{
-  BackgroundColor #3b82f6
-  FontColor #eff6ff
-  BorderColor #2563eb
-}
-skinparam rectangle<<Repository>>{
-  BackgroundColor #3b82f6
-  FontColor #eff6ff
-  BorderColor #2563eb
-}
-skinparam rectangle<<Fixtures>>{
-  BackgroundColor #3b82f6
-  FontColor #eff6ff
-  BorderColor #2563eb
-}
-skinparam rectangle<<Specifications>>{
-  BackgroundColor #3b82f6
-  FontColor #eff6ff
-  BorderColor #2563eb
-}
-skinparam rectangle<<Documentation>>{
-  BackgroundColor #3b82f6
-  FontColor #eff6ff
-  BorderColor #2563eb
-}
-skinparam rectangle<<Resources>>{
-  BackgroundColor #3b82f6
-  FontColor #eff6ff
-  BorderColor #2563eb
-}
-rectangle "==Toolkit TypeScript 产品" <<Toolkit>> as Toolkit
-rectangle "==公开产品预览" <<Preview>> as Preview
-rectangle "==Canvas 渲染产品" <<Canvas>> as Canvas
-rectangle "==自举检查工具" <<Tools>> as Tools
-rectangle "==旧产品参考区" <<Legacy>> as Legacy
-rectangle "==业务纯计算\\n\\n无状态纯函数。完整输入由调用者提供，同样输入产生同样结果，不读取文件、网络、配置、环境变量、当前时间或进程全局状态。" <<Pure>> as Pure
 rectangle "==单一前端扩展" <<Frontend>> as Frontend
-rectangle "==Canvas 渲染引擎\\n\\nHTML 属性经显式 Option 解析为节点输入；节点按固定顺序应用特性，管线统一递归与排版，页面只有一次自动渲染。" <<Renderer>> as Renderer
-rectangle "==仓库工程基础" <<Repository>> as Repository
-rectangle "==跨组件夹具" <<Fixtures>> as Fixtures
-rectangle "==工具链规范" <<Specifications>> as Specifications
-rectangle "==产品规范与参考" <<Documentation>> as Documentation
-rectangle "==共享静态资源" <<Resources>> as Resources
+rectangle "==Toolkit TypeScript 产品" <<Toolkit>> as Toolkit
+rectangle "==业务纯计算\\n\\n无状态纯函数。完整输入由调用者提供，同样输入产生同样结果，不读取文件、网络、配置、环境变量、当前时间或进程全局状态。" <<Pure>> as Pure
+rectangle "==Canvas 渲染产品" <<Canvas>> as Canvas
 
-Pure .[#8D8D8D,thickness=2].> Specifications
-Toolkit .[#8D8D8D,thickness=2].> Pure
-Preview .[#8D8D8D,thickness=2].> Pure
-Renderer .[#8D8D8D,thickness=2].> Resources : <color:#8D8D8D>字体与样式资源
-Canvas .[#8D8D8D,thickness=2].> Renderer : <color:#8D8D8D>渲染行为测试
-Tools .[#8D8D8D,thickness=2].> Repository
-Tools .[#8D8D8D,thickness=2].> Specifications
-Toolkit .[#8D8D8D,thickness=2].> Repository
-Toolkit .[#8D8D8D,thickness=2].> Specifications
-Frontend .[#8D8D8D,thickness=2].> Specifications
-Preview .[#8D8D8D,thickness=2].> Specifications
-Toolkit .[#8D8D8D,thickness=2].> Frontend
-Toolkit .[#8D8D8D,thickness=2].> Fixtures
 Frontend .[#8D8D8D,thickness=2].> Toolkit
-Legacy .[#8D8D8D,thickness=2].> Fixtures
-Frontend .[#8D8D8D,thickness=2].> Resources
-Frontend .[#8D8D8D,thickness=2].> Documentation
-Preview .[#8D8D8D,thickness=2].> Frontend
-Preview .[#8D8D8D,thickness=2].> Fixtures
-Preview .[#8D8D8D,thickness=2].> Resources
+Toolkit .[#8D8D8D,thickness=2].> Frontend
+Toolkit .[#8D8D8D,thickness=2].> Pure
+@enduml
+`;case`runtime`:return`@startuml
+title "02 · Toolkit Runtime"
+top to bottom direction
+
+hide stereotype
+skinparam ranksep 60
+skinparam nodesep 30
+skinparam {
+  arrowFontSize 10
+  defaultTextAlignment center
+  wrapWidth 200
+  maxMessageSize 100
+  shadowing false
+}
+
+skinparam rectangle<<ToolkitConfiguration>>{
+  BackgroundColor #3b82f6
+  FontColor #eff6ff
+  BorderColor #2563eb
+}
+skinparam rectangle<<ToolkitConfig>>{
+  BackgroundColor #3b82f6
+  FontColor #eff6ff
+  BorderColor #2563eb
+}
+skinparam rectangle<<ToolkitPi_plugin>>{
+  BackgroundColor #3b82f6
+  FontColor #eff6ff
+  BorderColor #2563eb
+}
+skinparam rectangle<<ToolkitMcp>>{
+  BackgroundColor #3b82f6
+  FontColor #eff6ff
+  BorderColor #2563eb
+}
+skinparam rectangle<<ToolkitHost>>{
+  BackgroundColor #3b82f6
+  FontColor #eff6ff
+  BorderColor #2563eb
+}
+skinparam rectangle<<ToolkitProject_model>>{
+  BackgroundColor #3b82f6
+  FontColor #eff6ff
+  BorderColor #2563eb
+}
+skinparam rectangle<<ToolkitScript>>{
+  BackgroundColor #3b82f6
+  FontColor #eff6ff
+  BorderColor #2563eb
+}
+rectangle "==产品类型检查配置" <<ToolkitConfiguration>> as ToolkitConfiguration
+rectangle "==配置来源抽象与实现" <<ToolkitConfig>> as ToolkitConfig
+rectangle "==Pi Agent 插件启动入口" <<ToolkitPi_plugin>> as ToolkitPi_plugin
+rectangle "==MCP 协议接入" <<ToolkitMcp>> as ToolkitMcp
+rectangle "==工作区 Host" <<ToolkitHost>> as ToolkitHost
+rectangle "==工程格式纯计算包" <<ToolkitProject_model>> as ToolkitProject_model
+rectangle "==BEScript 纯计算包\\n\\n数据合同与三层纯转换设计分开登记；转换函数不读取工程或拥有跨请求缓存，Host 持有缓存状态并传入完整语义依据" <<ToolkitScript>> as ToolkitScript
+
+ToolkitHost .[#8D8D8D,thickness=2].> ToolkitProject_model
+ToolkitHost .[#8D8D8D,thickness=2].> ToolkitScript
+ToolkitMcp .[#8D8D8D,thickness=2].> ToolkitHost
+ToolkitPi_plugin .[#8D8D8D,thickness=2].> ToolkitMcp
+@enduml
+`;case`frontend`:return`@startuml
+title "03 · VS Code 前端"
+top to bottom direction
+
+hide stereotype
+skinparam ranksep 60
+skinparam nodesep 30
+skinparam {
+  arrowFontSize 10
+  defaultTextAlignment center
+  wrapWidth 200
+  maxMessageSize 100
+  shadowing false
+}
+
+skinparam rectangle<<FrontendPackaging>>{
+  BackgroundColor #3b82f6
+  FontColor #eff6ff
+  BorderColor #2563eb
+}
+skinparam rectangle<<FrontendTests>>{
+  BackgroundColor #3b82f6
+  FontColor #eff6ff
+  BorderColor #2563eb
+}
+skinparam rectangle<<FrontendPlugin>>{
+  BackgroundColor #3b82f6
+  FontColor #eff6ff
+  BorderColor #2563eb
+}
+skinparam rectangle<<FrontendUi>>{
+  BackgroundColor #3b82f6
+  FontColor #eff6ff
+  BorderColor #2563eb
+}
+skinparam rectangle<<FrontendHost_client>>{
+  BackgroundColor #3b82f6
+  FontColor #eff6ff
+  BorderColor #2563eb
+}
+rectangle "==扩展清单与构建入口" <<FrontendPackaging>> as FrontendPackaging
+rectangle "==前端行为与生命周期测试" <<FrontendTests>> as FrontendTests
+rectangle "==VSCode 宿主与 Effect 组合根" <<FrontendPlugin>> as FrontendPlugin
+rectangle "==单页侧栏、配置区与展开日志" <<FrontendUi>> as FrontendUi
+rectangle "==只读合同与配置计划" <<FrontendHost_client>> as FrontendHost_client
+
+FrontendUi .[#8D8D8D,thickness=2].> FrontendHost_client
+FrontendPlugin .[#8D8D8D,thickness=2].> FrontendHost_client
+FrontendTests .[#8D8D8D,thickness=2].> FrontendHost_client
+FrontendPlugin .[#8D8D8D,thickness=2].> FrontendUi
+FrontendTests .[#8D8D8D,thickness=2].> FrontendUi
+FrontendTests .[#8D8D8D,thickness=2].> FrontendPlugin
+@enduml
+`;case`pure_functions`:return`@startuml
+title "04 · 业务纯计算"
+top to bottom direction
+
+hide stereotype
+skinparam ranksep 60
+skinparam nodesep 30
+skinparam {
+  arrowFontSize 10
+  defaultTextAlignment center
+  wrapWidth 200
+  maxMessageSize 100
+  shadowing false
+}
+
+skinparam rectangle<<PureCanvas>>{
+  BackgroundColor #3b82f6
+  FontColor #eff6ff
+  BorderColor #2563eb
+}
+rectangle "==Canvas 四向转换\\n\\n内联 Base64、内联 Hjson、Canvas 二进制与 HTML 视图之间的无状态转换" <<PureCanvas>> as PureCanvas
+@enduml
+`;case`canvas`:return`@startuml
+title "05 · Canvas 渲染产品"
+top to bottom direction
+
+hide stereotype
+skinparam ranksep 60
+skinparam nodesep 30
+skinparam {
+  arrowFontSize 10
+  defaultTextAlignment center
+  wrapWidth 200
+  maxMessageSize 100
+  shadowing false
+}
+
+skinparam rectangle<<CanvasRenderer_tests>>{
+  BackgroundColor #3b82f6
+  FontColor #eff6ff
+  BorderColor #2563eb
+}
+skinparam rectangle<<RendererEntry>>{
+  BackgroundColor #3b82f6
+  FontColor #eff6ff
+  BorderColor #2563eb
+}
+skinparam rectangle<<RendererPipeline>>{
+  BackgroundColor #3b82f6
+  FontColor #eff6ff
+  BorderColor #2563eb
+}
+skinparam rectangle<<RendererNodes>>{
+  BackgroundColor #3b82f6
+  FontColor #eff6ff
+  BorderColor #2563eb
+}
+skinparam rectangle<<RendererDom_schema>>{
+  BackgroundColor #3b82f6
+  FontColor #eff6ff
+  BorderColor #2563eb
+}
+skinparam rectangle<<RendererFeatures>>{
+  BackgroundColor #3b82f6
+  FontColor #eff6ff
+  BorderColor #2563eb
+}
+skinparam rectangle<<RendererSchema>>{
+  BackgroundColor #3b82f6
+  FontColor #eff6ff
+  BorderColor #2563eb
+}
+skinparam rectangle<<RendererLayout>>{
+  BackgroundColor #3b82f6
+  FontColor #eff6ff
+  BorderColor #2563eb
+}
+skinparam rectangle<<RendererImages>>{
+  BackgroundColor #3b82f6
+  FontColor #eff6ff
+  BorderColor #2563eb
+}
+skinparam rectangle<<RendererFields>>{
+  BackgroundColor #3b82f6
+  FontColor #eff6ff
+  BorderColor #2563eb
+}
+skinparam rectangle<<RendererValues>>{
+  BackgroundColor #3b82f6
+  FontColor #eff6ff
+  BorderColor #2563eb
+}
+skinparam rectangle<<RendererContracts>>{
+  BackgroundColor #3b82f6
+  FontColor #eff6ff
+  BorderColor #2563eb
+}
+skinparam rectangle<<RendererState>>{
+  BackgroundColor #3b82f6
+  FontColor #eff6ff
+  BorderColor #2563eb
+}
+rectangle "==Canvas 渲染测试" <<CanvasRenderer_tests>> as CanvasRenderer_tests
+rectangle "==字体就绪后的唯一入口\\n\\nCanvasLayoutEngine.ts：initialRender 等待字体后执行 render；入口启动状态，驱动管线，将同步错误传给状态与错误报告。" <<RendererEntry>> as RendererEntry
+rectangle "==DOM 渲染管线\\n\\nCanvasRenderPipeline.ts：createNodeByType 创建节点，prepareTree 只准备当前节点，arrangeTree 按层准备直属子节点并确定最终矩形后递归，renderTree 统一投影样式并按固定顺序应用特性。" <<RendererPipeline>> as RendererPipeline
+rectangle "==节点输入与能力顺序\\n\\nCanvasTypesNodes.ts：CanvasNodeModel 与八个节点构造器接收确定 Schema 输出；各节点持有唯一 DEFAULT，render 只顺序调用能力。" <<RendererNodes>> as RendererNodes
+rectangle "==DOM 严格 Schema 提取\\n\\nCanvasDomSchema.extract 以节点专属 Zod strictObject 校验属性并输出确定类型对象；可选属性成为 Option，未知属性与必选缺失报错。" <<RendererDom_schema>> as RendererDom_schema
+rectangle "==特性 DOM 应用\\n\\nCanvasRenderNode.ts：特性 Renderer 消费单一 Fields 与运行时只读快照；ChildLayoutRenderer 返回参数，由节点提交 layoutParams。Spine 复制独立图层后释放 renderer 与 stage。" <<RendererFeatures>> as RendererFeatures
+rectangle "==使用者节点 Schema\\n\\nCanvasViewSchema.ts：八种节点 Schema 与 CanvasUISchemaOf 只向使用者公开持久化属性，不包含 DOM 与布局中间值。" <<RendererSchema>> as RendererSchema
+rectangle "==布局计算与诊断\\n\\nCanvasRenderLayout.ts：LayoutRenderer.render 返回最终矩形，由节点原子提交 layout 与 resolvedLayoutSize；CanvasLayoutDiagnostics 记录失败输入，按需生成诊断快照。" <<RendererLayout>> as RendererLayout
+rectangle "==图像合成与异步提交\\n\\nCanvasRenderImage.ts：ImageRenderUtils 处理图像尺寸、颜色乘法与图层清除；FourCornerGradient 逐列计算双线性插值。资源任务由 RenderSession 统一收束。" <<RendererImages>> as RendererImages
+rectangle "==白名单与统一取值\\n\\nCanvasRenderBase.ts：FeatureValues.resolve 按显式启用条件选取输入或节点默认值；不制造动态字段表，不修改节点输入。" <<RendererFields>> as RendererFields
+rectangle "==属性解析与渲染基础能力\\n\\nCanvasRuntimeUtils.ts：RuntimeNodeParser 精确识别 DOM 标签；CanvasEnumNameParser 校验枚举；CanvasColorValue、RichTextParser、GuidUtils 分别处理颜色、文本与资源；CanvasRenderEntry 报告错误。" <<RendererValues>> as RendererValues
+rectangle "==特性与运行时契约\\n\\nCanvasTypesBase.ts：Fields 只描述持久化属性；CanvasRuntimeNode、RenderNodeContext 描述运行时上下文。" <<RendererContracts>> as RendererContracts
+rectangle "==页面渲染状态\\n\\nCanvasRenderState.ts：RenderSession 先登记后启动任务，统一等待纹理加载与原生 Assets 卸载后结算；失败保留原因，终态不重置。" <<RendererState>> as RendererState
+
+RendererContracts .[#8D8D8D,thickness=2].> RendererState : <color:#8D8D8D>会话类型
+RendererSchema .[#8D8D8D,thickness=2].> RendererContracts : <color:#8D8D8D>持久化字段类型
+RendererNodes .[#8D8D8D,thickness=2].> RendererContracts : <color:#8D8D8D>节点字段与上下文类型
+RendererDom_schema .[#8D8D8D,thickness=2].> RendererContracts : <color:#8D8D8D>属性类型
+RendererFields .[#8D8D8D,thickness=2].> RendererContracts : <color:#8D8D8D>字段类型
+RendererValues .[#8D8D8D,thickness=2].> RendererContracts : <color:#8D8D8D>属性与诊断类型
+RendererLayout .[#8D8D8D,thickness=2].> RendererContracts : <color:#8D8D8D>布局字段与结果
+RendererFeatures .[#8D8D8D,thickness=2].> RendererContracts : <color:#8D8D8D>特性字段与上下文
+RendererImages .[#8D8D8D,thickness=2].> RendererContracts : <color:#8D8D8D>颜色类型
+RendererPipeline .[#8D8D8D,thickness=2].> RendererContracts : <color:#8D8D8D>上下文类型
+RendererNodes .[#8D8D8D,thickness=2].> RendererSchema : <color:#8D8D8D>唯一节点输入类型
+RendererDom_schema .[#8D8D8D,thickness=2].> RendererSchema : <color:#8D8D8D>确定输出契约
+RendererNodes .[#8D8D8D,thickness=2].> RendererDom_schema : <color:#8D8D8D>确定类型的节点 Schema
+RendererNodes .[#8D8D8D,thickness=2].> RendererLayout : <color:#8D8D8D>第一项布局能力
+RendererNodes .[#8D8D8D,thickness=2].> RendererFeatures : <color:#8D8D8D>按节点类型固定顺序应用能力
+RendererNodes .[#8D8D8D,thickness=2].> RendererState : <color:#8D8D8D>会话上下文类型
+RendererPipeline .[#8D8D8D,thickness=2].> RendererNodes : <color:#8D8D8D>节点构造与能力顺序
+RendererDom_schema .[#8D8D8D,thickness=2].> RendererValues : <color:#8D8D8D>颜色与枚举解析
+RendererPipeline .[#8D8D8D,thickness=2].> RendererDom_schema : <color:#8D8D8D>唯一 DOM 属性提取
+RendererLayout .[#8D8D8D,thickness=2].> RendererFields : <color:#8D8D8D>白名单与默认值
+RendererFeatures .[#8D8D8D,thickness=2].> RendererFields : <color:#8D8D8D>启用字段与默认值
+RendererPipeline .[#8D8D8D,thickness=2].> RendererFields : <color:#8D8D8D>子节点收集与逻辑路径
+RendererLayout .[#8D8D8D,thickness=2].> RendererValues : <color:#8D8D8D>取值与颜色
+RendererFeatures .[#8D8D8D,thickness=2].> RendererValues : <color:#8D8D8D>文本、颜色、资源与错误报告
+RendererPipeline .[#8D8D8D,thickness=2].> RendererValues : <color:#8D8D8D>根尺寸、属性和标签
+RendererEntry .[#8D8D8D,thickness=2].> RendererValues : <color:#8D8D8D>字体加载与错误报告
+RendererFeatures .[#8D8D8D,thickness=2].> RendererLayout : <color:#8D8D8D>布局能力
+RendererEntry .[#8D8D8D,thickness=2].> RendererLayout : <color:#8D8D8D>诊断读取
+RendererFeatures .[#8D8D8D,thickness=2].> RendererImages : <color:#8D8D8D>图像合成与提交
+RendererFeatures .[#8D8D8D,thickness=2].> RendererState : <color:#8D8D8D>异步资源登记与完成
+RendererPipeline .[#8D8D8D,thickness=2].> RendererState : <color:#8D8D8D>显式会话类型
+RendererEntry .[#8D8D8D,thickness=2].> RendererState : <color:#8D8D8D>启动与完成状态
+RendererEntry .[#8D8D8D,thickness=2].> RendererPipeline : <color:#8D8D8D>驱动三阶段管线
 @enduml
 `;case`tooling`:return`@startuml
-title "自举检查工具"
+title "10 · 开发治理"
 top to bottom direction
 
 hide stereotype
@@ -637,71 +717,8 @@ ToolsTests .[#8D8D8D,thickness=2].> ToolsAnchoring
 ToolsTests .[#8D8D8D,thickness=2].> ToolsCoding
 ToolsTests .[#8D8D8D,thickness=2].> ToolsTesting
 @enduml
-`;case`runtime`:return`@startuml
-title "Toolkit TypeScript 产品"
-top to bottom direction
-
-hide stereotype
-skinparam ranksep 60
-skinparam nodesep 30
-skinparam {
-  arrowFontSize 10
-  defaultTextAlignment center
-  wrapWidth 200
-  maxMessageSize 100
-  shadowing false
-}
-
-skinparam rectangle<<ToolkitConfiguration>>{
-  BackgroundColor #3b82f6
-  FontColor #eff6ff
-  BorderColor #2563eb
-}
-skinparam rectangle<<ToolkitConfig>>{
-  BackgroundColor #3b82f6
-  FontColor #eff6ff
-  BorderColor #2563eb
-}
-skinparam rectangle<<ToolkitPi_plugin>>{
-  BackgroundColor #3b82f6
-  FontColor #eff6ff
-  BorderColor #2563eb
-}
-skinparam rectangle<<ToolkitMcp>>{
-  BackgroundColor #3b82f6
-  FontColor #eff6ff
-  BorderColor #2563eb
-}
-skinparam rectangle<<ToolkitHost>>{
-  BackgroundColor #3b82f6
-  FontColor #eff6ff
-  BorderColor #2563eb
-}
-skinparam rectangle<<ToolkitProject_model>>{
-  BackgroundColor #3b82f6
-  FontColor #eff6ff
-  BorderColor #2563eb
-}
-skinparam rectangle<<ToolkitScript>>{
-  BackgroundColor #3b82f6
-  FontColor #eff6ff
-  BorderColor #2563eb
-}
-rectangle "==产品类型检查配置" <<ToolkitConfiguration>> as ToolkitConfiguration
-rectangle "==配置来源抽象与实现" <<ToolkitConfig>> as ToolkitConfig
-rectangle "==Pi Agent 插件启动入口" <<ToolkitPi_plugin>> as ToolkitPi_plugin
-rectangle "==MCP 协议接入" <<ToolkitMcp>> as ToolkitMcp
-rectangle "==工作区 Host" <<ToolkitHost>> as ToolkitHost
-rectangle "==工程格式纯计算包" <<ToolkitProject_model>> as ToolkitProject_model
-rectangle "==BEScript 纯计算包\\n\\n数据合同与三层纯转换设计分开登记；转换函数不读取工程或拥有跨请求缓存，Host 持有缓存状态并传入完整语义依据" <<ToolkitScript>> as ToolkitScript
-
-ToolkitHost .[#8D8D8D,thickness=2].> ToolkitProject_model
-ToolkitHost .[#8D8D8D,thickness=2].> ToolkitScript
-ToolkitMcp .[#8D8D8D,thickness=2].> ToolkitHost
-ToolkitPi_plugin .[#8D8D8D,thickness=2].> ToolkitMcp
-@enduml
 `;case`repository`:return`@startuml
-title "仓库工程基础"
+title "11 · 仓库基础"
 top to bottom direction
 
 hide stereotype
@@ -741,7 +758,7 @@ rectangle "==版本控制" <<RepositoryGit>> as RepositoryGit
 rectangle "==编辑器配置" <<RepositoryEditor>> as RepositoryEditor
 @enduml
 `;case`specifications`:return`@startuml
-title "工具链规范"
+title "12 · 工具链规范"
 top to bottom direction
 
 hide stereotype
@@ -816,8 +833,42 @@ rectangle "==VS Code 前端职责" <<SpecificationsVscode_frontend>> as Specific
 rectangle "==Canvas 四向转换合同" <<SpecificationsCanvas>> as SpecificationsCanvas
 rectangle "==静态预览与发布合同" <<SpecificationsPreview>> as SpecificationsPreview
 @enduml
+`;case`documentation`:return`@startuml
+title "13 · 产品文档"
+top to bottom direction
+
+hide stereotype
+skinparam ranksep 60
+skinparam nodesep 30
+skinparam {
+  arrowFontSize 10
+  defaultTextAlignment center
+  wrapWidth 200
+  maxMessageSize 100
+  shadowing false
+}
+
+skinparam rectangle<<DocumentationManual>>{
+  BackgroundColor #3b82f6
+  FontColor #eff6ff
+  BorderColor #2563eb
+}
+skinparam rectangle<<DocumentationSpecs>>{
+  BackgroundColor #3b82f6
+  FontColor #eff6ff
+  BorderColor #2563eb
+}
+skinparam rectangle<<DocumentationWorkflows>>{
+  BackgroundColor #3b82f6
+  FontColor #eff6ff
+  BorderColor #2563eb
+}
+rectangle "==MechToolkit 发布与开发指南" <<DocumentationManual>> as DocumentationManual
+rectangle "==产品规范" <<DocumentationSpecs>> as DocumentationSpecs
+rectangle "==ComfyUI 工作流" <<DocumentationWorkflows>> as DocumentationWorkflows
+@enduml
 `;case`legacy`:return`@startuml
-title "旧产品参考区"
+title "90 · 历史参考"
 top to bottom direction
 
 hide stereotype
@@ -854,7 +905,7 @@ LegacyMcp .[#8D8D8D,thickness=2].> LegacyCore
 LegacyHost .[#8D8D8D,thickness=2].> LegacyCore
 @enduml
 `;case`legacy_core`:return`@startuml
-title "核心逻辑"
+title "91 · 历史核心参考"
 top to bottom direction
 
 hide stereotype
@@ -946,67 +997,5 @@ rectangle "==工程检索" <<LegacyCoreSearch>> as LegacyCoreSearch
 rectangle "==TS 视图" <<LegacyCoreTsview>> as LegacyCoreTsview
 rectangle "==工作进程命令" <<LegacyCoreWorker>> as LegacyCoreWorker
 rectangle "==核心回归" <<LegacyCoreTests>> as LegacyCoreTests
-@enduml
-`;case`documentation`:return`@startuml
-title "产品规范与参考"
-top to bottom direction
-
-hide stereotype
-skinparam ranksep 60
-skinparam nodesep 30
-skinparam {
-  arrowFontSize 10
-  defaultTextAlignment center
-  wrapWidth 200
-  maxMessageSize 100
-  shadowing false
-}
-
-skinparam rectangle<<DocumentationManual>>{
-  BackgroundColor #3b82f6
-  FontColor #eff6ff
-  BorderColor #2563eb
-}
-skinparam rectangle<<DocumentationSpecs>>{
-  BackgroundColor #3b82f6
-  FontColor #eff6ff
-  BorderColor #2563eb
-}
-skinparam rectangle<<DocumentationDiagrams>>{
-  BackgroundColor #3b82f6
-  FontColor #eff6ff
-  BorderColor #2563eb
-}
-skinparam rectangle<<DocumentationWorkflows>>{
-  BackgroundColor #3b82f6
-  FontColor #eff6ff
-  BorderColor #2563eb
-}
-rectangle "==MechToolkit 发布与开发指南" <<DocumentationManual>> as DocumentationManual
-rectangle "==产品规范" <<DocumentationSpecs>> as DocumentationSpecs
-rectangle "==架构展示资产" <<DocumentationDiagrams>> as DocumentationDiagrams
-rectangle "==ComfyUI 工作流" <<DocumentationWorkflows>> as DocumentationWorkflows
-@enduml
-`;case`pure_functions`:return`@startuml
-title "业务纯计算"
-top to bottom direction
-
-hide stereotype
-skinparam ranksep 60
-skinparam nodesep 30
-skinparam {
-  arrowFontSize 10
-  defaultTextAlignment center
-  wrapWidth 200
-  maxMessageSize 100
-  shadowing false
-}
-
-skinparam rectangle<<PureCanvas>>{
-  BackgroundColor #3b82f6
-  FontColor #eff6ff
-  BorderColor #2563eb
-}
-rectangle "==Canvas 四向转换\\n\\n内联 Base64、内联 Hjson、Canvas 二进制与 HTML 视图之间的无状态转换" <<PureCanvas>> as PureCanvas
 @enduml
 `;default:throw Error(`Unknown viewId: `+e)}};export{e as pumlSource};

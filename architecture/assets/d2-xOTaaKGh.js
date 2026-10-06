@@ -1,66 +1,4 @@
-var e=e=>{switch(e){case`index`:return`direction: down
-
-Toolkit: {
-  label: "Toolkit TypeScript 产品"
-}
-Preview: {
-  label: "公开产品预览"
-}
-Canvas: {
-  label: "Canvas 渲染产品"
-}
-Tools: {
-  label: "自举检查工具"
-}
-Legacy: {
-  label: "旧产品参考区"
-}
-Pure: {
-  label: "业务纯计算"
-}
-Frontend: {
-  label: "单一前端扩展"
-}
-Renderer: {
-  label: "Canvas 渲染引擎"
-}
-Repository: {
-  label: "仓库工程基础"
-}
-Fixtures: {
-  label: "跨组件夹具"
-}
-Specifications: {
-  label: "工具链规范"
-}
-Documentation: {
-  label: "产品规范与参考"
-}
-Resources: {
-  label: "共享静态资源"
-}
-
-Pure -> Specifications
-Toolkit -> Pure
-Preview -> Pure
-Renderer -> Resources: "字体与样式资源"
-Canvas -> Renderer: "渲染行为测试"
-Tools -> Repository
-Tools -> Specifications
-Toolkit -> Repository
-Toolkit -> Specifications
-Frontend -> Specifications
-Preview -> Specifications
-Toolkit -> Frontend
-Toolkit -> Fixtures
-Frontend -> Toolkit
-Legacy -> Fixtures
-Frontend -> Resources
-Frontend -> Documentation
-Preview -> Frontend
-Preview -> Fixtures
-Preview -> Resources
-`;case`bescript_first_layer`:return`direction: down
+var e=e=>{switch(e){case`bescript_first_layer`:return`direction: down
 
 ToolkitScriptConversion: {
   label: "三层纯转换设计"
@@ -238,68 +176,156 @@ RendererFeatures -> RendererState: "异步资源登记与完成"
 RendererPipeline -> RendererState: "显式会话类型"
 RendererEntry -> RendererState: "启动与完成状态"
 RendererEntry -> RendererPipeline: "驱动三阶段管线"
-`;case`core`:return`direction: down
+`;case`index`:return`direction: down
 
+Frontend: {
+  label: "单一前端扩展"
+}
 Toolkit: {
   label: "Toolkit TypeScript 产品"
-}
-Preview: {
-  label: "公开产品预览"
-}
-Canvas: {
-  label: "Canvas 渲染产品"
-}
-Tools: {
-  label: "自举检查工具"
-}
-Legacy: {
-  label: "旧产品参考区"
 }
 Pure: {
   label: "业务纯计算"
 }
-Frontend: {
-  label: "单一前端扩展"
-}
-Renderer: {
-  label: "Canvas 渲染引擎"
-}
-Repository: {
-  label: "仓库工程基础"
-}
-Fixtures: {
-  label: "跨组件夹具"
-}
-Specifications: {
-  label: "工具链规范"
-}
-Documentation: {
-  label: "产品规范与参考"
-}
-Resources: {
-  label: "共享静态资源"
+Canvas: {
+  label: "Canvas 渲染产品"
 }
 
-Pure -> Specifications
-Toolkit -> Pure
-Preview -> Pure
-Renderer -> Resources: "字体与样式资源"
-Canvas -> Renderer: "渲染行为测试"
-Tools -> Repository
-Tools -> Specifications
-Toolkit -> Repository
-Toolkit -> Specifications
-Frontend -> Specifications
-Preview -> Specifications
-Toolkit -> Frontend
-Toolkit -> Fixtures
 Frontend -> Toolkit
-Legacy -> Fixtures
-Frontend -> Resources
-Frontend -> Documentation
-Preview -> Frontend
-Preview -> Fixtures
-Preview -> Resources
+Toolkit -> Frontend
+Toolkit -> Pure
+`;case`runtime`:return`direction: down
+
+ToolkitConfiguration: {
+  label: "产品类型检查配置"
+}
+ToolkitConfig: {
+  label: "配置来源抽象与实现"
+}
+ToolkitPi_plugin: {
+  label: "Pi Agent 插件启动入口"
+}
+ToolkitMcp: {
+  label: "MCP 协议接入"
+}
+ToolkitHost: {
+  label: "工作区 Host"
+}
+ToolkitProject_model: {
+  label: "工程格式纯计算包"
+}
+ToolkitScript: {
+  label: "BEScript 纯计算包"
+}
+
+ToolkitHost -> ToolkitProject_model
+ToolkitHost -> ToolkitScript
+ToolkitMcp -> ToolkitHost
+ToolkitPi_plugin -> ToolkitMcp
+`;case`frontend`:return`direction: down
+
+FrontendPackaging: {
+  label: "扩展清单与构建入口"
+}
+FrontendTests: {
+  label: "前端行为与生命周期测试"
+}
+FrontendPlugin: {
+  label: "VSCode 宿主与 Effect 组合根"
+}
+FrontendUi: {
+  label: "单页侧栏、配置区与展开日志"
+}
+FrontendHost_client: {
+  label: "只读合同与配置计划"
+}
+
+FrontendUi -> FrontendHost_client
+FrontendPlugin -> FrontendHost_client
+FrontendTests -> FrontendHost_client
+FrontendPlugin -> FrontendUi
+FrontendTests -> FrontendUi
+FrontendTests -> FrontendPlugin
+`;case`pure_functions`:return`direction: down
+
+PureCanvas: {
+  label: "Canvas 四向转换"
+}
+`;case`canvas`:return`direction: down
+
+CanvasRenderer_tests: {
+  label: "Canvas 渲染测试"
+}
+RendererEntry: {
+  label: "字体就绪后的唯一入口"
+}
+RendererPipeline: {
+  label: "DOM 渲染管线"
+}
+RendererNodes: {
+  label: "节点输入与能力顺序"
+}
+RendererDom_schema: {
+  label: "DOM 严格 Schema 提取"
+}
+RendererFeatures: {
+  label: "特性 DOM 应用"
+}
+RendererSchema: {
+  label: "使用者节点 Schema"
+}
+RendererLayout: {
+  label: "布局计算与诊断"
+}
+RendererImages: {
+  label: "图像合成与异步提交"
+}
+RendererFields: {
+  label: "白名单与统一取值"
+}
+RendererValues: {
+  label: "属性解析与渲染基础能力"
+}
+RendererContracts: {
+  label: "特性与运行时契约"
+}
+RendererState: {
+  label: "页面渲染状态"
+}
+
+RendererContracts -> RendererState: "会话类型"
+RendererSchema -> RendererContracts: "持久化字段类型"
+RendererNodes -> RendererContracts: "节点字段与上下文类型"
+RendererDom_schema -> RendererContracts: "属性类型"
+RendererFields -> RendererContracts: "字段类型"
+RendererValues -> RendererContracts: "属性与诊断类型"
+RendererLayout -> RendererContracts: "布局字段与结果"
+RendererFeatures -> RendererContracts: "特性字段与上下文"
+RendererImages -> RendererContracts: "颜色类型"
+RendererPipeline -> RendererContracts: "上下文类型"
+RendererNodes -> RendererSchema: "唯一节点输入类型"
+RendererDom_schema -> RendererSchema: "确定输出契约"
+RendererNodes -> RendererDom_schema: "确定类型的节点 Schema"
+RendererNodes -> RendererLayout: "第一项布局能力"
+RendererNodes -> RendererFeatures: "按节点类型固定顺序应用能力"
+RendererNodes -> RendererState: "会话上下文类型"
+RendererPipeline -> RendererNodes: "节点构造与能力顺序"
+RendererDom_schema -> RendererValues: "颜色与枚举解析"
+RendererPipeline -> RendererDom_schema: "唯一 DOM 属性提取"
+RendererLayout -> RendererFields: "白名单与默认值"
+RendererFeatures -> RendererFields: "启用字段与默认值"
+RendererPipeline -> RendererFields: "子节点收集与逻辑路径"
+RendererLayout -> RendererValues: "取值与颜色"
+RendererFeatures -> RendererValues: "文本、颜色、资源与错误报告"
+RendererPipeline -> RendererValues: "根尺寸、属性和标签"
+RendererEntry -> RendererValues: "字体加载与错误报告"
+RendererFeatures -> RendererLayout: "布局能力"
+RendererEntry -> RendererLayout: "诊断读取"
+RendererFeatures -> RendererImages: "图像合成与提交"
+RendererFeatures -> RendererState: "异步资源登记与完成"
+RendererPipeline -> RendererState: "显式会话类型"
+RendererEntry -> RendererState: "启动与完成状态"
+RendererEntry -> RendererPipeline: "驱动三阶段管线"
 `;case`tooling`:return`direction: down
 
 ToolsTests: {
@@ -340,34 +366,6 @@ ToolsCoding -> ToolsAnchoring
 ToolsTests -> ToolsAnchoring
 ToolsTests -> ToolsCoding
 ToolsTests -> ToolsTesting
-`;case`runtime`:return`direction: down
-
-ToolkitConfiguration: {
-  label: "产品类型检查配置"
-}
-ToolkitConfig: {
-  label: "配置来源抽象与实现"
-}
-ToolkitPi_plugin: {
-  label: "Pi Agent 插件启动入口"
-}
-ToolkitMcp: {
-  label: "MCP 协议接入"
-}
-ToolkitHost: {
-  label: "工作区 Host"
-}
-ToolkitProject_model: {
-  label: "工程格式纯计算包"
-}
-ToolkitScript: {
-  label: "BEScript 纯计算包"
-}
-
-ToolkitHost -> ToolkitProject_model
-ToolkitHost -> ToolkitScript
-ToolkitMcp -> ToolkitHost
-ToolkitPi_plugin -> ToolkitMcp
 `;case`repository`:return`direction: down
 
 RepositoryBuild: {
@@ -413,6 +411,17 @@ SpecificationsCanvas: {
 }
 SpecificationsPreview: {
   label: "静态预览与发布合同"
+}
+`;case`documentation`:return`direction: down
+
+DocumentationManual: {
+  label: "MechToolkit 发布与开发指南"
+}
+DocumentationSpecs: {
+  label: "产品规范"
+}
+DocumentationWorkflows: {
+  label: "ComfyUI 工作流"
 }
 `;case`legacy`:return`direction: down
 
@@ -468,24 +477,5 @@ LegacyCoreWorker: {
 }
 LegacyCoreTests: {
   label: "核心回归"
-}
-`;case`documentation`:return`direction: down
-
-DocumentationManual: {
-  label: "MechToolkit 发布与开发指南"
-}
-DocumentationSpecs: {
-  label: "产品规范"
-}
-DocumentationDiagrams: {
-  label: "架构展示资产"
-}
-DocumentationWorkflows: {
-  label: "ComfyUI 工作流"
-}
-`;case`pure_functions`:return`direction: down
-
-PureCanvas: {
-  label: "Canvas 四向转换"
 }
 `;default:throw Error(`Unknown viewId: `+e)}};export{e as d2Source};
