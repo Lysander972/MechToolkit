@@ -53,7 +53,7 @@ title: "第三层：官方 TS 解析、打印与 Host 视图缓存归属"
 ---
 graph TB
   subgraph ToolkitHost["\`工作区 Host\`"]
-    ToolkitHost.Logic@{ shape: rectangle, label: "Host 生命周期与工程 IO" }
+    ToolkitHost.Logic@{ shape: rectangle, label: "Host 与实体层文件基础设施" }
   end
   subgraph ToolkitScript["\`BEScript 纯计算包\`"]
     ToolkitScript.ConversionThird@{ shape: rectangle, label: "官方 TS 解析打印与局部装配" }
@@ -148,6 +148,7 @@ graph TB
   SpecificationsLayout@{ shape: rectangle, label: "文件布局契约" }
   SpecificationsDevelopment@{ shape: rectangle, label: "开发与协作契约" }
   SpecificationsRuntime@{ shape: rectangle, label: "Toolkit 运行时合同" }
+  SpecificationsWorkspace_files@{ shape: rectangle, label: "工程文件合同" }
   SpecificationsHost_configuration@{ shape: rectangle, label: "保留 Host 配置合同" }
   SpecificationsBescript@{ shape: rectangle, label: "BEScript 内部格式" }
   SpecificationsCanvas_render@{ shape: rectangle, label: "Canvas 渲染规范" }

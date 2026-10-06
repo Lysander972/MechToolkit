@@ -88,7 +88,7 @@ ToolkitHost: {
   label: "工作区 Host"
 
   Logic: {
-    label: "Host 生命周期与工程 IO"
+    label: "Host 与实体层文件基础设施"
   }
 }
 ToolkitScript: {
@@ -393,6 +393,9 @@ SpecificationsDevelopment: {
 }
 SpecificationsRuntime: {
   label: "Toolkit 运行时合同"
+}
+SpecificationsWorkspace_files: {
+  label: "工程文件合同"
 }
 SpecificationsHost_configuration: {
   label: "保留 Host 配置合同"

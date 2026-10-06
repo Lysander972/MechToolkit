@@ -193,7 +193,7 @@ rectangle "工作区 Host" <<ToolkitHost>> as ToolkitHost {
   skinparam RectangleFontColor<<ToolkitHost>> #3b82f6
   skinparam RectangleBorderStyle<<ToolkitHost>> dashed
 
-  rectangle "==Host 生命周期与工程 IO\\n\\n工作区读取、语义输入闭包与视图运行时缓存的唯一所有者；编排三层纯转换，缓存随 Host 生命周期释放" <<ToolkitHostLogic>> as ToolkitHostLogic
+  rectangle "==Host 与实体层文件基础设施\\n\\nEffect 生命周期与实体层专用文件原语；原生 IO、按需缓存和单文件原子替换" <<ToolkitHostLogic>> as ToolkitHostLogic
 }
 rectangle "BEScript 纯计算包" <<ToolkitScript>> as ToolkitScript {
   skinparam RectangleBorderColor<<ToolkitScript>> #3b82f6
@@ -792,6 +792,11 @@ skinparam rectangle<<SpecificationsRuntime>>{
   FontColor #eff6ff
   BorderColor #2563eb
 }
+skinparam rectangle<<SpecificationsWorkspace_files>>{
+  BackgroundColor #3b82f6
+  FontColor #eff6ff
+  BorderColor #2563eb
+}
 skinparam rectangle<<SpecificationsHost_configuration>>{
   BackgroundColor #3b82f6
   FontColor #eff6ff
@@ -826,6 +831,7 @@ rectangle "==治理契约" <<SpecificationsTooling>> as SpecificationsTooling
 rectangle "==文件布局契约" <<SpecificationsLayout>> as SpecificationsLayout
 rectangle "==开发与协作契约" <<SpecificationsDevelopment>> as SpecificationsDevelopment
 rectangle "==Toolkit 运行时合同" <<SpecificationsRuntime>> as SpecificationsRuntime
+rectangle "==工程文件合同" <<SpecificationsWorkspace_files>> as SpecificationsWorkspace_files
 rectangle "==保留 Host 配置合同" <<SpecificationsHost_configuration>> as SpecificationsHost_configuration
 rectangle "==BEScript 内部格式" <<SpecificationsBescript>> as SpecificationsBescript
 rectangle "==Canvas 渲染规范" <<SpecificationsCanvas_render>> as SpecificationsCanvas_render
