@@ -2,19 +2,20 @@ var e=e=>{switch(e){case`index`:return`---
 title: "Landscape view"
 ---
 graph TB
-  Pure@{ shape: rectangle, label: "业务纯计算" }
+  Toolkit@{ shape: rectangle, label: "Toolkit TypeScript 产品" }
   Canvas@{ shape: rectangle, label: "Canvas 渲染产品" }
   Tools@{ shape: rectangle, label: "自举检查工具" }
-  Toolkit@{ shape: rectangle, label: "Toolkit TypeScript 产品" }
   Legacy@{ shape: rectangle, label: "旧产品参考区" }
+  Pure@{ shape: rectangle, label: "业务纯计算" }
+  Frontend@{ shape: rectangle, label: "单一前端扩展" }
   Renderer@{ shape: rectangle, label: "Canvas 渲染引擎" }
   Repository@{ shape: rectangle, label: "仓库工程基础" }
-  Frontend@{ shape: rectangle, label: "单一前端扩展" }
   Fixtures@{ shape: rectangle, label: "跨组件夹具" }
   Specifications@{ shape: rectangle, label: "工具链规范" }
-  Resources@{ shape: rectangle, label: "共享静态资源" }
   Documentation@{ shape: rectangle, label: "产品规范与参考" }
+  Resources@{ shape: rectangle, label: "共享静态资源" }
   Pure -.-> Specifications
+  Toolkit -.-> Pure
   Renderer -. "\`字体与样式资源\`" .-> Resources
   Canvas -. "\`渲染行为测试\`" .-> Renderer
   Tools -.-> Repository
@@ -57,22 +58,25 @@ graph TB
 title: "第二层：零件 Context 与官方 TS AST 的转换边界"
 ---
 graph TB
-  ToolkitHostLogic@{ shape: rectangle, label: "Host 生命周期与工程 IO" }
+  subgraph ToolkitScriptConversion["\`三层纯转换设计\`"]
+    ToolkitScriptConversion.Second@{ shape: rectangle, label: "Context 与官方 TS AST 业务转换" }
+  end
+  ToolkitProject_modelTests@{ shape: rectangle, label: "工程格式测试" }
+  ToolkitProject_modelLogic@{ shape: rectangle, label: "工程设置解析" }
   subgraph ToolkitScriptContext["\`零件上下文层\`"]
     ToolkitScriptContext.Device_context@{ shape: rectangle, label: "全局变量、零件元数据与零件上下文" }
   end
-  ToolkitProject_modelTests@{ shape: rectangle, label: "工程格式测试" }
-  ToolkitScriptConversionSecond@{ shape: rectangle, label: "Context 与官方 TS AST 业务转换" }
-  ToolkitProject_modelLogic@{ shape: rectangle, label: "工程设置解析" }
+  PureCanvasLogic@{ shape: rectangle, label: "四向格式转换" }
   subgraph ToolkitScriptAst["\`局部 AST 层\`"]
     ToolkitScriptAst.Local_ast@{ shape: rectangle, label: "局部 AST" }
   end
   SpecificationsBescript@{ shape: rectangle, label: "BEScript 内部格式" }
-  ToolkitHostLogic -.-> ToolkitScriptConversionSecond
+  ToolkitScriptConversion.Second -.-> ToolkitScriptAst.Local_ast
+  ToolkitScriptConversion.Second -.-> ToolkitScriptContext.Device_context
   ToolkitScriptContext.Device_context -.-> ToolkitScriptAst.Local_ast
-  ToolkitHostLogic -.-> ToolkitProject_modelLogic
+  ToolkitScriptConversion.Second -.-> PureCanvasLogic
   ToolkitProject_modelTests -.-> ToolkitProject_modelLogic
-  ToolkitScriptConversionSecond -.-> SpecificationsBescript
+  ToolkitScriptConversion.Second -.-> SpecificationsBescript
   ToolkitScriptAst.Local_ast -.-> SpecificationsBescript
   ToolkitScriptContext.Device_context -.-> SpecificationsBescript
 `;case`bescript_third_layer`:return`---
@@ -92,19 +96,20 @@ graph TB
 title: "core"
 ---
 graph TB
-  Pure@{ shape: rectangle, label: "业务纯计算" }
+  Toolkit@{ shape: rectangle, label: "Toolkit TypeScript 产品" }
   Canvas@{ shape: rectangle, label: "Canvas 渲染产品" }
   Tools@{ shape: rectangle, label: "自举检查工具" }
-  Toolkit@{ shape: rectangle, label: "Toolkit TypeScript 产品" }
   Legacy@{ shape: rectangle, label: "旧产品参考区" }
+  Pure@{ shape: rectangle, label: "业务纯计算" }
+  Frontend@{ shape: rectangle, label: "单一前端扩展" }
   Renderer@{ shape: rectangle, label: "Canvas 渲染引擎" }
   Repository@{ shape: rectangle, label: "仓库工程基础" }
-  Frontend@{ shape: rectangle, label: "单一前端扩展" }
   Fixtures@{ shape: rectangle, label: "跨组件夹具" }
   Specifications@{ shape: rectangle, label: "工具链规范" }
-  Resources@{ shape: rectangle, label: "共享静态资源" }
   Documentation@{ shape: rectangle, label: "产品规范与参考" }
+  Resources@{ shape: rectangle, label: "共享静态资源" }
   Pure -.-> Specifications
+  Toolkit -.-> Pure
   Renderer -. "\`字体与样式资源\`" .-> Resources
   Canvas -. "\`渲染行为测试\`" .-> Renderer
   Tools -.-> Repository

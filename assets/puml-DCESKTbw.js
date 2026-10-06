@@ -13,7 +13,7 @@ skinparam {
   shadowing false
 }
 
-skinparam rectangle<<Pure>>{
+skinparam rectangle<<Toolkit>>{
   BackgroundColor #3b82f6
   FontColor #eff6ff
   BorderColor #2563eb
@@ -28,12 +28,17 @@ skinparam rectangle<<Tools>>{
   FontColor #eff6ff
   BorderColor #2563eb
 }
-skinparam rectangle<<Toolkit>>{
+skinparam rectangle<<Legacy>>{
   BackgroundColor #3b82f6
   FontColor #eff6ff
   BorderColor #2563eb
 }
-skinparam rectangle<<Legacy>>{
+skinparam rectangle<<Pure>>{
+  BackgroundColor #3b82f6
+  FontColor #eff6ff
+  BorderColor #2563eb
+}
+skinparam rectangle<<Frontend>>{
   BackgroundColor #3b82f6
   FontColor #eff6ff
   BorderColor #2563eb
@@ -48,11 +53,6 @@ skinparam rectangle<<Repository>>{
   FontColor #eff6ff
   BorderColor #2563eb
 }
-skinparam rectangle<<Frontend>>{
-  BackgroundColor #3b82f6
-  FontColor #eff6ff
-  BorderColor #2563eb
-}
 skinparam rectangle<<Fixtures>>{
   BackgroundColor #3b82f6
   FontColor #eff6ff
@@ -63,30 +63,31 @@ skinparam rectangle<<Specifications>>{
   FontColor #eff6ff
   BorderColor #2563eb
 }
-skinparam rectangle<<Resources>>{
-  BackgroundColor #3b82f6
-  FontColor #eff6ff
-  BorderColor #2563eb
-}
 skinparam rectangle<<Documentation>>{
   BackgroundColor #3b82f6
   FontColor #eff6ff
   BorderColor #2563eb
 }
-rectangle "==业务纯计算\\n\\n无状态纯函数。完整输入由调用者提供，同样输入产生同样结果，不读取文件、网络、配置、环境变量、当前时间或进程全局状态。" <<Pure>> as Pure
+skinparam rectangle<<Resources>>{
+  BackgroundColor #3b82f6
+  FontColor #eff6ff
+  BorderColor #2563eb
+}
+rectangle "==Toolkit TypeScript 产品" <<Toolkit>> as Toolkit
 rectangle "==Canvas 渲染产品" <<Canvas>> as Canvas
 rectangle "==自举检查工具" <<Tools>> as Tools
-rectangle "==Toolkit TypeScript 产品" <<Toolkit>> as Toolkit
 rectangle "==旧产品参考区" <<Legacy>> as Legacy
+rectangle "==业务纯计算\\n\\n无状态纯函数。完整输入由调用者提供，同样输入产生同样结果，不读取文件、网络、配置、环境变量、当前时间或进程全局状态。" <<Pure>> as Pure
+rectangle "==单一前端扩展" <<Frontend>> as Frontend
 rectangle "==Canvas 渲染引擎\\n\\nHTML 属性经显式 Option 解析为节点输入；节点按固定顺序应用特性，管线统一递归与排版，页面只有一次自动渲染。" <<Renderer>> as Renderer
 rectangle "==仓库工程基础" <<Repository>> as Repository
-rectangle "==单一前端扩展" <<Frontend>> as Frontend
 rectangle "==跨组件夹具" <<Fixtures>> as Fixtures
 rectangle "==工具链规范" <<Specifications>> as Specifications
-rectangle "==共享静态资源" <<Resources>> as Resources
 rectangle "==产品规范与参考" <<Documentation>> as Documentation
+rectangle "==共享静态资源" <<Resources>> as Resources
 
 Pure .[#8D8D8D,thickness=2].> Specifications
+Toolkit .[#8D8D8D,thickness=2].> Pure
 Renderer .[#8D8D8D,thickness=2].> Resources : <color:#8D8D8D>字体与样式资源
 Canvas .[#8D8D8D,thickness=2].> Renderer : <color:#8D8D8D>渲染行为测试
 Tools .[#8D8D8D,thickness=2].> Repository
@@ -191,11 +192,6 @@ skinparam {
   shadowing false
 }
 
-skinparam rectangle<<ToolkitHostLogic>>{
-  BackgroundColor #3b82f6
-  FontColor #eff6ff
-  BorderColor #2563eb
-}
 skinparam rectangle<<ToolkitProject_modelTests>>{
   BackgroundColor #3b82f6
   FontColor #eff6ff
@@ -206,12 +202,17 @@ skinparam rectangle<<ToolkitScriptConversionSecond>>{
   FontColor #eff6ff
   BorderColor #2563eb
 }
-skinparam rectangle<<ToolkitScriptContextDevice_context>>{
+skinparam rectangle<<ToolkitProject_modelLogic>>{
   BackgroundColor #3b82f6
   FontColor #eff6ff
   BorderColor #2563eb
 }
-skinparam rectangle<<ToolkitProject_modelLogic>>{
+skinparam rectangle<<PureCanvasLogic>>{
+  BackgroundColor #3b82f6
+  FontColor #eff6ff
+  BorderColor #2563eb
+}
+skinparam rectangle<<ToolkitScriptContextDevice_context>>{
   BackgroundColor #3b82f6
   FontColor #eff6ff
   BorderColor #2563eb
@@ -226,7 +227,15 @@ skinparam rectangle<<SpecificationsBescript>>{
   FontColor #eff6ff
   BorderColor #2563eb
 }
-rectangle "==Host 生命周期与工程 IO\\n\\n工作区读取、语义输入闭包与视图运行时缓存的唯一所有者；编排三层纯转换，缓存随 Host 生命周期释放" <<ToolkitHostLogic>> as ToolkitHostLogic
+rectangle "三层纯转换设计" <<ToolkitScriptConversion>> as ToolkitScriptConversion {
+  skinparam RectangleBorderColor<<ToolkitScriptConversion>> #3b82f6
+  skinparam RectangleFontColor<<ToolkitScriptConversion>> #3b82f6
+  skinparam RectangleBorderStyle<<ToolkitScriptConversion>> dashed
+
+  rectangle "==Context 与官方 TS AST 业务转换\\n\\nIssue 46 的实现归属：引用身份、变量语义、平台方法和 Canvas 业务映射；仅消费 Context 与显式语义输入，不读取工程或缓存" <<ToolkitScriptConversionSecond>> as ToolkitScriptConversionSecond
+}
+rectangle "==工程格式测试" <<ToolkitProject_modelTests>> as ToolkitProject_modelTests
+rectangle "==工程设置解析" <<ToolkitProject_modelLogic>> as ToolkitProject_modelLogic
 rectangle "零件上下文层" <<ToolkitScriptContext>> as ToolkitScriptContext {
   skinparam RectangleBorderColor<<ToolkitScriptContext>> #3b82f6
   skinparam RectangleFontColor<<ToolkitScriptContext>> #3b82f6
@@ -234,9 +243,7 @@ rectangle "零件上下文层" <<ToolkitScriptContext>> as ToolkitScriptContext 
 
   rectangle "==全局变量、零件元数据与零件上下文" <<ToolkitScriptContextDevice_context>> as ToolkitScriptContextDevice_context
 }
-rectangle "==工程格式测试" <<ToolkitProject_modelTests>> as ToolkitProject_modelTests
-rectangle "==Context 与官方 TS AST 业务转换\\n\\nIssue 46 的实现归属：引用身份、变量语义、平台方法和 Canvas 业务映射；仅消费 Context 与显式语义输入，不读取工程或缓存" <<ToolkitScriptConversionSecond>> as ToolkitScriptConversionSecond
-rectangle "==工程设置解析" <<ToolkitProject_modelLogic>> as ToolkitProject_modelLogic
+rectangle "==四向格式转换\\n\\n以 Canvas 节点为中心的纯计算。Base64 是原版旧数据兼容格式。" <<PureCanvasLogic>> as PureCanvasLogic
 rectangle "局部 AST 层" <<ToolkitScriptAst>> as ToolkitScriptAst {
   skinparam RectangleBorderColor<<ToolkitScriptAst>> #3b82f6
   skinparam RectangleFontColor<<ToolkitScriptAst>> #3b82f6
@@ -246,9 +253,10 @@ rectangle "局部 AST 层" <<ToolkitScriptAst>> as ToolkitScriptAst {
 }
 rectangle "==BEScript 内部格式" <<SpecificationsBescript>> as SpecificationsBescript
 
-ToolkitHostLogic .[#8D8D8D,thickness=2].> ToolkitScriptConversionSecond
+ToolkitScriptConversionSecond .[#8D8D8D,thickness=2].> ToolkitScriptAstLocal_ast
+ToolkitScriptConversionSecond .[#8D8D8D,thickness=2].> ToolkitScriptContextDevice_context
 ToolkitScriptContextDevice_context .[#8D8D8D,thickness=2].> ToolkitScriptAstLocal_ast
-ToolkitHostLogic .[#8D8D8D,thickness=2].> ToolkitProject_modelLogic
+ToolkitScriptConversionSecond .[#8D8D8D,thickness=2].> PureCanvasLogic
 ToolkitProject_modelTests .[#8D8D8D,thickness=2].> ToolkitProject_modelLogic
 ToolkitScriptConversionSecond .[#8D8D8D,thickness=2].> SpecificationsBescript
 ToolkitScriptAstLocal_ast .[#8D8D8D,thickness=2].> SpecificationsBescript
@@ -440,7 +448,7 @@ skinparam {
   shadowing false
 }
 
-skinparam rectangle<<Pure>>{
+skinparam rectangle<<Toolkit>>{
   BackgroundColor #3b82f6
   FontColor #eff6ff
   BorderColor #2563eb
@@ -455,12 +463,17 @@ skinparam rectangle<<Tools>>{
   FontColor #eff6ff
   BorderColor #2563eb
 }
-skinparam rectangle<<Toolkit>>{
+skinparam rectangle<<Legacy>>{
   BackgroundColor #3b82f6
   FontColor #eff6ff
   BorderColor #2563eb
 }
-skinparam rectangle<<Legacy>>{
+skinparam rectangle<<Pure>>{
+  BackgroundColor #3b82f6
+  FontColor #eff6ff
+  BorderColor #2563eb
+}
+skinparam rectangle<<Frontend>>{
   BackgroundColor #3b82f6
   FontColor #eff6ff
   BorderColor #2563eb
@@ -475,11 +488,6 @@ skinparam rectangle<<Repository>>{
   FontColor #eff6ff
   BorderColor #2563eb
 }
-skinparam rectangle<<Frontend>>{
-  BackgroundColor #3b82f6
-  FontColor #eff6ff
-  BorderColor #2563eb
-}
 skinparam rectangle<<Fixtures>>{
   BackgroundColor #3b82f6
   FontColor #eff6ff
@@ -490,30 +498,31 @@ skinparam rectangle<<Specifications>>{
   FontColor #eff6ff
   BorderColor #2563eb
 }
-skinparam rectangle<<Resources>>{
-  BackgroundColor #3b82f6
-  FontColor #eff6ff
-  BorderColor #2563eb
-}
 skinparam rectangle<<Documentation>>{
   BackgroundColor #3b82f6
   FontColor #eff6ff
   BorderColor #2563eb
 }
-rectangle "==业务纯计算\\n\\n无状态纯函数。完整输入由调用者提供，同样输入产生同样结果，不读取文件、网络、配置、环境变量、当前时间或进程全局状态。" <<Pure>> as Pure
+skinparam rectangle<<Resources>>{
+  BackgroundColor #3b82f6
+  FontColor #eff6ff
+  BorderColor #2563eb
+}
+rectangle "==Toolkit TypeScript 产品" <<Toolkit>> as Toolkit
 rectangle "==Canvas 渲染产品" <<Canvas>> as Canvas
 rectangle "==自举检查工具" <<Tools>> as Tools
-rectangle "==Toolkit TypeScript 产品" <<Toolkit>> as Toolkit
 rectangle "==旧产品参考区" <<Legacy>> as Legacy
+rectangle "==业务纯计算\\n\\n无状态纯函数。完整输入由调用者提供，同样输入产生同样结果，不读取文件、网络、配置、环境变量、当前时间或进程全局状态。" <<Pure>> as Pure
+rectangle "==单一前端扩展" <<Frontend>> as Frontend
 rectangle "==Canvas 渲染引擎\\n\\nHTML 属性经显式 Option 解析为节点输入；节点按固定顺序应用特性，管线统一递归与排版，页面只有一次自动渲染。" <<Renderer>> as Renderer
 rectangle "==仓库工程基础" <<Repository>> as Repository
-rectangle "==单一前端扩展" <<Frontend>> as Frontend
 rectangle "==跨组件夹具" <<Fixtures>> as Fixtures
 rectangle "==工具链规范" <<Specifications>> as Specifications
-rectangle "==共享静态资源" <<Resources>> as Resources
 rectangle "==产品规范与参考" <<Documentation>> as Documentation
+rectangle "==共享静态资源" <<Resources>> as Resources
 
 Pure .[#8D8D8D,thickness=2].> Specifications
+Toolkit .[#8D8D8D,thickness=2].> Pure
 Renderer .[#8D8D8D,thickness=2].> Resources : <color:#8D8D8D>字体与样式资源
 Canvas .[#8D8D8D,thickness=2].> Renderer : <color:#8D8D8D>渲染行为测试
 Tools .[#8D8D8D,thickness=2].> Repository

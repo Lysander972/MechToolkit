@@ -1,7 +1,7 @@
 var e=e=>{switch(e){case`index`:return`direction: down
 
-Pure: {
-  label: "业务纯计算"
+Toolkit: {
+  label: "Toolkit TypeScript 产品"
 }
 Canvas: {
   label: "Canvas 渲染产品"
@@ -9,11 +9,14 @@ Canvas: {
 Tools: {
   label: "自举检查工具"
 }
-Toolkit: {
-  label: "Toolkit TypeScript 产品"
-}
 Legacy: {
   label: "旧产品参考区"
+}
+Pure: {
+  label: "业务纯计算"
+}
+Frontend: {
+  label: "单一前端扩展"
 }
 Renderer: {
   label: "Canvas 渲染引擎"
@@ -21,23 +24,21 @@ Renderer: {
 Repository: {
   label: "仓库工程基础"
 }
-Frontend: {
-  label: "单一前端扩展"
-}
 Fixtures: {
   label: "跨组件夹具"
 }
 Specifications: {
   label: "工具链规范"
 }
-Resources: {
-  label: "共享静态资源"
-}
 Documentation: {
   label: "产品规范与参考"
 }
+Resources: {
+  label: "共享静态资源"
+}
 
 Pure -> Specifications
+Toolkit -> Pure
 Renderer -> Resources: "字体与样式资源"
 Canvas -> Renderer: "渲染行为测试"
 Tools -> Repository
@@ -93,8 +94,18 @@ ToolkitScriptText.Code_file -> SpecificationsBescript
 ToolkitScriptAst.Local_ast -> SpecificationsBescript
 `;case`bescript_second_layer`:return`direction: down
 
-ToolkitHostLogic: {
-  label: "Host 生命周期与工程 IO"
+ToolkitScriptConversion: {
+  label: "三层纯转换设计"
+
+  Second: {
+    label: "Context 与官方 TS AST 业务转换"
+  }
+}
+ToolkitProject_modelTests: {
+  label: "工程格式测试"
+}
+ToolkitProject_modelLogic: {
+  label: "工程设置解析"
 }
 ToolkitScriptContext: {
   label: "零件上下文层"
@@ -103,14 +114,8 @@ ToolkitScriptContext: {
     label: "全局变量、零件元数据与零件上下文"
   }
 }
-ToolkitProject_modelTests: {
-  label: "工程格式测试"
-}
-ToolkitScriptConversionSecond: {
-  label: "Context 与官方 TS AST 业务转换"
-}
-ToolkitProject_modelLogic: {
-  label: "工程设置解析"
+PureCanvasLogic: {
+  label: "四向格式转换"
 }
 ToolkitScriptAst: {
   label: "局部 AST 层"
@@ -123,11 +128,12 @@ SpecificationsBescript: {
   label: "BEScript 内部格式"
 }
 
-ToolkitHostLogic -> ToolkitScriptConversionSecond
+ToolkitScriptConversion.Second -> ToolkitScriptAst.Local_ast
+ToolkitScriptConversion.Second -> ToolkitScriptContext.Device_context
 ToolkitScriptContext.Device_context -> ToolkitScriptAst.Local_ast
-ToolkitHostLogic -> ToolkitProject_modelLogic
+ToolkitScriptConversion.Second -> PureCanvasLogic
 ToolkitProject_modelTests -> ToolkitProject_modelLogic
-ToolkitScriptConversionSecond -> SpecificationsBescript
+ToolkitScriptConversion.Second -> SpecificationsBescript
 ToolkitScriptAst.Local_ast -> SpecificationsBescript
 ToolkitScriptContext.Device_context -> SpecificationsBescript
 `;case`bescript_third_layer`:return`direction: down
@@ -226,8 +232,8 @@ RendererEntry -> RendererState: "启动与完成状态"
 RendererEntry -> RendererPipeline: "驱动三阶段管线"
 `;case`core`:return`direction: down
 
-Pure: {
-  label: "业务纯计算"
+Toolkit: {
+  label: "Toolkit TypeScript 产品"
 }
 Canvas: {
   label: "Canvas 渲染产品"
@@ -235,11 +241,14 @@ Canvas: {
 Tools: {
   label: "自举检查工具"
 }
-Toolkit: {
-  label: "Toolkit TypeScript 产品"
-}
 Legacy: {
   label: "旧产品参考区"
+}
+Pure: {
+  label: "业务纯计算"
+}
+Frontend: {
+  label: "单一前端扩展"
 }
 Renderer: {
   label: "Canvas 渲染引擎"
@@ -247,23 +256,21 @@ Renderer: {
 Repository: {
   label: "仓库工程基础"
 }
-Frontend: {
-  label: "单一前端扩展"
-}
 Fixtures: {
   label: "跨组件夹具"
 }
 Specifications: {
   label: "工具链规范"
 }
-Resources: {
-  label: "共享静态资源"
-}
 Documentation: {
   label: "产品规范与参考"
 }
+Resources: {
+  label: "共享静态资源"
+}
 
 Pure -> Specifications
+Toolkit -> Pure
 Renderer -> Resources: "字体与样式资源"
 Canvas -> Renderer: "渲染行为测试"
 Tools -> Repository
