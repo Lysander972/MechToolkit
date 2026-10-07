@@ -1,0 +1,1 @@
+import{t as e}from"./main-BWnFW5-W.js";var t={toolkit:async()=>await e(()=>import(`./drawio-1mEW8XA8.js`),[])};async function n(e){let n=t[e];if(!n){let n=Object.keys(t);throw console.error(`Unknown projectId: `+e+` (available: `+n+`)`),Error(`Project does not enable drawio export: `+e)}return await n()}export{n as loadDrawioSources};

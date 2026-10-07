@@ -131,7 +131,7 @@ rectangle "三层纯转换设计" <<ToolkitScriptConversion>> as ToolkitScriptCo
   rectangle "==Context 与官方 TS AST 业务转换\\n\\nIssue 46 的实现归属：引用身份、变量语义、平台方法和 Canvas 业务映射；仅消费 Context 与显式语义输入，不读取工程或缓存" <<ToolkitScriptConversionSecond>> as ToolkitScriptConversionSecond
 }
 rectangle "==工程格式测试" <<ToolkitProject_modelTests>> as ToolkitProject_modelTests
-rectangle "==工程设置、GUID 与文件实体合同" <<ToolkitProject_modelLogic>> as ToolkitProject_modelLogic
+rectangle "==工程设置、路径、GUID 与权威逻辑实体" <<ToolkitProject_modelLogic>> as ToolkitProject_modelLogic
 rectangle "零件上下文层" <<ToolkitScriptContext>> as ToolkitScriptContext {
   skinparam RectangleBorderColor<<ToolkitScriptContext>> #3b82f6
   skinparam RectangleFontColor<<ToolkitScriptContext>> #3b82f6
@@ -193,7 +193,7 @@ rectangle "工作区 Host" <<ToolkitHost>> as ToolkitHost {
   skinparam RectangleFontColor<<ToolkitHost>> #3b82f6
   skinparam RectangleBorderStyle<<ToolkitHost>> dashed
 
-  rectangle "==Host 与实体层文件基础设施\\n\\nEffect 生命周期与既有文件原语；MST 实体状态、Schematics 候选文件变更与 Chokidar 源文件监听；第二层向后续视图层提供内部快照和变更流" <<ToolkitHostLogic>> as ToolkitHostLogic
+  rectangle "==Host 与实体层文件基础设施\\n\\nEffect 生命周期与既有文件原语；唯一源目录枚举、基于权威实体声明的候选调度；MST 原始节点与单逻辑快照、Schematics 隔离可写候选和 Chokidar 监听；第三层消费内部状态与变更流" <<ToolkitHostLogic>> as ToolkitHostLogic
 }
 rectangle "BEScript 纯计算包" <<ToolkitScript>> as ToolkitScript {
   skinparam RectangleBorderColor<<ToolkitScript>> #3b82f6

@@ -51,7 +51,7 @@ ToolkitProject_modelTests: {
   label: "工程格式测试"
 }
 ToolkitProject_modelLogic: {
-  label: "工程设置、GUID 与文件实体合同"
+  label: "工程设置、路径、GUID 与权威逻辑实体"
 }
 ToolkitScriptContext: {
   label: "零件上下文层"

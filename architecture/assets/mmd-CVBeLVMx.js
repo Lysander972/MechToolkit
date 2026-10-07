@@ -31,7 +31,7 @@ graph TB
     ToolkitScriptConversion.Second@{ shape: rectangle, label: "Context 与官方 TS AST 业务转换" }
   end
   ToolkitProject_modelTests@{ shape: rectangle, label: "工程格式测试" }
-  ToolkitProject_modelLogic@{ shape: rectangle, label: "工程设置、GUID 与文件实体合同" }
+  ToolkitProject_modelLogic@{ shape: rectangle, label: "工程设置、路径、GUID 与权威逻辑实体" }
   subgraph ToolkitScriptContext["\`零件上下文层\`"]
     ToolkitScriptContext.Device_context@{ shape: rectangle, label: "全局变量、零件元数据与零件上下文" }
   end
