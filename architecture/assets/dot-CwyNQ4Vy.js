@@ -225,7 +225,7 @@ var e=e=>{switch(e){case`bescript_first_layer`:return`digraph {
         margin="0.223,0.223",
         width=4.445];
     logic [height=2.5,
-        label=<<FONT POINT-SIZE="20">工程设置解析</FONT>>,
+        label=<<FONT POINT-SIZE="20">工程设置、GUID 与文件实体合同</FONT>>,
         likec4_id="toolkit.project_model.logic",
         likec4_level=0,
         margin="0.223,0.223",
@@ -318,7 +318,7 @@ var e=e=>{switch(e){case`bescript_first_layer`:return`digraph {
             style=filled
         ];
         logic [height=2.5,
-            label=<<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="4"><TR><TD><FONT POINT-SIZE="20">Host 与实体层文件基础设施</FONT></TD></TR><TR><TD><FONT POINT-SIZE="15" COLOR="#bfdbfe">Effect 生命周期与实体层专用文件原语；原生 IO、按需缓存和单文件原子替换</FONT></TD></TR></TABLE>>,
+            label=<<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="4"><TR><TD><FONT POINT-SIZE="20">Host 与实体层文件基础设施</FONT></TD></TR><TR><TD><FONT POINT-SIZE="15" COLOR="#bfdbfe">Effect 生命周期与既有文件原语；MST 实体状态、Schematics<BR/>候选文件变更与 Chokidar 源文件监听；第二层向后续视图层提供内部快照和变更流</FONT></TD></TR></TABLE>>,
             likec4_id="toolkit.host.logic",
             likec4_level=1,
             margin="0.223,0.223",
@@ -737,16 +737,6 @@ var e=e=>{switch(e){case`bescript_first_layer`:return`digraph {
     mcp -> host [arrowhead=normal,
         likec4_id="8i5zec",
         style=dashed];
-    project_model [height=2.5,
-        label=<<FONT POINT-SIZE="20">工程格式纯计算包</FONT>>,
-        likec4_id="toolkit.project_model",
-        likec4_level=0,
-        margin="0.223,0.223",
-        width=4.445];
-    host -> project_model [arrowhead=normal,
-        likec4_id=m33uen,
-        minlen=1,
-        style=dashed];
     script [height=2.5,
         label=<<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="4"><TR><TD><FONT POINT-SIZE="20">BEScript 纯计算包</FONT></TD></TR><TR><TD><FONT POINT-SIZE="15" COLOR="#bfdbfe">数据合同与三层纯转换设计分开登记；转换函数不读取工程或拥有跨请求缓存，Host<BR/>持有缓存状态并传入完整语义依据</FONT></TD></TR></TABLE>>,
         likec4_id="toolkit.script",
@@ -755,7 +745,18 @@ var e=e=>{switch(e){case`bescript_first_layer`:return`digraph {
         width=4.445];
     host -> script [arrowhead=normal,
         likec4_id="7tmu9x",
-        minlen=1,
+        style=dashed];
+    project_model [height=2.5,
+        label=<<FONT POINT-SIZE="20">工程格式纯计算包</FONT>>,
+        likec4_id="toolkit.project_model",
+        likec4_level=0,
+        margin="0.223,0.223",
+        width=4.445];
+    host -> project_model [arrowhead=normal,
+        likec4_id=m33uen,
+        style=dashed];
+    script -> project_model [arrowhead=normal,
+        likec4_id="1v5xug0",
         style=dashed];
 }
 `;case`frontend`:return`digraph {
@@ -1377,13 +1378,20 @@ var e=e=>{switch(e){case`bescript_first_layer`:return`digraph {
         likec4_level=0,
         margin="0.223,0.223",
         width=4.445];
+    entities [height=2.5,
+        label=<<FONT POINT-SIZE="20">第二层实体基础设施合同</FONT>>,
+        likec4_id="specifications.entities",
+        likec4_level=0,
+        margin="0.223,0.223",
+        width=4.445];
+    workspace_files -> entities [style=invis];
     host_configuration [height=2.5,
         label=<<FONT POINT-SIZE="20">保留 Host 配置合同</FONT>>,
         likec4_id="specifications.host_configuration",
         likec4_level=0,
         margin="0.223,0.223",
         width=4.445];
-    workspace_files -> host_configuration [style=invis];
+    entities -> host_configuration [style=invis];
     bescript [height=2.5,
         label=<<FONT POINT-SIZE="20">BEScript 内部格式</FONT>>,
         likec4_id="specifications.bescript",
@@ -1397,13 +1405,13 @@ var e=e=>{switch(e){case`bescript_first_layer`:return`digraph {
         likec4_level=0,
         margin="0.223,0.223",
         width=4.445];
-    bescript -> canvas_render [style=invis];
     vscode_frontend [height=2.5,
         label=<<FONT POINT-SIZE="20">VS Code 前端职责</FONT>>,
         likec4_id="specifications.vscode_frontend",
         likec4_level=0,
         margin="0.223,0.223",
         width=4.445];
+    canvas_render -> vscode_frontend [style=invis];
     canvas [height=2.5,
         label=<<FONT POINT-SIZE="20">Canvas 四向转换合同</FONT>>,
         likec4_id="specifications.canvas",
@@ -1827,7 +1835,7 @@ var e=e=>{switch(e){case`bescript_first_layer`:return`digraph {
 <g id="node5" class="node">
 <title>logic</title>
 <polygon fill="#3b82f6" stroke="#2563eb" stroke-width="0" points="1326.38,-1080 1006.34,-1080 1006.34,-900 1326.38,-900 1326.38,-1080"/>
-<text xml:space="preserve" text-anchor="start" x="1116.35" y="-982" font-family="Arial" font-size="20.00" fill="#eff6ff">工程设置解析</text>
+<text xml:space="preserve" text-anchor="start" x="1038.56" y="-982" font-family="Arial" font-size="20.00" fill="#eff6ff">工程设置、GUID 与文件实体合同</text>
 </g>
 <!-- logic_1 -->
 <g id="node6" class="node">
@@ -1903,8 +1911,8 @@ var e=e=>{switch(e){case`bescript_first_layer`:return`digraph {
 <g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(15.05 856.25)">
 <g id="clust1" class="cluster">
 <title>cluster_host</title>
-<polygon fill="#194b9e" stroke="#1b3d88" points="27,-568 27,-833.2 569,-833.2 569,-568 27,-568"/>
-<text xml:space="preserve" text-anchor="start" x="35" y="-820.3" font-family="Arial" font-weight="bold" font-size="11.00" fill="#bfdbfe" fill-opacity="0.701961">工作区 HOST</text>
+<polygon fill="#194b9e" stroke="#1b3d88" points="12,-568 12,-833.2 584,-833.2 584,-568 12,-568"/>
+<text xml:space="preserve" text-anchor="start" x="20" y="-820.3" font-family="Arial" font-weight="bold" font-size="11.00" fill="#bfdbfe" fill-opacity="0.701961">工作区 HOST</text>
 </g>
 <g id="clust2" class="cluster">
 <title>cluster_script</title>
@@ -1914,9 +1922,10 @@ var e=e=>{switch(e){case`bescript_first_layer`:return`digraph {
 <!-- logic -->
 <g id="node1" class="node">
 <title>logic</title>
-<polygon fill="#3b82f6" stroke="#2563eb" stroke-width="0" points="536.85,-780 59.15,-780 59.15,-600 536.85,-600 536.85,-780"/>
-<text xml:space="preserve" text-anchor="start" x="191.31" y="-693" font-family="Arial" font-size="20.00" fill="#eff6ff">Host 与实体层文件基础设施</text>
-<text xml:space="preserve" text-anchor="start" x="79.2" y="-670" font-family="Arial" font-size="15.00" fill="#bfdbfe">Effect 生命周期与实体层专用文件原语；原生 IO、按需缓存和单文件原子替换</text>
+<polygon fill="#3b82f6" stroke="#2563eb" stroke-width="0" points="552.28,-780 43.72,-780 43.72,-600 552.28,-600 552.28,-780"/>
+<text xml:space="preserve" text-anchor="start" x="191.31" y="-702" font-family="Arial" font-size="20.00" fill="#eff6ff">Host 与实体层文件基础设施</text>
+<text xml:space="preserve" text-anchor="start" x="113.79" y="-679" font-family="Arial" font-size="15.00" fill="#bfdbfe">Effect 生命周期与既有文件原语；MST 实体状态、Schematics</text>
+<text xml:space="preserve" text-anchor="start" x="63.78" y="-661" font-family="Arial" font-size="15.00" fill="#bfdbfe">候选文件变更与 Chokidar 源文件监听；第二层向后续视图层提供内部快照和变更流</text>
 </g>
 <!-- third -->
 <g id="node2" class="node">
@@ -2391,77 +2400,83 @@ var e=e=>{switch(e){case`bescript_first_layer`:return`digraph {
 <!-- Generated by graphviz version 15.0.0 (0)
  -->
 <!-- Pages: 1 -->
-<svg width="1136pt" height="1110pt"
- viewBox="0.00 0.00 1136.00 1110.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(15.05 1095.05)">
+<svg width="780pt" height="1410pt"
+ viewBox="0.00 0.00 780.00 1410.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(15.05 1395.05)">
 <!-- configuration -->
 <g id="node1" class="node">
 <title>configuration</title>
-<polygon fill="#3b82f6" stroke="#2563eb" stroke-width="0" points="320.04,-1080 0,-1080 0,-900 320.04,-900 320.04,-1080"/>
-<text xml:space="preserve" text-anchor="start" x="93.34" y="-982" font-family="Arial" font-size="20.00" fill="#eff6ff">产品类型检查配置</text>
+<polygon fill="#3b82f6" stroke="#2563eb" stroke-width="0" points="320.04,-1380 0,-1380 0,-1200 320.04,-1200 320.04,-1380"/>
+<text xml:space="preserve" text-anchor="start" x="93.34" y="-1282" font-family="Arial" font-size="20.00" fill="#eff6ff">产品类型检查配置</text>
 </g>
 <!-- config -->
 <g id="node2" class="node">
 <title>config</title>
-<polygon fill="#3b82f6" stroke="#2563eb" stroke-width="0" points="320.04,-780 0,-780 0,-600 320.04,-600 320.04,-780"/>
-<text xml:space="preserve" text-anchor="start" x="85.01" y="-682" font-family="Arial" font-size="20.00" fill="#eff6ff">配置来源抽象与实现</text>
+<polygon fill="#3b82f6" stroke="#2563eb" stroke-width="0" points="320.04,-1080 0,-1080 0,-900 320.04,-900 320.04,-1080"/>
+<text xml:space="preserve" text-anchor="start" x="85.01" y="-982" font-family="Arial" font-size="20.00" fill="#eff6ff">配置来源抽象与实现</text>
 </g>
 <!-- pi_plugin -->
 <g id="node3" class="node">
 <title>pi_plugin</title>
-<polygon fill="#3b82f6" stroke="#2563eb" stroke-width="0" points="750.04,-1080 430,-1080 430,-900 750.04,-900 750.04,-1080"/>
-<text xml:space="preserve" text-anchor="start" x="499.43" y="-982" font-family="Arial" font-size="20.00" fill="#eff6ff">Pi Agent 插件启动入口</text>
+<polygon fill="#3b82f6" stroke="#2563eb" stroke-width="0" points="750.04,-1380 430,-1380 430,-1200 750.04,-1200 750.04,-1380"/>
+<text xml:space="preserve" text-anchor="start" x="499.43" y="-1282" font-family="Arial" font-size="20.00" fill="#eff6ff">Pi Agent 插件启动入口</text>
 </g>
 <!-- mcp -->
 <g id="node4" class="node">
 <title>mcp</title>
-<polygon fill="#3b82f6" stroke="#2563eb" stroke-width="0" points="750.04,-780 430,-780 430,-600 750.04,-600 750.04,-780"/>
-<text xml:space="preserve" text-anchor="start" x="531.68" y="-682" font-family="Arial" font-size="20.00" fill="#eff6ff">MCP 协议接入</text>
+<polygon fill="#3b82f6" stroke="#2563eb" stroke-width="0" points="750.04,-1080 430,-1080 430,-900 750.04,-900 750.04,-1080"/>
+<text xml:space="preserve" text-anchor="start" x="531.68" y="-982" font-family="Arial" font-size="20.00" fill="#eff6ff">MCP 协议接入</text>
 </g>
 <!-- host -->
 <g id="node5" class="node">
 <title>host</title>
-<polygon fill="#3b82f6" stroke="#2563eb" stroke-width="0" points="750.04,-480 430,-480 430,-300 750.04,-300 750.04,-480"/>
-<text xml:space="preserve" text-anchor="start" x="541.68" y="-382" font-family="Arial" font-size="20.00" fill="#eff6ff">工作区 Host</text>
-</g>
-<!-- project_model -->
-<g id="node6" class="node">
-<title>project_model</title>
-<polygon fill="#3b82f6" stroke="#2563eb" stroke-width="0" points="488.04,-180 168,-180 168,0 488.04,0 488.04,-180"/>
-<text xml:space="preserve" text-anchor="start" x="261.34" y="-82" font-family="Arial" font-size="20.00" fill="#eff6ff">工程格式纯计算包</text>
+<polygon fill="#3b82f6" stroke="#2563eb" stroke-width="0" points="750.04,-780 430,-780 430,-600 750.04,-600 750.04,-780"/>
+<text xml:space="preserve" text-anchor="start" x="541.68" y="-682" font-family="Arial" font-size="20.00" fill="#eff6ff">工作区 Host</text>
 </g>
 <!-- script -->
-<g id="node7" class="node">
+<g id="node6" class="node">
 <title>script</title>
-<polygon fill="#3b82f6" stroke="#2563eb" stroke-width="0" points="1106.29,-180 597.75,-180 597.75,0 1106.29,0 1106.29,-180"/>
-<text xml:space="preserve" text-anchor="start" x="777" y="-102" font-family="Arial" font-size="20.00" fill="#eff6ff">BEScript 纯计算包</text>
-<text xml:space="preserve" text-anchor="start" x="617.81" y="-79" font-family="Arial" font-size="15.00" fill="#bfdbfe">数据合同与三层纯转换设计分开登记；转换函数不读取工程或拥有跨请求缓存，Host</text>
-<text xml:space="preserve" text-anchor="start" x="758.25" y="-61" font-family="Arial" font-size="15.00" fill="#bfdbfe">持有缓存状态并传入完整语义依据</text>
+<polygon fill="#3b82f6" stroke="#2563eb" stroke-width="0" points="634.29,-480 125.75,-480 125.75,-300 634.29,-300 634.29,-480"/>
+<text xml:space="preserve" text-anchor="start" x="305" y="-402" font-family="Arial" font-size="20.00" fill="#eff6ff">BEScript 纯计算包</text>
+<text xml:space="preserve" text-anchor="start" x="145.81" y="-379" font-family="Arial" font-size="15.00" fill="#bfdbfe">数据合同与三层纯转换设计分开登记；转换函数不读取工程或拥有跨请求缓存，Host</text>
+<text xml:space="preserve" text-anchor="start" x="286.25" y="-361" font-family="Arial" font-size="15.00" fill="#bfdbfe">持有缓存状态并传入完整语义依据</text>
+</g>
+<!-- project_model -->
+<g id="node7" class="node">
+<title>project_model</title>
+<polygon fill="#3b82f6" stroke="#2563eb" stroke-width="0" points="750.04,-180 430,-180 430,0 750.04,0 750.04,-180"/>
+<text xml:space="preserve" text-anchor="start" x="523.34" y="-82" font-family="Arial" font-size="20.00" fill="#eff6ff">工程格式纯计算包</text>
 </g>
 <!-- configuration&#45;&gt;config -->
 <!-- pi_plugin&#45;&gt;mcp -->
 <g id="edge2" class="edge">
 <title>pi_plugin&#45;&gt;mcp</title>
-<path fill="none" stroke="#8d8d8d" stroke-width="2" stroke-dasharray="5,2" d="M590.02,-900.4C590.02,-865.73 590.02,-825.81 590.02,-790.19"/>
-<polygon fill="#8d8d8d" stroke="#8d8d8d" stroke-width="2" points="592.65,-790.3 590.02,-782.8 587.4,-790.3 592.65,-790.3"/>
+<path fill="none" stroke="#8d8d8d" stroke-width="2" stroke-dasharray="5,2" d="M590.02,-1200.4C590.02,-1165.73 590.02,-1125.81 590.02,-1090.19"/>
+<polygon fill="#8d8d8d" stroke="#8d8d8d" stroke-width="2" points="592.65,-1090.3 590.02,-1082.8 587.4,-1090.3 592.65,-1090.3"/>
 </g>
 <!-- mcp&#45;&gt;host -->
 <g id="edge3" class="edge">
 <title>mcp&#45;&gt;host</title>
-<path fill="none" stroke="#8d8d8d" stroke-width="2" stroke-dasharray="5,2" d="M590.02,-600.4C590.02,-565.73 590.02,-525.81 590.02,-490.19"/>
-<polygon fill="#8d8d8d" stroke="#8d8d8d" stroke-width="2" points="592.65,-490.3 590.02,-482.8 587.4,-490.3 592.65,-490.3"/>
-</g>
-<!-- host&#45;&gt;project_model -->
-<g id="edge4" class="edge">
-<title>host&#45;&gt;project_model</title>
-<path fill="none" stroke="#8d8d8d" stroke-width="2" stroke-dasharray="5,2" d="M512.12,-300.4C480.86,-264.84 444.74,-223.76 412.82,-187.45"/>
-<polygon fill="#8d8d8d" stroke="#8d8d8d" stroke-width="2" points="414.99,-185.95 408.07,-182.05 411.05,-189.42 414.99,-185.95"/>
+<path fill="none" stroke="#8d8d8d" stroke-width="2" stroke-dasharray="5,2" d="M590.02,-900.4C590.02,-865.73 590.02,-825.81 590.02,-790.19"/>
+<polygon fill="#8d8d8d" stroke="#8d8d8d" stroke-width="2" points="592.65,-790.3 590.02,-782.8 587.4,-790.3 592.65,-790.3"/>
 </g>
 <!-- host&#45;&gt;script -->
-<g id="edge5" class="edge">
+<g id="edge4" class="edge">
 <title>host&#45;&gt;script</title>
-<path fill="none" stroke="#8d8d8d" stroke-width="2" stroke-dasharray="5,2" d="M667.92,-300.4C699.18,-264.84 735.3,-223.76 767.22,-187.45"/>
-<polygon fill="#8d8d8d" stroke="#8d8d8d" stroke-width="2" points="768.99,-189.42 771.97,-182.05 765.05,-185.95 768.99,-189.42"/>
+<path fill="none" stroke="#8d8d8d" stroke-width="2" stroke-dasharray="5,2" d="M527.58,-600.4C502.73,-565.14 474.06,-524.44 448.63,-488.36"/>
+<polygon fill="#8d8d8d" stroke="#8d8d8d" stroke-width="2" points="450.79,-486.87 444.32,-482.25 446.5,-489.89 450.79,-486.87"/>
+</g>
+<!-- host&#45;&gt;project_model -->
+<g id="edge5" class="edge">
+<title>host&#45;&gt;project_model</title>
+<path fill="none" stroke="#8d8d8d" stroke-width="2" stroke-dasharray="5,2" d="M642.8,-600.08C661.28,-564.09 679.73,-521.33 689.02,-480 706.57,-401.95 706.57,-378.05 689.02,-300 680.49,-262.06 664.24,-222.92 647.34,-188.91"/>
+<polygon fill="#8d8d8d" stroke="#8d8d8d" stroke-width="2" points="649.89,-188.13 644.17,-182.62 645.21,-190.5 649.89,-188.13"/>
+</g>
+<!-- script&#45;&gt;project_model -->
+<g id="edge6" class="edge">
+<title>script&#45;&gt;project_model</title>
+<path fill="none" stroke="#8d8d8d" stroke-width="2" stroke-dasharray="5,2" d="M442.46,-300.4C467.31,-265.14 495.98,-224.44 521.41,-188.36"/>
+<polygon fill="#8d8d8d" stroke="#8d8d8d" stroke-width="2" points="523.54,-189.89 525.72,-182.25 519.25,-186.87 523.54,-189.89"/>
 </g>
 </g>
 </svg>
@@ -3169,48 +3184,55 @@ var e=e=>{switch(e){case`bescript_first_layer`:return`digraph {
 <polygon fill="#3b82f6" stroke="#2563eb" stroke-width="0" points="750.04,-1080 430,-1080 430,-900 750.04,-900 750.04,-1080"/>
 <text xml:space="preserve" text-anchor="start" x="540.01" y="-982" font-family="Arial" font-size="20.00" fill="#eff6ff">工程文件合同</text>
 </g>
-<!-- host_configuration -->
+<!-- entities -->
 <g id="node6" class="node">
-<title>host_configuration</title>
+<title>entities</title>
 <polygon fill="#3b82f6" stroke="#2563eb" stroke-width="0" points="750.04,-780 430,-780 430,-600 750.04,-600 750.04,-780"/>
-<text xml:space="preserve" text-anchor="start" x="513.89" y="-682" font-family="Arial" font-size="20.00" fill="#eff6ff">保留 Host 配置合同</text>
+<text xml:space="preserve" text-anchor="start" x="498.34" y="-682" font-family="Arial" font-size="20.00" fill="#eff6ff">第二层实体基础设施合同</text>
+</g>
+<!-- host_configuration -->
+<g id="node7" class="node">
+<title>host_configuration</title>
+<polygon fill="#3b82f6" stroke="#2563eb" stroke-width="0" points="750.04,-480 430,-480 430,-300 750.04,-300 750.04,-480"/>
+<text xml:space="preserve" text-anchor="start" x="513.89" y="-382" font-family="Arial" font-size="20.00" fill="#eff6ff">保留 Host 配置合同</text>
 </g>
 <!-- bescript -->
-<g id="node7" class="node">
+<g id="node8" class="node">
 <title>bescript</title>
-<polygon fill="#3b82f6" stroke="#2563eb" stroke-width="0" points="750.04,-480 430,-480 430,-300 750.04,-300 750.04,-480"/>
-<text xml:space="preserve" text-anchor="start" x="515" y="-382" font-family="Arial" font-size="20.00" fill="#eff6ff">BEScript 内部格式</text>
+<polygon fill="#3b82f6" stroke="#2563eb" stroke-width="0" points="750.04,-180 430,-180 430,0 750.04,0 750.04,-180"/>
+<text xml:space="preserve" text-anchor="start" x="515" y="-82" font-family="Arial" font-size="20.00" fill="#eff6ff">BEScript 内部格式</text>
 </g>
 <!-- canvas_render -->
-<g id="node8" class="node">
+<g id="node9" class="node">
 <title>canvas_render</title>
-<polygon fill="#3b82f6" stroke="#2563eb" stroke-width="0" points="750.04,-180 430,-180 430,0 750.04,0 750.04,-180"/>
-<text xml:space="preserve" text-anchor="start" x="520" y="-82" font-family="Arial" font-size="20.00" fill="#eff6ff">Canvas 渲染规范</text>
+<polygon fill="#3b82f6" stroke="#2563eb" stroke-width="0" points="1180.04,-1080 860,-1080 860,-900 1180.04,-900 1180.04,-1080"/>
+<text xml:space="preserve" text-anchor="start" x="950" y="-982" font-family="Arial" font-size="20.00" fill="#eff6ff">Canvas 渲染规范</text>
 </g>
 <!-- vscode_frontend -->
-<g id="node9" class="node">
+<g id="node10" class="node">
 <title>vscode_frontend</title>
-<polygon fill="#3b82f6" stroke="#2563eb" stroke-width="0" points="1180.04,-1080 860,-1080 860,-900 1180.04,-900 1180.04,-1080"/>
-<text xml:space="preserve" text-anchor="start" x="943.88" y="-982" font-family="Arial" font-size="20.00" fill="#eff6ff">VS Code 前端职责</text>
+<polygon fill="#3b82f6" stroke="#2563eb" stroke-width="0" points="1180.04,-780 860,-780 860,-600 1180.04,-600 1180.04,-780"/>
+<text xml:space="preserve" text-anchor="start" x="943.88" y="-682" font-family="Arial" font-size="20.00" fill="#eff6ff">VS Code 前端职责</text>
 </g>
 <!-- canvas -->
-<g id="node10" class="node">
+<g id="node11" class="node">
 <title>canvas</title>
-<polygon fill="#3b82f6" stroke="#2563eb" stroke-width="0" points="1180.04,-780 860,-780 860,-600 1180.04,-600 1180.04,-780"/>
-<text xml:space="preserve" text-anchor="start" x="933.33" y="-682" font-family="Arial" font-size="20.00" fill="#eff6ff">Canvas 四向转换合同</text>
+<polygon fill="#3b82f6" stroke="#2563eb" stroke-width="0" points="1180.04,-480 860,-480 860,-300 1180.04,-300 1180.04,-480"/>
+<text xml:space="preserve" text-anchor="start" x="933.33" y="-382" font-family="Arial" font-size="20.00" fill="#eff6ff">Canvas 四向转换合同</text>
 </g>
 <!-- preview -->
-<g id="node11" class="node">
+<g id="node12" class="node">
 <title>preview</title>
-<polygon fill="#3b82f6" stroke="#2563eb" stroke-width="0" points="1180.04,-480 860,-480 860,-300 1180.04,-300 1180.04,-480"/>
-<text xml:space="preserve" text-anchor="start" x="945.01" y="-382" font-family="Arial" font-size="20.00" fill="#eff6ff">静态预览与发布合同</text>
+<polygon fill="#3b82f6" stroke="#2563eb" stroke-width="0" points="1180.04,-180 860,-180 860,0 1180.04,0 1180.04,-180"/>
+<text xml:space="preserve" text-anchor="start" x="945.01" y="-82" font-family="Arial" font-size="20.00" fill="#eff6ff">静态预览与发布合同</text>
 </g>
 <!-- tooling&#45;&gt;layout -->
 <!-- layout&#45;&gt;development -->
 <!-- development&#45;&gt;runtime -->
-<!-- workspace_files&#45;&gt;host_configuration -->
+<!-- workspace_files&#45;&gt;entities -->
+<!-- entities&#45;&gt;host_configuration -->
 <!-- host_configuration&#45;&gt;bescript -->
-<!-- bescript&#45;&gt;canvas_render -->
+<!-- canvas_render&#45;&gt;vscode_frontend -->
 <!-- vscode_frontend&#45;&gt;canvas -->
 <!-- canvas&#45;&gt;preview -->
 </g>

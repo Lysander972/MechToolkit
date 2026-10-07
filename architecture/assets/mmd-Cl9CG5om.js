@@ -31,7 +31,7 @@ graph TB
     ToolkitScriptConversion.Second@{ shape: rectangle, label: "Context 与官方 TS AST 业务转换" }
   end
   ToolkitProject_modelTests@{ shape: rectangle, label: "工程格式测试" }
-  ToolkitProject_modelLogic@{ shape: rectangle, label: "工程设置解析" }
+  ToolkitProject_modelLogic@{ shape: rectangle, label: "工程设置、GUID 与文件实体合同" }
   subgraph ToolkitScriptContext["\`零件上下文层\`"]
     ToolkitScriptContext.Device_context@{ shape: rectangle, label: "全局变量、零件元数据与零件上下文" }
   end
@@ -81,8 +81,9 @@ graph TB
   ToolkitPi_plugin@{ shape: rectangle, label: "Pi Agent 插件启动入口" }
   ToolkitMcp@{ shape: rectangle, label: "MCP 协议接入" }
   ToolkitHost@{ shape: rectangle, label: "工作区 Host" }
-  ToolkitProject_model@{ shape: rectangle, label: "工程格式纯计算包" }
   ToolkitScript@{ shape: rectangle, label: "BEScript 纯计算包" }
+  ToolkitProject_model@{ shape: rectangle, label: "工程格式纯计算包" }
+  ToolkitScript -.-> ToolkitProject_model
   ToolkitHost -.-> ToolkitProject_model
   ToolkitHost -.-> ToolkitScript
   ToolkitMcp -.-> ToolkitHost
@@ -149,6 +150,7 @@ graph TB
   SpecificationsDevelopment@{ shape: rectangle, label: "开发与协作契约" }
   SpecificationsRuntime@{ shape: rectangle, label: "Toolkit 运行时合同" }
   SpecificationsWorkspace_files@{ shape: rectangle, label: "工程文件合同" }
+  SpecificationsEntities@{ shape: rectangle, label: "第二层实体基础设施合同" }
   SpecificationsHost_configuration@{ shape: rectangle, label: "保留 Host 配置合同" }
   SpecificationsBescript@{ shape: rectangle, label: "BEScript 内部格式" }
   SpecificationsCanvas_render@{ shape: rectangle, label: "Canvas 渲染规范" }

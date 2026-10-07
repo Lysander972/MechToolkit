@@ -51,7 +51,7 @@ ToolkitProject_modelTests: {
   label: "工程格式测试"
 }
 ToolkitProject_modelLogic: {
-  label: "工程设置解析"
+  label: "工程设置、GUID 与文件实体合同"
 }
 ToolkitScriptContext: {
   label: "零件上下文层"
@@ -211,13 +211,14 @@ ToolkitMcp: {
 ToolkitHost: {
   label: "工作区 Host"
 }
-ToolkitProject_model: {
-  label: "工程格式纯计算包"
-}
 ToolkitScript: {
   label: "BEScript 纯计算包"
 }
+ToolkitProject_model: {
+  label: "工程格式纯计算包"
+}
 
+ToolkitScript -> ToolkitProject_model
 ToolkitHost -> ToolkitProject_model
 ToolkitHost -> ToolkitScript
 ToolkitMcp -> ToolkitHost
@@ -396,6 +397,9 @@ SpecificationsRuntime: {
 }
 SpecificationsWorkspace_files: {
   label: "工程文件合同"
+}
+SpecificationsEntities: {
+  label: "第二层实体基础设施合同"
 }
 SpecificationsHost_configuration: {
   label: "保留 Host 配置合同"

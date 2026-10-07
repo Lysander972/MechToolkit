@@ -131,7 +131,7 @@ rectangle "三层纯转换设计" <<ToolkitScriptConversion>> as ToolkitScriptCo
   rectangle "==Context 与官方 TS AST 业务转换\\n\\nIssue 46 的实现归属：引用身份、变量语义、平台方法和 Canvas 业务映射；仅消费 Context 与显式语义输入，不读取工程或缓存" <<ToolkitScriptConversionSecond>> as ToolkitScriptConversionSecond
 }
 rectangle "==工程格式测试" <<ToolkitProject_modelTests>> as ToolkitProject_modelTests
-rectangle "==工程设置解析" <<ToolkitProject_modelLogic>> as ToolkitProject_modelLogic
+rectangle "==工程设置、GUID 与文件实体合同" <<ToolkitProject_modelLogic>> as ToolkitProject_modelLogic
 rectangle "零件上下文层" <<ToolkitScriptContext>> as ToolkitScriptContext {
   skinparam RectangleBorderColor<<ToolkitScriptContext>> #3b82f6
   skinparam RectangleFontColor<<ToolkitScriptContext>> #3b82f6
@@ -193,7 +193,7 @@ rectangle "工作区 Host" <<ToolkitHost>> as ToolkitHost {
   skinparam RectangleFontColor<<ToolkitHost>> #3b82f6
   skinparam RectangleBorderStyle<<ToolkitHost>> dashed
 
-  rectangle "==Host 与实体层文件基础设施\\n\\nEffect 生命周期与实体层专用文件原语；原生 IO、按需缓存和单文件原子替换" <<ToolkitHostLogic>> as ToolkitHostLogic
+  rectangle "==Host 与实体层文件基础设施\\n\\nEffect 生命周期与既有文件原语；MST 实体状态、Schematics 候选文件变更与 Chokidar 源文件监听；第二层向后续视图层提供内部快照和变更流" <<ToolkitHostLogic>> as ToolkitHostLogic
 }
 rectangle "BEScript 纯计算包" <<ToolkitScript>> as ToolkitScript {
   skinparam RectangleBorderColor<<ToolkitScript>> #3b82f6
@@ -413,12 +413,12 @@ skinparam rectangle<<ToolkitHost>>{
   FontColor #eff6ff
   BorderColor #2563eb
 }
-skinparam rectangle<<ToolkitProject_model>>{
+skinparam rectangle<<ToolkitScript>>{
   BackgroundColor #3b82f6
   FontColor #eff6ff
   BorderColor #2563eb
 }
-skinparam rectangle<<ToolkitScript>>{
+skinparam rectangle<<ToolkitProject_model>>{
   BackgroundColor #3b82f6
   FontColor #eff6ff
   BorderColor #2563eb
@@ -428,9 +428,10 @@ rectangle "==配置来源抽象与实现" <<ToolkitConfig>> as ToolkitConfig
 rectangle "==Pi Agent 插件启动入口" <<ToolkitPi_plugin>> as ToolkitPi_plugin
 rectangle "==MCP 协议接入" <<ToolkitMcp>> as ToolkitMcp
 rectangle "==工作区 Host" <<ToolkitHost>> as ToolkitHost
-rectangle "==工程格式纯计算包" <<ToolkitProject_model>> as ToolkitProject_model
 rectangle "==BEScript 纯计算包\\n\\n数据合同与三层纯转换设计分开登记；转换函数不读取工程或拥有跨请求缓存，Host 持有缓存状态并传入完整语义依据" <<ToolkitScript>> as ToolkitScript
+rectangle "==工程格式纯计算包" <<ToolkitProject_model>> as ToolkitProject_model
 
+ToolkitScript .[#8D8D8D,thickness=2].> ToolkitProject_model
 ToolkitHost .[#8D8D8D,thickness=2].> ToolkitProject_model
 ToolkitHost .[#8D8D8D,thickness=2].> ToolkitScript
 ToolkitMcp .[#8D8D8D,thickness=2].> ToolkitHost
@@ -797,6 +798,11 @@ skinparam rectangle<<SpecificationsWorkspace_files>>{
   FontColor #eff6ff
   BorderColor #2563eb
 }
+skinparam rectangle<<SpecificationsEntities>>{
+  BackgroundColor #3b82f6
+  FontColor #eff6ff
+  BorderColor #2563eb
+}
 skinparam rectangle<<SpecificationsHost_configuration>>{
   BackgroundColor #3b82f6
   FontColor #eff6ff
@@ -832,6 +838,7 @@ rectangle "==文件布局契约" <<SpecificationsLayout>> as SpecificationsLayou
 rectangle "==开发与协作契约" <<SpecificationsDevelopment>> as SpecificationsDevelopment
 rectangle "==Toolkit 运行时合同" <<SpecificationsRuntime>> as SpecificationsRuntime
 rectangle "==工程文件合同" <<SpecificationsWorkspace_files>> as SpecificationsWorkspace_files
+rectangle "==第二层实体基础设施合同" <<SpecificationsEntities>> as SpecificationsEntities
 rectangle "==保留 Host 配置合同" <<SpecificationsHost_configuration>> as SpecificationsHost_configuration
 rectangle "==BEScript 内部格式" <<SpecificationsBescript>> as SpecificationsBescript
 rectangle "==Canvas 渲染规范" <<SpecificationsCanvas_render>> as SpecificationsCanvas_render
