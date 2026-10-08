@@ -31,7 +31,6 @@ graph TB
     ToolkitScriptConversion.Second@{ shape: rectangle, label: "Context 与官方 TS AST 业务转换" }
   end
   ToolkitProject_modelTests@{ shape: rectangle, label: "工程格式测试" }
-  ToolkitProject_modelLogic@{ shape: rectangle, label: "工程设置、路径、GUID 与权威逻辑实体" }
   subgraph ToolkitScriptContext["\`零件上下文层\`"]
     ToolkitScriptContext.Device_context@{ shape: rectangle, label: "全局变量、零件元数据与零件上下文" }
   end
@@ -39,11 +38,15 @@ graph TB
   subgraph ToolkitScriptAst["\`局部 AST 层\`"]
     ToolkitScriptAst.Local_ast@{ shape: rectangle, label: "局部 AST" }
   end
+  ToolkitProject_modelLogic@{ shape: rectangle, label: "工程设置、路径、GUID 与权威逻辑实体" }
   SpecificationsBescript@{ shape: rectangle, label: "BEScript 内部格式" }
   ToolkitScriptConversion.Second -.-> ToolkitScriptAst.Local_ast
   ToolkitScriptConversion.Second -.-> ToolkitScriptContext.Device_context
   ToolkitScriptContext.Device_context -.-> ToolkitScriptAst.Local_ast
   ToolkitScriptConversion.Second -.-> PureCanvasLogic
+  ToolkitScriptConversion.Second -.-> ToolkitProject_modelLogic
+  ToolkitScriptAst.Local_ast -.-> ToolkitProject_modelLogic
+  ToolkitScriptContext.Device_context -.-> ToolkitProject_modelLogic
   ToolkitProject_modelTests -.-> ToolkitProject_modelLogic
   ToolkitScriptConversion.Second -.-> SpecificationsBescript
   ToolkitScriptAst.Local_ast -.-> SpecificationsBescript

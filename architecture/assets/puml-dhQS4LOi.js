@@ -98,11 +98,6 @@ skinparam rectangle<<ToolkitScriptConversionSecond>>{
   FontColor #eff6ff
   BorderColor #2563eb
 }
-skinparam rectangle<<ToolkitProject_modelLogic>>{
-  BackgroundColor #3b82f6
-  FontColor #eff6ff
-  BorderColor #2563eb
-}
 skinparam rectangle<<PureCanvasLogic>>{
   BackgroundColor #3b82f6
   FontColor #eff6ff
@@ -114,6 +109,11 @@ skinparam rectangle<<ToolkitScriptContextDevice_context>>{
   BorderColor #2563eb
 }
 skinparam rectangle<<ToolkitScriptAstLocal_ast>>{
+  BackgroundColor #3b82f6
+  FontColor #eff6ff
+  BorderColor #2563eb
+}
+skinparam rectangle<<ToolkitProject_modelLogic>>{
   BackgroundColor #3b82f6
   FontColor #eff6ff
   BorderColor #2563eb
@@ -131,7 +131,6 @@ rectangle "三层纯转换设计" <<ToolkitScriptConversion>> as ToolkitScriptCo
   rectangle "==Context 与官方 TS AST 业务转换\\n\\nIssue 46 的实现归属：引用身份、变量语义、平台方法和 Canvas 业务映射；仅消费 Context 与显式语义输入，不读取工程或缓存" <<ToolkitScriptConversionSecond>> as ToolkitScriptConversionSecond
 }
 rectangle "==工程格式测试" <<ToolkitProject_modelTests>> as ToolkitProject_modelTests
-rectangle "==工程设置、路径、GUID 与权威逻辑实体" <<ToolkitProject_modelLogic>> as ToolkitProject_modelLogic
 rectangle "零件上下文层" <<ToolkitScriptContext>> as ToolkitScriptContext {
   skinparam RectangleBorderColor<<ToolkitScriptContext>> #3b82f6
   skinparam RectangleFontColor<<ToolkitScriptContext>> #3b82f6
@@ -147,12 +146,16 @@ rectangle "局部 AST 层" <<ToolkitScriptAst>> as ToolkitScriptAst {
 
   rectangle "==局部 AST" <<ToolkitScriptAstLocal_ast>> as ToolkitScriptAstLocal_ast
 }
+rectangle "==工程设置、路径、GUID 与权威逻辑实体" <<ToolkitProject_modelLogic>> as ToolkitProject_modelLogic
 rectangle "==BEScript 内部格式" <<SpecificationsBescript>> as SpecificationsBescript
 
 ToolkitScriptConversionSecond .[#8D8D8D,thickness=2].> ToolkitScriptAstLocal_ast
 ToolkitScriptConversionSecond .[#8D8D8D,thickness=2].> ToolkitScriptContextDevice_context
 ToolkitScriptContextDevice_context .[#8D8D8D,thickness=2].> ToolkitScriptAstLocal_ast
 ToolkitScriptConversionSecond .[#8D8D8D,thickness=2].> PureCanvasLogic
+ToolkitScriptConversionSecond .[#8D8D8D,thickness=2].> ToolkitProject_modelLogic
+ToolkitScriptAstLocal_ast .[#8D8D8D,thickness=2].> ToolkitProject_modelLogic
+ToolkitScriptContextDevice_context .[#8D8D8D,thickness=2].> ToolkitProject_modelLogic
 ToolkitProject_modelTests .[#8D8D8D,thickness=2].> ToolkitProject_modelLogic
 ToolkitScriptConversionSecond .[#8D8D8D,thickness=2].> SpecificationsBescript
 ToolkitScriptAstLocal_ast .[#8D8D8D,thickness=2].> SpecificationsBescript

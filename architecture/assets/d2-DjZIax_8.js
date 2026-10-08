@@ -50,9 +50,6 @@ ToolkitScriptConversion: {
 ToolkitProject_modelTests: {
   label: "工程格式测试"
 }
-ToolkitProject_modelLogic: {
-  label: "工程设置、路径、GUID 与权威逻辑实体"
-}
 ToolkitScriptContext: {
   label: "零件上下文层"
 
@@ -70,6 +67,9 @@ ToolkitScriptAst: {
     label: "局部 AST"
   }
 }
+ToolkitProject_modelLogic: {
+  label: "工程设置、路径、GUID 与权威逻辑实体"
+}
 SpecificationsBescript: {
   label: "BEScript 内部格式"
 }
@@ -78,6 +78,9 @@ ToolkitScriptConversion.Second -> ToolkitScriptAst.Local_ast
 ToolkitScriptConversion.Second -> ToolkitScriptContext.Device_context
 ToolkitScriptContext.Device_context -> ToolkitScriptAst.Local_ast
 ToolkitScriptConversion.Second -> PureCanvasLogic
+ToolkitScriptConversion.Second -> ToolkitProject_modelLogic
+ToolkitScriptAst.Local_ast -> ToolkitProject_modelLogic
+ToolkitScriptContext.Device_context -> ToolkitProject_modelLogic
 ToolkitProject_modelTests -> ToolkitProject_modelLogic
 ToolkitScriptConversion.Second -> SpecificationsBescript
 ToolkitScriptAst.Local_ast -> SpecificationsBescript
