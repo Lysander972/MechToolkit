@@ -798,6 +798,11 @@ skinparam rectangle<<SpecificationsWorkspace_files>>{
   FontColor #eff6ff
   BorderColor #2563eb
 }
+skinparam rectangle<<SpecificationsHjson>>{
+  BackgroundColor #3b82f6
+  FontColor #eff6ff
+  BorderColor #2563eb
+}
 skinparam rectangle<<SpecificationsEntities>>{
   BackgroundColor #3b82f6
   FontColor #eff6ff
@@ -838,6 +843,7 @@ rectangle "==文件布局契约" <<SpecificationsLayout>> as SpecificationsLayou
 rectangle "==开发与协作契约" <<SpecificationsDevelopment>> as SpecificationsDevelopment
 rectangle "==Toolkit 运行时合同" <<SpecificationsRuntime>> as SpecificationsRuntime
 rectangle "==工程文件合同" <<SpecificationsWorkspace_files>> as SpecificationsWorkspace_files
+rectangle "==Hjson 统一格式合同" <<SpecificationsHjson>> as SpecificationsHjson
 rectangle "==第二层实体基础设施合同" <<SpecificationsEntities>> as SpecificationsEntities
 rectangle "==保留 Host 配置合同" <<SpecificationsHost_configuration>> as SpecificationsHost_configuration
 rectangle "==BEScript 内部格式" <<SpecificationsBescript>> as SpecificationsBescript

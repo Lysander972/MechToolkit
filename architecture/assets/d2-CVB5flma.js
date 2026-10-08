@@ -398,6 +398,9 @@ SpecificationsRuntime: {
 SpecificationsWorkspace_files: {
   label: "工程文件合同"
 }
+SpecificationsHjson: {
+  label: "Hjson 统一格式合同"
+}
 SpecificationsEntities: {
   label: "第二层实体基础设施合同"
 }

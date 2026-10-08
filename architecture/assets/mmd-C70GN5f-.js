@@ -150,6 +150,7 @@ graph TB
   SpecificationsDevelopment@{ shape: rectangle, label: "开发与协作契约" }
   SpecificationsRuntime@{ shape: rectangle, label: "Toolkit 运行时合同" }
   SpecificationsWorkspace_files@{ shape: rectangle, label: "工程文件合同" }
+  SpecificationsHjson@{ shape: rectangle, label: "Hjson 统一格式合同" }
   SpecificationsEntities@{ shape: rectangle, label: "第二层实体基础设施合同" }
   SpecificationsHost_configuration@{ shape: rectangle, label: "保留 Host 配置合同" }
   SpecificationsBescript@{ shape: rectangle, label: "BEScript 内部格式" }
