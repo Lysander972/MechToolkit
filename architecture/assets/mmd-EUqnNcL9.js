@@ -221,7 +221,7 @@ graph TB
   ToolkitPi_plugin.Logic.Registration -. "\`绑定官方上下文输入\`" .-> ToolkitPi_plugin.Logic.Context
   ToolkitPi_plugin.Logic.Lifecycle -. "\`绑定唯一 Host 生命周期合同\`" .-> ToolkitHost.Logic
   ToolkitMcp.Logic -.-> ToolkitHost.Logic
-  ToolkitHost.Logic -. "\`每个入口统一登记结果与取消\`" .-> ToolkitInvocations
+  ToolkitHost.Logic -. "\`外部请求登记结果与取消；状态刷新只读取\`" .-> ToolkitInvocations
   ToolkitPi_plugin.Logic -. "\`启动回环 HTTP，交由 Pi 官方 MCP 客户端消费\`" .-> ToolkitMcp.Logic
 `;case`pi_components`:return`---
 title: "06b · Pi 扩展组件与代码端口"
@@ -407,7 +407,7 @@ graph TB
   ToolkitEntities.Transaction -. "\`提交收尾重读实际文件并更新快照或错误结果\`" .-> ToolkitEntities.State
   ToolkitHost.Logic.Refresh -. "\`刷新端口复用实际视图及预览影响结果，执行保持 TODO\`" .-> ToolkitView_service.Refresh
   ToolkitHost.Logic -. "\`Host 装配并单一消费文件变化；工程业务 IO 归实体\`" .-> ToolkitFiles
-  ToolkitHost.Logic -. "\`每个入口统一登记结果与取消\`" .-> ToolkitInvocations
+  ToolkitHost.Logic -. "\`外部请求登记结果与取消；状态刷新只读取\`" .-> ToolkitInvocations
 `;case`read_flow`:return`---
 title: "02c · 读取、语义、转换与诊断"
 ---
@@ -657,7 +657,6 @@ graph TB
 title: "90 · 历史参考"
 ---
 graph TB
-  LegacyCanvas_render@{ shape: rectangle, label: "Canvas DOM 渲染参考" }
   LegacyMcp@{ shape: rectangle, label: "MCP 协议入口" }
   LegacyHost@{ shape: rectangle, label: "VSCode Host 入口" }
   LegacyCore@{ shape: rectangle, label: "核心逻辑" }

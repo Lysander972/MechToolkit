@@ -956,7 +956,7 @@ ToolkitPi_pluginLogicRegistration .[#8D8D8D,thickness=2].> ToolkitPi_pluginLogic
 ToolkitPi_pluginLogicRegistration .[#8D8D8D,thickness=2].> ToolkitPi_pluginLogicContext : <color:#8D8D8D>绑定官方上下文输入
 ToolkitPi_pluginLogicLifecycle .[#8D8D8D,thickness=2].> ToolkitHostLogic : <color:#8D8D8D>绑定唯一 Host 生命周期合同
 ToolkitMcpLogic .[#8D8D8D,thickness=2].> ToolkitHostLogic
-ToolkitHostLogic .[#8D8D8D,thickness=2].> ToolkitInvocations : <color:#8D8D8D>每个入口统一登记结果与取消
+ToolkitHostLogic .[#8D8D8D,thickness=2].> ToolkitInvocations : <color:#8D8D8D>外部请求登记结果与取消；状态刷新只读取
 ToolkitPi_pluginLogic .[#8D8D8D,thickness=2].> ToolkitMcpLogic : <color:#8D8D8D>启动回环 HTTP，交由 Pi 官方 MCP 客户端消费
 @enduml
 `;case`pi_components`:return`@startuml
@@ -1626,7 +1626,7 @@ ToolkitEntitiesRefresh .[#8D8D8D,thickness=2].> ToolkitEntitiesState : <color:#8
 ToolkitEntitiesTransaction .[#8D8D8D,thickness=2].> ToolkitEntitiesState : <color:#8D8D8D>提交收尾重读实际文件并更新快照或错误结果
 ToolkitHostLogicRefresh .[#8D8D8D,thickness=2].> ToolkitView_serviceRefresh : <color:#8D8D8D>刷新端口复用实际视图及预览影响结果，执行保持 TODO
 ToolkitHostLogic .[#8D8D8D,thickness=2].> ToolkitFiles : <color:#8D8D8D>Host 装配并单一消费文件变化；工程业务 IO 归实体
-ToolkitHostLogic .[#8D8D8D,thickness=2].> ToolkitInvocations : <color:#8D8D8D>每个入口统一登记结果与取消
+ToolkitHostLogic .[#8D8D8D,thickness=2].> ToolkitInvocations : <color:#8D8D8D>外部请求登记结果与取消；状态刷新只读取
 @enduml
 `;case`read_flow`:return`@startuml
 title "02c · 读取、语义、转换与诊断"
@@ -3037,11 +3037,6 @@ skinparam {
   shadowing false
 }
 
-skinparam rectangle<<LegacyCanvas_render>>{
-  BackgroundColor #3b82f6
-  FontColor #eff6ff
-  BorderColor #2563eb
-}
 skinparam rectangle<<LegacyMcp>>{
   BackgroundColor #3b82f6
   FontColor #eff6ff
@@ -3057,7 +3052,6 @@ skinparam rectangle<<LegacyCore>>{
   FontColor #eff6ff
   BorderColor #2563eb
 }
-rectangle "==Canvas DOM 渲染参考\\n\\n旧 DOM 渲染器正式代码的只读参考；旧版本身没有测试；永久冻结，禁止篡改；现役 CPU 管线不执行这些文件。" <<LegacyCanvas_render>> as LegacyCanvas_render
 rectangle "==MCP 协议入口\\n\\n冻结的 C# MCP 宿主入口参考；保留旧协议宿主的启动和调用边界。" <<LegacyMcp>> as LegacyMcp
 rectangle "==VSCode Host 入口\\n\\n冻结的 C# VS Code Host 入口参考；保留旧 stdin/stdout 命令及诊断推送协议的行为证据。" <<LegacyHost>> as LegacyHost
 rectangle "==核心逻辑\\n\\n组织旧核心参考文件的职责边界；旧文件只作格式与行为证据。" <<LegacyCore>> as LegacyCore

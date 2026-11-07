@@ -479,7 +479,7 @@ ToolkitPi_plugin.Logic.Registration -> ToolkitPi_plugin.Logic.Lifecycle: "声明
 ToolkitPi_plugin.Logic.Registration -> ToolkitPi_plugin.Logic.Context: "绑定官方上下文输入"
 ToolkitPi_plugin.Logic.Lifecycle -> ToolkitHost.Logic: "绑定唯一 Host 生命周期合同"
 ToolkitMcp.Logic -> ToolkitHost.Logic
-ToolkitHost.Logic -> ToolkitInvocations: "每个入口统一登记结果与取消"
+ToolkitHost.Logic -> ToolkitInvocations: "外部请求登记结果与取消；状态刷新只读取"
 ToolkitPi_plugin.Logic -> ToolkitMcp.Logic: "启动回环 HTTP，交由 Pi 官方 MCP 客户端消费"
 `;case`pi_components`:return`direction: down
 
@@ -792,7 +792,7 @@ ToolkitEntities.Refresh -> ToolkitEntities.State: "比较实际重读前后的�
 ToolkitEntities.Transaction -> ToolkitEntities.State: "提交收尾重读实际文件并更新快照或错误结果"
 ToolkitHost.Logic.Refresh -> ToolkitView_service.Refresh: "刷新端口复用实际视图及预览影响结果，执行保持 TODO"
 ToolkitHost.Logic -> ToolkitFiles: "Host 装配并单一消费文件变化；工程业务 IO 归实体"
-ToolkitHost.Logic -> ToolkitInvocations: "每个入口统一登记结果与取消"
+ToolkitHost.Logic -> ToolkitInvocations: "外部请求登记结果与取消；状态刷新只读取"
 `;case`read_flow`:return`direction: down
 
 ToolkitView_service: {
@@ -1522,9 +1522,6 @@ DocumentationManual: {
 }
 `;case`legacy`:return`direction: down
 
-LegacyCanvas_render: {
-  label: "Canvas DOM 渲染参考"
-}
 LegacyMcp: {
   label: "MCP 协议入口"
 }

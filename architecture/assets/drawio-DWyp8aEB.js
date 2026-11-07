@@ -1,1 +1,0 @@
-import{t as e}from"./main-C7mJBsNd.js";var t={toolkit:async()=>await e(()=>import(`./drawio-Ch6ulb3Q.js`),[])};async function n(e){let n=t[e];if(!n){let n=Object.keys(t);throw console.error(`Unknown projectId: `+e+` (available: `+n+`)`),Error(`Project does not enable drawio export: `+e)}return await n()}export{n as loadDrawioSources};
